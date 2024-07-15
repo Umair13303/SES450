@@ -1,0 +1,469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HMSModelStoreContainer" CdmEntityContainer="HMSEntities">
+    <EntitySetMapping Name="LK_Cities">
+      <EntityTypeMapping TypeName="HMSModel.LK_Cities">
+        <MappingFragment StoreEntitySet="LK_Cities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LK_Company">
+      <EntityTypeMapping TypeName="HMSModel.LK_Company">
+        <MappingFragment StoreEntitySet="LK_Company">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="IncomeTaxTypeId" ColumnName="IncomeTaxTypeId" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="WithHoldingAgent" ColumnName="WithHoldingAgent" />
+          <ScalarProperty Name="SalesTaxTypeId" ColumnName="SalesTaxTypeId" />
+          <ScalarProperty Name="STN" ColumnName="STN" />
+          <ScalarProperty Name="CompanyTypeId" ColumnName="CompanyTypeId" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+          <ScalarProperty Name="AccountingSystem" ColumnName="AccountingSystem" />
+          <ScalarProperty Name="PeriodStartDate" ColumnName="PeriodStartDate" />
+          <ScalarProperty Name="PeriodEndsAfter" ColumnName="PeriodEndsAfter" />
+          <ScalarProperty Name="LogoImageUrl" ColumnName="LogoImageUrl" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="ShortGUID" ColumnName="ShortGUID" />
+          <ScalarProperty Name="HashGUID" ColumnName="HashGUID" />
+          <ScalarProperty Name="EOBIDeductionRegistered" ColumnName="EOBIDeductionRegistered" />
+          <ScalarProperty Name="EOBIDeductionNo" ColumnName="EOBIDeductionNo" />
+          <ScalarProperty Name="SocialSecurityRegistered" ColumnName="SocialSecurityRegistered" />
+          <ScalarProperty Name="SocialSecurityNO" ColumnName="SocialSecurityNO" />
+          <ScalarProperty Name="IsProvidentFundAdopted" ColumnName="IsProvidentFundAdopted" />
+          <ScalarProperty Name="ProvidentFundRegistered" ColumnName="ProvidentFundRegistered" />
+          <ScalarProperty Name="EmployerContribution" ColumnName="EmployerContribution" />
+          <ScalarProperty Name="EmployeeContribution" ColumnName="EmployeeContribution" />
+          <ScalarProperty Name="ICTAccountId" ColumnName="ICTAccountId" />
+          <ScalarProperty Name="ProvidentDeduType" ColumnName="ProvidentDeduType" />
+          <ScalarProperty Name="IsHREnable" ColumnName="IsHREnable" />
+          <ScalarProperty Name="IsDonorApplicable" ColumnName="IsDonorApplicable" />
+          <ScalarProperty Name="RptSlogan" ColumnName="RptSlogan" />
+          <ScalarProperty Name="IsBranchMang" ColumnName="IsBranchMang" />
+          <ScalarProperty Name="IsFundMang" ColumnName="IsFundMang" />
+          <ScalarProperty Name="IsAutoAmortizationFunds" ColumnName="IsAutoAmortizationFunds" />
+          <ScalarProperty Name="IsProjectApplicable" ColumnName="IsProjectApplicable" />
+          <ScalarProperty Name="PeriodType" ColumnName="PeriodType" />
+          <ScalarProperty Name="LandingPolicyId" ColumnName="LandingPolicyId" />
+          <ScalarProperty Name="TaxMethodologyTypeId" ColumnName="TaxMethodologyTypeId" />
+          <ScalarProperty Name="EPProductTypeId" ColumnName="EPProductTypeId" />
+          <ScalarProperty Name="IsWHSalesTax" ColumnName="IsWHSalesTax" />
+          <ScalarProperty Name="IsVoucherCompanyWise" ColumnName="IsVoucherCompanyWise" />
+          <ScalarProperty Name="IsMedicalExemption" ColumnName="IsMedicalExemption" />
+          <ScalarProperty Name="ExcemptionPersentage" ColumnName="ExcemptionPersentage" />
+          <ScalarProperty Name="IsVenueInOfficalAssignment" ColumnName="IsVenueInOfficalAssignment" />
+          <ScalarProperty Name="IsFixedAssetsAllowed" ColumnName="IsFixedAssetsAllowed" />
+          <ScalarProperty Name="IsBudgetAllowed" ColumnName="IsBudgetAllowed" />
+          <ScalarProperty Name="IsSandWichLeavePolicy" ColumnName="IsSandWichLeavePolicy" />
+          <ScalarProperty Name="IsCOAPrioritySorting" ColumnName="IsCOAPrioritySorting" />
+          <ScalarProperty Name="IsVehicle" ColumnName="IsVehicle" />
+          <ScalarProperty Name="RegisteredAreaIds" ColumnName="RegisteredAreaIds" />
+          <ScalarProperty Name="IsConstructionCompany" ColumnName="IsConstructionCompany" />
+          <ScalarProperty Name="IsOpenAllAccount" ColumnName="IsOpenAllAccount" />
+          <ScalarProperty Name="IsMIS" ColumnName="IsMIS" />
+          <ScalarProperty Name="IsSalaryTaxOpen" ColumnName="IsSalaryTaxOpen" />
+          <ScalarProperty Name="IsSalaryJV" ColumnName="IsSalaryJV" />
+          <ScalarProperty Name="TaxPeriodStartDate" ColumnName="TaxPeriodStartDate" />
+          <ScalarProperty Name="HRPeriodStartDate" ColumnName="HRPeriodStartDate" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="PFTypeId" ColumnName="PFTypeId" />
+          <ScalarProperty Name="PFAccountId" ColumnName="PFAccountId" />
+          <ScalarProperty Name="APManagementId" ColumnName="APManagementId" />
+          <ScalarProperty Name="ARManagementId" ColumnName="ARManagementId" />
+          <ScalarProperty Name="IsFedAllow" ColumnName="IsFedAllow" />
+          <ScalarProperty Name="IsFranchiseFeeAllow" ColumnName="IsFranchiseFeeAllow" />
+          <ScalarProperty Name="IsCustomerDistanceAllow" ColumnName="IsCustomerDistanceAllow" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LK_Departments">
+      <EntityTypeMapping TypeName="HMSModel.LK_Departments">
+        <MappingFragment StoreEntitySet="LK_Departments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LK_Desginations">
+      <EntityTypeMapping TypeName="HMSModel.LK_Desginations">
+        <MappingFragment StoreEntitySet="LK_Desginations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="EmployeeTypeId" ColumnName="EmployeeTypeId" />
+          <ScalarProperty Name="Desgination" ColumnName="Desgination" />
+          <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LK_EmployeeTypes">
+      <EntityTypeMapping TypeName="HMSModel.LK_EmployeeTypes">
+        <MappingFragment StoreEntitySet="LK_EmployeeTypes">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu_UsersFormAccessSetting">
+      <EntityTypeMapping TypeName="HMSModel.Menu_UsersFormAccessSetting">
+        <MappingFragment StoreEntitySet="Menu_UsersFormAccessSetting">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="AllowedOperationType" ColumnName="AllowedOperationType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PatientAppointment">
+      <EntityTypeMapping TypeName="HMSModel.PatientAppointment">
+        <MappingFragment StoreEntitySet="PatientAppointment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppointmentCode" ColumnName="AppointmentCode" />
+          <ScalarProperty Name="PatientCode" ColumnName="PatientCode" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DoctorCode" ColumnName="DoctorCode" />
+          <ScalarProperty Name="DateofAppointment" ColumnName="DateofAppointment" />
+          <ScalarProperty Name="TimeofAppointment" ColumnName="TimeofAppointment" />
+          <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
+          <ScalarProperty Name="PatientPhone" ColumnName="PatientPhone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AppointmentStatus" ColumnName="AppointmentStatus" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdateById" ColumnName="UpdateById" />
+          <ScalarProperty Name="IsTestPrescribed" ColumnName="IsTestPrescribed" />
+          <ScalarProperty Name="IsMedicinePrescribed" ColumnName="IsMedicinePrescribed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="HMSModel.Patients">
+        <MappingFragment StoreEntitySet="Patients">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FatherHusbandName" ColumnName="FatherHusbandName" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DiscontinuationDate" ColumnName="DiscontinuationDate" />
+          <ScalarProperty Name="ReasonToInActive" ColumnName="ReasonToInActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LK_Departments_SelectAllowedByCompanyId" FunctionName="HMSModel.Store.LK_Departments_SelectAllowedByCompanyId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.LK_Departments_SelectAllowedByCompanyId_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="IsAllowed" ColumnName="IsAllowed" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LK_Menu_DisplayAllowedFormsToUser" FunctionName="HMSModel.Store.LK_Menu_DisplayAllowedFormsToUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.LK_Menu_DisplayAllowedFormsToUser_Result">
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="FormDisplayName" ColumnName="FormDisplayName" />
+          <ScalarProperty Name="ParentDisplay" ColumnName="ParentDisplay" />
+          <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+          <ScalarProperty Name="IsMenuDisplayAllowed" ColumnName="IsMenuDisplayAllowed" />
+          <ScalarProperty Name="UserFormAccessSettingId" ColumnName="UserFormAccessSettingId" />
+          <ScalarProperty Name="ImplementedCompanyId" ColumnName="ImplementedCompanyId" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="FormURL" ColumnName="FormURL" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AllowedBranchId" ColumnName="AllowedBranchId" />
+          <ScalarProperty Name="AllowedComapnyId" ColumnName="AllowedComapnyId" />
+          <ScalarProperty Name="UsersFormGroupSettingId" ColumnName="UsersFormGroupSettingId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FormAccessId" ColumnName="FormAccessId" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="AllowedOperationType" ColumnName="AllowedOperationType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Patient_SelectByDateRange" FunctionName="HMSModel.Store.Patient_SelectByDateRange">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.Patient_SelectByDateRange_Result">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FatherHusbandName" ColumnName="FatherHusbandName" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PatientAppointment_GetPatientByAppointmentCode" FunctionName="HMSModel.Store.PatientAppointment_GetPatientByAppointmentCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.PatientAppointment_GetPatientByAppointmentCode_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppointmentCode" ColumnName="AppointmentCode" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="PatientCode" ColumnName="PatientCode" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DoctorCode" ColumnName="DoctorCode" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DateofAppointment" ColumnName="DateofAppointment" />
+          <ScalarProperty Name="TimeofAppointment" ColumnName="TimeofAppointment" />
+          <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
+          <ScalarProperty Name="PatientPhone" ColumnName="PatientPhone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AppointmentStatus" ColumnName="AppointmentStatus" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdateById" ColumnName="UpdateById" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PatientAppointment_Insert" FunctionName="HMSModel.Store.PatientAppointment_Insert" />
+    <FunctionImportMapping FunctionImportName="PatientAppointment_SelectByCoyId_BranchId_DateofAppointment_Status" FunctionName="HMSModel.Store.PatientAppointment_SelectByCoyId_BranchId_DateofAppointment_Status">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.PatientAppointment_SelectByCoyId_BranchId_DateofAppointment_Status_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AppointmentCode" ColumnName="AppointmentCode" />
+          <ScalarProperty Name="PatientName" ColumnName="PatientName" />
+          <ScalarProperty Name="PatientCode" ColumnName="PatientCode" />
+          <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+          <ScalarProperty Name="DoctorCode" ColumnName="DoctorCode" />
+          <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+          <ScalarProperty Name="DateofAppointment" ColumnName="DateofAppointment" />
+          <ScalarProperty Name="TimeofAppointment" ColumnName="TimeofAppointment" />
+          <ScalarProperty Name="PatientEmail" ColumnName="PatientEmail" />
+          <ScalarProperty Name="PatientPhone" ColumnName="PatientPhone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AppointmentStatus" ColumnName="AppointmentStatus" />
+          <ScalarProperty Name="CompanyId" ColumnName="CompanyId" />
+          <ScalarProperty Name="BranchId" ColumnName="BranchId" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="UpdatedOn" ColumnName="UpdatedOn" />
+          <ScalarProperty Name="UpdateById" ColumnName="UpdateById" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Patients_Insert" FunctionName="HMSModel.Store.Patients_Insert" />
+    <FunctionImportMapping FunctionImportName="Patients_SelectByCode" FunctionName="HMSModel.Store.Patients_SelectByCode">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.Patients_SelectByCode_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FatherHusbandName" ColumnName="FatherHusbandName" />
+          <ScalarProperty Name="Cnic" ColumnName="Cnic" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="DiscontinuationDate" ColumnName="DiscontinuationDate" />
+          <ScalarProperty Name="ReasonToInActive" ColumnName="ReasonToInActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Menu_UsersFormSetting">
+      <EntityTypeMapping TypeName="HMSModel.Menu_UsersFormSetting">
+        <MappingFragment StoreEntitySet="Menu_UsersFormSetting">
+          <ScalarProperty Name="FormURL" ColumnName="FormURL" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="AreaName" ColumnName="AreaName" />
+          <ScalarProperty Name="ImplementedCompanyId" ColumnName="ImplementedCompanyId" />
+          <ScalarProperty Name="UserFormAccessSettingId" ColumnName="UserFormAccessSettingId" />
+          <ScalarProperty Name="IsMenuDisplayAllowed" ColumnName="IsMenuDisplayAllowed" />
+          <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+          <ScalarProperty Name="ParentDisplay" ColumnName="ParentDisplay" />
+          <ScalarProperty Name="FormDisplayName" ColumnName="FormDisplayName" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PortalUsers">
+      <EntityTypeMapping TypeName="HMSModel.PortalUsers">
+        <MappingFragment StoreEntitySet="PortalUsers">
+          <ScalarProperty Name="AllowedBranchId" ColumnName="AllowedBranchId" />
+          <ScalarProperty Name="AllowedComapnyId" ColumnName="AllowedComapnyId" />
+          <ScalarProperty Name="UsersFormGroupSettingId" ColumnName="UsersFormGroupSettingId" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LK_Menu_VerifyUsersFormAccess" FunctionName="HMSModel.Store.LK_Menu_VerifyUsersFormAccess">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.LK_Menu_VerifyUsersFormAccess_Result">
+          <ScalarProperty Name="FormId" ColumnName="FormId" />
+          <ScalarProperty Name="FormName" ColumnName="FormName" />
+          <ScalarProperty Name="FormDisplayName" ColumnName="FormDisplayName" />
+          <ScalarProperty Name="ParentDisplay" ColumnName="ParentDisplay" />
+          <ScalarProperty Name="OperationType" ColumnName="OperationType" />
+          <ScalarProperty Name="IsMenuDisplayAllowed" ColumnName="IsMenuDisplayAllowed" />
+          <ScalarProperty Name="UserFormAccessSettingId" ColumnName="UserFormAccessSettingId" />
+          <ScalarProperty Name="ImplementedCompanyId" ColumnName="ImplementedCompanyId" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="FormURL" ColumnName="FormURL" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="AllowedBranchId" ColumnName="AllowedBranchId" />
+          <ScalarProperty Name="AllowedComapnyId" ColumnName="AllowedComapnyId" />
+          <ScalarProperty Name="UsersFormGroupSettingId" ColumnName="UsersFormGroupSettingId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="FormAccessId" ColumnName="FormAccessId" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="AllowedOperationType" ColumnName="AllowedOperationType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PortalUsers_SessionInformation" FunctionName="HMSModel.Store.PortalUsers_SessionInformation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HMSModel.PortalUsers_SessionInformation_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UsersEmail" ColumnName="UsersEmail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UsersFormGroupSettingId" ColumnName="UsersFormGroupSettingId" />
+          <ScalarProperty Name="AllowedComapnyId" ColumnName="AllowedComapnyId" />
+          <ScalarProperty Name="AllowedBranchId" ColumnName="AllowedBranchId" />
+          <ScalarProperty Name="CoyId" ColumnName="CoyId" />
+          <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+          <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+          <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="Contact" ColumnName="Contact" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="CoyMail" ColumnName="CoyMail" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="IncomeTaxTypeId" ColumnName="IncomeTaxTypeId" />
+          <ScalarProperty Name="NTN" ColumnName="NTN" />
+          <ScalarProperty Name="WithHoldingAgent" ColumnName="WithHoldingAgent" />
+          <ScalarProperty Name="SalesTaxTypeId" ColumnName="SalesTaxTypeId" />
+          <ScalarProperty Name="STN" ColumnName="STN" />
+          <ScalarProperty Name="CompanyTypeId" ColumnName="CompanyTypeId" />
+          <ScalarProperty Name="CurrencyCode" ColumnName="CurrencyCode" />
+          <ScalarProperty Name="DecimalPlaces" ColumnName="DecimalPlaces" />
+          <ScalarProperty Name="AccountingSystem" ColumnName="AccountingSystem" />
+          <ScalarProperty Name="PeriodStartDate" ColumnName="PeriodStartDate" />
+          <ScalarProperty Name="PeriodEndsAfter" ColumnName="PeriodEndsAfter" />
+          <ScalarProperty Name="LogoImageUrl" ColumnName="LogoImageUrl" />
+          <ScalarProperty Name="OwnerId" ColumnName="OwnerId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedById" ColumnName="CreatedById" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="UpdatedById" ColumnName="UpdatedById" />
+          <ScalarProperty Name="UpdatedTime" ColumnName="UpdatedTime" />
+          <ScalarProperty Name="ShortGUID" ColumnName="ShortGUID" />
+          <ScalarProperty Name="HashGUID" ColumnName="HashGUID" />
+          <ScalarProperty Name="EOBIDeductionRegistered" ColumnName="EOBIDeductionRegistered" />
+          <ScalarProperty Name="EOBIDeductionNo" ColumnName="EOBIDeductionNo" />
+          <ScalarProperty Name="SocialSecurityRegistered" ColumnName="SocialSecurityRegistered" />
+          <ScalarProperty Name="SocialSecurityNO" ColumnName="SocialSecurityNO" />
+          <ScalarProperty Name="IsProvidentFundAdopted" ColumnName="IsProvidentFundAdopted" />
+          <ScalarProperty Name="ProvidentFundRegistered" ColumnName="ProvidentFundRegistered" />
+          <ScalarProperty Name="EmployerContribution" ColumnName="EmployerContribution" />
+          <ScalarProperty Name="EmployeeContribution" ColumnName="EmployeeContribution" />
+          <ScalarProperty Name="ICTAccountId" ColumnName="ICTAccountId" />
+          <ScalarProperty Name="ProvidentDeduType" ColumnName="ProvidentDeduType" />
+          <ScalarProperty Name="IsHREnable" ColumnName="IsHREnable" />
+          <ScalarProperty Name="IsDonorApplicable" ColumnName="IsDonorApplicable" />
+          <ScalarProperty Name="RptSlogan" ColumnName="RptSlogan" />
+          <ScalarProperty Name="IsBranchMang" ColumnName="IsBranchMang" />
+          <ScalarProperty Name="IsFundMang" ColumnName="IsFundMang" />
+          <ScalarProperty Name="IsAutoAmortizationFunds" ColumnName="IsAutoAmortizationFunds" />
+          <ScalarProperty Name="IsProjectApplicable" ColumnName="IsProjectApplicable" />
+          <ScalarProperty Name="PeriodType" ColumnName="PeriodType" />
+          <ScalarProperty Name="LandingPolicyId" ColumnName="LandingPolicyId" />
+          <ScalarProperty Name="TaxMethodologyTypeId" ColumnName="TaxMethodologyTypeId" />
+          <ScalarProperty Name="EPProductTypeId" ColumnName="EPProductTypeId" />
+          <ScalarProperty Name="IsWHSalesTax" ColumnName="IsWHSalesTax" />
+          <ScalarProperty Name="IsVoucherCompanyWise" ColumnName="IsVoucherCompanyWise" />
+          <ScalarProperty Name="IsMedicalExemption" ColumnName="IsMedicalExemption" />
+          <ScalarProperty Name="ExcemptionPersentage" ColumnName="ExcemptionPersentage" />
+          <ScalarProperty Name="IsVenueInOfficalAssignment" ColumnName="IsVenueInOfficalAssignment" />
+          <ScalarProperty Name="IsFixedAssetsAllowed" ColumnName="IsFixedAssetsAllowed" />
+          <ScalarProperty Name="IsBudgetAllowed" ColumnName="IsBudgetAllowed" />
+          <ScalarProperty Name="IsSandWichLeavePolicy" ColumnName="IsSandWichLeavePolicy" />
+          <ScalarProperty Name="IsCOAPrioritySorting" ColumnName="IsCOAPrioritySorting" />
+          <ScalarProperty Name="IsVehicle" ColumnName="IsVehicle" />
+          <ScalarProperty Name="RegisteredAreaIds" ColumnName="RegisteredAreaIds" />
+          <ScalarProperty Name="IsConstructionCompany" ColumnName="IsConstructionCompany" />
+          <ScalarProperty Name="IsOpenAllAccount" ColumnName="IsOpenAllAccount" />
+          <ScalarProperty Name="IsMIS" ColumnName="IsMIS" />
+          <ScalarProperty Name="IsSalaryTaxOpen" ColumnName="IsSalaryTaxOpen" />
+          <ScalarProperty Name="IsSalaryJV" ColumnName="IsSalaryJV" />
+          <ScalarProperty Name="TaxPeriodStartDate" ColumnName="TaxPeriodStartDate" />
+          <ScalarProperty Name="HRPeriodStartDate" ColumnName="HRPeriodStartDate" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="PFTypeId" ColumnName="PFTypeId" />
+          <ScalarProperty Name="PFAccountId" ColumnName="PFAccountId" />
+          <ScalarProperty Name="APManagementId" ColumnName="APManagementId" />
+          <ScalarProperty Name="ARManagementId" ColumnName="ARManagementId" />
+          <ScalarProperty Name="IsFedAllow" ColumnName="IsFedAllow" />
+          <ScalarProperty Name="IsFranchiseFeeAllow" ColumnName="IsFranchiseFeeAllow" />
+          <ScalarProperty Name="IsCustomerDistanceAllow" ColumnName="IsCustomerDistanceAllow" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

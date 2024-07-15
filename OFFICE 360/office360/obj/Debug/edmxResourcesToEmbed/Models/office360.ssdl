@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TEST400.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BankBranches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BANKNAMEID" Type="int" />
+    <Property Name="BRANCHNAME" Type="varchar(max)" />
+    <Property Name="BRANCHCODE" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="BankNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BANKNAME" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Bussiness">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="TaxSectionId" Type="int" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CitiName" Type="varchar(max)" />
+    <Property Name="ProvinceID" Type="int" />
+  </EntityType>
+  <EntityType Name="CompanyTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CustomerAdd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerTypeId" Type="int" />
+    <Property Name="CustomerCode" Type="varchar(max)" />
+    <Property Name="CNIC" Type="varchar(max)" />
+    <Property Name="CustomerName" Type="varchar(max)" />
+    <Property Name="ChooseCompanyTypeId" Type="varchar(max)" />
+    <Property Name="IsIncomeTaxRegistered" Type="bit" />
+    <Property Name="NTNNumber" Type="varchar(max)" />
+    <Property Name="IsSalesTaxRegistered" Type="bit" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="PhoneNumber" Type="varchar(max)" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="BussinessId" Type="int" />
+    <Property Name="BankId" Type="int" />
+    <Property Name="BankBranchId" Type="int" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Province" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="TaxSection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="TaxPercentage" Type="varchar(max)" />
+  </EntityType>
+  <Function Name="Customer_DropDownList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerCode" Type="varchar(max)" Mode="In" />
+  </Function>
+  <EntityContainer Name="TEST400StoreContainer">
+    <EntitySet Name="BankBranches" EntityType="Self.BankBranches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BankNames" EntityType="Self.BankNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bussiness" EntityType="Self.Bussiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CompanyTypes" EntityType="Self.CompanyTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerAdd" EntityType="Self.CustomerAdd" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerType" EntityType="Self.CustomerType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Province" EntityType="Self.Province" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaxSection" EntityType="Self.TaxSection" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

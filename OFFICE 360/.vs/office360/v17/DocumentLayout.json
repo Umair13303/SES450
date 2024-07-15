@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\OFFI\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\offi\\office360\\areas\\abranches\\views\\branchui\\createnewgeneralbranch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\areas\\abranches\\views\\branchui\\createnewgeneralbranch.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\offi\\office360\\areas\\abranches\\views\\branchui\\generalbranchlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\areas\\abranches\\views\\branchui\\generalbranchlist.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|e:\\offi\\office360\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{5330993A-ECE1-4309-B8C6-8B496CC697D4}|office360\\office360.csproj|solutionrelative:office360\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "E:\\OFFI\\office360\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "office360\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "E:\\OFFI\\office360\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "office360\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAD0CAAAAAAAAAAAWwEoCAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T21:29:52.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "GeneralBranchList.cshtml",
+              "DocumentMoniker": "E:\\OFFI\\office360\\Areas\\ABranches\\Views\\BranchUI\\GeneralBranchList.cshtml",
+              "RelativeDocumentMoniker": "office360\\Areas\\ABranches\\Views\\BranchUI\\GeneralBranchList.cshtml",
+              "ToolTip": "E:\\OFFI\\office360\\Areas\\ABranches\\Views\\BranchUI\\GeneralBranchList.cshtml",
+              "RelativeToolTip": "office360\\Areas\\ABranches\\Views\\BranchUI\\GeneralBranchList.cshtml",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAACUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T21:29:12.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateNewGeneralBranch.cshtml",
+              "DocumentMoniker": "E:\\OFFI\\office360\\Areas\\ABranches\\Views\\BranchUI\\CreateNewGeneralBranch.cshtml",
+              "RelativeDocumentMoniker": "office360\\Areas\\ABranches\\Views\\BranchUI\\CreateNewGeneralBranch.cshtml",
+              "ToolTip": "E:\\OFFI\\office360\\Areas\\ABranches\\Views\\BranchUI\\CreateNewGeneralBranch.cshtml",
+              "RelativeToolTip": "office360\\Areas\\ABranches\\Views\\BranchUI\\CreateNewGeneralBranch.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAmwBIAAABTAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-06-19T19:26:52.447Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

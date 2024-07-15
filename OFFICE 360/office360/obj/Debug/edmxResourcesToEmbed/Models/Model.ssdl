@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="LK_Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityName" Type="varchar(max)" />
+    <Property Name="CountryId" Type="int" />
+  </EntityType>
+  <EntityType Name="LK_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar(max)" />
+    <Property Name="AddressLine1" Type="varchar(max)" />
+    <Property Name="AddressLine2" Type="varchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Contact" Type="varchar(max)" />
+    <Property Name="Fax" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="IncomeTaxTypeId" Type="varchar(max)" />
+    <Property Name="NTN" Type="varchar(max)" />
+    <Property Name="WithHoldingAgent" Type="varchar(max)" />
+    <Property Name="SalesTaxTypeId" Type="varchar(max)" />
+    <Property Name="STN" Type="varchar(max)" />
+    <Property Name="CompanyTypeId" Type="varchar(max)" />
+    <Property Name="CurrencyCode" Type="varchar(max)" />
+    <Property Name="DecimalPlaces" Type="varchar(max)" />
+    <Property Name="AccountingSystem" Type="varchar(max)" />
+    <Property Name="PeriodStartDate" Type="varchar(max)" />
+    <Property Name="PeriodEndsAfter" Type="varchar(max)" />
+    <Property Name="LogoImageUrl" Type="varchar(max)" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="CreatedTime" Type="varchar(max)" />
+    <Property Name="UpdatedById" Type="int" />
+    <Property Name="UpdatedTime" Type="varchar(max)" />
+    <Property Name="ShortGUID" Type="varchar(max)" />
+    <Property Name="HashGUID" Type="varchar(max)" />
+    <Property Name="EOBIDeductionRegistered" Type="varchar(max)" />
+    <Property Name="EOBIDeductionNo" Type="varchar(max)" />
+    <Property Name="SocialSecurityRegistered" Type="bit" />
+    <Property Name="SocialSecurityNO" Type="varchar(max)" />
+    <Property Name="IsProvidentFundAdopted" Type="bit" />
+    <Property Name="ProvidentFundRegistered" Type="bit" />
+    <Property Name="EmployerContribution" Type="bit" />
+    <Property Name="EmployeeContribution" Type="bit" />
+    <Property Name="ICTAccountId" Type="int" />
+    <Property Name="ProvidentDeduType" Type="int" />
+    <Property Name="IsHREnable" Type="bit" />
+    <Property Name="IsDonorApplicable" Type="bit" />
+    <Property Name="RptSlogan" Type="bit" />
+    <Property Name="IsBranchMang" Type="bit" />
+    <Property Name="IsFundMang" Type="int" />
+    <Property Name="IsAutoAmortizationFunds" Type="varchar(max)" />
+    <Property Name="IsProjectApplicable" Type="int" />
+    <Property Name="PeriodType" Type="int" />
+    <Property Name="LandingPolicyId" Type="int" />
+    <Property Name="TaxMethodologyTypeId" Type="int" />
+    <Property Name="EPProductTypeId" Type="int" />
+    <Property Name="IsWHSalesTax" Type="int" />
+    <Property Name="IsVoucherCompanyWise" Type="int" />
+    <Property Name="IsMedicalExemption" Type="int" />
+    <Property Name="ExcemptionPersentage" Type="int" />
+    <Property Name="IsVenueInOfficalAssignment" Type="varchar(max)" />
+    <Property Name="IsFixedAssetsAllowed" Type="int" />
+    <Property Name="IsBudgetAllowed" Type="int" />
+    <Property Name="IsSandWichLeavePolicy" Type="int" />
+    <Property Name="IsCOAPrioritySorting" Type="bit" />
+    <Property Name="IsVehicle" Type="int" />
+    <Property Name="RegisteredAreaIds" Type="bit" />
+    <Property Name="IsConstructionCompany" Type="bit" />
+    <Property Name="IsOpenAllAccount" Type="bit" />
+    <Property Name="IsMIS" Type="varchar(max)" />
+    <Property Name="IsSalaryTaxOpen" Type="bit" />
+    <Property Name="IsSalaryJV" Type="varchar(max)" />
+    <Property Name="TaxPeriodStartDate" Type="varchar(max)" />
+    <Property Name="HRPeriodStartDate" Type="varchar(max)" />
+    <Property Name="ProvinceId" Type="int" />
+    <Property Name="PFTypeId" Type="int" />
+    <Property Name="PFAccountId" Type="int" />
+    <Property Name="APManagementId" Type="int" />
+    <Property Name="ARManagementId" Type="int" />
+    <Property Name="IsFedAllow" Type="bit" />
+    <Property Name="IsFranchiseFeeAllow" Type="bit" />
+    <Property Name="IsCustomerDistanceAllow" Type="int" />
+  </EntityType>
+  <EntityType Name="LK_Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="IsAllowed" Type="bit" />
+  </EntityType>
+  <EntityType Name="LK_Desginations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="EmployeeTypeId" Type="int" />
+    <Property Name="Desgination" Type="varchar(max)" />
+    <Property Name="IsAllowed" Type="bit" />
+  </EntityType>
+  <EntityType Name="LK_EmployeeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="IsAllowed" Type="bit" />
+    <Property Name="CompanyId" Type="int" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormAccessSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="varchar(max)" />
+    <Property Name="AllowedOperationType" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FormName" Type="varchar(max)" />
+    <Property Name="FormDisplayName" Type="varchar(max)" />
+    <Property Name="ParentDisplay" Type="varchar(max)" />
+    <Property Name="OperationType" Type="varchar(max)" />
+    <Property Name="IsMenuDisplayAllowed" Type="bit" />
+    <Property Name="UserFormAccessSettingId" Type="int" />
+    <Property Name="ImplementedCompanyId" Type="int" />
+    <Property Name="AreaName" Type="varchar(max)" />
+    <Property Name="ControllerName" Type="varchar(max)" />
+    <Property Name="FormURL" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="PatientAppointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentCode" Type="varchar(max)" />
+    <Property Name="PatientCode" Type="varchar(max)" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="DoctorCode" Type="varchar(max)" />
+    <Property Name="DateofAppointment" Type="varchar(max)" />
+    <Property Name="TimeofAppointment" Type="varchar(max)" />
+    <Property Name="PatientEmail" Type="varchar(max)" />
+    <Property Name="PatientPhone" Type="varchar(max)" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="AppointmentStatus" Type="bit" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="UpdatedOn" Type="date" />
+    <Property Name="UpdateById" Type="int" />
+    <Property Name="IsTestPrescribed" Type="bit" />
+    <Property Name="IsMedicinePrescribed" Type="bit" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="FatherHusbandName" Type="varchar(max)" />
+    <Property Name="Cnic" Type="varchar(max)" />
+    <Property Name="Gender" Type="varchar(max)" />
+    <Property Name="Phone" Type="varchar(max)" />
+    <Property Name="DOB" Type="varchar(max)" />
+    <Property Name="Address" Type="varchar(max)" />
+    <Property Name="Age" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CreatedDate" Type="varchar(max)" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DiscontinuationDate" Type="datetime" />
+    <Property Name="ReasonToInActive" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="PortalUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="UsersFormGroupSettingId" Type="varchar(max)" />
+    <Property Name="AllowedComapnyId" Type="varchar(max)" />
+    <Property Name="AllowedBranchId" Type="varchar(max)" />
+  </EntityType>
+  <Function Name="LK_Departments_SelectAllowedByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_Menu_DisplayAllowedFormsToUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ParentDisplay" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ImplementedCompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_Menu_VerifyUsersFormAccess" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FormName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ImplementedCompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Patient_SelectByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="PatientAppointment_GetPatientByAppointmentCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+    <Parameter Name="DoctorCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DateofAppointment" Type="varchar(max)" Mode="In" />
+    <Parameter Name="TimeofAppointment" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientEmail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientPhone" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Message" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AppointmentStatus" Type="bit" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="CreatedById" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_SelectByCoyId_BranchId_DateofAppointment_Status" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="DateofAppointment" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AppointmentStatus" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="Patients_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Name" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FatherHusbandName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Cnic" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Gender" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Phone" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DOB" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Age" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CityId" Type="int" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CreatedById" Type="int" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="DiscontinuationDate" Type="datetime" Mode="In" />
+    <Parameter Name="ReasonToInActive" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Patients_SelectByCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="PortalUsers_SessionInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="AllowedComapnyId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="HMSModelStoreContainer">
+    <EntitySet Name="LK_Cities" EntityType="Self.LK_Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Company" EntityType="Self.LK_Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Departments" EntityType="Self.LK_Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Desginations" EntityType="Self.LK_Desginations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_EmployeeTypes" EntityType="Self.LK_EmployeeTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu_UsersFormAccessSetting" EntityType="Self.Menu_UsersFormAccessSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu_UsersFormSetting" EntityType="Self.Menu_UsersFormSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientAppointment" EntityType="Self.PatientAppointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortalUsers" EntityType="Self.PortalUsers" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

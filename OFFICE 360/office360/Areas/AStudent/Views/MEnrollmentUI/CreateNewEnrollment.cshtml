@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "New Enrollment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{
+    var SessionDetail = ViewBag.SessionDetail;
+    if (SessionDetail != null && SessionDetail.Id != null)
+    {
+        <div class="statbox widget box box-shadow">
+            <div class="widget-header">
+                <div class="row">
+                    <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>@ViewBag.Title</h4>
+                    </div>
+                </div>
+                <nav class="breadcrumb-one" aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Branches</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">Setup</a></li>
+                        <li class="breadcrumb-item active" aria-current="page"><span>@ViewBag.Title</span></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+
+        <div class="card" style="margin-top:1%;width:100%">
+            <div class="card-header">
+                <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">@SessionDetail.Description</h3>
+            </div>
+            <div class="card-body">
+
+                @Html.TextBox("HiddenFiedSessionId", null, new {Hidden=true, Value = SessionDetail.Id, @id = "HiddenFiedSessionId" })
+
+            </div>
+        </div>
+
+
+
+    }
+    else
+    {
+        <div class="container container-fluid" style="text-align:center;color:black;font-weight:bolder">
+            <span class="SessionNotice blink" style="font-size:x-large;color:darkblue">NO SESSION IS ACTIVE FOR ENROLLMENT!</span>
+        </div>
+    }
+}
+
+
+@*<script src="~/SiteScripts/AStudent/MEnrollmentUI/CreateNewEnrollment.js"></script>*@

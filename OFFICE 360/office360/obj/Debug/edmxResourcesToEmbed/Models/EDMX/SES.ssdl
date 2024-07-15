@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="Fax" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="WebSite" Type="nvarchar(max)" />
+    <Property Name="PeriodStartDate" Type="smalldatetime" />
+    <Property Name="PeriodEndDate" Type="int" />
+    <Property Name="LogoUrl" Type="nvarchar(max)" />
+    <Property Name="NTNNo" Type="nvarchar(max)" />
+    <Property Name="SalesTaxNo" Type="nvarchar(max)" />
+    <Property Name="ShortGUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Owners">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="ShortGUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="AreaCode" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CallingCode" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.OrderStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.OrganizationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrganizationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.Rights' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Rights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FormName" Type="nvarchar(max)" />
+    <Property Name="Display" Type="nvarchar(max)" />
+    <Property Name="IsDisplayAllowed" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="Menu" Type="nvarchar(max)" />
+    <Property Name="IsGeneral" Type="bit" />
+  </EntityType>
+  <Function Name="City_GetListByCountryId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Country_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ListType" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OrderStatus_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="OrganizationType_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Rights_GetListByParameters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ListType" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RightId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="SESModelStoreContainer">
+    <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Owners" EntityType="Self.Owners" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="City" EntityType="Self.City" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [City].[Id] AS [Id], 
+    [City].[CountryId] AS [CountryId], 
+    [City].[AreaCode] AS [AreaCode], 
+    [City].[Description] AS [Description], 
+    [City].[StateId] AS [StateId], 
+    [City].[Status] AS [Status]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Country].[Id] AS [Id], 
+    [Country].[Description] AS [Description], 
+    [Country].[Code] AS [Code], 
+    [Country].[Status] AS [Status], 
+    [Country].[CallingCode] AS [CallingCode]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderStatus].[Id] AS [Id], 
+    [OrderStatus].[Description] AS [Description], 
+    [OrderStatus].[Status] AS [Status]
+    FROM [dbo].[OrderStatus] AS [OrderStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrganizationType" EntityType="Self.OrganizationType" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrganizationType].[Id] AS [Id], 
+    [OrganizationType].[Description] AS [Description], 
+    [OrganizationType].[Status] AS [Status]
+    FROM [dbo].[OrganizationType] AS [OrganizationType]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rights" EntityType="Self.Rights" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Rights].[Id] AS [Id], 
+    [Rights].[FormName] AS [FormName], 
+    [Rights].[Display] AS [Display], 
+    [Rights].[IsDisplayAllowed] AS [IsDisplayAllowed], 
+    [Rights].[Status] AS [Status], 
+    [Rights].[Priority] AS [Priority], 
+    [Rights].[Menu] AS [Menu], 
+    [Rights].[IsGeneral] AS [IsGeneral]
+    FROM [dbo].[Rights] AS [Rights]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

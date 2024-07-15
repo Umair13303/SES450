@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Announce Session";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12">
+                    <h4>@ViewBag.Title</h4>
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg></a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Branch</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Admission</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Session Announcment</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:1%;width:100%">
+        <div class="card-body">
+
+            <form>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Company", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCompany" })
+                            <div class="col-12 col-md-9">
+                                @Html.DropDownList("DropDownListCompany", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCompany" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Campus", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCampus" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
+                                    @Html.DropDownList("DropDownListCampus", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampus" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Enrollment Type", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListEnrollmentType" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
+                                    @Html.DropDownList("DropDownListEnrollmentType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListEnrollmentType" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Description", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxSessionDescription" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class=""></i></span>
+                                    @Html.TextBox("TextBoxSessionDescription", null, new { @class = "form-control", placeholder = "Please Enter Session Description Here!", @id = "TextBoxSessionDescription" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Period", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxSessionPeriod" })
+                            <div class="col-12 col-md-9">
+                                <div class="row">
+                                    <div class="col-12">
+                                        @Html.TextBox("TextBoxSessionPeriod", null, new { @class = "form-control Range_Date_Masking_Format_Basic", placeholder = "Please Enter Period Date Here!", @id = "TextBoxSessionPeriod" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+                        <div class="form-group row mb-3">
+                            @Html.Label("Classes", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListClass" })
+                            <div class="col-12 col-md-9">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
+                                    @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListClass" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+
+            <div class="col-sm-12 form-group">
+                <div class="card-heading">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Sumbit" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+}
+<script>
+        var CompanyId = @office360.Models.General.Session_Manager.CompanyId.ToString();
+        var RoleId = @office360.Models.General.Session_Manager.RoleId.ToString();
+</script>
+<script src="~/SiteScripts/ACompany/MAcademicSessionUI/CreateNewAppSession.js"></script>

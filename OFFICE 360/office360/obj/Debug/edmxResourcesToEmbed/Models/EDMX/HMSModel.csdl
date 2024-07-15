@@ -1,0 +1,1707 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AEOEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EventName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Venue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EndDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedById" Type="Int32" />
+    <Property Name="CreatedDateTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedById" Type="Int32" />
+    <Property Name="UpdatedOn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchType" Type="Int32" />
+    <Property Name="AllowedDepartmentIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Designation1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherHusbandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MartialStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Home" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IncomeTaxStatus" Type="Int32" />
+    <Property Name="NTNNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BankNameId" Type="Int32" />
+    <Property Name="BankBranchId" Type="Int32" />
+    <Property Name="AccountTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AccountNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="DesignationId" Type="Int32" />
+    <Property Name="EmployeeTypeId" Type="Int32" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Updatedby" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="HASH_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRAdvertisment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HRMADCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="EndDate" Type="DateTime" Precision="0" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRAdvertismentApplicants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AdvertismentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicantName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicantCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Profession" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Education" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Institute" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdmissionDate" Type="DateTime" Precision="0" />
+    <Property Name="DegreeCompletionDate" Type="DateTime" Precision="0" />
+    <Property Name="DivisionOrGPA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastJob" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="JobStartedOn" Type="DateTime" Precision="0" />
+    <Property Name="JobEndedOn" Type="DateTime" Precision="0" />
+    <Property Name="OtherJobs" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastEmployer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OtherSkills" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRApplicantInterviews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InterViewCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicantCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdvertismentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterviewDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterViewTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsAttended" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="HRInterViewSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AdvertismentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterViewDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InterViewTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HRMAllowances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="AllowanceTypeId" Type="Int32" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetAllowancesGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSAGCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMPCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="HRMSalaryStructureCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetAllowancesSpecial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSASCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMPCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Short_GUID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HRMSalaryStructureCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetDeductionSpecial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSDSCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMPCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="HRMSalaryStructureCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSMCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SalarySheetStatus" Type="Int32" />
+    <Property Name="ForMonth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="TotalAmount" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetMasterParent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSMPCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PayScale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BasicSalary" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="TotalAllowance" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="TotalDeduction" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="TotalPayable" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="ForMonth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="HRMSalaryStructure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="HSSCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BasicSalary" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <Property Name="Short_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LK_BankBranches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BranchName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BranchCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="TelePhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="BankId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_Banks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="BankName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LK_BranchTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CityName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_CodeDefinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Purpose" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="LK_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Fax" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Website" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IncomeTaxTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="NTN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="WithHoldingAgent" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SalesTaxTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="STN" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CurrencyCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DecimalPlaces" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AccountingSystem" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PeriodStartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PeriodEndsAfter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="LogoImageUrl" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OwnerId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedById" Type="Int32" />
+    <Property Name="CreatedTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedById" Type="Int32" />
+    <Property Name="UpdatedTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EOBIDeductionRegistered" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EOBIDeductionNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="SocialSecurityRegistered" Type="Boolean" />
+    <Property Name="SocialSecurityNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsProvidentFundAdopted" Type="Boolean" />
+    <Property Name="ProvidentFundRegistered" Type="Boolean" />
+    <Property Name="EmployerContribution" Type="Boolean" />
+    <Property Name="EmployeeContribution" Type="Boolean" />
+    <Property Name="ICTAccountId" Type="Int32" />
+    <Property Name="ProvidentDeduType" Type="Int32" />
+    <Property Name="IsHREnable" Type="Boolean" />
+    <Property Name="IsDonorApplicable" Type="Boolean" />
+    <Property Name="RptSlogan" Type="Boolean" />
+    <Property Name="IsBranchMang" Type="Boolean" />
+    <Property Name="IsFundMang" Type="Int32" />
+    <Property Name="IsAutoAmortizationFunds" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsProjectApplicable" Type="Int32" />
+    <Property Name="PeriodType" Type="Int32" />
+    <Property Name="LandingPolicyId" Type="Int32" />
+    <Property Name="TaxMethodologyTypeId" Type="Int32" />
+    <Property Name="EPProductTypeId" Type="Int32" />
+    <Property Name="IsWHSalesTax" Type="Int32" />
+    <Property Name="IsVoucherCompanyWise" Type="Int32" />
+    <Property Name="IsMedicalExemption" Type="Int32" />
+    <Property Name="ExcemptionPersentage" Type="Int32" />
+    <Property Name="IsVenueInOfficalAssignment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsFixedAssetsAllowed" Type="Int32" />
+    <Property Name="IsBudgetAllowed" Type="Int32" />
+    <Property Name="IsSandWichLeavePolicy" Type="Int32" />
+    <Property Name="IsCOAPrioritySorting" Type="Boolean" />
+    <Property Name="IsVehicle" Type="Int32" />
+    <Property Name="RegisteredAreaIds" Type="Boolean" />
+    <Property Name="IsConstructionCompany" Type="Boolean" />
+    <Property Name="IsOpenAllAccount" Type="Boolean" />
+    <Property Name="IsMIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsSalaryTaxOpen" Type="Boolean" />
+    <Property Name="IsSalaryJV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TaxPeriodStartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HRPeriodStartDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceId" Type="Int32" />
+    <Property Name="PFTypeId" Type="Int32" />
+    <Property Name="PFAccountId" Type="Int32" />
+    <Property Name="APManagementId" Type="Int32" />
+    <Property Name="ARManagementId" Type="Int32" />
+    <Property Name="IsFedAllow" Type="Boolean" />
+    <Property Name="IsFranchiseFeeAllow" Type="Boolean" />
+    <Property Name="IsCustomerDistanceAllow" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LK_Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="IsAllowed" Type="Int32" Nullable="false" />
+    <Property Name="BranchId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LK_Desginations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="EmployeeTypeId" Type="Int32" />
+    <Property Name="Desgination" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsAllowed" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LK_EmployeeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeTypes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CompanyId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_HRMAllowanceDeductionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_StatusDefinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicalHistoryDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PatientId" Type="Int32" />
+    <Property Name="DetailsType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DoctorName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ShortGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HashGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedById" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedById" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MedicalPrescriptionDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrescriptId" Type="Int32" />
+    <Property Name="PrescriptionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Test_MedicineName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CourseDays" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Dosage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="MedicalPrescriptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="PrescriptionCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PatientCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AppointmentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AdditionalNote" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="HASHGUID" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormAccessSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AllowedOperationType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="FormName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FormDisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ParentDisplay" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="OperationType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="IsMenuDisplayAllowed" Type="Boolean" Nullable="false" />
+    <Property Name="UserFormAccessSettingId" Type="Int32" Nullable="false" />
+    <Property Name="ImplementedCompanyId" Type="Int32" Nullable="false" />
+    <Property Name="AreaName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ControllerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FormURL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="PatientAppointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PatientCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DepartmentId" Type="Int32" />
+    <Property Name="DoctorCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DateofAppointment" Type="DateTime" Precision="0" />
+    <Property Name="TimeofAppointment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PatientEmail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PatientPhone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="BranchId" Type="Int32" />
+    <Property Name="CreatedById" Type="Int32" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdateById" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HASHGuid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsAttended" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FatherHusbandName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Cnic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="CountryId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+    <Property Name="CreatedById" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="DiscontinuationDate" Type="DateTime" Precision="3" />
+    <Property Name="ReasonToInActive" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CompanyId" Type="Int32" />
+    <Property Name="HASHGuid" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PortalUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UsersFormGroupSettingId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AllowedComapnyId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AllowedBranchId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetDeductionGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="HSSDGCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HSSMPCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeCode" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Amount" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Percentage" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Short_GUID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Hash_GUID" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="HRMSalaryStructureCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityContainer Name="HMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AEOEvents" EntityType="Self.AEOEvents" />
+    <EntitySet Name="Branches" EntityType="Self.Branches" />
+    <EntitySet Name="Designation" EntityType="Self.Designation" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="HRAdvertisment" EntityType="Self.HRAdvertisment" />
+    <EntitySet Name="HRAdvertismentApplicants" EntityType="Self.HRAdvertismentApplicants" />
+    <EntitySet Name="HRApplicantInterviews" EntityType="Self.HRApplicantInterviews" />
+    <EntitySet Name="HRInterViewSchedule" EntityType="Self.HRInterViewSchedule" />
+    <EntitySet Name="HRMAllowances" EntityType="Self.HRMAllowances" />
+    <EntitySet Name="HRMSalarySheetAllowancesGeneral" EntityType="Self.HRMSalarySheetAllowancesGeneral" />
+    <EntitySet Name="HRMSalarySheetAllowancesSpecial" EntityType="Self.HRMSalarySheetAllowancesSpecial" />
+    <EntitySet Name="HRMSalarySheetDeductionSpecial" EntityType="Self.HRMSalarySheetDeductionSpecial" />
+    <EntitySet Name="HRMSalarySheetMaster" EntityType="Self.HRMSalarySheetMaster" />
+    <EntitySet Name="HRMSalarySheetMasterParent" EntityType="Self.HRMSalarySheetMasterParent" />
+    <EntitySet Name="HRMSalaryStructure" EntityType="Self.HRMSalaryStructure" />
+    <EntitySet Name="LK_BankBranches" EntityType="Self.LK_BankBranches" />
+    <EntitySet Name="LK_Banks" EntityType="Self.LK_Banks" />
+    <EntitySet Name="LK_BranchTypes" EntityType="Self.LK_BranchTypes" />
+    <EntitySet Name="LK_Cities" EntityType="Self.LK_Cities" />
+    <EntitySet Name="LK_CodeDefinations" EntityType="Self.LK_CodeDefinations" />
+    <EntitySet Name="LK_Company" EntityType="Self.LK_Company" />
+    <EntitySet Name="LK_Departments" EntityType="Self.LK_Departments" />
+    <EntitySet Name="LK_Desginations" EntityType="Self.LK_Desginations" />
+    <EntitySet Name="LK_EmployeeTypes" EntityType="Self.LK_EmployeeTypes" />
+    <EntitySet Name="LK_HRMAllowanceDeductionType" EntityType="Self.LK_HRMAllowanceDeductionType" />
+    <EntitySet Name="LK_StatusDefinations" EntityType="Self.LK_StatusDefinations" />
+    <EntitySet Name="MedicalHistoryDetails" EntityType="Self.MedicalHistoryDetails" />
+    <EntitySet Name="MedicalPrescriptionDetails" EntityType="Self.MedicalPrescriptionDetails" />
+    <EntitySet Name="MedicalPrescriptions" EntityType="Self.MedicalPrescriptions" />
+    <EntitySet Name="Menu_UsersFormAccessSetting" EntityType="Self.Menu_UsersFormAccessSetting" />
+    <EntitySet Name="Menu_UsersFormSetting" EntityType="Self.Menu_UsersFormSetting" />
+    <EntitySet Name="PatientAppointment" EntityType="Self.PatientAppointment" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" />
+    <EntitySet Name="PortalUsers" EntityType="Self.PortalUsers" />
+    <EntitySet Name="HRMSalarySheetDeductionGeneral" EntityType="Self.HRMSalarySheetDeductionGeneral" />
+    <FunctionImport Name="AEOEvents_GetList" ReturnType="Collection(HMSModel.AEOEvents_GetList_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="AEOEvents_Insert">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="EventName" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="String" />
+      <Parameter Name="EndDate" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedById" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDateTime" Mode="In" Type="String" />
+      <Parameter Name="ShortGUID" Mode="In" Type="String" />
+      <Parameter Name="HashGUID" Mode="In" Type="String" />
+      <Parameter Name="Venue" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Branches_GetListByCoyId" ReturnType="Collection(HMSModel.Branches_GetListByCoyId_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Designation_GetListByCoyId" ReturnType="Collection(HMSModel.Designation_GetListByCoyId_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Employees_GetByParameter" ReturnType="Collection(HMSModel.Employees_GetByParameter_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Code" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Employees_Insert" ReturnType="Collection(HMSModel.Employees_Insert_Result)">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="EmployeeName" Mode="In" Type="String" />
+      <Parameter Name="FatherHusbandName" Mode="In" Type="String" />
+      <Parameter Name="Cnic" Mode="In" Type="String" />
+      <Parameter Name="Nationality" Mode="In" Type="String" />
+      <Parameter Name="MartialStatus" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="DateTime" />
+      <Parameter Name="Age" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Home" Mode="In" Type="String" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="IncomeTaxStatus" Mode="In" Type="Int32" />
+      <Parameter Name="NTNNumber" Mode="In" Type="String" />
+      <Parameter Name="BankNameId" Mode="In" Type="Int32" />
+      <Parameter Name="BankBranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AccountTitle" Mode="In" Type="String" />
+      <Parameter Name="AccountNumber" Mode="In" Type="String" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="DepartmentId" Mode="In" Type="Int32" />
+      <Parameter Name="DesignationId" Mode="In" Type="Int32" />
+      <Parameter Name="EmployeeTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="JoiningDate" Mode="In" Type="DateTime" />
+      <Parameter Name="HASH_GUID" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HRAdvertisment_GetListByParameter" ReturnType="Collection(HMSModel.HRAdvertisment_GetListByParameter_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="HRMADCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HRAdvertisment_Insert">
+      <Parameter Name="HRMADCode" Mode="In" Type="String" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="Title" Mode="In" Type="String" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="Short_GUID" Mode="In" Type="String" />
+      <Parameter Name="Hash_GUID" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HRAdvertismentApplicants_GetListByParameter" ReturnType="Collection(HMSModel.HRAdvertismentApplicants_GetListByParameter_Result)">
+      <Parameter Name="CaseType" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="AdvertismentCode" Mode="In" Type="String" />
+      <Parameter Name="ApplicantCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HRAdvertismentApplicants_Insert">
+      <Parameter Name="AdvertismentCode" Mode="In" Type="String" />
+      <Parameter Name="ApplicantName" Mode="In" Type="String" />
+      <Parameter Name="ApplicantCode" Mode="In" Type="String" />
+      <Parameter Name="Profession" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="Education" Mode="In" Type="String" />
+      <Parameter Name="Institute" Mode="In" Type="String" />
+      <Parameter Name="AdmissionDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DegreeCompletionDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DivisionOrGPA" Mode="In" Type="String" />
+      <Parameter Name="LastJob" Mode="In" Type="String" />
+      <Parameter Name="JobStartedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="JobEndedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="OtherJobs" Mode="In" Type="String" />
+      <Parameter Name="LastEmployer" Mode="In" Type="String" />
+      <Parameter Name="OtherSkills" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="ShortGUID" Mode="In" Type="String" />
+      <Parameter Name="HashGUID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HRAdvertismentApplicants_UpdateByParamter">
+      <Parameter Name="CaseType" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="ApplicantCode" Mode="In" Type="String" />
+      <Parameter Name="AdvertismentCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HRApplicantInterviews_GetListByParamters" ReturnType="Collection(HMSModel.HRApplicantInterviews_GetListByParamters_Result)">
+      <Parameter Name="CaseType" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="InterViewCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="HRApplicantInterviews_Insert">
+      <Parameter Name="InterViewCode" Mode="In" Type="String" />
+      <Parameter Name="ApplicantCode" Mode="In" Type="String" />
+      <Parameter Name="AdvertismentCode" Mode="In" Type="String" />
+      <Parameter Name="InterviewDate" Mode="In" Type="String" />
+      <Parameter Name="InterViewTime" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="ShortGUID" Mode="In" Type="String" />
+      <Parameter Name="HashGUID" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="IsAttended" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="HRInterViewSchedule_Insert">
+      <Parameter Name="ApplicantCode" Mode="In" Type="String" />
+      <Parameter Name="AdvertismentCode" Mode="In" Type="String" />
+      <Parameter Name="InterViewDate" Mode="In" Type="String" />
+      <Parameter Name="InterViewTime" Mode="In" Type="String" />
+      <Parameter Name="ShortGUID" Mode="In" Type="String" />
+      <Parameter Name="HashGUID" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HRMAllowances_GetListByParameter" ReturnType="Collection(HMSModel.HRMAllowances_GetListByParameter_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="HRMAllowances_Insert">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="AllowanceTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="Amount" Mode="In" Type="Decimal" />
+      <Parameter Name="Percentage" Mode="In" Type="Decimal" />
+      <Parameter Name="EffectiveFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="ExpiredOn" Mode="In" Type="DateTime" />
+      <Parameter Name="Short_GUID" Mode="In" Type="String" />
+      <Parameter Name="Hash_GUID" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="HRMSalaryStructure_Insert" ReturnType="Collection(HMSModel.HRMSalaryStructure_Insert_Result)">
+      <Parameter Name="EmployeeCode" Mode="In" Type="String" />
+      <Parameter Name="HSSCode" Mode="In" Type="String" />
+      <Parameter Name="BasicSalary" Mode="In" Type="Decimal" />
+      <Parameter Name="EffectiveFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="ExpiryDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Short_GUID" Mode="In" Type="String" />
+      <Parameter Name="Hash_GUID" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_BankBranches_GetListByBankId" ReturnType="Collection(HMSModel.LK_BankBranches_GetListByBankId_Result)">
+      <Parameter Name="BankId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_Departments_GetListByBranchId" ReturnType="Collection(HMSModel.LK_Departments_GetListByBranchId_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_Departments_GetListByCompanyId" ReturnType="Collection(HMSModel.LK_Departments_GetListByCompanyId_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_EmployeeTypes_GetListById" ReturnType="Collection(HMSModel.LK_EmployeeTypes_GetListById_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MedicalPrescriptions_GetDetailsByPrescriptionCode" ReturnType="Collection(HMSModel.MedicalPrescriptions_GetDetailsByPrescriptionCode_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="AppointmentCode" Mode="In" Type="String" />
+      <Parameter Name="PatientCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MedicalPrescriptions_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="PrescriptionCode" Mode="In" Type="String" />
+      <Parameter Name="PatientCode" Mode="In" Type="String" />
+      <Parameter Name="AppointmentCode" Mode="In" Type="String" />
+      <Parameter Name="AdditionalNote" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="HASHGUID" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MedicalPrescriptionsDetails_Insert">
+      <Parameter Name="PrescriptId" Mode="In" Type="Int32" />
+      <Parameter Name="PrescriptionType" Mode="In" Type="String" />
+      <Parameter Name="Test_MedicineName" Mode="In" Type="String" />
+      <Parameter Name="CourseDays" Mode="In" Type="String" />
+      <Parameter Name="Dosage" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MenuUsersFormSetting_AccessControl" ReturnType="Collection(HMSModel.MenuUsersFormSetting_AccessControl_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="FormName" Mode="In" Type="String" />
+      <Parameter Name="ImplementedCompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MenuUsersFormSetting_DiplayControl" ReturnType="Collection(HMSModel.MenuUsersFormSetting_DiplayControl_Result)">
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="ParentDisplay" Mode="In" Type="String" />
+      <Parameter Name="ImplementedCompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Patient_GetDetailByCode" ReturnType="Collection(HMSModel.Patient_GetDetailByCode_Result)">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PatientAppointment_GetDetailByAppointmentId" ReturnType="Collection(HMSModel.PatientAppointment_GetDetailByAppointmentId_Result)">
+      <Parameter Name="AppointmentCode" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PatientAppointment_GetListByDOAAndStatus" ReturnType="Collection(HMSModel.PatientAppointment_GetListByDOAAndStatus_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="PatientAppointment_Insert">
+      <Parameter Name="AppointmentCode" Mode="In" Type="String" />
+      <Parameter Name="PatientCode" Mode="In" Type="String" />
+      <Parameter Name="DepartmentId" Mode="In" Type="Int32" />
+      <Parameter Name="DoctorCode" Mode="In" Type="String" />
+      <Parameter Name="DateofAppointment" Mode="In" Type="DateTime" />
+      <Parameter Name="TimeofAppointment" Mode="In" Type="String" />
+      <Parameter Name="PatientEmail" Mode="In" Type="String" />
+      <Parameter Name="PatientPhone" Mode="In" Type="String" />
+      <Parameter Name="Message" Mode="In" Type="String" />
+      <Parameter Name="AppointmentStatus" Mode="In" Type="Boolean" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedById" Mode="In" Type="Int32" />
+      <Parameter Name="Type" Mode="In" Type="String" />
+      <Parameter Name="HASHGuid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PatientAppointment_UpdateStatus">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdateById" Mode="In" Type="Int32" />
+      <Parameter Name="IsAttended" Mode="In" Type="Boolean" />
+      <Parameter Name="AppointmentCode" Mode="In" Type="String" />
+      <Parameter Name="PatientCode" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Patients_GetListByDateRange" ReturnType="Collection(HMSModel.Patients_GetListByDateRange_Result)">
+      <Parameter Name="StartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndDate" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="Patients_Insert">
+      <Parameter Name="Code" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="FatherHusbandName" Mode="In" Type="String" />
+      <Parameter Name="Cnic" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="Phone" Mode="In" Type="String" />
+      <Parameter Name="DOB" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="Age" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="CountryId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedDate" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedById" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="DiscontinuationDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ReasonToInActive" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="HASHGuid" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PortalUsers_VerifySessionInformation" ReturnType="Collection(HMSModel.PortalUsers_VerifySessionInformation_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedComapnyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="AEOEvents_GetList_Result">
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="EventName" Nullable="true" />
+    <Property Type="String" Name="StartDate" Nullable="true" />
+    <Property Type="String" Name="EndDate" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Int32" Name="CreatedById" Nullable="true" />
+    <Property Type="String" Name="CreatedDateTime" Nullable="true" />
+    <Property Type="String" Name="ShortGUID" Nullable="true" />
+    <Property Type="String" Name="HashGUID" Nullable="true" />
+    <Property Type="String" Name="Venue" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Branches_GetListByCoyId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BranchName" Nullable="true" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="Int32" Name="BranchType" Nullable="true" />
+    <Property Type="String" Name="AllowedDepartmentIds" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Designation_GetListByCoyId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Designation" Nullable="false" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="1" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Employees_GetByParameter_Result">
+    <Property Type="Int32" Name="E_Id" Nullable="false" />
+    <Property Type="String" Name="E_Code" Nullable="true" />
+    <Property Type="String" Name="E_EmployeeName" Nullable="true" />
+    <Property Type="String" Name="E_FatherHusbandName" Nullable="true" />
+    <Property Type="String" Name="E_Cnic" Nullable="true" />
+    <Property Type="String" Name="E_Nationality" Nullable="true" />
+    <Property Type="String" Name="E_MartialStatus" Nullable="true" />
+    <Property Type="String" Name="E_Gender" Nullable="true" />
+    <Property Type="DateTime" Name="E_DOB" Nullable="true" Precision="16" />
+    <Property Type="String" Name="E_Age" Nullable="true" />
+    <Property Type="String" Name="E_Email" Nullable="true" />
+    <Property Type="String" Name="E_Phone" Nullable="true" />
+    <Property Type="String" Name="E_Home" Nullable="true" />
+    <Property Type="Int32" Name="E_CountryId" Nullable="true" />
+    <Property Type="Int32" Name="E_CityId" Nullable="true" />
+    <Property Type="String" Name="E_Address" Nullable="true" />
+    <Property Type="Int32" Name="E_IncomeTaxStatus" Nullable="true" />
+    <Property Type="String" Name="E_NTNNumber" Nullable="true" />
+    <Property Type="Int32" Name="E_BankNameId" Nullable="true" />
+    <Property Type="Int32" Name="E_BankBranchId" Nullable="true" />
+    <Property Type="String" Name="E_AccountTitle" Nullable="true" />
+    <Property Type="String" Name="E_AccountNumber" Nullable="true" />
+    <Property Type="Int32" Name="E_BranchId" Nullable="true" />
+    <Property Type="Int32" Name="E_DepartmentId" Nullable="true" />
+    <Property Type="Int32" Name="E_DesignationId" Nullable="true" />
+    <Property Type="Int32" Name="E_EmployeeTypeId" Nullable="true" />
+    <Property Type="DateTime" Name="E_JoiningDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="E_CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="E_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="E_Updatedby" Nullable="true" />
+    <Property Type="DateTime" Name="E_UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="E_CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="E_Status" Nullable="true" />
+    <Property Type="String" Name="E_HASH_GUID" Nullable="true" />
+    <Property Type="String" Name="E_CityName" Nullable="false" />
+    <Property Type="String" Name="E_BankName" Nullable="true" />
+    <Property Type="String" Name="E_BankCode" Nullable="true" />
+    <Property Type="String" Name="E_BankBranchName" Nullable="false" />
+    <Property Type="String" Name="E_BankBranchAddress" Nullable="false" />
+    <Property Type="String" Name="E_BankBranchCode" Nullable="false" />
+    <Property Type="String" Name="E_DepartmentName" Nullable="false" />
+    <Property Type="String" Name="E_Designation" Nullable="false" />
+    <Property Type="String" Name="E_EmployeeTypes" Nullable="false" />
+    <Property Type="String" Name="E_BranchName" Nullable="true" />
+    <Property Type="String" Name="E_BranchCode" Nullable="true" />
+    <Property Type="String" Name="E_BranchAddress" Nullable="true" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="String" Name="LKC_CityName" Nullable="true" />
+    <Property Type="String" Name="LKC_Email" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsFundMang" Nullable="true" />
+    <Property Type="String" Name="LKC_STN" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="EmpBankBranch" Nullable="false" />
+    <Property Type="String" Name="BranchCode" Nullable="false" />
+    <Property Type="String" Name="BankBranchAddress" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Employees_Insert_Result">
+    <Property Type="Decimal" Name="ID" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="String" Name="Code" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HRAdvertisment_GetListByParameter_Result">
+    <Property Type="String" Name="A_HRMADCode" Nullable="true" />
+    <Property Type="String" Name="A_Title" Nullable="true" />
+    <Property Type="String" Name="A_Type" Nullable="true" />
+    <Property Type="DateTime" Name="A_StartDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="A_EndDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="A_Description" Nullable="true" />
+    <Property Type="String" Name="A_Short_GUID" Nullable="true" />
+    <Property Type="String" Name="A_Hash_GUID" Nullable="true" />
+    <Property Type="Int32" Name="A_CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="A_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="A_CompanyId" Nullable="true" />
+    <Property Type="String" Name="A_Status" Nullable="false" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_Email" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="LKC_CityName" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="HRAdvertismentApplicants_GetListByParameter_Result">
+    <Property Type="Int32" Name="ADVapp_Id" Nullable="false" />
+    <Property Type="String" Name="ADVapp_AdvertismentCode" Nullable="true" />
+    <Property Type="String" Name="ADVapp_ApplicantName" Nullable="true" />
+    <Property Type="String" Name="ADVapp_ApplicantCode" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Profession" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Address" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Email" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Phone" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Education" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Institute" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_AdmissionDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ADVapp_DegreeCompletionDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_DivisionOrGPA" Nullable="true" />
+    <Property Type="String" Name="ADVapp_LastJob" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_JobStartedOn" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ADVapp_JobEndedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_OtherJobs" Nullable="true" />
+    <Property Type="String" Name="ADVapp_LastEmployer" Nullable="true" />
+    <Property Type="String" Name="ADVapp_OtherSkills" Nullable="true" />
+    <Property Type="Int32" Name="ADVapp_Status" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Status1" Nullable="false" />
+    <Property Type="Int32" Name="ADVapp_CompanyId" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_ShortGUID" Nullable="true" />
+    <Property Type="String" Name="ADVapp_HashGUID" Nullable="true" />
+    <Property Type="Int32" Name="ADV_Id" Nullable="false" />
+    <Property Type="String" Name="ADV_HRMADCode" Nullable="true" />
+    <Property Type="String" Name="ADV_Type" Nullable="true" />
+    <Property Type="DateTime" Name="ADV_StartDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ADV_EndDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADV_Description" Nullable="true" />
+    <Property Type="String" Name="ADV_Short_GUID" Nullable="true" />
+    <Property Type="String" Name="ADV_Hash_GUID" Nullable="true" />
+    <Property Type="Int32" Name="ADV_CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="ADV_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="ADV_UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="ADV_UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="ADV_CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="ADV_Status" Nullable="true" />
+    <Property Type="String" Name="ADV_Title" Nullable="true" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="LKC_CityName" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="HRApplicantInterviews_GetListByParamters_Result">
+    <Property Type="Int32" Name="HRI_Id" Nullable="false" />
+    <Property Type="String" Name="HRI_InterViewCode" Nullable="true" />
+    <Property Type="String" Name="HRI_ApplicantCode" Nullable="true" />
+    <Property Type="String" Name="HRI_AdvertismentCode" Nullable="true" />
+    <Property Type="String" Name="HRI_InterviewDate" Nullable="true" />
+    <Property Type="String" Name="HRI_InterViewTime" Nullable="true" />
+    <Property Type="String" Name="HRI_Status" Nullable="false" />
+    <Property Type="Int32" Name="HRI_CompanyId" Nullable="true" />
+    <Property Type="String" Name="HRI_ShortGUID" Nullable="true" />
+    <Property Type="String" Name="HRI_HashGUID" Nullable="true" />
+    <Property Type="Int32" Name="HRI_CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="HRI_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="HRI_Message" Nullable="true" />
+    <Property Type="Boolean" Name="HRI_IsAttended" Nullable="true" />
+    <Property Type="Int32" Name="ADVapp_Id" Nullable="false" />
+    <Property Type="String" Name="ADVapp_AdvertismentCode" Nullable="true" />
+    <Property Type="String" Name="ADVapp_ApplicantName" Nullable="true" />
+    <Property Type="String" Name="ADVapp_ApplicantCode" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Profession" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Address" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Email" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Phone" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Education" Nullable="true" />
+    <Property Type="String" Name="ADVapp_Institute" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_AdmissionDate" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ADVapp_DegreeCompletionDate" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_DivisionOrGPA" Nullable="true" />
+    <Property Type="String" Name="ADVapp_LastJob" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_JobStartedOn" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ADVapp_JobEndedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_OtherJobs" Nullable="true" />
+    <Property Type="String" Name="ADVapp_LastEmployer" Nullable="true" />
+    <Property Type="String" Name="ADVapp_OtherSkills" Nullable="true" />
+    <Property Type="Int32" Name="ADVapp_Status" Nullable="true" />
+    <Property Type="Int32" Name="ADVapp_CompanyId" Nullable="true" />
+    <Property Type="DateTime" Name="ADVapp_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="ADVapp_ShortGUID" Nullable="true" />
+    <Property Type="String" Name="ADVapp_HashGUID" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="HRMAllowances_GetListByParameter_Result">
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="Int32" Name="AllowanceTypeId" Nullable="true" />
+    <Property Type="Decimal" Name="Amount" Nullable="true" Precision="18" Scale="4" />
+    <Property Type="Decimal" Name="Percentage" Nullable="true" Precision="18" Scale="4" />
+    <Property Type="DateTime" Name="EffectiveFrom" Nullable="true" Precision="16" />
+    <Property Type="DateTime" Name="ExpiredOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="Short_GUID" Nullable="true" />
+    <Property Type="String" Name="Hash_GUID" Nullable="true" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="String" Name="StatusName" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="HRMSalaryStructure_Insert_Result">
+    <Property Type="Decimal" Name="ID" Nullable="true" Precision="38" Scale="0" />
+    <Property Type="String" Name="Code" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LK_BankBranches_GetListByBankId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BranchName" Nullable="false" />
+    <Property Type="String" Name="Address" Nullable="false" />
+    <Property Type="String" Name="BranchCode" Nullable="false" />
+    <Property Type="String" Name="TelePhone" Nullable="false" />
+    <Property Type="Int32" Name="BankId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LK_Departments_GetListByBranchId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+    <Property Type="String" Name="Phone" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="Int32" Name="IsAllowed" Nullable="false" />
+    <Property Type="Int32" Name="BranchId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LK_Departments_GetListByCompanyId_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+    <Property Type="Int32" Name="IsAllowed" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="LK_EmployeeTypes_GetListById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="EmployeeTypes" Nullable="false" />
+    <Property Type="Int32" Name="Status" Nullable="false" />
+    <Property Type="Int32" Name="CompanyId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="MedicalPrescriptions_GetDetailsByPrescriptionCode_Result">
+    <Property Type="Int32" Name="MP_Id" Nullable="false" />
+    <Property Type="Int32" Name="MP_CompanyId" Nullable="true" />
+    <Property Type="String" Name="MP_PrescriptionCode" Nullable="true" />
+    <Property Type="String" Name="MP_PatientCode" Nullable="true" />
+    <Property Type="String" Name="MP_AppointmentCode" Nullable="true" />
+    <Property Type="String" Name="MP_AdditionalNote" Nullable="true" />
+    <Property Type="Int32" Name="MP_CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="MP_CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="MP_UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="MP_UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="String" Name="MP_HASHGUID" Nullable="true" />
+    <Property Type="Int32" Name="MPD_Id" Nullable="false" />
+    <Property Type="Int32" Name="MPD_PrescriptId" Nullable="true" />
+    <Property Type="String" Name="MPD_PrescriptionType" Nullable="true" />
+    <Property Type="String" Name="MPD_Test_MedicineName" Nullable="true" />
+    <Property Type="String" Name="MPD_CourseDays" Nullable="true" />
+    <Property Type="String" Name="MPD_Dosage" Nullable="true" />
+    <Property Type="Int32" Name="LKC_Id" Nullable="false" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CityId" Nullable="true" />
+    <Property Type="String" Name="LKC_CityName" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="LKC_Fax" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_Email" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="Int32" Name="P_Id" Nullable="false" />
+    <Property Type="String" Name="P_Code" Nullable="true" />
+    <Property Type="String" Name="P_Name" Nullable="true" />
+    <Property Type="String" Name="P_FatherHusbandName" Nullable="true" />
+    <Property Type="String" Name="P_Cnic" Nullable="true" />
+    <Property Type="String" Name="P_Gender" Nullable="true" />
+    <Property Type="String" Name="P_Phone" Nullable="true" />
+    <Property Type="String" Name="P_DOB" Nullable="true" />
+    <Property Type="String" Name="P_Address" Nullable="true" />
+    <Property Type="String" Name="P_Age" Nullable="true" />
+    <Property Type="String" Name="P_Email" Nullable="true" />
+    <Property Type="String" Name="P_UserName" Nullable="true" />
+    <Property Type="String" Name="P_Password" Nullable="true" />
+    <Property Type="Int32" Name="P_CityId" Nullable="true" />
+    <Property Type="String" Name="P_CityName" Nullable="true" />
+    <Property Type="Int32" Name="P_CountryId" Nullable="true" />
+    <Property Type="DateTime" Name="P_CreatedDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="P_CreatedById" Nullable="true" />
+    <Property Type="String" Name="P_CreatedByName" Nullable="true" />
+    <Property Type="Boolean" Name="P_IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="P_DiscontinuationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="P_ReasonToInActive" Nullable="true" />
+    <Property Type="Int32" Name="P_CompanyId" Nullable="true" />
+    <Property Type="String" Name="P_HASHGuid" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="MenuUsersFormSetting_AccessControl_Result">
+    <Property Type="Int32" Name="FormId" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="false" />
+    <Property Type="String" Name="FormDisplayName" Nullable="false" />
+    <Property Type="String" Name="ParentDisplay" Nullable="false" />
+    <Property Type="String" Name="OperationType" Nullable="false" />
+    <Property Type="Boolean" Name="IsMenuDisplayAllowed" Nullable="false" />
+    <Property Type="Int32" Name="UserFormAccessSettingId" Nullable="false" />
+    <Property Type="Int32" Name="ImplementedCompanyId" Nullable="false" />
+    <Property Type="String" Name="ControllerName" Nullable="false" />
+    <Property Type="String" Name="FormURL" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="AllowedBranchId" Nullable="true" />
+    <Property Type="String" Name="AllowedComapnyId" Nullable="true" />
+    <Property Type="String" Name="UsersFormGroupSettingId" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Int32" Name="FormAccessId" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="true" />
+    <Property Type="String" Name="AllowedOperationType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="MenuUsersFormSetting_DiplayControl_Result">
+    <Property Type="Int32" Name="FormId" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="false" />
+    <Property Type="String" Name="FormDisplayName" Nullable="false" />
+    <Property Type="String" Name="ParentDisplay" Nullable="false" />
+    <Property Type="String" Name="OperationType" Nullable="false" />
+    <Property Type="Boolean" Name="IsMenuDisplayAllowed" Nullable="false" />
+    <Property Type="Int32" Name="UserFormAccessSettingId" Nullable="false" />
+    <Property Type="Int32" Name="ImplementedCompanyId" Nullable="false" />
+    <Property Type="String" Name="ControllerName" Nullable="false" />
+    <Property Type="String" Name="FormURL" Nullable="false" />
+    <Property Type="Int32" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="AllowedBranchId" Nullable="true" />
+    <Property Type="String" Name="AllowedComapnyId" Nullable="true" />
+    <Property Type="String" Name="UsersFormGroupSettingId" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="Int32" Name="FormAccessId" Nullable="false" />
+    <Property Type="String" Name="GroupName" Nullable="true" />
+    <Property Type="String" Name="AllowedOperationType" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Patient_GetDetailByCode_Result">
+    <Property Type="Int32" Name="P_Id" Nullable="false" />
+    <Property Type="String" Name="P_Code" Nullable="true" />
+    <Property Type="String" Name="P_Name" Nullable="true" />
+    <Property Type="String" Name="P_FatherHusbandName" Nullable="true" />
+    <Property Type="String" Name="P_Cnic" Nullable="true" />
+    <Property Type="String" Name="P_Gender" Nullable="true" />
+    <Property Type="String" Name="P_Phone" Nullable="true" />
+    <Property Type="String" Name="P_DOB" Nullable="true" />
+    <Property Type="String" Name="P_Address" Nullable="true" />
+    <Property Type="String" Name="P_Age" Nullable="true" />
+    <Property Type="String" Name="P_Email" Nullable="true" />
+    <Property Type="String" Name="P_UserName" Nullable="true" />
+    <Property Type="String" Name="P_Password" Nullable="true" />
+    <Property Type="Int32" Name="P_CityId" Nullable="true" />
+    <Property Type="String" Name="P_CityName" Nullable="true" />
+    <Property Type="Int32" Name="P_CountryId" Nullable="true" />
+    <Property Type="DateTime" Name="P_CreatedDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="P_CreatedById" Nullable="true" />
+    <Property Type="Boolean" Name="P_IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="P_DiscontinuationDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="P_CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_Id" Nullable="false" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CountryId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CityId" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="LKC_Fax" Nullable="true" />
+    <Property Type="String" Name="LKC_Email" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="String" Name="LKC_IncomeTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_WithHoldingAgent" Nullable="true" />
+    <Property Type="String" Name="LKC_SalesTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_STN" Nullable="true" />
+    <Property Type="String" Name="LKC_CompanyTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_CurrencyCode" Nullable="true" />
+    <Property Type="String" Name="LKC_DecimalPlaces" Nullable="true" />
+    <Property Type="String" Name="LKC_AccountingSystem" Nullable="true" />
+    <Property Type="String" Name="LKC_PeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="LKC_PeriodEndsAfter" Nullable="true" />
+    <Property Type="String" Name="LKC_LogoImageUrl" Nullable="true" />
+    <Property Type="Int32" Name="LKC_OwnerId" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_Status" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CreatedById" Nullable="true" />
+    <Property Type="String" Name="LKC_CreatedTime" Nullable="true" />
+    <Property Type="Int32" Name="LKC_UpdatedById" Nullable="true" />
+    <Property Type="String" Name="LKC_UpdatedTime" Nullable="true" />
+    <Property Type="String" Name="LKC_ShortGUID" Nullable="true" />
+    <Property Type="String" Name="LKC_HashGUID" Nullable="true" />
+    <Property Type="String" Name="LKC_EOBIDeductionRegistered" Nullable="true" />
+    <Property Type="String" Name="LKC_EOBIDeductionNo" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_SocialSecurityRegistered" Nullable="true" />
+    <Property Type="String" Name="LKC_SocialSecurityNO" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsProvidentFundAdopted" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_ProvidentFundRegistered" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_EmployerContribution" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_EmployeeContribution" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ICTAccountId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ProvidentDeduType" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsHREnable" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsDonorApplicable" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_RptSlogan" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsBranchMang" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsFundMang" Nullable="true" />
+    <Property Type="String" Name="LKC_IsAutoAmortizationFunds" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsProjectApplicable" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PeriodType" Nullable="true" />
+    <Property Type="Int32" Name="LKC_LandingPolicyId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_TaxMethodologyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_EPProductTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsWHSalesTax" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsVoucherCompanyWise" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsMedicalExemption" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ExcemptionPersentage" Nullable="true" />
+    <Property Type="String" Name="LKC_IsVenueInOfficalAssignment" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsFixedAssetsAllowed" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsBudgetAllowed" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsSandWichLeavePolicy" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsCOAPrioritySorting" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsVehicle" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_RegisteredAreaIds" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsConstructionCompany" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsOpenAllAccount" Nullable="true" />
+    <Property Type="String" Name="LKC_IsMIS" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsSalaryTaxOpen" Nullable="true" />
+    <Property Type="String" Name="LKC_IsSalaryJV" Nullable="true" />
+    <Property Type="String" Name="LKC_TaxPeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="LKC_HRPeriodStartDate" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ProvinceId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PFTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PFAccountId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_APManagementId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ARManagementId" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsFedAllow" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsFranchiseFeeAllow" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsCustomerDistanceAllow" Nullable="true" />
+    <Property Type="Int32" Name="PU_Id" Nullable="false" />
+    <Property Type="String" Name="PU_UserName" Nullable="true" />
+    <Property Type="String" Name="PU_Email" Nullable="true" />
+    <Property Type="String" Name="PU_Password" Nullable="true" />
+    <Property Type="String" Name="PU_UsersFormGroupSettingId" Nullable="true" />
+    <Property Type="Int32" Name="LKCI_Id" Nullable="false" />
+    <Property Type="String" Name="LKCI_CityName" Nullable="false" />
+    <Property Type="Int32" Name="LKCI_CountryId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PatientAppointment_GetDetailByAppointmentId_Result">
+    <Property Type="Int32" Name="PA_Id" Nullable="false" />
+    <Property Type="String" Name="PA_AppointmentCode" Nullable="true" />
+    <Property Type="String" Name="PA_PatientCode" Nullable="true" />
+    <Property Type="Int32" Name="PA_DepartmentId" Nullable="true" />
+    <Property Type="String" Name="PA_DepartmentName" Nullable="true" />
+    <Property Type="String" Name="PA_DoctorCode" Nullable="true" />
+    <Property Type="DateTime" Name="PA_DateofAppointment" Nullable="true" Precision="16" />
+    <Property Type="String" Name="PA_TimeofAppointment" Nullable="true" />
+    <Property Type="String" Name="PA_PatientEmail" Nullable="true" />
+    <Property Type="String" Name="PA_PatientPhone" Nullable="true" />
+    <Property Type="String" Name="PA_Message" Nullable="true" />
+    <Property Type="Boolean" Name="PA_AppointmentStatus" Nullable="true" />
+    <Property Type="Int32" Name="PA_CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="PA_BranchId" Nullable="true" />
+    <Property Type="Int32" Name="PA_CreatedById" Nullable="true" />
+    <Property Type="DateTime" Name="PA_UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="PA_UpdateById" Nullable="true" />
+    <Property Type="Int32" Name="P_Id" Nullable="false" />
+    <Property Type="String" Name="P_Code" Nullable="true" />
+    <Property Type="String" Name="P_Name" Nullable="true" />
+    <Property Type="String" Name="P_FatherHusbandName" Nullable="true" />
+    <Property Type="String" Name="P_Cnic" Nullable="true" />
+    <Property Type="String" Name="P_Gender" Nullable="true" />
+    <Property Type="String" Name="P_Phone" Nullable="true" />
+    <Property Type="String" Name="P_DOB" Nullable="true" />
+    <Property Type="String" Name="P_Address" Nullable="true" />
+    <Property Type="String" Name="P_Age" Nullable="true" />
+    <Property Type="String" Name="P_Email" Nullable="true" />
+    <Property Type="String" Name="P_UserName" Nullable="true" />
+    <Property Type="String" Name="P_Password" Nullable="true" />
+    <Property Type="Int32" Name="P_CityId" Nullable="true" />
+    <Property Type="String" Name="P_CityName" Nullable="true" />
+    <Property Type="Int32" Name="P_CountryId" Nullable="true" />
+    <Property Type="DateTime" Name="P_CreatedDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="P_CreatedById" Nullable="true" />
+    <Property Type="Boolean" Name="P_IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="P_DiscontinuationDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="P_ReasonToInActive" Nullable="true" />
+    <Property Type="Int32" Name="LKC_Id" Nullable="false" />
+    <Property Type="String" Name="LKC_CompanyName" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine1" Nullable="true" />
+    <Property Type="String" Name="LKC_AddressLine2" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CountryId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CityId" Nullable="true" />
+    <Property Type="String" Name="LKC_Contact" Nullable="true" />
+    <Property Type="String" Name="LKC_Fax" Nullable="true" />
+    <Property Type="String" Name="LKC_Email" Nullable="true" />
+    <Property Type="String" Name="LKC_Website" Nullable="true" />
+    <Property Type="String" Name="LKC_IncomeTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_NTN" Nullable="true" />
+    <Property Type="String" Name="LKC_WithHoldingAgent" Nullable="true" />
+    <Property Type="String" Name="LKC_SalesTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_STN" Nullable="true" />
+    <Property Type="String" Name="LKC_CompanyTypeId" Nullable="true" />
+    <Property Type="String" Name="LKC_CurrencyCode" Nullable="true" />
+    <Property Type="String" Name="LKC_DecimalPlaces" Nullable="true" />
+    <Property Type="String" Name="LKC_AccountingSystem" Nullable="true" />
+    <Property Type="String" Name="LKC_PeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="LKC_PeriodEndsAfter" Nullable="true" />
+    <Property Type="String" Name="LKC_LogoImageUrl" Nullable="true" />
+    <Property Type="Int32" Name="LKC_OwnerId" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_Status" Nullable="true" />
+    <Property Type="Int32" Name="LKC_CreatedById" Nullable="true" />
+    <Property Type="String" Name="LKC_CreatedTime" Nullable="true" />
+    <Property Type="Int32" Name="LKC_UpdatedById" Nullable="true" />
+    <Property Type="String" Name="LKC_UpdatedTime" Nullable="true" />
+    <Property Type="String" Name="LKC_ShortGUID" Nullable="true" />
+    <Property Type="String" Name="LKC_HashGUID" Nullable="true" />
+    <Property Type="String" Name="LKC_EOBIDeductionRegistered" Nullable="true" />
+    <Property Type="String" Name="LKC_EOBIDeductionNo" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_SocialSecurityRegistered" Nullable="true" />
+    <Property Type="String" Name="LKC_SocialSecurityNO" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsProvidentFundAdopted" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_ProvidentFundRegistered" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_EmployerContribution" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_EmployeeContribution" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ICTAccountId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ProvidentDeduType" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsHREnable" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsDonorApplicable" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_RptSlogan" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsBranchMang" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsFundMang" Nullable="true" />
+    <Property Type="String" Name="LKC_IsAutoAmortizationFunds" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsProjectApplicable" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PeriodType" Nullable="true" />
+    <Property Type="Int32" Name="LKC_LandingPolicyId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_TaxMethodologyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_EPProductTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsWHSalesTax" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsVoucherCompanyWise" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsMedicalExemption" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ExcemptionPersentage" Nullable="true" />
+    <Property Type="String" Name="LKC_IsVenueInOfficalAssignment" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsFixedAssetsAllowed" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsBudgetAllowed" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsSandWichLeavePolicy" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsCOAPrioritySorting" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsVehicle" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_RegisteredAreaIds" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsConstructionCompany" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsOpenAllAccount" Nullable="true" />
+    <Property Type="String" Name="LKC_IsMIS" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsSalaryTaxOpen" Nullable="true" />
+    <Property Type="String" Name="LKC_IsSalaryJV" Nullable="true" />
+    <Property Type="String" Name="LKC_TaxPeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="LKC_HRPeriodStartDate" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ProvinceId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PFTypeId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_PFAccountId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_APManagementId" Nullable="true" />
+    <Property Type="Int32" Name="LKC_ARManagementId" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsFedAllow" Nullable="true" />
+    <Property Type="Boolean" Name="LKC_IsFranchiseFeeAllow" Nullable="true" />
+    <Property Type="Int32" Name="LKC_IsCustomerDistanceAllow" Nullable="true" />
+    <Property Type="Int32" Name="PU_Id" Nullable="false" />
+    <Property Type="String" Name="PU_UserName" Nullable="true" />
+    <Property Type="String" Name="PU_Email" Nullable="true" />
+    <Property Type="String" Name="PU_Password" Nullable="true" />
+    <Property Type="String" Name="PU_UsersFormGroupSettingId" Nullable="true" />
+    <Property Type="Int32" Name="LKCI_Id" Nullable="false" />
+    <Property Type="String" Name="LKCI_CityName" Nullable="false" />
+    <Property Type="Int32" Name="LKCI_CountryId" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="PatientAppointment_GetListByDOAAndStatus_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Type" Nullable="true" />
+    <Property Type="String" Name="AppointmentCode" Nullable="true" />
+    <Property Type="String" Name="PatientName" Nullable="true" />
+    <Property Type="String" Name="PatientCode" Nullable="true" />
+    <Property Type="Int32" Name="DepartmentId" Nullable="true" />
+    <Property Type="String" Name="DepartmentName" Nullable="true" />
+    <Property Type="String" Name="DoctorCode" Nullable="true" />
+    <Property Type="String" Name="DoctorName" Nullable="true" />
+    <Property Type="DateTime" Name="DateofAppointment" Nullable="true" Precision="16" />
+    <Property Type="String" Name="TimeofAppointment" Nullable="true" />
+    <Property Type="String" Name="PatientEmail" Nullable="true" />
+    <Property Type="String" Name="PatientPhone" Nullable="true" />
+    <Property Type="String" Name="Message" Nullable="true" />
+    <Property Type="Boolean" Name="IsAttended" Nullable="true" />
+    <Property Type="Int32" Name="CompanyId" Nullable="true" />
+    <Property Type="Int32" Name="BranchId" Nullable="true" />
+    <Property Type="Int32" Name="CreatedById" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="UpdateById" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="Patients_GetListByDateRange_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="true" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="FatherHusbandName" Nullable="true" />
+    <Property Type="String" Name="Cnic" Nullable="true" />
+    <Property Type="String" Name="Gender" Nullable="true" />
+    <Property Type="String" Name="Phone" Nullable="true" />
+    <Property Type="String" Name="DOB" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="Age" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="String" Name="CityName" Nullable="true" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="16" />
+    <Property Type="Int32" Name="CreatedById" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="PortalUsers_VerifySessionInformation_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="UsersEmail" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="String" Name="UsersFormGroupSettingId" Nullable="true" />
+    <Property Type="String" Name="AllowedComapnyId" Nullable="true" />
+    <Property Type="String" Name="AllowedBranchId" Nullable="true" />
+    <Property Type="Int32" Name="CoyId" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="true" />
+    <Property Type="String" Name="AddressLine1" Nullable="true" />
+    <Property Type="String" Name="AddressLine2" Nullable="true" />
+    <Property Type="Int32" Name="CountryId" Nullable="true" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="String" Name="Contact" Nullable="true" />
+    <Property Type="String" Name="Fax" Nullable="true" />
+    <Property Type="String" Name="CoyMail" Nullable="true" />
+    <Property Type="String" Name="Website" Nullable="true" />
+    <Property Type="String" Name="IncomeTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="NTN" Nullable="true" />
+    <Property Type="String" Name="WithHoldingAgent" Nullable="true" />
+    <Property Type="String" Name="SalesTaxTypeId" Nullable="true" />
+    <Property Type="String" Name="STN" Nullable="true" />
+    <Property Type="String" Name="CompanyTypeId" Nullable="true" />
+    <Property Type="String" Name="CurrencyCode" Nullable="true" />
+    <Property Type="String" Name="DecimalPlaces" Nullable="true" />
+    <Property Type="String" Name="AccountingSystem" Nullable="true" />
+    <Property Type="String" Name="PeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="PeriodEndsAfter" Nullable="true" />
+    <Property Type="String" Name="LogoImageUrl" Nullable="true" />
+    <Property Type="Int32" Name="OwnerId" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="Int32" Name="CreatedById" Nullable="true" />
+    <Property Type="String" Name="CreatedTime" Nullable="true" />
+    <Property Type="Int32" Name="UpdatedById" Nullable="true" />
+    <Property Type="String" Name="UpdatedTime" Nullable="true" />
+    <Property Type="String" Name="ShortGUID" Nullable="true" />
+    <Property Type="String" Name="HashGUID" Nullable="true" />
+    <Property Type="String" Name="EOBIDeductionRegistered" Nullable="true" />
+    <Property Type="String" Name="EOBIDeductionNo" Nullable="true" />
+    <Property Type="Boolean" Name="SocialSecurityRegistered" Nullable="true" />
+    <Property Type="String" Name="SocialSecurityNO" Nullable="true" />
+    <Property Type="Boolean" Name="IsProvidentFundAdopted" Nullable="true" />
+    <Property Type="Boolean" Name="ProvidentFundRegistered" Nullable="true" />
+    <Property Type="Boolean" Name="EmployerContribution" Nullable="true" />
+    <Property Type="Boolean" Name="EmployeeContribution" Nullable="true" />
+    <Property Type="Int32" Name="ICTAccountId" Nullable="true" />
+    <Property Type="Int32" Name="ProvidentDeduType" Nullable="true" />
+    <Property Type="Boolean" Name="IsHREnable" Nullable="true" />
+    <Property Type="Boolean" Name="IsDonorApplicable" Nullable="true" />
+    <Property Type="Boolean" Name="RptSlogan" Nullable="true" />
+    <Property Type="Boolean" Name="IsBranchMang" Nullable="true" />
+    <Property Type="Int32" Name="IsFundMang" Nullable="true" />
+    <Property Type="String" Name="IsAutoAmortizationFunds" Nullable="true" />
+    <Property Type="Int32" Name="IsProjectApplicable" Nullable="true" />
+    <Property Type="Int32" Name="PeriodType" Nullable="true" />
+    <Property Type="Int32" Name="LandingPolicyId" Nullable="true" />
+    <Property Type="Int32" Name="TaxMethodologyTypeId" Nullable="true" />
+    <Property Type="Int32" Name="EPProductTypeId" Nullable="true" />
+    <Property Type="Int32" Name="IsWHSalesTax" Nullable="true" />
+    <Property Type="Int32" Name="IsVoucherCompanyWise" Nullable="true" />
+    <Property Type="Int32" Name="IsMedicalExemption" Nullable="true" />
+    <Property Type="Int32" Name="ExcemptionPersentage" Nullable="true" />
+    <Property Type="String" Name="IsVenueInOfficalAssignment" Nullable="true" />
+    <Property Type="Int32" Name="IsFixedAssetsAllowed" Nullable="true" />
+    <Property Type="Int32" Name="IsBudgetAllowed" Nullable="true" />
+    <Property Type="Int32" Name="IsSandWichLeavePolicy" Nullable="true" />
+    <Property Type="Boolean" Name="IsCOAPrioritySorting" Nullable="true" />
+    <Property Type="Int32" Name="IsVehicle" Nullable="true" />
+    <Property Type="Boolean" Name="RegisteredAreaIds" Nullable="true" />
+    <Property Type="Boolean" Name="IsConstructionCompany" Nullable="true" />
+    <Property Type="Boolean" Name="IsOpenAllAccount" Nullable="true" />
+    <Property Type="String" Name="IsMIS" Nullable="true" />
+    <Property Type="Boolean" Name="IsSalaryTaxOpen" Nullable="true" />
+    <Property Type="String" Name="IsSalaryJV" Nullable="true" />
+    <Property Type="String" Name="TaxPeriodStartDate" Nullable="true" />
+    <Property Type="String" Name="HRPeriodStartDate" Nullable="true" />
+    <Property Type="Int32" Name="ProvinceId" Nullable="true" />
+    <Property Type="Int32" Name="PFTypeId" Nullable="true" />
+    <Property Type="Int32" Name="PFAccountId" Nullable="true" />
+    <Property Type="Int32" Name="APManagementId" Nullable="true" />
+    <Property Type="Int32" Name="ARManagementId" Nullable="true" />
+    <Property Type="Boolean" Name="IsFedAllow" Nullable="true" />
+    <Property Type="Boolean" Name="IsFranchiseFeeAllow" Nullable="true" />
+    <Property Type="Int32" Name="IsCustomerDistanceAllow" Nullable="true" />
+  </ComplexType>
+</Schema>

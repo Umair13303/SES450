@@ -1,0 +1,229 @@
+﻿
+@{
+    ViewBag.Title = "Fee Challan For New Admission";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="card-header">
+        <div class="card-heading">
+            <legend style="color:black;font-family:'Century Gothic';font-weight:bolder">@ViewBag.Title</legend>
+        </div>
+    </div>
+
+
+
+    <div class="container" style="margin-top: 20px">
+        <legend style="color:black;font-family:'Century Gothic';font-weight:bolder">Student Information</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("For Session", new { @class = "col-sm-3 col-form-label", @for = "DropDownListSession" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-file-archive-o sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.DropDownList("DropDownListSession", Enumerable.Empty<SelectListItem>(), new { @class = "js-basic-single select2 form-control  col-sm-2 ", id = "DropDownListSession", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("For Class", new { @class = "col-sm-3 col-form-label", @for = "DropDownListClass" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-building sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.DropDownList("DropDownListClass", Enumerable.Empty<SelectListItem>(), new { @class = "js-basic-single select2 form-control  col-sm-2 ", id = "DropDownListClass", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Registration", new { @class = "col-sm-3 col-form-label", @for = "DropDownListRegistrationType" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-gears sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.DropDownList("DropDownListRegistrationType", Enumerable.Empty<SelectListItem>(), new { @class = "js-basic-single select2 form-control  col-sm-2 ", id = "DropDownListRegistrationType", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Roll Call No", new { @class = "col-sm-3 col-form-label", @for = "DropDownListClassRegistration" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-gears sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.DropDownList("DropDownListClassRegistration", Enumerable.Empty<SelectListItem>(), new { @class = "js-basic-single select2 form-control  col-sm-2 ", id = "DropDownListClassRegistration", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 20px">
+        <legend style="color:black;font-family:'Century Gothic';font-weight:bolder">Challan Information</legend>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Transaction Date", new { @class = "col-sm-3 col-form-label", @for = "TextBoxTransactionDate" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.TextBox("TextBoxTransactionDate", null, new { @class = "form-control date_masking", placeholder = "Please Enter Transaction Date Here!", @id = "TextBoxTransactionDate" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Due Date", new { @class = "col-sm-3 col-form-label", @for = "TextBoxDueDate" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-check-o sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.TextBox("TextBoxDueDate", null, new { @class = "form-control date_masking", placeholder = "Please Enter Due Date Here!", @id = "TextBoxDueDate" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Expiry Date", new { @class = "col-sm-3 col-form-label", @for = "TextBoxExpiryDate" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-calendar-plus-o sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.TextBox("TextBoxExpiryDate", null, new { @class = "form-control date_masking", placeholder = "Please Enter Expiry Date Here!", @id = "TextBoxExpiryDate" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("Fee Structure", new { @class = "col-sm-3 col-form-label", @for = "DropDownListFeeStructure" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fa fa-gears sm-icon"></i>
+                                </span>
+                            </div>
+                            @Html.DropDownList("DropDownListFeeStructure", Enumerable.Empty<SelectListItem>(), new { @class = "js-basic-single select2 form-control  col-sm-2 ", id = "DropDownListFeeStructure", style = "width: 100%;" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container" style="margin-top: 20px">
+        <legend style="color:black;font-family:'Century Gothic';font-weight:bolder">Fee Information</legend>
+        <div class="bootstrap-admin-panel-content">
+            <table class="table table-bordered order-column stripe table-hover table-sm" style="width: 100%" id="TableFeeInformation">
+                <tbody id="TableBodyFeeInformation">
+                </tbody>
+            </table>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("GROSS RECIEVABLE", new { @class = "col-sm-3 col-form-label", @for = "TextBoxGrossRecievable" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">PKR.</span>
+                            </div>
+                            @Html.TextBox("TextBoxGrossRecievable", 0.00, new { @class = "form-control ", @disabled = true, placeholder = "Please Enter Gross Recievable Here!", @id = "TextBoxGrossRecievable" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("LATE FEE", new { @class = "col-sm-3 col-form-label", @for = "TextBoxLateFeeCharges" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">PKR.</span>
+                            </div>
+                            @Html.TextBox("TextBoxLateFee", 0.00, new { @class = "form-control ", placeholder = "Please Enter Late Fee Here!", @id = "TextBoxLateFee" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("DISCOUNT", new { @class = "col-sm-3 col-form-label", @for = "TextBoxDiscountAmount" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">PKR.</span>
+                            </div>
+                            @Html.TextBox("TextBoxDiscount", 0.00, new { @class = "form-control ", placeholder = "Please Enter Discount Amount Here!", @id = "TextBoxDiscount" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                    @Html.Label("NET RECIEVABLE", new { @class = "col-sm-3 col-form-label", @for = "TextBoxNetRecievable" })
+                    <div class="col-md-8 col-10 selects-contant col-sm-10">
+                        <div class="col-sm-12 d-flex ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">PKR.</span>
+                            </div>
+                            @Html.TextBox("TextBoxNetRecievable", 0.00, new { @class = "form-control ", @disabled = true, placeholder = "Please Enter Net Recievable Amount Here!", @id = "TextBoxNetRecievable" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 form-group">
+            <div class="card-header">
+                <div class="card-heading">
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDown" value="Save" />
+                    <i class="fa fa-arrow-up"></i>
+                    <input type="button" class="btn btn-info" id="ButtonSubmitDownNew" value="Save & New" />
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="text" hidden="hidden" id="HiddenFieldNumberOfChallan" />
+
+}
+
+
+<script src="~/SiteScripts/AAccounts/FeeChallanUI/CreateNewAccFeeChallan.js"></script>

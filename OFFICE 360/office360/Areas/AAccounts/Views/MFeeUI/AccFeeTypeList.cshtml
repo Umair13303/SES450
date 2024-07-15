@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="statbox widget box box-shadow">
+        <div class="widget-header">
+            <div class="row">
+                <div class="col-xl-12 col-md-12 col-sm-12 col-12 d-flex justify-content-between align-items-center">
+                    <h4>@ViewBag.Title</h4>
+
+                </div>
+            </div>
+            <nav class="breadcrumb-one" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Setup</a></li>
+                    <li class="breadcrumb-item"><a href="javascript:void(0);">Fee</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><span>Create New Fee Type</span></li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
+    <div class="card" style="margin-top:1%;width:100%">
+       
+        <div class="card-body">
+                <div class="bootstrap-admin-panel-content">
+                    <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableFeeType">
+                        <tbody id="TableBodyMainTableFeeType">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+}
+
+<script src="~/SiteScripts/AAccounts/MFeeUI/AccFeeTypeList.js"></script>
+

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TEST400ModelStoreContainer" CdmEntityContainer="TEST400Entities">
+    <EntitySetMapping Name="BankBranches">
+      <EntityTypeMapping TypeName="TEST400Model.BankBranches">
+        <MappingFragment StoreEntitySet="BankBranches">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BANKNAMEID" ColumnName="BANKNAMEID" />
+          <ScalarProperty Name="BRANCHNAME" ColumnName="BRANCHNAME" />
+          <ScalarProperty Name="BRANCHCODE" ColumnName="BRANCHCODE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BankName">
+      <EntityTypeMapping TypeName="TEST400Model.BankName">
+        <MappingFragment StoreEntitySet="BankName">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BANKNAME1" ColumnName="BANKNAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bussiness">
+      <EntityTypeMapping TypeName="TEST400Model.Bussiness">
+        <MappingFragment StoreEntitySet="Bussiness">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="TaxSectionId" ColumnName="TaxSectionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="City">
+      <EntityTypeMapping TypeName="TEST400Model.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CitiName" ColumnName="CitiName" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CompanyTypes">
+      <EntityTypeMapping TypeName="TEST400Model.CompanyTypes">
+        <MappingFragment StoreEntitySet="CompanyTypes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="CustomerTypeId" ColumnName="CustomerTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerAdd">
+      <EntityTypeMapping TypeName="TEST400Model.CustomerAdd">
+        <MappingFragment StoreEntitySet="CustomerAdd">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CustomerTypeId" ColumnName="CustomerTypeId" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="CNIC" ColumnName="CNIC" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="ChooseCompanyTypeId" ColumnName="ChooseCompanyTypeId" />
+          <ScalarProperty Name="IsIncomeTaxRegistered" ColumnName="IsIncomeTaxRegistered" />
+          <ScalarProperty Name="NTNNumber" ColumnName="NTNNumber" />
+          <ScalarProperty Name="IsSalesTaxRegistered" ColumnName="IsSalesTaxRegistered" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="CityId" ColumnName="CityId" />
+          <ScalarProperty Name="BussinessId" ColumnName="BussinessId" />
+          <ScalarProperty Name="IsActivice" ColumnName="IsActivice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerBank">
+      <EntityTypeMapping TypeName="TEST400Model.CustomerBank">
+        <MappingFragment StoreEntitySet="CustomerBank">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BranchNameId" ColumnName="BranchNameId" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CustomerType">
+      <EntityTypeMapping TypeName="TEST400Model.CustomerType">
+        <MappingFragment StoreEntitySet="CustomerType">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="TEST400Model.Provinces">
+        <MappingFragment StoreEntitySet="Provinces">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TaxSection">
+      <EntityTypeMapping TypeName="TEST400Model.TaxSection">
+        <MappingFragment StoreEntitySet="TaxSection">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="HS_CODE" ColumnName="HS_CODE" />
+          <ScalarProperty Name="TAX" ColumnName="TAX" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Bank_Select" FunctionName="TEST400Model.Store.Bank_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TEST400Model.Bank_Select_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BANKNAME" ColumnName="BANKNAME" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BankBranches_Select" FunctionName="TEST400Model.Store.BankBranches_Select">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="TEST400Model.BankBranches_Select_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="BRANCHNAME" ColumnName="BRANCHNAME" />
+          <ScalarProperty Name="BANKNAMEID" ColumnName="BANKNAMEID" />
+          <ScalarProperty Name="BRANCHCODE" ColumnName="BRANCHCODE" />
+          <ScalarProperty Name="BRANCHID" ColumnName="BRANCHID" />
+          <ScalarProperty Name="BRANCH_BY_BANK" ColumnName="BRANCH_BY_BANK" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CustomerBankInsert" FunctionName="TEST400Model.Store.CustomerBankInsert" />
+    <FunctionImportMapping FunctionImportName="CustomerDetail_Insert" FunctionName="TEST400Model.Store.CustomerDetail_Insert" />
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppAdmission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ApplicationStartDate" Type="date" />
+    <Property Name="ApplicationEndDate" Type="date" />
+    <Property Name="EnrollmentTypeId" Type="uniqueidentifier" />
+    <Property Name="OpenClassIds" Type="nvarchar(max)" />
+    <Property Name="DocumentStatus" Type="int" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="AppClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StudyGroupId" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="AppClassRegistration">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RegId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RegCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StudentId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="ClassId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RegStatus" Type="int" Nullable="false" />
+    <Property Name="EducationalYear" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BranchId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="datetime" />
+  </EntityType>
+  <EntityType Name="AppStudent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="FirstName" Type="nvarchar(max)" />
+    <Property Name="LastName" Type="nvarchar(max)" />
+    <Property Name="CnicNo" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="uniqueidentifier" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="CityId" Type="uniqueidentifier" />
+    <Property Name="Age" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="FatherName" Type="nvarchar(max)" />
+    <Property Name="FatherCNIC" Type="nvarchar(max)" />
+    <Property Name="Contact" Type="nvarchar(max)" />
+    <Property Name="EmergencyContact" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BranchId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralBranch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CampusTypeId" Type="uniqueidentifier" />
+    <Property Name="OrganizationTypeId" Type="uniqueidentifier" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="CityId" Type="uniqueidentifier" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="ContactNo" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="NTNNo" Type="nvarchar(max)" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.GeneralBranchSetting' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="GeneralBranchSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="OpeningTime" Type="nvarchar(max)" />
+    <Property Name="ClosingTime" Type="nvarchar(max)" />
+    <Property Name="EducationBoardId" Type="uniqueidentifier" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="AllowedStudyGroupIds" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="GeneralCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompanyName" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="uniqueidentifier" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="AddressLine" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="CompanyWebsite" Type="nvarchar(max)" />
+    <Property Name="UploadLogo" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreateOn" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralCompanyModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="ModuleId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralCompanySetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="IsDiscountAllowed" Type="bit" />
+    <Property Name="IsReportsAllowed" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralEmailSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="StmpClient" Type="nvarchar(max)" />
+    <Property Name="OutGoingStmpPort" Type="int" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="IsSslEnabled" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralEnrollmentSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="EnrollmentTypeId" Type="uniqueidentifier" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="CreateOn" Type="datetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="datetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="GeneralRightSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="RightId" Type="uniqueidentifier" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="URLTypeId" Type="uniqueidentifier" />
+    <Property Name="CreateBy" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+  </EntityType>
+  <EntityType Name="GeneralUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="EmailAddress" Type="nvarchar(max)" />
+    <Property Name="MobileNumber" Type="nvarchar(max)" />
+    <Property Name="EmployeeId" Type="uniqueidentifier" />
+    <Property Name="RoleId" Type="uniqueidentifier" />
+    <Property Name="AllowedBranchIds" Type="nvarchar(max)" />
+    <Property Name="IsLogIn" Type="bit" />
+    <Property Name="IsDeveloper" Type="bit" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="BranchId" Type="uniqueidentifier" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="GeneralUserRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserId" Type="uniqueidentifier" />
+    <Property Name="RightId" Type="uniqueidentifier" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiryDate" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="uniqueidentifier" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="uniqueidentifier" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.CampusTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="CampusTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedTime" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.City' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="CountryId" Type="uniqueidentifier" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="StateId" Type="int" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.Country' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="CallingCode" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.EducationBoard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EducationBoard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.EnrollmentTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="EnrollmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'SES400.dbo.Modules' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Modules">
+          <Property Name="Id" Type="uniqueidentifier" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Status" Type="bit" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.OrderStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.OrganizationType' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="OrganizationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.Rights' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Rights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="FormName" Type="nvarchar(max)" />
+    <Property Name="DisplayName" Type="nvarchar(max)" />
+    <Property Name="IsDisplayAllowed" Type="bit" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="Menu" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.Roles' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.StudyGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StudyGroup">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.StudySubjects' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="StudySubjects">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ShortCode" Type="nvarchar(max)" />
+    <Property Name="StudyGroupId" Type="uniqueidentifier" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.URLTypes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="URLTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'SES400.dbo.WorkingShifts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="WorkingShifts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+  </EntityType>
+  <Function Name="AppAdmission_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ApplicationStartDate" Type="date" Mode="In" />
+    <Parameter Name="ApplicationEndDate" Type="date" Mode="In" />
+    <Parameter Name="DocumentStatus" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="OpenClassIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EnrollmentTypeId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="AppClass_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="StudyGroupId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="DEV_CheckDuplicateRecord" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="SelectColumns" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="DEV_InsertHistory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ColumnNames" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ColumnValues" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="DEV_UpdateRecords" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="TableName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="SetClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="fn_CodeFormat" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="nvarchar(max)">
+    <Parameter Name="MaxCode" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="fn_GetCommaSepratedValuesInList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="psCSString" Type="nvarchar(max)" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="sID" Type="nvarchar(max)" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="GeneralBranch_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CampusTypeId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="OrganizationTypeId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CountryId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CityId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ContactNo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="NTNNo" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Remarks" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GeneralCompany_GetDetailById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GeneralCompanyModule_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GeneralCompanySetting_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GeneralEmailSetting_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GeneralEnrollmentSetting_GetDetailsByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GeneralEnrollmentSetting_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnrollmentTypeId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ExpiredOn" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="GeneralRightSetting_GetByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="URLTypeId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Menu" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="RightId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="RightPath" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GeneralUser_GetDetailByParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="IsLogIn" Type="bit" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Id" Type="uniqueidentifier" Mode="In" />
+  </Function>
+  <Function Name="GeneralUser_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EmailAddress" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MobileNumber" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="RoleId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IsLogIn" Type="bit" Mode="In" />
+    <Parameter Name="AllowedBranchIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UpdatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="EmployeeId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IsDeveloper" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="InsertAppClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BranchId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CompanyId" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="CreatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="ExpiredOn" Type="smalldatetime" Mode="In" />
+  </Function>
+  <EntityContainer Name="SESModelStoreContainer">
+    <EntitySet Name="AppAdmission" EntityType="Self.AppAdmission" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppClass" EntityType="Self.AppClass" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppClassRegistration" EntityType="Self.AppClassRegistration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AppStudent" EntityType="Self.AppStudent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralBranch" EntityType="Self.GeneralBranch" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralCompany" EntityType="Self.GeneralCompany" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralCompanyModule" EntityType="Self.GeneralCompanyModule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralCompanySetting" EntityType="Self.GeneralCompanySetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralEmailSetting" EntityType="Self.GeneralEmailSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralEnrollmentSetting" EntityType="Self.GeneralEnrollmentSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralRightSetting" EntityType="Self.GeneralRightSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralUser" EntityType="Self.GeneralUser" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralUserRight" EntityType="Self.GeneralUserRight" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GeneralBranchSetting" EntityType="Self.GeneralBranchSetting" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [GeneralBranchSetting].[Id] AS [Id], 
+    [GeneralBranchSetting].[BranchId] AS [BranchId], 
+    [GeneralBranchSetting].[OpeningTime] AS [OpeningTime], 
+    [GeneralBranchSetting].[ClosingTime] AS [ClosingTime], 
+    [GeneralBranchSetting].[EducationBoardId] AS [EducationBoardId], 
+    [GeneralBranchSetting].[CompanyId] AS [CompanyId], 
+    [GeneralBranchSetting].[CreatedOn] AS [CreatedOn], 
+    [GeneralBranchSetting].[CreatedBy] AS [CreatedBy], 
+    [GeneralBranchSetting].[UpdatedOn] AS [UpdatedOn], 
+    [GeneralBranchSetting].[UpdatedBy] AS [UpdatedBy], 
+    [GeneralBranchSetting].[EffectiveFrom] AS [EffectiveFrom], 
+    [GeneralBranchSetting].[ExpiredOn] AS [ExpiredOn], 
+    [GeneralBranchSetting].[Status] AS [Status], 
+    [GeneralBranchSetting].[AllowedStudyGroupIds] AS [AllowedStudyGroupIds]
+    FROM [dbo].[GeneralBranchSetting] AS [GeneralBranchSetting]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="CampusTypes" EntityType="Self.CampusTypes" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CampusTypes].[Id] AS [Id], 
+    [CampusTypes].[Description] AS [Description], 
+    [CampusTypes].[Status] AS [Status], 
+    [CampusTypes].[CreatedTime] AS [CreatedTime]
+    FROM [dbo].[CampusTypes] AS [CampusTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="City" EntityType="Self.City" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [City].[Id] AS [Id], 
+    [City].[CountryId] AS [CountryId], 
+    [City].[Code] AS [Code], 
+    [City].[Description] AS [Description], 
+    [City].[StateId] AS [StateId], 
+    [City].[Status] AS [Status]
+    FROM [dbo].[City] AS [City]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Country" EntityType="Self.Country" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Country].[Id] AS [Id], 
+    [Country].[Description] AS [Description], 
+    [Country].[Code] AS [Code], 
+    [Country].[CallingCode] AS [CallingCode], 
+    [Country].[Status] AS [Status]
+    FROM [dbo].[Country] AS [Country]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EducationBoard" EntityType="Self.EducationBoard" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EducationBoard].[Id] AS [Id], 
+    [EducationBoard].[Code] AS [Code], 
+    [EducationBoard].[Description] AS [Description], 
+    [EducationBoard].[Status] AS [Status], 
+    [EducationBoard].[CreatedDate] AS [CreatedDate]
+    FROM [dbo].[EducationBoard] AS [EducationBoard]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="EnrollmentTypes" EntityType="Self.EnrollmentTypes" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [EnrollmentTypes].[Id] AS [Id], 
+    [EnrollmentTypes].[Description] AS [Description], 
+    [EnrollmentTypes].[Status] AS [Status], 
+    [EnrollmentTypes].[CreatedOn] AS [CreatedOn]
+    FROM [dbo].[EnrollmentTypes] AS [EnrollmentTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderStatus].[Id] AS [Id], 
+    [OrderStatus].[Description] AS [Description], 
+    [OrderStatus].[Status] AS [Status]
+    FROM [dbo].[OrderStatus] AS [OrderStatus]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrganizationType" EntityType="Self.OrganizationType" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrganizationType].[Id] AS [Id], 
+    [OrganizationType].[Description] AS [Description], 
+    [OrganizationType].[Status] AS [Status]
+    FROM [dbo].[OrganizationType] AS [OrganizationType]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Rights" EntityType="Self.Rights" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Rights].[Id] AS [Id], 
+    [Rights].[FormName] AS [FormName], 
+    [Rights].[DisplayName] AS [DisplayName], 
+    [Rights].[IsDisplayAllowed] AS [IsDisplayAllowed], 
+    [Rights].[Status] AS [Status], 
+    [Rights].[Menu] AS [Menu]
+    FROM [dbo].[Rights] AS [Rights]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Roles" EntityType="Self.Roles" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Roles].[Id] AS [Id], 
+    [Roles].[Description] AS [Description], 
+    [Roles].[Status] AS [Status]
+    FROM [dbo].[Roles] AS [Roles]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="StudyGroup" EntityType="Self.StudyGroup" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudyGroup].[Id] AS [Id], 
+    [StudyGroup].[Description] AS [Description]
+    FROM [dbo].[StudyGroup] AS [StudyGroup]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="StudySubjects" EntityType="Self.StudySubjects" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [StudySubjects].[Id] AS [Id], 
+    [StudySubjects].[Description] AS [Description], 
+    [StudySubjects].[ShortCode] AS [ShortCode], 
+    [StudySubjects].[StudyGroupId] AS [StudyGroupId]
+    FROM [dbo].[StudySubjects] AS [StudySubjects]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="URLTypes" EntityType="Self.URLTypes" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [URLTypes].[Id] AS [Id], 
+    [URLTypes].[Description] AS [Description], 
+    [URLTypes].[Status] AS [Status]
+    FROM [dbo].[URLTypes] AS [URLTypes]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="WorkingShifts" EntityType="Self.WorkingShifts" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [WorkingShifts].[Id] AS [Id], 
+    [WorkingShifts].[Description] AS [Description], 
+    [WorkingShifts].[Status] AS [Status], 
+    [WorkingShifts].[CreatedOn] AS [CreatedOn]
+    FROM [dbo].[WorkingShifts] AS [WorkingShifts]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

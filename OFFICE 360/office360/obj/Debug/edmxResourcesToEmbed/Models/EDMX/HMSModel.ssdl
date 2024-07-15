@@ -1,0 +1,998 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AEOEvents">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" />
+    <Property Name="EventName" Type="varchar(max)" />
+    <Property Name="Venue" Type="varchar(max)" />
+    <Property Name="StartDate" Type="varchar(max)" />
+    <Property Name="EndDate" Type="varchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="CreatedDateTime" Type="varchar(max)" />
+    <Property Name="UpdatedById" Type="int" />
+    <Property Name="UpdatedOn" Type="varchar(max)" />
+    <Property Name="ShortGUID" Type="varchar(max)" />
+    <Property Name="HashGUID" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Branches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="BranchType" Type="int" />
+    <Property Name="AllowedDepartmentIds" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="Designation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="1" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="EmployeeName" Type="nvarchar(max)" />
+    <Property Name="FatherHusbandName" Type="nvarchar(max)" />
+    <Property Name="Cnic" Type="nvarchar(max)" />
+    <Property Name="Nationality" Type="nvarchar(max)" />
+    <Property Name="MartialStatus" Type="nvarchar(max)" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+    <Property Name="DOB" Type="smalldatetime" />
+    <Property Name="Age" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Home" Type="nvarchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="IncomeTaxStatus" Type="int" />
+    <Property Name="NTNNumber" Type="nvarchar(max)" />
+    <Property Name="BankNameId" Type="int" />
+    <Property Name="BankBranchId" Type="int" />
+    <Property Name="AccountTitle" Type="nvarchar(max)" />
+    <Property Name="AccountNumber" Type="nvarchar(max)" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="DesignationId" Type="int" />
+    <Property Name="EmployeeTypeId" Type="int" />
+    <Property Name="JoiningDate" Type="smalldatetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="Updatedby" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="HASH_GUID" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRAdvertisment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HRMADCode" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar(max)" />
+    <Property Name="StartDate" Type="smalldatetime" />
+    <Property Name="EndDate" Type="smalldatetime" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Title" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRAdvertismentApplicants">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AdvertismentCode" Type="nvarchar(max)" />
+    <Property Name="ApplicantName" Type="nvarchar(max)" />
+    <Property Name="ApplicantCode" Type="nvarchar(max)" />
+    <Property Name="Profession" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="Education" Type="nvarchar(max)" />
+    <Property Name="Institute" Type="nvarchar(max)" />
+    <Property Name="AdmissionDate" Type="smalldatetime" />
+    <Property Name="DegreeCompletionDate" Type="smalldatetime" />
+    <Property Name="DivisionOrGPA" Type="nvarchar(max)" />
+    <Property Name="LastJob" Type="nvarchar(max)" />
+    <Property Name="JobStartedOn" Type="smalldatetime" />
+    <Property Name="JobEndedOn" Type="smalldatetime" />
+    <Property Name="OtherJobs" Type="nvarchar(max)" />
+    <Property Name="LastEmployer" Type="nvarchar(max)" />
+    <Property Name="OtherSkills" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="ShortGUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRApplicantInterviews">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="InterViewCode" Type="nvarchar(max)" />
+    <Property Name="ApplicantCode" Type="nvarchar(max)" />
+    <Property Name="AdvertismentCode" Type="nvarchar(max)" />
+    <Property Name="InterviewDate" Type="nvarchar(max)" />
+    <Property Name="InterViewTime" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="ShortGUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="Message" Type="nvarchar(max)" />
+    <Property Name="IsAttended" Type="bit" />
+  </EntityType>
+  <EntityType Name="HRInterViewSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicantCode" Type="nvarchar(max)" />
+    <Property Name="AdvertismentCode" Type="nvarchar(max)" />
+    <Property Name="InterViewDate" Type="nvarchar(max)" />
+    <Property Name="InterViewTime" Type="nvarchar(max)" />
+    <Property Name="ShortGUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="int" />
+  </EntityType>
+  <EntityType Name="HRMAllowances">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="AllowanceTypeId" Type="int" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiredOn" Type="smalldatetime" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetAllowancesGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSAGCode" Type="nvarchar(max)" />
+    <Property Name="HSSMCode" Type="nvarchar(max)" />
+    <Property Name="HSSMPCode" Type="nvarchar(max)" />
+    <Property Name="EmployeeCode" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="HRMSalaryStructureCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetAllowancesSpecial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSASCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="HSSMCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="HSSMPCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="1" />
+    <Property Name="Percentage" Type="nvarchar" MaxLength="1" />
+    <Property Name="Short_GUID" Type="nvarchar" MaxLength="1" />
+    <Property Name="Hash_GUID" Type="nvarchar" MaxLength="1" />
+    <Property Name="Status" Type="nvarchar" MaxLength="1" />
+    <Property Name="CompanyId" Type="nvarchar" MaxLength="1" />
+    <Property Name="HRMSalaryStructureCode" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'HMS.dbo.HRMSalarySheetDeductionGeneral' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="HRMSalarySheetDeductionGeneral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSDGCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="HSSMCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="HSSMPCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="EmployeeCode" Type="nvarchar" MaxLength="1" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1" />
+    <Property Name="Amount" Type="nvarchar" MaxLength="1" />
+    <Property Name="Percentage" Type="nvarchar" MaxLength="1" />
+    <Property Name="Short_GUID" Type="nvarchar" MaxLength="1" />
+    <Property Name="Hash_GUID" Type="nvarchar" MaxLength="1" />
+    <Property Name="Status" Type="nvarchar" MaxLength="1" />
+    <Property Name="CompanyId" Type="nvarchar" MaxLength="1" />
+    <Property Name="HRMSalaryStructureCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetDeductionSpecial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSDSCode" Type="nvarchar(max)" />
+    <Property Name="HSSMCode" Type="nvarchar(max)" />
+    <Property Name="HSSMPCode" Type="nvarchar(max)" />
+    <Property Name="EmployeeCode" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Percentage" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="HRMSalaryStructureCode" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSMCode" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="SalarySheetStatus" Type="int" />
+    <Property Name="ForMonth" Type="nvarchar(max)" />
+    <Property Name="Notes" Type="nvarchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="TotalAmount" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRMSalarySheetMasterParent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HSSMPCode" Type="nvarchar(max)" />
+    <Property Name="HSSMCode" Type="nvarchar(max)" />
+    <Property Name="EmployeeCode" Type="nvarchar(max)" />
+    <Property Name="PayScale" Type="nvarchar(max)" />
+    <Property Name="BasicSalary" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="TotalAllowance" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="TotalDeduction" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="TotalPayable" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="HashGUID" Type="nvarchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="Status" Type="int" />
+    <Property Name="ForMonth" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="HRMSalaryStructure">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeCode" Type="nvarchar(max)" />
+    <Property Name="HSSCode" Type="nvarchar(max)" />
+    <Property Name="BasicSalary" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="EffectiveFrom" Type="smalldatetime" />
+    <Property Name="ExpiryDate" Type="smalldatetime" />
+    <Property Name="Short_GUID" Type="nvarchar(max)" />
+    <Property Name="Hash_GUID" Type="nvarchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="LK_BankBranches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BranchName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BranchCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TelePhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="BankId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_Banks">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="BankName" Type="nvarchar(max)" />
+    <Property Name="Code" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="LK_BranchTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_Cities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CityName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_CodeDefinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Purpose" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LK_Company">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyName" Type="varchar(max)" />
+    <Property Name="AddressLine1" Type="varchar(max)" />
+    <Property Name="AddressLine2" Type="varchar(max)" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="Contact" Type="varchar(max)" />
+    <Property Name="Fax" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Website" Type="varchar(max)" />
+    <Property Name="IncomeTaxTypeId" Type="varchar(max)" />
+    <Property Name="NTN" Type="varchar(max)" />
+    <Property Name="WithHoldingAgent" Type="varchar(max)" />
+    <Property Name="SalesTaxTypeId" Type="varchar(max)" />
+    <Property Name="STN" Type="varchar(max)" />
+    <Property Name="CompanyTypeId" Type="varchar(max)" />
+    <Property Name="CurrencyCode" Type="varchar(max)" />
+    <Property Name="DecimalPlaces" Type="varchar(max)" />
+    <Property Name="AccountingSystem" Type="varchar(max)" />
+    <Property Name="PeriodStartDate" Type="varchar(max)" />
+    <Property Name="PeriodEndsAfter" Type="varchar(max)" />
+    <Property Name="LogoImageUrl" Type="varchar(max)" />
+    <Property Name="OwnerId" Type="int" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="CreatedTime" Type="varchar(max)" />
+    <Property Name="UpdatedById" Type="int" />
+    <Property Name="UpdatedTime" Type="varchar(max)" />
+    <Property Name="ShortGUID" Type="varchar(max)" />
+    <Property Name="HashGUID" Type="varchar(max)" />
+    <Property Name="EOBIDeductionRegistered" Type="varchar(max)" />
+    <Property Name="EOBIDeductionNo" Type="varchar(max)" />
+    <Property Name="SocialSecurityRegistered" Type="bit" />
+    <Property Name="SocialSecurityNO" Type="varchar(max)" />
+    <Property Name="IsProvidentFundAdopted" Type="bit" />
+    <Property Name="ProvidentFundRegistered" Type="bit" />
+    <Property Name="EmployerContribution" Type="bit" />
+    <Property Name="EmployeeContribution" Type="bit" />
+    <Property Name="ICTAccountId" Type="int" />
+    <Property Name="ProvidentDeduType" Type="int" />
+    <Property Name="IsHREnable" Type="bit" />
+    <Property Name="IsDonorApplicable" Type="bit" />
+    <Property Name="RptSlogan" Type="bit" />
+    <Property Name="IsBranchMang" Type="bit" />
+    <Property Name="IsFundMang" Type="int" />
+    <Property Name="IsAutoAmortizationFunds" Type="varchar(max)" />
+    <Property Name="IsProjectApplicable" Type="int" />
+    <Property Name="PeriodType" Type="int" />
+    <Property Name="LandingPolicyId" Type="int" />
+    <Property Name="TaxMethodologyTypeId" Type="int" />
+    <Property Name="EPProductTypeId" Type="int" />
+    <Property Name="IsWHSalesTax" Type="int" />
+    <Property Name="IsVoucherCompanyWise" Type="int" />
+    <Property Name="IsMedicalExemption" Type="int" />
+    <Property Name="ExcemptionPersentage" Type="int" />
+    <Property Name="IsVenueInOfficalAssignment" Type="varchar(max)" />
+    <Property Name="IsFixedAssetsAllowed" Type="int" />
+    <Property Name="IsBudgetAllowed" Type="int" />
+    <Property Name="IsSandWichLeavePolicy" Type="int" />
+    <Property Name="IsCOAPrioritySorting" Type="bit" />
+    <Property Name="IsVehicle" Type="int" />
+    <Property Name="RegisteredAreaIds" Type="bit" />
+    <Property Name="IsConstructionCompany" Type="bit" />
+    <Property Name="IsOpenAllAccount" Type="bit" />
+    <Property Name="IsMIS" Type="varchar(max)" />
+    <Property Name="IsSalaryTaxOpen" Type="bit" />
+    <Property Name="IsSalaryJV" Type="varchar(max)" />
+    <Property Name="TaxPeriodStartDate" Type="varchar(max)" />
+    <Property Name="HRPeriodStartDate" Type="varchar(max)" />
+    <Property Name="ProvinceId" Type="int" />
+    <Property Name="PFTypeId" Type="int" />
+    <Property Name="PFAccountId" Type="int" />
+    <Property Name="APManagementId" Type="int" />
+    <Property Name="ARManagementId" Type="int" />
+    <Property Name="IsFedAllow" Type="bit" />
+    <Property Name="IsFranchiseFeeAllow" Type="bit" />
+    <Property Name="IsCustomerDistanceAllow" Type="int" />
+  </EntityType>
+  <EntityType Name="LK_Departments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar(max)" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="nvarchar(max)" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="IsAllowed" Type="int" Nullable="false" />
+    <Property Name="BranchId" Type="int" />
+  </EntityType>
+  <EntityType Name="LK_Desginations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="EmployeeTypeId" Type="int" />
+    <Property Name="Desgination" Type="varchar(max)" />
+    <Property Name="IsAllowed" Type="bit" />
+  </EntityType>
+  <EntityType Name="LK_EmployeeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmployeeTypes" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CompanyId" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="Status" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_HRMAllowanceDeductionType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LK_StatusDefinations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MedicalHistoryDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="DetailsType" Type="varchar(max)" />
+    <Property Name="DoctorName" Type="varchar(max)" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ShortGUID" Type="varchar(max)" />
+    <Property Name="HashGUID" Type="varchar(max)" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedById" Type="varchar(max)" />
+    <Property Name="UpdatedOn" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="MedicalPrescriptionDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrescriptId" Type="int" />
+    <Property Name="PrescriptionType" Type="varchar(max)" />
+    <Property Name="Test_MedicineName" Type="varchar(max)" />
+    <Property Name="CourseDays" Type="varchar(max)" />
+    <Property Name="Dosage" Type="varchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+  </EntityType>
+  <EntityType Name="MedicalPrescriptions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="PrescriptionCode" Type="varchar(max)" />
+    <Property Name="PatientCode" Type="varchar(max)" />
+    <Property Name="AppointmentCode" Type="varchar(max)" />
+    <Property Name="AdditionalNote" Type="varchar(max)" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedOn" Type="smalldatetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="HASHGUID" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormAccessSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupName" Type="varchar(max)" />
+    <Property Name="AllowedOperationType" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu_UsersFormSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FormName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FormDisplayName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ParentDisplay" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="OperationType" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsMenuDisplayAllowed" Type="bit" Nullable="false" />
+    <Property Name="UserFormAccessSettingId" Type="int" Nullable="false" />
+    <Property Name="ImplementedCompanyId" Type="int" Nullable="false" />
+    <Property Name="AreaName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ControllerName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FormURL" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="CompanyId" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="PatientAppointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AppointmentCode" Type="varchar(max)" />
+    <Property Name="PatientCode" Type="varchar(max)" />
+    <Property Name="DepartmentId" Type="int" />
+    <Property Name="DoctorCode" Type="varchar(max)" />
+    <Property Name="DateofAppointment" Type="smalldatetime" />
+    <Property Name="TimeofAppointment" Type="varchar(max)" />
+    <Property Name="PatientEmail" Type="varchar(max)" />
+    <Property Name="PatientPhone" Type="varchar(max)" />
+    <Property Name="Message" Type="varchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="BranchId" Type="int" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="UpdatedOn" Type="smalldatetime" />
+    <Property Name="UpdateById" Type="int" />
+    <Property Name="Type" Type="varchar(max)" />
+    <Property Name="HASHGuid" Type="varchar(max)" />
+    <Property Name="IsAttended" Type="bit" />
+  </EntityType>
+  <EntityType Name="Patients">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Code" Type="varchar(max)" />
+    <Property Name="Name" Type="varchar(max)" />
+    <Property Name="FatherHusbandName" Type="varchar(max)" />
+    <Property Name="Cnic" Type="varchar(max)" />
+    <Property Name="Gender" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+    <Property Name="DOB" Type="nvarchar(max)" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Age" Type="nvarchar(max)" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="UserName" Type="nvarchar(max)" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="CityId" Type="int" />
+    <Property Name="CountryId" Type="int" />
+    <Property Name="CreatedDate" Type="smalldatetime" />
+    <Property Name="CreatedById" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="DiscontinuationDate" Type="datetime" />
+    <Property Name="ReasonToInActive" Type="varchar(max)" />
+    <Property Name="CompanyId" Type="int" />
+    <Property Name="HASHGuid" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="PortalUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar(max)" />
+    <Property Name="Password" Type="varchar(max)" />
+    <Property Name="UsersFormGroupSettingId" Type="varchar(max)" />
+    <Property Name="AllowedComapnyId" Type="varchar(max)" />
+    <Property Name="AllowedBranchId" Type="varchar(max)" />
+  </EntityType>
+  <Function Name="AEOEvents_GetList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="AEOEvents_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EventName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="StartDate" Type="varchar(max)" Mode="In" />
+    <Parameter Name="EndDate" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="CreatedById" Type="int" Mode="In" />
+    <Parameter Name="CreatedDateTime" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ShortGUID" Type="varchar(max)" Mode="In" />
+    <Parameter Name="HashGUID" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Venue" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Branches_GetListByCoyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Designation_GetListByCoyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Employees_GetByParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Employees_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="EmployeeName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FatherHusbandName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cnic" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Nationality" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="MartialStatus" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Gender" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="DOB" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Age" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Home" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="CityId" Type="int" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IncomeTaxStatus" Type="int" Mode="In" />
+    <Parameter Name="NTNNumber" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BankNameId" Type="int" Mode="In" />
+    <Parameter Name="BankBranchId" Type="int" Mode="In" />
+    <Parameter Name="AccountTitle" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AccountNumber" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+    <Parameter Name="DesignationId" Type="int" Mode="In" />
+    <Parameter Name="EmployeeTypeId" Type="int" Mode="In" />
+    <Parameter Name="JoiningDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="HASH_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HRAdvertisment_GetListByParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="HRMADCode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="HRAdvertisment_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="HRMADCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Type" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Title" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="StartDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="EndDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Short_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Hash_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HRAdvertismentApplicants_GetListByParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CaseType" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="AdvertismentCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ApplicantCode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="HRAdvertismentApplicants_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AdvertismentCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ApplicantName" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ApplicantCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Profession" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Phone" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Education" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Institute" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AdmissionDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="DegreeCompletionDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="DivisionOrGPA" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LastJob" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="JobStartedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="JobEndedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="OtherJobs" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="LastEmployer" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OtherSkills" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="ShortGUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HashGUID" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="HRAdvertismentApplicants_UpdateByParamter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CaseType" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="ApplicantCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AdvertismentCode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="HRApplicantInterviews_GetListByParamters" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CaseType" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="InterViewCode" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="HRApplicantInterviews_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="InterViewCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ApplicantCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AdvertismentCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InterviewDate" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InterViewTime" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="ShortGUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HashGUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Message" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="IsAttended" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="HRInterViewSchedule_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ApplicantCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AdvertismentCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InterViewDate" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="InterViewTime" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="ShortGUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HashGUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
+    <Parameter Name="UpdatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HRMAllowances_GetListByParameter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="EndDate" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="HRMAllowances_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AllowanceTypeId" Type="int" Mode="In" />
+    <Parameter Name="Amount" Type="decimal" Mode="In" />
+    <Parameter Name="Percentage" Type="decimal" Mode="In" />
+    <Parameter Name="EffectiveFrom" Type="smalldatetime" Mode="In" />
+    <Parameter Name="ExpiredOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Short_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Hash_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="HRMSalaryStructure_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmployeeCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="HSSCode" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="BasicSalary" Type="decimal" Mode="In" />
+    <Parameter Name="EffectiveFrom" Type="smalldatetime" Mode="In" />
+    <Parameter Name="ExpiryDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="Short_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Hash_GUID" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_BankBranches_GetListByBankId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BankId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_Departments_GetListByBranchId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_Departments_GetListByCompanyId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="LK_EmployeeTypes_GetListById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MedicalPrescriptions_GetDetailsByPrescriptionCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientCode" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="MedicalPrescriptions_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="PrescriptionCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AdditionalNote" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="CreatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="HASHGUID" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="MedicalPrescriptionsDetails_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PrescriptId" Type="int" Mode="In" />
+    <Parameter Name="PrescriptionType" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Test_MedicineName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CourseDays" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Dosage" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MenuUsersFormSetting_AccessControl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FormName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ImplementedCompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="MenuUsersFormSetting_DiplayControl" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ParentDisplay" Type="varchar(max)" Mode="In" />
+    <Parameter Name="ImplementedCompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Patient_GetDetailByCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_GetDetailByAppointmentId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_GetListByDOAAndStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="StartDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="EndDate" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DepartmentId" Type="int" Mode="In" />
+    <Parameter Name="DoctorCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DateofAppointment" Type="smalldatetime" Mode="In" />
+    <Parameter Name="TimeofAppointment" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientEmail" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientPhone" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Message" Type="varchar(max)" Mode="In" />
+    <Parameter Name="AppointmentStatus" Type="bit" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="CreatedById" Type="int" Mode="In" />
+    <Parameter Name="Type" Type="varchar(max)" Mode="In" />
+    <Parameter Name="HASHGuid" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="PatientAppointment_UpdateStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="UpdatedOn" Type="smalldatetime" Mode="In" />
+    <Parameter Name="UpdateById" Type="int" Mode="In" />
+    <Parameter Name="IsAttended" Type="bit" Mode="In" />
+    <Parameter Name="AppointmentCode" Type="varchar(max)" Mode="In" />
+    <Parameter Name="PatientCode" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="Patients_GetListByDateRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="StartDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="EndDate" Type="smalldatetime" Mode="In" />
+  </Function>
+  <Function Name="Patients_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Name" Type="varchar(max)" Mode="In" />
+    <Parameter Name="FatherHusbandName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Cnic" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Gender" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Phone" Type="varchar(max)" Mode="In" />
+    <Parameter Name="DOB" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Address" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Age" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Email" Type="varchar(max)" Mode="In" />
+    <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CityId" Type="int" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+    <Parameter Name="CreatedDate" Type="smalldatetime" Mode="In" />
+    <Parameter Name="CreatedById" Type="int" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="DiscontinuationDate" Type="datetime" Mode="In" />
+    <Parameter Name="ReasonToInActive" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="HASHGuid" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="PortalUsers_VerifySessionInformation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="Password" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="AllowedComapnyId" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="HMSModelStoreContainer">
+    <EntitySet Name="AEOEvents" EntityType="Self.AEOEvents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Branches" EntityType="Self.Branches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Designation" EntityType="Self.Designation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRAdvertisment" EntityType="Self.HRAdvertisment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRAdvertismentApplicants" EntityType="Self.HRAdvertismentApplicants" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRApplicantInterviews" EntityType="Self.HRApplicantInterviews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRInterViewSchedule" EntityType="Self.HRInterViewSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMAllowances" EntityType="Self.HRMAllowances" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetAllowancesGeneral" EntityType="Self.HRMSalarySheetAllowancesGeneral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetAllowancesSpecial" EntityType="Self.HRMSalarySheetAllowancesSpecial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetDeductionSpecial" EntityType="Self.HRMSalarySheetDeductionSpecial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetMaster" EntityType="Self.HRMSalarySheetMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetMasterParent" EntityType="Self.HRMSalarySheetMasterParent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalaryStructure" EntityType="Self.HRMSalaryStructure" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_BankBranches" EntityType="Self.LK_BankBranches" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Banks" EntityType="Self.LK_Banks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_BranchTypes" EntityType="Self.LK_BranchTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Cities" EntityType="Self.LK_Cities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_CodeDefinations" EntityType="Self.LK_CodeDefinations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Company" EntityType="Self.LK_Company" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Departments" EntityType="Self.LK_Departments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_Desginations" EntityType="Self.LK_Desginations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_EmployeeTypes" EntityType="Self.LK_EmployeeTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_HRMAllowanceDeductionType" EntityType="Self.LK_HRMAllowanceDeductionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LK_StatusDefinations" EntityType="Self.LK_StatusDefinations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicalHistoryDetails" EntityType="Self.MedicalHistoryDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicalPrescriptionDetails" EntityType="Self.MedicalPrescriptionDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedicalPrescriptions" EntityType="Self.MedicalPrescriptions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu_UsersFormAccessSetting" EntityType="Self.Menu_UsersFormAccessSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Menu_UsersFormSetting" EntityType="Self.Menu_UsersFormSetting" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientAppointment" EntityType="Self.PatientAppointment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PortalUsers" EntityType="Self.PortalUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HRMSalarySheetDeductionGeneral" EntityType="Self.HRMSalarySheetDeductionGeneral" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [HRMSalarySheetDeductionGeneral].[Id] AS [Id], 
+    [HRMSalarySheetDeductionGeneral].[HSSDGCode] AS [HSSDGCode], 
+    [HRMSalarySheetDeductionGeneral].[HSSMCode] AS [HSSMCode], 
+    [HRMSalarySheetDeductionGeneral].[HSSMPCode] AS [HSSMPCode], 
+    [HRMSalarySheetDeductionGeneral].[EmployeeCode] AS [EmployeeCode], 
+    [HRMSalarySheetDeductionGeneral].[Description] AS [Description], 
+    [HRMSalarySheetDeductionGeneral].[Amount] AS [Amount], 
+    [HRMSalarySheetDeductionGeneral].[Percentage] AS [Percentage], 
+    [HRMSalarySheetDeductionGeneral].[Short_GUID] AS [Short_GUID], 
+    [HRMSalarySheetDeductionGeneral].[Hash_GUID] AS [Hash_GUID], 
+    [HRMSalarySheetDeductionGeneral].[Status] AS [Status], 
+    [HRMSalarySheetDeductionGeneral].[CompanyId] AS [CompanyId], 
+    [HRMSalarySheetDeductionGeneral].[HRMSalaryStructureCode] AS [HRMSalaryStructureCode]
+    FROM [dbo].[HRMSalarySheetDeductionGeneral] AS [HRMSalarySheetDeductionGeneral]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,594 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppAdmission">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ApplicationStartDate" Type="DateTime" Precision="0" />
+    <Property Name="ApplicationEndDate" Type="DateTime" Precision="0" />
+    <Property Name="DocumentStatus" Type="Int32" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="AppAdmissionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="AppAdmissionId" Type="Guid" />
+    <Property Name="GeneralBranchEnrollmentSettingId" Type="Guid" />
+    <Property Name="ExpectedStartDate" Type="DateTime" Precision="0" />
+    <Property Name="ExpectedEndDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="AppClass">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GeneralBranch">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusTypeId" Type="Guid" />
+    <Property Name="OrganizationTypeId" Type="Guid" />
+    <Property Name="CountryId" Type="Guid" />
+    <Property Name="CityId" Type="Guid" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NTNNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GeneralCompany">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CompanyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CityId" Type="Guid" />
+    <Property Name="CountryId" Type="Guid" />
+    <Property Name="AddressLine" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyWebsite" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UploadLogo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreateOn" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralCompanyModule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="ModuleId" Type="Guid" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralCompanySetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="IsDiscountAllowed" Type="Boolean" />
+    <Property Name="IsReportsAllowed" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralEmailSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="StmpClient" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OutGoingStmpPort" Type="Int32" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsSslEnabled" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralEnrollmentSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="EnrollmentTypeId" Type="Guid" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="CreateOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="GeneralRightSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="RightId" Type="Guid" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="URLTypeId" Type="Guid" />
+    <Property Name="CreateBy" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmployeeId" Type="Guid" />
+    <Property Name="RoleId" Type="Guid" />
+    <Property Name="AllowedBranchIds" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsLogIn" Type="Boolean" />
+    <Property Name="IsDeveloper" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="CompanyId" Type="Guid" />
+  </EntityType>
+  <EntityType Name="GeneralUserRight">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="UserId" Type="Guid" />
+    <Property Name="RightId" Type="Guid" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="0" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="AppClassRegistration">
+    <Key>
+      <PropertyRef Name="RegId" />
+      <PropertyRef Name="RegCode" />
+      <PropertyRef Name="StudentId" />
+      <PropertyRef Name="ClassId" />
+      <PropertyRef Name="RegStatus" />
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedOn" />
+    </Key>
+    <Property Name="Id" Type="Guid" />
+    <Property Name="RegId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RegCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="StudentId" Type="Guid" Nullable="false" />
+    <Property Name="ClassId" Type="Guid" Nullable="false" />
+    <Property Name="RegStatus" Type="Int32" Nullable="false" />
+    <Property Name="EducationalYear" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Guid" Nullable="false" />
+    <Property Name="BranchId" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="AppStudent">
+    <Key>
+      <PropertyRef Name="CompanyId" />
+      <PropertyRef Name="BranchId" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="CreatedOn" />
+    </Key>
+    <Property Name="Id" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CnicNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="Guid" />
+    <Property Name="CountryId" Type="Guid" />
+    <Property Name="CityId" Type="Guid" />
+    <Property Name="Age" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FatherCNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Contact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EmergencyContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CompanyId" Type="Guid" Nullable="false" />
+    <Property Name="BranchId" Type="Guid" Nullable="false" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="GeneralSetting">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="BranchId" Type="Guid" />
+    <Property Name="OpeningTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClosingTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="EducationBoardId" Type="Guid" />
+    <Property Name="CompanyId" Type="Guid" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+    <Property Name="CreatedBy" Type="Guid" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="0" />
+    <Property Name="UpdatedBy" Type="Guid" />
+    <Property Name="EffectiveFrom" Type="DateTime" Precision="0" />
+    <Property Name="ExpiredOn" Type="DateTime" Precision="0" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CampusTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="CountryId" Type="Guid" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="StateId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CallingCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EducationBoard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="EnrollmentTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="OrganizationType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Rights">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="FormName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsDisplayAllowed" Type="Boolean" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="Menu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="URLTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WorkingShifts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityContainer Name="SESEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppAdmission" EntityType="Self.AppAdmission" />
+    <EntitySet Name="AppAdmissionDetail" EntityType="Self.AppAdmissionDetail" />
+    <EntitySet Name="AppClass" EntityType="Self.AppClass" />
+    <EntitySet Name="GeneralBranch" EntityType="Self.GeneralBranch" />
+    <EntitySet Name="GeneralCompany" EntityType="Self.GeneralCompany" />
+    <EntitySet Name="GeneralCompanyModule" EntityType="Self.GeneralCompanyModule" />
+    <EntitySet Name="GeneralCompanySetting" EntityType="Self.GeneralCompanySetting" />
+    <EntitySet Name="GeneralEmailSetting" EntityType="Self.GeneralEmailSetting" />
+    <EntitySet Name="GeneralEnrollmentSetting" EntityType="Self.GeneralEnrollmentSetting" />
+    <EntitySet Name="GeneralRightSetting" EntityType="Self.GeneralRightSetting" />
+    <EntitySet Name="GeneralUser" EntityType="Self.GeneralUser" />
+    <EntitySet Name="GeneralUserRight" EntityType="Self.GeneralUserRight" />
+    <EntitySet Name="AppClassRegistration" EntityType="Self.AppClassRegistration" />
+    <EntitySet Name="AppStudent" EntityType="Self.AppStudent" />
+    <EntitySet Name="GeneralSetting" EntityType="Self.GeneralSetting" />
+    <EntitySet Name="CampusTypes" EntityType="Self.CampusTypes" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="Country" EntityType="Self.Country" />
+    <EntitySet Name="EducationBoard" EntityType="Self.EducationBoard" />
+    <EntitySet Name="EnrollmentTypes" EntityType="Self.EnrollmentTypes" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
+    <EntitySet Name="OrganizationType" EntityType="Self.OrganizationType" />
+    <EntitySet Name="Rights" EntityType="Self.Rights" />
+    <EntitySet Name="Roles" EntityType="Self.Roles" />
+    <EntitySet Name="URLTypes" EntityType="Self.URLTypes" />
+    <EntitySet Name="WorkingShifts" EntityType="Self.WorkingShifts" />
+    <FunctionImport Name="AppAdmission_Insert" ReturnType="Collection(Guid)">
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="ApplicationStartDate" Mode="In" Type="DateTime" />
+      <Parameter Name="ApplicationEndDate" Mode="In" Type="DateTime" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="BranchId" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Guid" />
+      <Parameter Name="InsertedID" Mode="InOut" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="AppClass_Insert">
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="BranchId" Mode="In" Type="Guid" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="DevCheckDuplicateRecord" ReturnType="Collection(Int32)">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="SelectColumns" Mode="In" Type="String" />
+      <Parameter Name="WhereClause" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DevInsertHistory">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="ColumnNames" Mode="In" Type="String" />
+      <Parameter Name="ColumnValues" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DevUpdateRecords" ReturnType="Collection(Int32)">
+      <Parameter Name="TableName" Mode="In" Type="String" />
+      <Parameter Name="SetClause" Mode="In" Type="String" />
+      <Parameter Name="WhereClause" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralBranch_Insert" ReturnType="Collection(SESModel.GeneralBranch_Insert_Result)">
+      <Parameter Name="Description" Mode="In" Type="String" />
+      <Parameter Name="CampusTypeId" Mode="In" Type="Guid" />
+      <Parameter Name="OrganizationTypeId" Mode="In" Type="Guid" />
+      <Parameter Name="CountryId" Mode="In" Type="Guid" />
+      <Parameter Name="CityId" Mode="In" Type="Guid" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="ContactNo" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="NTNNo" Mode="In" Type="String" />
+      <Parameter Name="Remarks" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralCompany_GetDetailById" ReturnType="Collection(SESModel.GeneralCompany_GetDetailById_Result)">
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralCompanyModule_GetDetailByParam" ReturnType="Collection(SESModel.GeneralCompanyModule_GetDetailByParam_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralCompanySetting_GetDetailByParam" ReturnType="Collection(SESModel.GeneralCompanySetting_GetDetailByParam_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralEmailSetting_GetDetailByParam" ReturnType="Collection(SESModel.GeneralEmailSetting_GetDetailByParam_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+      <Parameter Name="BranchId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralEnrollment_Insert">
+      <Parameter Name="EnrollmentTypeId" Mode="In" Type="Guid" />
+      <Parameter Name="BranchId" Mode="In" Type="Guid" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Guid" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Guid" />
+      <Parameter Name="ExpiredOn" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralEnrollmentSetting_GetDetailsByParam" ReturnType="Collection(SESModel.GeneralEnrollmentSetting_GetDetailsByParam_Result)">
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="BranchId" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralRightSetting_GetByParam" ReturnType="Collection(SESModel.GeneralRightSetting_GetByParam_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="URLTypeId" Mode="In" Type="Guid" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+      <Parameter Name="Menu" Mode="In" Type="String" />
+      <Parameter Name="UserId" Mode="In" Type="Guid" />
+      <Parameter Name="RightId" Mode="In" Type="Guid" />
+      <Parameter Name="RightPath" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralUser_GetDetailByParameter" ReturnType="Collection(SESModel.GeneralUser_GetDetailByParameter_Result)">
+      <Parameter Name="ListCondition" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="IsLogIn" Mode="In" Type="Boolean" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="Id" Mode="In" Type="Guid" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralUser_Insert">
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="EmailAddress" Mode="In" Type="String" />
+      <Parameter Name="MobileNumber" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Guid" />
+      <Parameter Name="IsLogIn" Mode="In" Type="Boolean" />
+      <Parameter Name="AllowedBranchIds" Mode="In" Type="String" />
+      <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="CreatedBy" Mode="In" Type="Guid" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Guid" />
+      <Parameter Name="CompanyId" Mode="In" Type="Guid" />
+      <Parameter Name="EmployeeId" Mode="In" Type="Guid" />
+      <Parameter Name="IsDeveloper" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="GeneralBranch_Insert_Result">
+    <Property Type="String" Name="Code" Nullable="true" MaxLength="50" />
+    <Property Type="Guid" Name="Id" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralCompany_GetDetailById_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="CompanyName" Nullable="true" />
+    <Property Type="Guid" Name="CityId" Nullable="true" />
+    <Property Type="Guid" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="AddressLine" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="CompanyWebsite" Nullable="true" />
+    <Property Type="String" Name="UploadLogo" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="CityName" Nullable="true" />
+    <Property Type="String" Name="CountryName" Nullable="true" />
+    <Property Type="DateTime" Name="CreateOn" Nullable="true" Precision="16" />
+  </ComplexType>
+  <ComplexType Name="GeneralCompanyModule_GetDetailByParam_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CompanyId" Nullable="true" />
+    <Property Type="Guid" Name="ModuleId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralCompanySetting_GetDetailByParam_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="CompanyId" Nullable="true" />
+    <Property Type="Boolean" Name="IsDiscountAllowed" Nullable="true" />
+    <Property Type="Boolean" Name="IsReportsAllowed" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralEmailSetting_GetDetailByParam_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="StmpClient" Nullable="true" />
+    <Property Type="Int32" Name="OutGoingStmpPort" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="Boolean" Name="IsSslEnabled" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralEnrollmentSetting_GetDetailsByParam_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="EnrollmentTypeId" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralRightSetting_GetByParam_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="FormName" Nullable="true" />
+    <Property Type="String" Name="DisplayName" Nullable="true" />
+    <Property Type="Boolean" Name="IsDisplayAllowed" Nullable="true" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="Menu" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+    <Property Type="Guid" Name="URLTypeId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GeneralUser_GetDetailByParameter_Result">
+    <Property Type="Guid" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" />
+    <Property Type="String" Name="Password" Nullable="true" />
+    <Property Type="String" Name="EmailAddress" Nullable="true" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" />
+    <Property Type="Guid" Name="RoleId" Nullable="true" />
+    <Property Type="Boolean" Name="IsLogIn" Nullable="true" />
+    <Property Type="String" Name="AllowedBranchIds" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="16" />
+    <Property Type="Guid" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="16" />
+    <Property Type="Guid" Name="UpdatedBy" Nullable="true" />
+    <Property Type="Guid" Name="CompanyId" Nullable="true" />
+    <Property Type="Boolean" Name="IsDeveloper" Nullable="true" />
+    <Property Type="Guid" Name="EmployeeId" Nullable="true" />
+    <Property Type="Guid" Name="BranchId" Nullable="true" />
+    <Property Type="String" Name="RoleName" Nullable="true" />
+  </ComplexType>
+</Schema>

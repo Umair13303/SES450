@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TEST400Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BankBranches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BANKNAMEID" Type="Int32" />
+    <Property Name="BRANCHNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BRANCHCODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="BankName">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BANKNAME1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Bussiness">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TaxSectionId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CitiName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CompanyTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerTypeId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerAdd">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerTypeId" Type="Int32" />
+    <Property Name="CustomerCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ChooseCompanyTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsIncomeTaxRegistered" Type="Boolean" />
+    <Property Name="NTNNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsSalesTaxRegistered" Type="Boolean" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="BussinessId" Type="Int32" />
+    <Property Name="IsActivice" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="CustomerBank">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BranchNameId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="AccountNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Provinces">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TaxSection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="HS_CODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TAX" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="TEST400Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BankBranches" EntityType="Self.BankBranches" />
+    <EntitySet Name="BankName" EntityType="Self.BankName" />
+    <EntitySet Name="Bussiness" EntityType="Self.Bussiness" />
+    <EntitySet Name="City" EntityType="Self.City" />
+    <EntitySet Name="CompanyTypes" EntityType="Self.CompanyTypes" />
+    <EntitySet Name="CustomerAdd" EntityType="Self.CustomerAdd" />
+    <EntitySet Name="CustomerBank" EntityType="Self.CustomerBank" />
+    <EntitySet Name="CustomerType" EntityType="Self.CustomerType" />
+    <EntitySet Name="Provinces" EntityType="Self.Provinces" />
+    <EntitySet Name="TaxSection" EntityType="Self.TaxSection" />
+    <FunctionImport Name="Bank_Select" ReturnType="Collection(TEST400Model.Bank_Select_Result)" />
+    <FunctionImport Name="BankBranches_Select" ReturnType="Collection(TEST400Model.BankBranches_Select_Result)">
+      <Parameter Name="BankNameId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerBankInsert">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchNameId" Mode="In" Type="String" />
+      <Parameter Name="ACCOUNTNO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerDetail_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="CustomerTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCode" Mode="In" Type="String" />
+      <Parameter Name="CNIC" Mode="In" Type="String" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="ChooseCompanyTypeId" Mode="In" Type="String" />
+      <Parameter Name="IsIncomeTaxRegistered" Mode="In" Type="Boolean" />
+      <Parameter Name="NTNNumber" Mode="In" Type="String" />
+      <Parameter Name="IsSalesTaxRegistered" Mode="In" Type="Boolean" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="BussinessId" Mode="In" Type="Int32" />
+      <Parameter Name="IsActivice" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="Bank_Select_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BANKNAME" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="BankBranches_Select_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="BRANCHNAME" Nullable="true" />
+    <Property Type="Int32" Name="BANKNAMEID" Nullable="true" />
+    <Property Type="String" Name="BRANCHCODE" Nullable="true" />
+    <Property Type="Int32" Name="BRANCHID" Nullable="false" />
+    <Property Type="String" Name="BRANCH_BY_BANK" Nullable="false" />
+  </ComplexType>
+</Schema>

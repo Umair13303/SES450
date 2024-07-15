@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TEST400Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="CustomerBank">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CUSTOMERID" Type="Int32" />
+    <Property Name="BANK_BRANCH" Type="Int32" />
+    <Property Name="ACCOUNTNO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="CustomerCredential">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceType" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Pin" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerQuotation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="CreatedDate" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DocumentId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CutomerAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TotalAmount" Type="Int32" />
+  </EntityType>
+  <EntityType Name="CustomerQuotationDetails">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EstimateId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="QTY" Type="Int32" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="TaxAmt" Type="Int32" />
+    <Property Name="ServiceNameId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerTypeId" Type="Int32" />
+    <Property Name="CustomerCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CNIC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ChooseCompanyTypeId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsIncomeTaxRegistered" Type="Boolean" />
+    <Property Name="NTNNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsSalesTaxRegistered" Type="Boolean" />
+    <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="CityId" Type="Int32" />
+    <Property Name="BussinessId" Type="Int32" />
+    <Property Name="IsActivice" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="CreatedById" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedById" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="InActivatedOn" Type="DateTime" Precision="3" />
+    <Property Name="InActviatedBy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="EmailId" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_BankBranches">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BANKNAMEID" Type="Int32" />
+    <Property Name="BRANCHNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="BRANCHCODE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_BankNames">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BANKNAME" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_Bussiness">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TaxSectionId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LK_City">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CitiName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ProvinceID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="LK_COA">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="COA_HEAD_ID" Type="Int32" />
+    <Property Name="DEFINATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_CompanyTypes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_CustomerType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_Province">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Province" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_Services_LookUpTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="COA_List_AccountId" Type="Int32" />
+    <Property Name="IsProvided" Type="Boolean" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="LK_TaxSection">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TaxPercentage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DispPass" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="TEST400Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="CustomerBank" EntityType="Self.CustomerBank" />
+    <EntitySet Name="CustomerCredential" EntityType="Self.CustomerCredential" />
+    <EntitySet Name="CustomerQuotation" EntityType="Self.CustomerQuotation" />
+    <EntitySet Name="CustomerQuotationDetails" EntityType="Self.CustomerQuotationDetails" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" />
+    <EntitySet Name="LK_BankBranches" EntityType="Self.LK_BankBranches" />
+    <EntitySet Name="LK_BankNames" EntityType="Self.LK_BankNames" />
+    <EntitySet Name="LK_Bussiness" EntityType="Self.LK_Bussiness" />
+    <EntitySet Name="LK_City" EntityType="Self.LK_City" />
+    <EntitySet Name="LK_COA" EntityType="Self.LK_COA" />
+    <EntitySet Name="LK_CompanyTypes" EntityType="Self.LK_CompanyTypes" />
+    <EntitySet Name="LK_CustomerType" EntityType="Self.LK_CustomerType" />
+    <EntitySet Name="LK_Province" EntityType="Self.LK_Province" />
+    <EntitySet Name="LK_Services_LookUpTable" EntityType="Self.LK_Services_LookUpTable" />
+    <EntitySet Name="LK_TaxSection" EntityType="Self.LK_TaxSection" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <FunctionImport Name="CustomerBank_GetDetailByCustomerId" ReturnType="Collection(TEST400Model.CustomerBank_GetDetailByCustomerId_Result)">
+      <Parameter Name="CUSTOMERID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerBank_Insert">
+      <Parameter Name="BankBranch" Mode="In" Type="Int32" />
+      <Parameter Name="AccountNo" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerParent_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="CustomerTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCode" Mode="In" Type="String" />
+      <Parameter Name="CNIC" Mode="In" Type="String" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="ChooseCompanyTypeId" Mode="In" Type="String" />
+      <Parameter Name="IsIncomeTaxRegistered" Mode="In" Type="Boolean" />
+      <Parameter Name="NTNNumber" Mode="In" Type="String" />
+      <Parameter Name="IsSalesTaxRegistered" Mode="In" Type="Boolean" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="PhoneNumber" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="BussinessId" Mode="In" Type="Int32" />
+      <Parameter Name="IsActivice" Mode="In" Type="Boolean" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CustomerParent_Select" ReturnType="Collection(TEST400Model.CustomerParent_Select_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_BankDetails_SelectById" ReturnType="Collection(TEST400Model.LK_BankDetails_SelectById_Result)">
+      <Parameter Name="BankNameId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="LK_CustomerList" ReturnType="Collection(TEST400Model.LK_CustomerList_Result)" />
+    <FunctionImport Name="LK_ServicesDetails_SelectById" ReturnType="Collection(TEST400Model.LK_ServicesDetails_SelectById_Result)">
+      <Parameter Name="ServiceNameId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PortalCredential_Insert">
+      <Parameter Name="ServiceType" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="Pass" Mode="In" Type="String" />
+      <Parameter Name="Pin" Mode="In" Type="String" />
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Quotations_Insert" ReturnType="Collection(Decimal)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="QuotationsDetail_Insert">
+      <Parameter Name="EstimateId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="Rate" Mode="In" Type="Int32" />
+      <Parameter Name="ServiceNameId" Mode="In" Type="String" />
+      <Parameter Name="Description" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TEST400Model.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TEST400Model.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+  </EntityContainer>
+  <ComplexType Name="CustomerBank_GetDetailByCustomerId_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="CUSTOMERID" Nullable="true" />
+    <Property Type="Int32" Name="BANK_BRANCH" Nullable="true" />
+    <Property Type="String" Name="ACCOUNTNO" Nullable="true" />
+    <Property Type="Int32" Name="Id1" Nullable="false" />
+    <Property Type="Int32" Name="BANKNAMEID" Nullable="true" />
+    <Property Type="String" Name="BRANCHNAME" Nullable="true" />
+    <Property Type="String" Name="BRANCHCODE" Nullable="true" />
+    <Property Type="Int32" Name="Id2" Nullable="false" />
+    <Property Type="String" Name="BANKNAME" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="CustomerParent_Select_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DESCR" Nullable="true" />
+    <Property Type="Int32" Name="CustomerTypeId" Nullable="true" />
+    <Property Type="String" Name="CustomerCode" Nullable="true" />
+    <Property Type="String" Name="CNIC" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="true" />
+    <Property Type="String" Name="COYPDESCRIPTION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ChooseCompanyTypeId" Nullable="true" />
+    <Property Type="Boolean" Name="IsIncomeTaxRegistered" Nullable="true" />
+    <Property Type="String" Name="NTNNumber" Nullable="true" />
+    <Property Type="Boolean" Name="IsSalesTaxRegistered" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="String" Name="RCity" Nullable="true" />
+    <Property Type="String" Name="ProvinceName" Nullable="true" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="Int32" Name="BussinessId" Nullable="true" />
+    <Property Type="Boolean" Name="IsActivice" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="CreatedById" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UpdatedById" Nullable="true" />
+    <Property Type="DateTime" Name="InActivatedOn" Nullable="true" Precision="23" />
+    <Property Type="String" Name="InActviatedBy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LK_BankDetails_SelectById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Int32" Name="BANKNAMEID" Nullable="true" />
+    <Property Type="String" Name="BRANCHNAME" Nullable="true" />
+    <Property Type="String" Name="BRANCHCODE" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LK_CustomerList_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DESCR" Nullable="true" />
+    <Property Type="Int32" Name="CustomerTypeId" Nullable="true" />
+    <Property Type="String" Name="CustomerCode" Nullable="true" />
+    <Property Type="String" Name="CNIC" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="true" />
+    <Property Type="String" Name="COYPDESCRIPTION" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ChooseCompanyTypeId" Nullable="true" />
+    <Property Type="Boolean" Name="IsIncomeTaxRegistered" Nullable="true" />
+    <Property Type="String" Name="NTNNumber" Nullable="true" />
+    <Property Type="Boolean" Name="IsSalesTaxRegistered" Nullable="true" />
+    <Property Type="String" Name="Address" Nullable="true" />
+    <Property Type="String" Name="PhoneNumber" Nullable="true" />
+    <Property Type="String" Name="RCity" Nullable="true" />
+    <Property Type="String" Name="ProvinceName" Nullable="true" />
+    <Property Type="Int32" Name="CityId" Nullable="true" />
+    <Property Type="Int32" Name="BussinessId" Nullable="true" />
+    <Property Type="Boolean" Name="IsActivice" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="LK_ServicesDetails_SelectById_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="ServiceName" Nullable="true" />
+    <Property Type="Int32" Name="COA_List_AccountId" Nullable="true" />
+    <Property Type="Boolean" Name="IsProvided" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+</Schema>
