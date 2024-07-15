@@ -116,14 +116,17 @@ namespace office360.Areas.AAccounts.Controllers
                 case nameof(LookUpActionCondition.GET_LK1_WHTAXPOLICY_BYPARAMTER):
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_WHTaxPolicy(PostedData).ToList();
                     break;
-                case nameof(SESActionCondition.GET_MT_STRUCTUREFEETYPE_BYPARAMETER):
-                    DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_StructureFeeType_ListByParam(PostedData).ToList();
-                    break;
-                case nameof(SESActionCondition.GET_MT_STRUCTUREFEETYPE_DETAILBYID):
-                    DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_StructureFeeType_DetailsByGUID(PostedData).ToList();
-                    break;
+
                 case nameof(SESActionCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER):
                     DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_MT_STRUCTURECOAACCOUNT_BYPARAM(PostedData).ToList();
+                    break;
+
+                case nameof(SESActionCondition.GET_MT_STRUCTUREFEETYPE_BYPARAMETER):
+                    DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_MT_STRUCTUREFEETYPE_BYPARAM(PostedData).ToList();
+                    break;
+
+                case nameof(SESActionCondition.GET_MT_STRUCTUREFEETYPE_DETAILBYID):
+                    DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_MT_STRUCTUREFEETYPE_INFO_BY_GUID(PostedData).ToList();
                     break;
 
 
@@ -138,7 +141,7 @@ namespace office360.Areas.AAccounts.Controllers
         #region POPULATE DATATABLE LIST
         public ActionResult PopulateStructureFeeType_ListByParam_FORDT(_SqlParameters PostedData)
         {
-            var DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_StructureFeeType_ListByParam(PostedData).ToList();
+            var DATA = Common.DataBaseProcedures.AAccounts.GetDataFromSP.GET_MT_STRUCTUREFEETYPE_LISTSEARCHPARAM(PostedData).ToList();
             return Json(new { success = true, data = DATA }, JsonRequestBehavior.AllowGet);
         }
         #endregion

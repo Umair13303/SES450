@@ -152,6 +152,12 @@ namespace office360.Areas.ACompany.Controllers
                 case nameof(LookUpActionCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER):
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_SearchParameter(PostedData).ToList();
                     break;
+                case nameof(SESActionCondition.GET_MT_GENERALBRANCH_BYPARAMETER):
+                    DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_BYPARAM(PostedData).ToList();
+                    break;
+                case nameof(SESActionCondition.GET_MT_GENERALBRANCH_DETAILBYID):
+                    DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_BYPARAM(PostedData).ToList();
+                    break;
             }
             return Json(DATA, JsonRequestBehavior.AllowGet);
         }
@@ -160,7 +166,7 @@ namespace office360.Areas.ACompany.Controllers
         #region POPULATE DATATABLE LIST FOR DBO GENERAL BRANCH
         public ActionResult PopulateGeneralBranchList_FORDT(_SqlParameters PostedData)
         {
-            var DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GetGeneralBranchList_BySearchParameter(PostedData).ToList();
+            var DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_LIST_SEARCHPARAM(PostedData).ToList();
             return Json(new { success = true, data = DATA }, JsonRequestBehavior.AllowGet);
         }
         #endregion

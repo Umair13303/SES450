@@ -19,22 +19,23 @@ $(document).ready(function () {
     ChangeCase();
 });
 function PopulateDropDownLists() {
-    PopulateMTGeneralCompanyList();
-    PopulateLKCampusTypeList();
-    PopulateLKOrganizationTypeList();
-    PopulateLKCountryList();
-    PopulateLKPolicyPeriodList();
-    PopulateLKChallanMethodList();
-    PopulateLKRollCallSystemList();
-    PopulateLKBillingMethodList();
-    PopulateLKStudyLevelList();
-    PopulateLKStudyGroupList();
+    PopulateMT_GeneralCompany_List();
+    PopulateLK_CampusType_List();
+    PopulateLK_OrganizationType_List();
+    PopulateLK_Country_List();
+    PopulateLK_PolicyPeriod_List();
+    PopulateLK_ChallanMethod_List();
+    PopulateLK_RollCallSystem_List();
+    PopulateLK_BillingMethod_List();
+    PopulateLK_StudyLevel_List();
+    PopulateLK_StudyGroup_List();
 }
 
 //-----------ALL CHANGE CASES
 function ChangeCase() {
+
     $('#DropDownListCountry').change(function () {
-        PopulateLKCityListByParam();
+        PopulateLK_City_ListByParam();
     });
     $("#DropDownListStudyLevels").attr('data-width', '100%').select2({
         placeholder: 'Select an Option',
@@ -52,10 +53,21 @@ function ChangeCase() {
             StudyGroupIds = $(this).val();
         }
     });
+
+//-----------FOR EDIT CASE
+    $('#DropDownListCompany').change(function () {
+        var DB_OperationType = $('#HiddenFieldDB_OperationType').val();
+        if (DB_OperationType == PARAMETER.DB_OperationType.UPDATE) {
+            GET_GENERALBRACH_LISTBYPARAM();
+        }
+    });
+    $('#DropDownListCampus').change(function () {
+        GET_GENERALBRANCH_DETAILBYID();
+    });
 }
 
 //-----------ALL DROPDOWN LIST
-function PopulateMTGeneralCompanyList() {
+function PopulateMT_GeneralCompany_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALCOMPANY_BYPARAMETER,
     }
@@ -85,7 +97,7 @@ function PopulateMTGeneralCompanyList() {
         },
     });
 }
-function PopulateLKCampusTypeList() {
+function PopulateLK_CampusType_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_CAMPUSTYPE,
     }
@@ -108,7 +120,7 @@ function PopulateLKCampusTypeList() {
         },
     });
 }
-function PopulateLKOrganizationTypeList() {
+function PopulateLK_OrganizationType_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_ORGANIZATIONTYPE,
     }
@@ -132,7 +144,7 @@ function PopulateLKOrganizationTypeList() {
         },
     });
 }
-function PopulateLKCountryList() {
+function PopulateLK_Country_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_COUNTRY,
     }
@@ -155,7 +167,7 @@ function PopulateLKCountryList() {
         },
     });
 }
-function PopulateLKCityListByParam() {
+function PopulateLK_City_ListByParam() {
     var CountryId = $("#DropDownListCountry :selected").val();
     var JsonArg = {
         CountryId: CountryId,
@@ -182,7 +194,7 @@ function PopulateLKCityListByParam() {
     });
 
 }
-function PopulateLKPolicyPeriodList() {
+function PopulateLK_PolicyPeriod_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_POLICYPERIOD,
     }
@@ -205,7 +217,7 @@ function PopulateLKPolicyPeriodList() {
         },
     });
 }
-function PopulateLKChallanMethodList() {
+function PopulateLK_ChallanMethod_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_CHALLANMETHOD_BYPARAMTER,
         ListCondition: PARAMETER.SPListCondition.CHALLANMETHOD_LIST,
@@ -229,7 +241,7 @@ function PopulateLKChallanMethodList() {
         },
     });
 }
-function PopulateLKRollCallSystemList() {
+function PopulateLK_RollCallSystem_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_ROLLCALLSYSTEM,
     }
@@ -252,7 +264,7 @@ function PopulateLKRollCallSystemList() {
         },
     });
 }
-function PopulateLKBillingMethodList() {
+function PopulateLK_BillingMethod_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_BILLINGMETHOD,
     }
@@ -275,7 +287,7 @@ function PopulateLKBillingMethodList() {
         },
     });
 }
-function PopulateLKStudyLevelList() {
+function PopulateLK_StudyLevel_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYLEVEL_BYPARAMTER,
         ListCondition: PARAMETER.SPListCondition.STUDYLEVEL_LIST,
@@ -299,7 +311,7 @@ function PopulateLKStudyLevelList() {
         },
     });
 }
-function PopulateLKStudyGroupList() {
+function PopulateLK_StudyGroup_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYGROUP_BYPARAMTER,
         ListCondition: PARAMETER.SPListCondition.STUDYGROUP_LIST,
@@ -481,27 +493,63 @@ function ClearInputFields() {
 }
 
 
-//-----------LOAD ENTERY RECORD 
-function GET_GENERALBRANCH_DETAILBYID() {
-    var CampusGuID = $('#HiddenFieldCampusGuID').val();
+//-----------LOAD ENTERY RECORD
+
+function GET_GENERALBRACH_LISTBYPARAM() {
+    var CompanyId = $('#DropDownListCompany :selected').val();
     var JsonArg = {
-        GuID: CampusGuID,
-        ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_DETAILBYID,
+        CountryId: CompanyId,
+        ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_BYPARAMETER,
+        ListCondition: PARAMETER.SPListCondition.BRANCH_BY_USER_ALLOWEDBRANCHIDS,
     }
     $.ajax({
+
         type: "POST",
-        url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
-        dataType: 'json',
+        url: BasePath + "/ACompany/MBranchUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
         beforeSend: function () {
             startLoading();
         },
         success: function (data) {
-
+            var s = '<option  value="-1">Select an option</option>';
+            for (var i = 0; i < data.length; i++) {
+                s += '<center><option  value="' + data[i].GuID + '">' + data[i].Description + '' + '</option>';
+            }
+            $("#DropDownListCampus").html(s);
         },
         complete: function () {
-            
-
+            stopLoading();
         },
     });
+}
+function GET_GENERALBRANCH_DETAILBYID() {
+    var CampusId = $('#DropDownListCampus').val();
+
+    if (CampusId != null && CampusId != undefined && CampusId != "" && CampusId != "-1") {
+
+        var JsonArg = {
+            GuID: CampusGuID,
+            ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_DETAILBYID,
+        }
+        $.ajax({
+            type: "POST",
+            url: BasePath + "/ACompany/MBranchUI/GET_DATA_BY_PARAMETER",
+            dataType: 'json',
+            data: { 'PostedData': (JsonArg) },
+            beforeSend: function () {
+                startLoading();
+            },
+            success: function (data) {
+
+            },
+            complete: function () {
+
+                stopLoading();
+            },
+        });
+
+
+    }
+
+
 };

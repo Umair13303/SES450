@@ -11,8 +11,8 @@ function InitDataTable() {
         "ordering": true,
         "processing": true,
         "columns": [
-            { "data": null,             "title": "#"           },
-            { "data": "GuID",           "title": "GuID"        },
+            { "data": null,             "title": "#"            },
+            { "data": "GuID",           "title": "GuID"         },
             { "data": "Country",        "title": "Country"      },
             { "data": "City",           "title": "City"         },
             { "data": "Code",           "title": "Code"         },
@@ -34,7 +34,7 @@ function InitDataTable() {
 }
 
 function PopulateDropDownLists() {
-    PopulateLKSearchParameterList();
+    PopulateLK_SearchParameter_List();
     PopulateDTGroupByList('MainTable', PARAMETER.CustomerCSSClass.DynamicGroupBy, 'DropDownListGroupBy');
 }
 
@@ -48,7 +48,7 @@ function ChangeCase() {
 }
 
 //-----------ALL DROPDOWN LIST
-function PopulateLKSearchParameterList() {
+function PopulateLK_SearchParameter_List() {
     var JsonArg = {
         DocType: PARAMETER.DocumentType.BRANCHES,
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER,

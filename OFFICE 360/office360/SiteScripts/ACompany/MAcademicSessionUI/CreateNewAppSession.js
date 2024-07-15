@@ -4,18 +4,18 @@ $(document).ready(function () {
     ChangeCase();
 });
 function PopulateDropDownLists() {
-    PopulateLKEnrollmentTypeList();
+    PopulateLK_EnrollmentType_List();
 
-    PopulateMTGeneralCompanyList();
+    PopulateMT_GeneralCompany_List();
 }
 
 //-----------ALL CHANGE CASES
 function ChangeCase() {
     $('#DropDownListCompany').change(function () {
-        PopulateMTGeneralBranchListByParam();
+        PopulateMT_GeneralBranch_ListByParam();
     });
     $('#DropDownListCampus').change(function () {
-        PopulateMTAppClassListByParam();
+        PopulateMT_AppClass_ListByParam();
     });
     $("#DropDownListClass").attr('data-width', '100%').select2({
         placeholder: 'Select an Option',
@@ -28,7 +28,7 @@ function ChangeCase() {
 }
 
 //-----------ALL DROPDOWN LIST
-function PopulateLKEnrollmentTypeList() {
+function PopulateLK_EnrollmentType_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_ENROLLMENTTYPES,
     }
@@ -45,8 +45,7 @@ function PopulateLKEnrollmentTypeList() {
         },
     });
 }
-
-function PopulateMTGeneralCompanyList() {
+function PopulateMT_GeneralCompany_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALCOMPANY_BYPARAMETER,
     }
@@ -72,8 +71,7 @@ function PopulateMTGeneralCompanyList() {
         },
     });
 }
-
-function PopulateMTGeneralBranchListByParam() {
+function PopulateMT_GeneralBranch_ListByParam() {
     var CompanyId = $("#DropDownListCompany :selected").val();
     var JsonArg = {
         CompanyId: CompanyId,
@@ -93,8 +91,7 @@ function PopulateMTGeneralBranchListByParam() {
         },
     });
 }
-
-function PopulateMTAppClassListByParam() {
+function PopulateMT_AppClass_ListByParam() {
     var JsonArg = {
         CampusId: $('#DropDownListCampus :selected').val(),
         ActionCondition: PARAMETER.SESCondition.GET_MT_APPCLASS_BYPARAMETER,

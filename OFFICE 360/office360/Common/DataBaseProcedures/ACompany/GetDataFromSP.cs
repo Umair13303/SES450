@@ -27,16 +27,6 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 return DATA;
             }
         }
-        public static List<GeneralBranch_SearchByParam_Result> GetGeneralBranchList_BySearchParameter(_SqlParameters PostedData)
-        {
-            List<GeneralBranch_SearchByParam_Result> List = new List<GeneralBranch_SearchByParam_Result>();
-            using (var db = new SESEntities())
-            {
-                List = db.GeneralBranch_SearchByParam(PostedData.SearchById, PostedData.InputText).ToList<GeneralBranch_SearchByParam_Result>();
-            }
-            return List;
-
-        }
         public static List<_SqlParameters> GET_MT_GENERALBRANCH_BYPARAM(_SqlParameters PostedData)
         {
             List<_SqlParameters> DATA = new List<_SqlParameters>();
@@ -63,7 +53,6 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 return DATA;
             }
         }
-
         public static List<_SqlParameters> GET_MT_APPCLASS_BYPARAM(_SqlParameters PostedData)
         {
             using (SESEntities db = new SESEntities())
@@ -89,7 +78,6 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 return DATA;
             }
         }
-
         public static List<_SqlParameters> GET_MT_APPSESSION_BYPARAM(_SqlParameters PostedData)
         {
             using (SESEntities db = new SESEntities())
@@ -114,5 +102,16 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 return DATA;
             }
         }
+        public static List<GeneralBranch_SearchByParam_Result> GET_MT_GENERALBRANCH_LIST_SEARCHPARAM(_SqlParameters PostedData)
+        {
+            List<GeneralBranch_SearchByParam_Result> List = new List<GeneralBranch_SearchByParam_Result>();
+            using (var db = new SESEntities())
+            {
+                List = db.GeneralBranch_SearchByParam(PostedData.SearchById, PostedData.InputText).ToList<GeneralBranch_SearchByParam_Result>();
+            }
+            return List;
+
+        }
+
     }
 }

@@ -2,12 +2,12 @@
     PopulateDropDownLists();
 });
 function PopulateDropDownLists() {
-    PopulateLKStudyGroupList();
-    PopulateLKStudyLevelList();
+    PopulateLK_StudyGroup_List();
+    PopulateLK_StudyLevel_List();
 }
 
 //-----------ALL DROPDOWN LIST
-function PopulateLKStudyGroupList() {
+function PopulateLK_StudyGroup_List() {
     var JsonArg = {
         ListCondition: PARAMETER.SPListCondition.STUDYGROUP_BY_BRANCHSETTING,
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYGROUP_BYPARAMTER,
@@ -25,7 +25,7 @@ function PopulateLKStudyGroupList() {
         },
     });
 }
-function PopulateLKStudyLevelList() {
+function PopulateLK_StudyLevel_List() {
     var JsonArg = {
         ListCondition: PARAMETER.SPListCondition.STUDYLEVEL_BY_BRANCHSETTING,
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYLEVEL_BYPARAMTER,
