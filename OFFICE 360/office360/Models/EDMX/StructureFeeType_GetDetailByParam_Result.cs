@@ -11,11 +11,10 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class GeneralBranch_GetDetailByParam_Result
+    public partial class StructureFeeType_GetDetailByParam_Result
     {
         public int Id { get; set; }
         public Nullable<System.Guid> GuID { get; set; }
-        public string Description { get; set; }
-        public string ExtraClass { get; set; }
+        public string FeeName { get; set; }
     }
 }

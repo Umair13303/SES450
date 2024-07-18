@@ -128,6 +128,7 @@ namespace office360.Models.General
         public string ParentName { get; set; }
         public string ParentNICNo { get; set; }
         public string Remarks { get; set; }
+        public string SettingGuID { get; set; }
         public string ReportTitle { get; set; }
         public string ReportType { get; set; }
         public string ResedenitalAddress { get; set; }
@@ -143,6 +144,9 @@ namespace office360.Models.General
         public string StudyLevel { get; set; }
         public string StudyLevelIds { get; set; }
 
-
+        public static explicit operator List<object>(_SqlParameters v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

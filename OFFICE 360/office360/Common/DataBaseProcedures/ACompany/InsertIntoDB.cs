@@ -12,12 +12,13 @@ using System.Web;
 using static office360.Models.General.DocumentStatus;
 using static office360.Models.General.HttpStatus;
 using static office360.Models.General.DBListCondition;
+using DocumentStatus = office360.Models.General.DocumentStatus;
 
 namespace office360.Common.DataBaseProcedures.ACompany
 {
     public class InsertIntoDB
     {
-        public static int? GeneralBranch_Insert(_SqlParameters PostedData)
+        public static int? Update_Insert_GeneralBranch(_SqlParameters PostedData)
         {
             using (var db = new SESEntities())
             {
@@ -26,14 +27,16 @@ namespace office360.Common.DataBaseProcedures.ACompany
                     try
                     {
 
+
                         #region OUTPUT VARAIBLE
-                        var CodeParameter = new ObjectParameter("Code", typeof(string));
                         var ResponseParameter = new ObjectParameter("Response", typeof(int));
                         var CampusIdParameter = new ObjectParameter("CampusId", typeof(int));
                         #endregion
                         #region EXECUTE STORE PROCEDURE
-                        var data = db.GeneralBranch_Insert(
-                                                             PostedData.Description.ToSafeString(),
+                        var data = db.GeneralBranch_UpSert(
+                                                             PostedData.OperationType,
+                                                             PostedData.GuID,
+                                                             PostedData.Description,
                                                              PostedData.CampusTypeId,
                                                              PostedData.OrganizationTypeId,
                                                              PostedData.CountryId,
@@ -44,50 +47,61 @@ namespace office360.Common.DataBaseProcedures.ACompany
                                                              PostedData.NTNNo.ToSafeString(),
                                                              PostedData.Remarks.ToSafeString(),
                                                              DateTime.Now,
-                                                             Session_Manager.BranchId,
-                                                             Session_Manager.CompanyId,
+                                                             Session_Manager.UserId,
+                                                             DateTime.Now,
                                                              Session_Manager.UserId,
                                                              Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EFFECTIVE_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
                                                              Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EXPIRY_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
-                                                             CodeParameter,
+                                                             null,
+                                                             (int?)DocumentStatus.DocType.BRANCHES,
+                                                             (int?)DocumentStatus.DocStatus.Working_BRANCHES,
+                                                             Session_Manager.BranchId,
+                                                             Session_Manager.CompanyId,
                                                              ResponseParameter,
                                                              CampusIdParameter
                             );
                         #endregion
                         #region RESPONSE VALUES IN VARIABLE
-                        string code = CodeParameter.Value.ToString();
                         int? Response = (int)ResponseParameter.Value;
                         int? CampusId = (int)CampusIdParameter.Value;
                         #endregion
                         #region TRANSACTION HANDLING DETAIL
-                        if (Response != (int?)HttpResponses.CODE_SUCCESS)
+                        switch (Response)
                         {
-                            dbTran.Rollback();
-                        }
-                        else if (Response == (int?)HttpResponses.CODE_SUCCESS)
-                        {
-                            var newSetting = new GeneralBranchSetting
-                            {
-                                GuID = Uttility.fn_GetHashGuid(),
-                                CampusId = CampusId,
-                                RollCallSystemId = PostedData.RollCallSystemId,
-                                BillingMethodId = PostedData.BillingMethodId,
-                                ChallanMethodId = PostedData.ChallanMethodId,
-                                StudyLevelIds = PostedData.StudyLevelIds.ToSafeString(),
-                                StudyGroupIds = PostedData.StudyGroupIds.ToSafeString(),
-                                BranchId = Session_Manager.BranchId,
-                                CompanyId = PostedData.CompanyId,
-                                CreatedBy = Session_Manager.UserId,
-                                CreatedOn = DateTime.Now,
-                                PolicyPeriodId=PostedData.PolicyPeriodId,
-                                EffectiveFrom = Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EFFECTIVE_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
-                                ExpiredOn = Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EXPIRY_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
-                                Status = true
-                            };
+                            case (int?)HttpResponses.CODE_SUCCESS:
+                                #region INSERT BRANCH SETTING FOR INSERT CASE
+                                var newSetting = new GeneralBranchSetting
+                                {
+                                    GuID = Uttility.fn_GetHashGuid(),
+                                    CampusId = CampusId,
+                                    RollCallSystemId = PostedData.RollCallSystemId,
+                                    BillingMethodId = PostedData.BillingMethodId,
+                                    ChallanMethodId = PostedData.ChallanMethodId,
+                                    StudyLevelIds = PostedData.StudyLevelIds.ToSafeString(),
+                                    StudyGroupIds = PostedData.StudyGroupIds.ToSafeString(),
+                                    BranchId = Session_Manager.BranchId,
+                                    CompanyId = PostedData.CompanyId,
+                                    CreatedBy = Session_Manager.UserId,
+                                    CreatedOn = DateTime.Now,
+                                    PolicyPeriodId = PostedData.PolicyPeriodId,
+                                    EffectiveFrom = Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EFFECTIVE_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
+                                    ExpiredOn = Uttility.fn_CalculatePolicyPeriod(PostedData, DBListCondition.FN_Condition.GET_EXPIRY_DATE_BY_BRANCH_POLICY_PERIOD_ID.ToSafeString()),
+                                    Status = true
+                                };
+                                db.GeneralBranchSetting.Add(newSetting);
+                                db.SaveChanges();
+                                #endregion
+                                dbTran.Commit();
+                                break;
 
-                            db.GeneralBranchSetting.Add(newSetting);
-                            db.SaveChanges();
-                            dbTran.Commit();
+                            case (int?)HttpResponses.CODE_DATA_UPDATED:
+
+                                dbTran.Commit();
+                                break;
+
+                            case (int?)HttpResponses.CODE_BAD_REQUEST:
+                                dbTran.Rollback();
+                                break;
                         }
                         #endregion
                         return HttpStatus.HttpResponseByReturnValue(Response);
@@ -177,7 +191,7 @@ namespace office360.Common.DataBaseProcedures.ACompany
                                                 PostedData.CampusId,
                                                 PostedData.SessionStartDate,
                                                 PostedData.SessionEndDate,
-                                                (int?)FileStatus.Open_ADMISSION,
+                                                (int?)DocStatus.Open_ADMISSION,
                                                 Session_Manager.CompanyId,
                                                 Session_Manager.BranchId,
                                                 Session_Manager.UserId,
@@ -249,7 +263,7 @@ namespace office360.Common.DataBaseProcedures.ACompany
                                             PostedData.OccupationId,
                                             PostedData.RelationshipId,
                                             PostedData.MonthlyIncome,
-                                            (int?)FileStatus.Active_STUDENT,
+                                            (int?)DocStatus.Active_STUDENT,
                                             Session_Manager.UserId,
                                             Session_Manager.BranchId,
                                             Session_Manager.CompanyId,
@@ -280,7 +294,7 @@ namespace office360.Common.DataBaseProcedures.ACompany
                                 PostedData.SessionId,
                                 StudentId,
                                 PostedData.ClassId,
-                                (int?)Models.General.DocumentStatus.FileStatus.NewEnrollment_CLASS_REGISTRATION,
+                                (int?)Models.General.DocumentStatus.DocStatus.NewEnrollment_CLASS_REGISTRATION,
                                 (int?)Models.General.DocumentStatus.DocType.CLASS_REGISTRATION,
                                 Session_Manager.UserId,
                                 Session_Manager.BranchId,

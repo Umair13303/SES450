@@ -240,6 +240,26 @@ function startLoading() {
         }
     });
 }
+function ErrorMessage(Message) {
+    $.blockUI({
+        message: Message,
+        fadeIn: 800,
+        timeout: 8000,
+        overlayCSS: {
+            backgroundColor: '#1b2024',
+            opacity: 0.8,
+            zIndex: 1200,
+            cursor: 'wait'
+        },
+        css: {
+            border: 0,
+            color: '#fff',
+            zIndex: 1201,
+            padding: 0,
+            backgroundColor: 'transparent'
+        }
+    });
+}
 function GetCheckBox_row(Id) {
     return '<td><div class="form-group"><div class="checkbox checbox-switch switch-success"><label><input type="checkbox" Id="IsChecked' + Id +'" /><span></span></label></div></div></td>';
 }

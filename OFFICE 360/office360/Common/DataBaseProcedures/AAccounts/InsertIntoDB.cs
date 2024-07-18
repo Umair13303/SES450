@@ -141,7 +141,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
                                                                 Discount,
                                                                 NetRecievable,
                                                                 Session_Manager.UserId,
-                                                                (int?)Models.General.DocumentStatus.FileStatus.UnPaid_FEE_CHALLAN,
+                                                                (int?)Models.General.DocumentStatus.DocStatus.UnPaid_FEE_CHALLAN,
                                                                 (int?)Models.General.DocumentStatus.DocType.FEE_CHALLAN,
                                                                 Session_Manager.BranchId,
                                                                 Session_Manager.CompanyId,

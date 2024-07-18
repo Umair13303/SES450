@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3da6d50d308a4623a9ad1c519d518537" Name="Diagram1" ZoomLevel="69">
+      <Diagram DiagramId="d2e9dfe17bf945f4a5caf00d3437b74c" Name="Diagram1">
         <EntityTypeShape EntityType="SESModel.AccFeeChallan" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.AccFeeChallanDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.AccFeeStructure" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />

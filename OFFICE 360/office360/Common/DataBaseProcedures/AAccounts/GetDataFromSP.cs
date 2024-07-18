@@ -20,25 +20,24 @@ namespace office360.Common.DataBaseProcedures.AAccounts
         SESEntities db = new SESEntities();
         public static List<_SqlParameters> GET_MT_STRUCTUREFEETYPE_BYPARAM(_SqlParameters PostedData)
         {
-            List<_SqlParameters> List = new List<_SqlParameters>();
+            List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                List = 
-                       ((List<_SqlParameters>)
-                       (from SFT in db.StructureFeeType
-                            where
-                                SFT.CompanyId == Session_Manager.CompanyId && SFT.BranchId == Session_Manager.BranchId
-                                select new _SqlParameters
-                                {
-                                         Id           = SFT.Id, GuID           = SFT.GuID,            FeeName    = SFT.Description,
-                                         FeeCatagory    = db.FeeCatagory.Where(FC => FC.Id == SFT.FeeCatagoryId).Select(FC => FC.Description).FirstOrDefault(),
-                                         ChargingMethod = db.ChargingMethod.Where(CM => CM.Id == SFT.ChargingMethodId).Select(CM => CM.Description).FirstOrDefault(),
-                                         FeeCatagoryId  = SFT.FeeCatagoryId,   ChargingMethodId  = SFT.ChargingMethodId,
-                                         IsOnAdmission  = SFT.IsOnAdmission,   IsDiscount = SFT.IsDiscount,
-                                         IsRefundable   = SFT.IsRefundable,    IsSecurity = SFT.IsSecurity,
-                                }).ToList());
+                DATA = db.StructureFeeType_GetDetailByParam(
+                                                            PostedData.ListCondition,
+                                                            Session_Manager.UserId,
+                                                            Session_Manager.CompanyId,
+                                                            Session_Manager.BranchId
+                                                          )
+                    .Select(x => new _SqlParameters
+                    {
+                        Id = x.Id,
+                        GuID = x.GuID,
+                        FeeName = x.FeeName,
+
+                    }).ToList();
             }
-            return List;
+                return DATA;
 
         }
         public static List<_SqlParameters> GET_MT_STRUCTURECOAACCOUNT_BYPARAM(_SqlParameters PostedData)
@@ -62,26 +61,17 @@ namespace office360.Common.DataBaseProcedures.AAccounts
 
 
         }
-
-        public static List<_SqlParameters> GET_MT_STRUCTUREFEETYPE_LISTSEARCHPARAM(_SqlParameters PostedData)
+        public static List<StructureFeeType_SearchByParam_Result> GET_MT_STRUCTUREFEETYPE_LISTSEARCHPARAM(_SqlParameters PostedData)
         {
-            List<_SqlParameters> List = new List<_SqlParameters>();
+            List<StructureFeeType_SearchByParam_Result> List = new List<StructureFeeType_SearchByParam_Result>();
             using (var db = new SESEntities())
             {
-                List = 
-                       ((List<_SqlParameters>)
-                       (from SFT in db.StructureFeeType
-                            where
-                                SFT.CompanyId == Session_Manager.CompanyId && SFT.BranchId == Session_Manager.BranchId
-                                select new _SqlParameters
-                                {
-                                         Id           = SFT.Id, GuID           = SFT.GuID,            FeeName    = SFT.Description,
-                                         FeeCatagory    = db.FeeCatagory.Where(FC => FC.Id == SFT.FeeCatagoryId).Select(FC => FC.Description).FirstOrDefault(),
-                                         ChargingMethod = db.ChargingMethod.Where(CM => CM.Id == SFT.ChargingMethodId).Select(CM => CM.Description).FirstOrDefault(),
-                                         FeeCatagoryId  = SFT.FeeCatagoryId,   ChargingMethodId  = SFT.ChargingMethodId,
-                                         IsOnAdmission  = SFT.IsOnAdmission,   IsDiscount = SFT.IsDiscount,
-                                         IsRefundable   = SFT.IsRefundable,    IsSecurity = SFT.IsSecurity,
-                                }).ToList());
+                List = db.StructureFeeType_SearchByParam(
+                                                                    Session_Manager.CompanyId,
+                                                                    Session_Manager.BranchId,
+                                                                    PostedData.SearchById,
+                                                                    PostedData.InputText
+                                                                    ).ToList<StructureFeeType_SearchByParam_Result>();
             }
             return List;
 

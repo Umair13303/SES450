@@ -11,11 +11,18 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class GeneralBranch_GetDetailByParam_Result
+    public partial class StructureFeeType_SearchByParam_Result
     {
         public int Id { get; set; }
         public Nullable<System.Guid> GuID { get; set; }
-        public string Description { get; set; }
-        public string ExtraClass { get; set; }
+        public string FeeName { get; set; }
+        public string FeeCatagory { get; set; }
+        public string ChargingMethod { get; set; }
+        public Nullable<int> FeeCatagoryId { get; set; }
+        public Nullable<int> ChargingMethodId { get; set; }
+        public Nullable<bool> IsOnAdmission { get; set; }
+        public Nullable<bool> IsDiscount { get; set; }
+        public Nullable<bool> IsRefundable { get; set; }
+        public bool IsSecurity { get; set; }
     }
 }

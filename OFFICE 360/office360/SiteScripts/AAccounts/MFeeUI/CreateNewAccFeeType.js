@@ -1,33 +1,42 @@
 
 var OperationType = "";
 
-
 $(document).ready(function () {
-   var DB_OperationType = $('#HiddenFieldDB_OperationType').val();
+
+    var DB_OperationType = $('#HiddenFieldDB_OperationType').val();
+
     switch (DB_OperationType) {
+
         case PARAMETER.DB_OperationType.INSERT:
 
             $('#DivButtonSubmitDown').show();
             $('#DivButtonUpdateDown').hide();
             break;
+
         case PARAMETER.DB_OperationType.UPDATE:
-            PopulateMTFeeTypeList();
+            GET_STRUCTUREFEETYPE_LISTBYPARAM();
             $('#DivButtonSubmitDown').hide();
             $('#DivButtonUpdateDown').show();
             break;
     }
     PopulateDropDownLists();
+
     ChangeCase();
 });
 
 
 function PopulateDropDownLists() {
-    PopulateLKFeeCatagoryList();
-    PopulateLKChargingMethodList();
-    PopulateMTAccount_REV_List();
-    PopulateMTAccount_AST_List();
-    PopulateMTAccount_LIAB_List();
-    PopulateMTAccount_COS_List();
+    PopulateLK_FeeCatagory_List();
+
+    PopulateLK_ChargingMethod_List();
+
+    PopulateMT_Account_REV_List();
+
+    PopulateMT_Account_AST_List();
+
+    PopulateMT_Account_LIAB_List();
+
+    PopulateMT_Account_COS_List();
 }
 
 //-----------ALL CHANGE CASE
@@ -118,7 +127,7 @@ function ChangeCase() {
 
 
 //-----------ALL DROPDOWN LIST
-function PopulateLKFeeCatagoryList() {
+function PopulateLK_FeeCatagory_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_FEECATAGORY,
     }
@@ -141,7 +150,8 @@ function PopulateLKFeeCatagoryList() {
         },
     });
 }
-function PopulateLKChargingMethodList() {
+
+function PopulateLK_ChargingMethod_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_CHARGINGMETHOD,
     }
@@ -164,7 +174,8 @@ function PopulateLKChargingMethodList() {
         },
     });
 }
-function PopulateMTAccount_REV_List() {
+
+function PopulateMT_Account_REV_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
         ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
@@ -189,7 +200,8 @@ function PopulateMTAccount_REV_List() {
         },
     });
 }
-function PopulateMTAccount_AST_List() {
+
+function PopulateMT_Account_AST_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
         ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
@@ -215,7 +227,8 @@ function PopulateMTAccount_AST_List() {
         },
     });
 }
-function PopulateMTAccount_LIAB_List() {
+
+function PopulateMT_Account_LIAB_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
         ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
@@ -241,7 +254,8 @@ function PopulateMTAccount_LIAB_List() {
         },
     });
 }
-function PopulateMTAccount_COS_List() {
+
+function PopulateMT_Account_COS_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
         ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
@@ -267,9 +281,6 @@ function PopulateMTAccount_COS_List() {
         },
     });
 }
-
-
-
 
 //-----------DB OPERATION CALL
 
@@ -480,9 +491,9 @@ function ClearOtherFeeSetting() {
     $('#DropDownListCostOfSaleAccount').val('-1').change();
 }
 
-//-----------LOAD ENTERY RECORD 
 
-function PopulateMTFeeTypeList() {
+//-----------LOAD ENTERY RECORD 
+function GET_STRUCTUREFEETYPE_LISTBYPARAM() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTUREFEETYPE_BYPARAMETER,
     }

@@ -473,8 +473,8 @@
       <DependentUpon>SESModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\SESModel.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\SESModel.Designer.cs">
@@ -489,6 +489,12 @@
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\StructureFeeType.cs">
+      <DependentUpon>SESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EDMX\StructureFeeType_GetDetailByParam_Result.cs">
+      <DependentUpon>SESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EDMX\StructureFeeType_SearchByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\StudyGroup.cs">

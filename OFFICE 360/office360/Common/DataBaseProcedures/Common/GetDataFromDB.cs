@@ -301,7 +301,7 @@ namespace office360.Common.DataBaseProcedures.Common
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.LK_WHTaxPolicy_GetByParam(Session_Manager.CompanyId, Session_Manager.BranchId,PostedData.FeeStructureId,PostedData.ListCondition, (int?)Models.General.DocumentStatus.FileStatus.Active_FEE_STRUCTURE)
+                DATA = db.LK_WHTaxPolicy_GetByParam(Session_Manager.CompanyId, Session_Manager.BranchId,PostedData.FeeStructureId,PostedData.ListCondition, (int?)Models.General.DocumentStatus.DocStatus.Active_FEE_STRUCTURE)
                          .Select(x => new _SqlParameters
                          {
                              Id = x.Id,  
@@ -342,7 +342,7 @@ namespace office360.Common.DataBaseProcedures.Common
                 var today = DateTime.Now;
                 var DATA = db.AppSession
                       .Where(x =>
-                      x.Status == true && x.DocumentStatus == (int?)Models.General.DocumentStatus.FileStatus.Open_ADMISSION
+                      x.Status == true && x.DocumentStatus == (int?)Models.General.DocumentStatus.DocStatus.Open_ADMISSION
                       && x.CampusId == PostedData.CampusId && x.CompanyId == Session_Manager.CompanyId)
                       .Select(x => new _SqlParameters { Id = x.Id, Description = x.Description }).ToList();
                 #endregion
@@ -359,7 +359,7 @@ namespace office360.Common.DataBaseProcedures.Common
                 AppSession AdmissionTitle = db.AppSession
                     .FirstOrDefault(x =>
                      DateTime.Now >= x.SessionStartOn && DateTime.Now <= x.SessionEndOn
-                  && x.DocumentStatus == (int?)FileStatus.Open_ADMISSION
+                  && x.DocumentStatus == (int?)DocStatus.Open_ADMISSION
                   && x.Status == true
                   && x.CompanyId == Session_Manager.CompanyId
                   && x.BranchId == Session_Manager.BranchId

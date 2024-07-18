@@ -604,8 +604,37 @@ namespace office360.Models.EDMX
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_GetDetailByParam_Result>("GeneralBranch_GetDetailByParam", listConditionParameter, allowedCampusIdsParameter, userIdParameter, companyIdParameter, branchIdParameter, documentStatusBranchParameter, documentStatusSessionParameter, timePeriodParameter);
         }
     
-        public virtual int GeneralBranch_Insert(string description, Nullable<int> campusTypeId, Nullable<int> organizationTypeId, Nullable<int> countryId, Nullable<int> cityId, string address, string contactNo, string emailAddress, string nTNNo, string remarks, Nullable<System.DateTime> createdOn, Nullable<int> branchId, Nullable<int> companyId, Nullable<int> createdBy, Nullable<System.DateTime> effectiveFrom, Nullable<System.DateTime> expiredOn, ObjectParameter code, ObjectParameter response, ObjectParameter campusId)
+        public virtual ObjectResult<GeneralBranch_SearchByParam_Result> GeneralBranch_SearchByParam(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
         {
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            var inputTypeIdParameter = inputTypeId.HasValue ?
+                new ObjectParameter("InputTypeId", inputTypeId) :
+                new ObjectParameter("InputTypeId", typeof(int));
+    
+            var inputTextParameter = inputText != null ?
+                new ObjectParameter("InputText", inputText) :
+                new ObjectParameter("InputText", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_SearchByParam_Result>("GeneralBranch_SearchByParam", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
+        }
+    
+        public virtual int GeneralBranch_UpSert(string dB_OperationType, Nullable<System.Guid> guID, string description, Nullable<int> campusTypeId, Nullable<int> organizationTypeId, Nullable<int> countryId, Nullable<int> cityId, string address, string contactNo, string emailAddress, string nTNNo, string remarks, Nullable<System.DateTime> createdOn, Nullable<int> createdBy, Nullable<System.DateTime> updatedOn, Nullable<int> updatedBy, Nullable<System.DateTime> effectiveFrom, Nullable<System.DateTime> expiredOn, Nullable<bool> status, Nullable<int> docType, Nullable<int> documentStatus, Nullable<int> branchId, Nullable<int> companyId, ObjectParameter response, ObjectParameter campusId)
+        {
+            var dB_OperationTypeParameter = dB_OperationType != null ?
+                new ObjectParameter("DB_OperationType", dB_OperationType) :
+                new ObjectParameter("DB_OperationType", typeof(string));
+    
+            var guIDParameter = guID.HasValue ?
+                new ObjectParameter("GuID", guID) :
+                new ObjectParameter("GuID", typeof(System.Guid));
+    
             var descriptionParameter = description != null ?
                 new ObjectParameter("Description", description) :
                 new ObjectParameter("Description", typeof(string));
@@ -650,17 +679,17 @@ namespace office360.Models.EDMX
                 new ObjectParameter("CreatedOn", createdOn) :
                 new ObjectParameter("CreatedOn", typeof(System.DateTime));
     
-            var branchIdParameter = branchId.HasValue ?
-                new ObjectParameter("BranchId", branchId) :
-                new ObjectParameter("BranchId", typeof(int));
-    
-            var companyIdParameter = companyId.HasValue ?
-                new ObjectParameter("CompanyId", companyId) :
-                new ObjectParameter("CompanyId", typeof(int));
-    
             var createdByParameter = createdBy.HasValue ?
                 new ObjectParameter("CreatedBy", createdBy) :
                 new ObjectParameter("CreatedBy", typeof(int));
+    
+            var updatedOnParameter = updatedOn.HasValue ?
+                new ObjectParameter("UpdatedOn", updatedOn) :
+                new ObjectParameter("UpdatedOn", typeof(System.DateTime));
+    
+            var updatedByParameter = updatedBy.HasValue ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(int));
     
             var effectiveFromParameter = effectiveFrom.HasValue ?
                 new ObjectParameter("EffectiveFrom", effectiveFrom) :
@@ -670,20 +699,27 @@ namespace office360.Models.EDMX
                 new ObjectParameter("ExpiredOn", expiredOn) :
                 new ObjectParameter("ExpiredOn", typeof(System.DateTime));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GeneralBranch_Insert", descriptionParameter, campusTypeIdParameter, organizationTypeIdParameter, countryIdParameter, cityIdParameter, addressParameter, contactNoParameter, emailAddressParameter, nTNNoParameter, remarksParameter, createdOnParameter, branchIdParameter, companyIdParameter, createdByParameter, effectiveFromParameter, expiredOnParameter, code, response, campusId);
-        }
+            var statusParameter = status.HasValue ?
+                new ObjectParameter("Status", status) :
+                new ObjectParameter("Status", typeof(bool));
     
-        public virtual ObjectResult<GeneralBranch_SearchByParam_Result> GeneralBranch_SearchByParam(Nullable<int> inputTypeId, string inputText)
-        {
-            var inputTypeIdParameter = inputTypeId.HasValue ?
-                new ObjectParameter("InputTypeId", inputTypeId) :
-                new ObjectParameter("InputTypeId", typeof(int));
+            var docTypeParameter = docType.HasValue ?
+                new ObjectParameter("DocType", docType) :
+                new ObjectParameter("DocType", typeof(int));
     
-            var inputTextParameter = inputText != null ?
-                new ObjectParameter("InputText", inputText) :
-                new ObjectParameter("InputText", typeof(string));
+            var documentStatusParameter = documentStatus.HasValue ?
+                new ObjectParameter("DocumentStatus", documentStatus) :
+                new ObjectParameter("DocumentStatus", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_SearchByParam_Result>("GeneralBranch_SearchByParam", inputTypeIdParameter, inputTextParameter);
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GeneralBranch_UpSert", dB_OperationTypeParameter, guIDParameter, descriptionParameter, campusTypeIdParameter, organizationTypeIdParameter, countryIdParameter, cityIdParameter, addressParameter, contactNoParameter, emailAddressParameter, nTNNoParameter, remarksParameter, createdOnParameter, createdByParameter, updatedOnParameter, updatedByParameter, effectiveFromParameter, expiredOnParameter, statusParameter, docTypeParameter, documentStatusParameter, branchIdParameter, companyIdParameter, response, campusId);
         }
     
         public virtual ObjectResult<GeneralCompany_GetDetailByParam_Result> GeneralCompany_GetDetailByParam(Nullable<int> id, string listCondition)
@@ -979,6 +1015,48 @@ namespace office360.Models.EDMX
                 new ObjectParameter("CoaCatagoryIds", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureCOAAccount_GetDetailByParam_Result>("StructureCOAAccount_GetDetailByParam", companyIdParameter, branchIdParameter, listConditionParameter, coaCatagoryIdsParameter);
+        }
+    
+        public virtual ObjectResult<StructureFeeType_GetDetailByParam_Result> StructureFeeType_GetDetailByParam(string listCondition, Nullable<int> userId, Nullable<int> companyId, Nullable<int> branchId)
+        {
+            var listConditionParameter = listCondition != null ?
+                new ObjectParameter("ListCondition", listCondition) :
+                new ObjectParameter("ListCondition", typeof(string));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_GetDetailByParam_Result>("StructureFeeType_GetDetailByParam", listConditionParameter, userIdParameter, companyIdParameter, branchIdParameter);
+        }
+    
+        public virtual ObjectResult<StructureFeeType_SearchByParam_Result> StructureFeeType_SearchByParam(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
+        {
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            var inputTypeIdParameter = inputTypeId.HasValue ?
+                new ObjectParameter("InputTypeId", inputTypeId) :
+                new ObjectParameter("InputTypeId", typeof(int));
+    
+            var inputTextParameter = inputText != null ?
+                new ObjectParameter("InputText", inputText) :
+                new ObjectParameter("InputText", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_SearchByParam_Result>("StructureFeeType_SearchByParam", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
         }
     
         public virtual int StructureFeeType_UpSert(string dB_OperationType, Nullable<System.Guid> guID, Nullable<int> feeCatagoryId, Nullable<int> chargingMethodId, string description, Nullable<bool> isOnAdmission, Nullable<bool> isSecurity, Nullable<bool> isRefundable, Nullable<bool> isDiscount, Nullable<int> revenueAccountId, Nullable<int> assetAccountId, Nullable<int> liabilityAccountId, Nullable<int> costOfSaleAccountId, Nullable<System.DateTime> createdOn, Nullable<int> createdBy, Nullable<System.DateTime> updatedOn, Nullable<int> updatedBy, Nullable<int> branchId, Nullable<int> companyId, ObjectParameter response)

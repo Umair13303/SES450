@@ -79,7 +79,7 @@ function InitDateTable() {
 //-----------ALL DROPDOWN LIST
 function PopulateLKSearchParameterList() {
     var JsonArg = {
-        DocType: PARAMETER.DocumentType.BRANCHES,
+        DocType: PARAMETER.DocumentType.FEE_TYPE,
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER,
     }
     $.ajax({
@@ -89,12 +89,43 @@ function PopulateLKSearchParameterList() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListSearchBy").html(s);
         },
     });
 }
+
+
+
+//-----------DB OPERATION CALL
+$('#ButtonSearch').click(function (event) {
+    event.preventDefault();
+    var IsValid = true;
+    if (IsValid) {
+        try {
+            DrawDataTable();
+
+        }
+        catch {
+            GetMessageBox(err, 500);
+        }
+    }
+});
+function DrawDataTable() {
+    var SearchById = $('#DropDownListSearchBy :selected').val();
+    var JsonArg = {
+        SearchById: SearchById,
+        InputText: $('#TextBoxQueryString').val(),
+    };
+    var queryString = $.param(JsonArg);
+
+
+    table.ajax.url((BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT?" + queryString)).load();
+   
+}
+
+
 
 
 

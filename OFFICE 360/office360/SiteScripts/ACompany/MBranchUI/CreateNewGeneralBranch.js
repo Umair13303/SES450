@@ -6,7 +6,6 @@ $(document).ready(function () {
     var DB_OperationType = $('#HiddenFieldDB_OperationType').val();
     switch (DB_OperationType) {
         case PARAMETER.DB_OperationType.INSERT:
-
             $('#DivButtonSubmitDown').show();
             $('#DivButtonUpdateDown').hide();
             break;
@@ -437,6 +436,7 @@ function UpSertDataIntoDB() {
     var Remarks = $('#TextBoxRemarks').val();
 
     var CampusGuID = $('#HiddenFieldCampusGuID').val();
+    alert(CampusGuID);
 
     var JsonArg = {
         GuID: CampusGuID,
@@ -456,7 +456,6 @@ function UpSertDataIntoDB() {
         BillingMethodId: BillingMethodId,
         StudyLevelIds: StudyLevelIds.toString(),
         StudyGroupIds: StudyGroupIds.toString(),
-
         NTNNo: NTNNo,
         Remarks: Remarks,
     }
@@ -469,9 +468,7 @@ function UpSertDataIntoDB() {
             startLoading();
         },
         success: function (data) {
-            debugger
             GetMessageBox(data.Message, data.Code);
-            debugger
             ClearInputFields();
 
         },
@@ -513,7 +510,7 @@ function GET_GENERALBRACH_LISTBYPARAM() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].GuID + '">' + data[i].Description + '' + '</option>';
+                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCampus").html(s);
         },
@@ -523,12 +520,13 @@ function GET_GENERALBRACH_LISTBYPARAM() {
     });
 }
 function GET_GENERALBRANCH_DETAILBYID() {
-    var CampusId = $('#DropDownListCampus').val();
+    var CampusId = $('#DropDownListCampus :selected').val();
+
 
     if (CampusId != null && CampusId != undefined && CampusId != "" && CampusId != "-1") {
 
         var JsonArg = {
-            GuID: CampusGuID,
+            Id: CampusId,
             ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_DETAILBYID,
         }
         $.ajax({
@@ -540,6 +538,24 @@ function GET_GENERALBRANCH_DETAILBYID() {
                 startLoading();
             },
             success: function (data) {
+                $('#TextBoxDescription').val(data[0].Description);
+                $('#DropDownListCampusType').val(data[0].CampusTypeId).change();
+                $('#DropDownListOrganizationType').val(data[0].OrganizationTypeId).change();
+                $('#DropDownListCountry').val(data[0].CountryId).change();
+                $('#DropDownListCountry').val(data[0].CountryId).change();
+                $('#DropDownListCity').val(data[0].CityId).trigger("change");
+                $('#TextBoxAddress').val(data[0].Address);
+                $('#TextBoxContactNo').val(data[0].ContactNo);
+                $('#TextBoxEmailAddress').val(data[0].EmailAddress);
+                $('#DropDownListPolicyPeriod').val(data[0].PolicyPeriodId).change().prop('disabled',true);
+                $('#DropDownListChallanMethod').val(data[0].ChallanMethodId).change().prop('disabled',true);
+                $('#DropDownListRollCallSystem').val(data[0].RollCallSystemId).change().prop('disabled',true);
+                $('#DropDownListBillingMethod').val(data[0].ChallanMethodId).change().prop('disabled',true);
+                $('#DropDownListStudyLevels').val(data[0].StudyLevelIds).change().prop('disabled',true);
+                $('#DropDownListStudyGroups').val(data[0].StudyGroupIds).change().prop('disabled',true);
+                $('#TextBoxNTNNo').val(data[0].NTNNo);
+                $('#TextBoxRemarks').val(data[0].Remarks).prop('disabled', true);
+                $('#HiddenFieldCampusGuID').val(data[0].GuID);
 
             },
             complete: function () {
@@ -550,6 +566,8 @@ function GET_GENERALBRANCH_DETAILBYID() {
 
 
     }
-
+    else {
+        ErrorMessage("No Branch Has Been Selected");
+    }
 
 };

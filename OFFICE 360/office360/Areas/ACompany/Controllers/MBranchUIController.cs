@@ -156,7 +156,7 @@ namespace office360.Areas.ACompany.Controllers
                     DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_BYPARAM(PostedData).ToList();
                     break;
                 case nameof(SESActionCondition.GET_MT_GENERALBRANCH_DETAILBYID):
-                    DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_BYPARAM(PostedData).ToList();
+                    DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALBRANCH_INFO_BY_GUID(PostedData).ToList();
                     break;
             }
             return Json(DATA, JsonRequestBehavior.AllowGet);
@@ -175,7 +175,7 @@ namespace office360.Areas.ACompany.Controllers
         [HttpPost]
         public ActionResult Insert_GeneralBranches(_SqlParameters PostedData)
         {
-            _Exe = Common.DataBaseProcedures.ACompany.InsertIntoDB.GeneralBranch_Insert(PostedData);
+            _Exe = Common.DataBaseProcedures.ACompany.InsertIntoDB.Update_Insert_GeneralBranch(PostedData);
             var data = new { Message = HttpStatus.HTTPTransactionMessagByStatusCode(_Exe), StatusCode = StatusCode };
             return Json(data, JsonRequestBehavior.AllowGet);
         }

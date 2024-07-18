@@ -938,7 +938,15 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Parameter Name="DocumentStatusSession" Type="int" Mode="In" />
           <Parameter Name="TimePeriod" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="GeneralBranch_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="GeneralBranch_SearchByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+          <Parameter Name="InputTypeId" Type="int" Mode="In" />
+          <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="GeneralBranch_UpSert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DB_OperationType" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="GuID" Type="uniqueidentifier" Mode="In" />
           <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="CampusTypeId" Type="int" Mode="In" />
           <Parameter Name="OrganizationTypeId" Type="int" Mode="In" />
@@ -950,18 +958,18 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Parameter Name="NTNNo" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="Remarks" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
-          <Parameter Name="BranchId" Type="int" Mode="In" />
-          <Parameter Name="CompanyId" Type="int" Mode="In" />
           <Parameter Name="CreatedBy" Type="int" Mode="In" />
+          <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="int" Mode="In" />
           <Parameter Name="EffectiveFrom" Type="datetime" Mode="In" />
           <Parameter Name="ExpiredOn" Type="datetime" Mode="In" />
-          <Parameter Name="Code" Type="nvarchar(max)" Mode="InOut" />
+          <Parameter Name="Status" Type="bit" Mode="In" />
+          <Parameter Name="DocType" Type="int" Mode="In" />
+          <Parameter Name="DocumentStatus" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
           <Parameter Name="Response" Type="int" Mode="InOut" />
           <Parameter Name="CampusId" Type="int" Mode="InOut" />
-        </Function>
-        <Function Name="GeneralBranch_SearchByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="InputTypeId" Type="int" Mode="In" />
-          <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="GeneralCompany_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -1044,6 +1052,18 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Parameter Name="BranchId" Type="int" Mode="In" />
           <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
           <Parameter Name="CoaCatagoryIds" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="StructureFeeType_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="StructureFeeType_SearchByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+          <Parameter Name="InputTypeId" Type="int" Mode="In" />
+          <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="StructureFeeType_UpSert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="DB_OperationType" Type="nvarchar(max)" Mode="In" />
@@ -2222,7 +2242,15 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="DocumentStatusSession" Mode="In" Type="Int32" />
             <Parameter Name="TimePeriod" Mode="In" Type="DateTime" />
           </FunctionImport>
-          <FunctionImport Name="GeneralBranch_Insert">
+          <FunctionImport Name="GeneralBranch_SearchByParam" ReturnType="Collection(SESModel.GeneralBranch_SearchByParam_Result)">
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+            <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="InputText" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GeneralBranch_UpSert">
+            <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+            <Parameter Name="GuID" Mode="In" Type="Guid" />
             <Parameter Name="Description" Mode="In" Type="String" />
             <Parameter Name="CampusTypeId" Mode="In" Type="Int32" />
             <Parameter Name="OrganizationTypeId" Mode="In" Type="Int32" />
@@ -2234,18 +2262,18 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="NTNNo" Mode="In" Type="String" />
             <Parameter Name="Remarks" Mode="In" Type="String" />
             <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
-            <Parameter Name="BranchId" Mode="In" Type="Int32" />
-            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
             <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+            <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
             <Parameter Name="EffectiveFrom" Mode="In" Type="DateTime" />
             <Parameter Name="ExpiredOn" Mode="In" Type="DateTime" />
-            <Parameter Name="Code" Mode="InOut" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="Boolean" />
+            <Parameter Name="DocType" Mode="In" Type="Int32" />
+            <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
             <Parameter Name="Response" Mode="InOut" Type="Int32" />
             <Parameter Name="CampusId" Mode="InOut" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="GeneralBranch_SearchByParam" ReturnType="Collection(SESModel.GeneralBranch_SearchByParam_Result)">
-            <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
-            <Parameter Name="InputText" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GeneralCompany_GetDetailByParam" ReturnType="Collection(SESModel.GeneralCompany_GetDetailByParam_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2329,6 +2357,18 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="ListCondition" Mode="In" Type="String" />
             <Parameter Name="CoaCatagoryIds" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="StructureFeeType_GetDetailByParam" ReturnType="Collection(SESModel.StructureFeeType_GetDetailByParam_Result)">
+            <Parameter Name="ListCondition" Mode="In" Type="String" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="StructureFeeType_SearchByParam" ReturnType="Collection(SESModel.StructureFeeType_SearchByParam_Result)">
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+            <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="InputText" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="StructureFeeType_UpSert">
             <Parameter Name="DB_OperationType" Mode="In" Type="String" />
             <Parameter Name="GuID" Mode="In" Type="Guid" />
@@ -2358,6 +2398,7 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
         </ComplexType>
         <ComplexType Name="GeneralBranch_GetDetailByParam_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="GuID" Nullable="true" />
           <Property Type="String" Name="Description" Nullable="true" />
           <Property Type="String" Name="ExtraClass" Nullable="false" MaxLength="1" />
         </ComplexType>
@@ -2456,6 +2497,24 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Account" Nullable="true" />
           <Property Type="String" Name="Description" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="StructureFeeType_GetDetailByParam_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="GuID" Nullable="true" />
+          <Property Type="String" Name="FeeName" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="StructureFeeType_SearchByParam_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="GuID" Nullable="true" />
+          <Property Type="String" Name="FeeName" Nullable="true" />
+          <Property Type="String" Name="FeeCatagory" Nullable="true" />
+          <Property Type="String" Name="ChargingMethod" Nullable="true" />
+          <Property Type="Int32" Name="FeeCatagoryId" Nullable="true" />
+          <Property Type="Int32" Name="ChargingMethodId" Nullable="true" />
+          <Property Type="Boolean" Name="IsOnAdmission" Nullable="true" />
+          <Property Type="Boolean" Name="IsDiscount" Nullable="true" />
+          <Property Type="Boolean" Name="IsRefundable" Nullable="true" />
+          <Property Type="Boolean" Name="IsSecurity" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -3247,12 +3306,12 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <ResultMapping>
               <ComplexTypeMapping TypeName="SESModel.GeneralBranch_GetDetailByParam_Result">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GuID" ColumnName="GuID" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="ExtraClass" ColumnName="ExtraClass" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GeneralBranch_Insert" FunctionName="SESModel.Store.GeneralBranch_Insert" />
           <FunctionImportMapping FunctionImportName="GeneralBranch_SearchByParam" FunctionName="SESModel.Store.GeneralBranch_SearchByParam">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SESModel.GeneralBranch_SearchByParam_Result">
@@ -3271,6 +3330,7 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GeneralBranch_UpSert" FunctionName="SESModel.Store.GeneralBranch_UpSert" />
           <FunctionImportMapping FunctionImportName="GeneralCompany_GetDetailByParam" FunctionName="SESModel.Store.GeneralCompany_GetDetailByParam">
             <ResultMapping>
               <ComplexTypeMapping TypeName="SESModel.GeneralCompany_GetDetailByParam_Result">
@@ -3388,6 +3448,32 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Account" ColumnName="Account" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="StructureFeeType_GetDetailByParam" FunctionName="SESModel.Store.StructureFeeType_GetDetailByParam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SESModel.StructureFeeType_GetDetailByParam_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GuID" ColumnName="GuID" />
+                <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="StructureFeeType_SearchByParam" FunctionName="SESModel.Store.StructureFeeType_SearchByParam">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SESModel.StructureFeeType_SearchByParam_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GuID" ColumnName="GuID" />
+                <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+                <ScalarProperty Name="FeeCatagory" ColumnName="FeeCatagory" />
+                <ScalarProperty Name="ChargingMethod" ColumnName="ChargingMethod" />
+                <ScalarProperty Name="FeeCatagoryId" ColumnName="FeeCatagoryId" />
+                <ScalarProperty Name="ChargingMethodId" ColumnName="ChargingMethodId" />
+                <ScalarProperty Name="IsOnAdmission" ColumnName="IsOnAdmission" />
+                <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+                <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+                <ScalarProperty Name="IsSecurity" ColumnName="IsSecurity" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

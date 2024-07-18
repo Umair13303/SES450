@@ -7,7 +7,7 @@ namespace office360.Models.General
 {
     public class DocumentStatus
     {
-        public enum FileStatus
+        public enum DocStatus
         {
             Working_BRANCHES = 1,
             NonOperation_BRANCHES = 2,
