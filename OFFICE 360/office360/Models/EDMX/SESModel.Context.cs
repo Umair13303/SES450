@@ -275,19 +275,19 @@ namespace office360.Models.EDMX
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AccJournal_Insert", codeParameter, transactionDateParameter, folioNoParameter, referenceParameter, descriptionParameter, debitAccountIdParameter, debitAmountParameter, creditAccountIdParameter, creditAmountParameter, balanceAmountParameter, createdByParameter, docTypeParameter, branchIdParameter, companyIdParameter);
         }
     
-        public virtual ObjectResult<AppClass_GetDetailByParam_Result> AppClass_GetDetailByParam(string listCondition, Nullable<int> branchId, Nullable<int> companyId, Nullable<int> appSessionId, string classIds)
+        public virtual ObjectResult<AppClass_GetListByParam_Result> AppClass_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId, Nullable<int> appSessionId, string classIds)
         {
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
-            var branchIdParameter = branchId.HasValue ?
-                new ObjectParameter("BranchId", branchId) :
-                new ObjectParameter("BranchId", typeof(int));
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
     
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
                 new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
     
             var appSessionIdParameter = appSessionId.HasValue ?
                 new ObjectParameter("AppSessionId", appSessionId) :
@@ -297,7 +297,7 @@ namespace office360.Models.EDMX
                 new ObjectParameter("ClassIds", classIds) :
                 new ObjectParameter("ClassIds", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AppClass_GetDetailByParam_Result>("AppClass_GetDetailByParam", listConditionParameter, branchIdParameter, companyIdParameter, appSessionIdParameter, classIdsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AppClass_GetListByParam_Result>("AppClass_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter, appSessionIdParameter, classIdsParameter);
         }
     
         public virtual int AppClass_Insert(string description, Nullable<int> branchId, Nullable<int> companyId, Nullable<int> createdBy, Nullable<int> studyLevelId, Nullable<int> studyGroupId, ObjectParameter code_, ObjectParameter response)
@@ -567,19 +567,11 @@ namespace office360.Models.EDMX
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("DEV_UpdateRecord", tableNameParameter, setClauseParameter, whereClauseParameter);
         }
     
-        public virtual ObjectResult<GeneralBranch_GetDetailByParam_Result> GeneralBranch_GetDetailByParam(string listCondition, string allowedCampusIds, Nullable<int> userId, Nullable<int> companyId, Nullable<int> branchId, Nullable<int> documentStatusBranch, Nullable<int> documentStatusSession, Nullable<System.DateTime> timePeriod)
+        public virtual ObjectResult<GeneralBranch_GetListByParam_Result> GeneralBranch_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId, string allowedCampusIds, Nullable<int> documentStatusBranch, Nullable<int> documentStatusSession)
         {
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
-            var allowedCampusIdsParameter = allowedCampusIds != null ?
-                new ObjectParameter("AllowedCampusIds", allowedCampusIds) :
-                new ObjectParameter("AllowedCampusIds", typeof(string));
-    
-            var userIdParameter = userId.HasValue ?
-                new ObjectParameter("UserId", userId) :
-                new ObjectParameter("UserId", typeof(int));
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
     
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
@@ -589,6 +581,10 @@ namespace office360.Models.EDMX
                 new ObjectParameter("BranchId", branchId) :
                 new ObjectParameter("BranchId", typeof(int));
     
+            var allowedCampusIdsParameter = allowedCampusIds != null ?
+                new ObjectParameter("AllowedCampusIds", allowedCampusIds) :
+                new ObjectParameter("AllowedCampusIds", typeof(string));
+    
             var documentStatusBranchParameter = documentStatusBranch.HasValue ?
                 new ObjectParameter("DocumentStatusBranch", documentStatusBranch) :
                 new ObjectParameter("DocumentStatusBranch", typeof(int));
@@ -597,14 +593,10 @@ namespace office360.Models.EDMX
                 new ObjectParameter("DocumentStatusSession", documentStatusSession) :
                 new ObjectParameter("DocumentStatusSession", typeof(int));
     
-            var timePeriodParameter = timePeriod.HasValue ?
-                new ObjectParameter("TimePeriod", timePeriod) :
-                new ObjectParameter("TimePeriod", typeof(System.DateTime));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_GetDetailByParam_Result>("GeneralBranch_GetDetailByParam", listConditionParameter, allowedCampusIdsParameter, userIdParameter, companyIdParameter, branchIdParameter, documentStatusBranchParameter, documentStatusSessionParameter, timePeriodParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_GetListByParam_Result>("GeneralBranch_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter, allowedCampusIdsParameter, documentStatusBranchParameter, documentStatusSessionParameter);
         }
     
-        public virtual ObjectResult<GeneralBranch_SearchByParam_Result> GeneralBranch_SearchByParam(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
+        public virtual ObjectResult<GeneralBranch_GetListBySearch_Result> GeneralBranch_GetListBySearch(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
         {
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
@@ -622,7 +614,7 @@ namespace office360.Models.EDMX
                 new ObjectParameter("InputText", inputText) :
                 new ObjectParameter("InputText", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_SearchByParam_Result>("GeneralBranch_SearchByParam", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralBranch_GetListBySearch_Result>("GeneralBranch_GetListBySearch", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
         }
     
         public virtual int GeneralBranch_UpSert(string dB_OperationType, Nullable<System.Guid> guID, string description, Nullable<int> campusTypeId, Nullable<int> organizationTypeId, Nullable<int> countryId, Nullable<int> cityId, string address, string contactNo, string emailAddress, string nTNNo, string remarks, Nullable<System.DateTime> createdOn, Nullable<int> createdBy, Nullable<System.DateTime> updatedOn, Nullable<int> updatedBy, Nullable<System.DateTime> effectiveFrom, Nullable<System.DateTime> expiredOn, Nullable<bool> status, Nullable<int> docType, Nullable<int> documentStatus, Nullable<int> branchId, Nullable<int> companyId, ObjectParameter response, ObjectParameter campusId)
@@ -781,8 +773,20 @@ namespace office360.Models.EDMX
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GeneralEnrollmentSetting_Insert", enrollmentTypeIdParameter, branchIdParameter, companyIdParameter, createdByParameter, updatedByParameter, expiredOnParameter);
         }
     
-        public virtual ObjectResult<GeneralRightSetting_GetDetailByParam_Result> GeneralRightSetting_GetDetailByParam(Nullable<int> companyId, Nullable<int> uRLTypeId, Nullable<bool> status, string listCondition, string menu, Nullable<int> userId, Nullable<int> rightId, string rightPath)
+        public virtual ObjectResult<GeneralRightSetting_GetListByParam_Result> GeneralRightSetting_GetListByParam(string dB_IF_PARAM, string allowedCampusIds, Nullable<int> userId, Nullable<int> companyId, Nullable<int> uRLTypeId, Nullable<bool> status, string menu, Nullable<int> rightId, string rightPath)
         {
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
+    
+            var allowedCampusIdsParameter = allowedCampusIds != null ?
+                new ObjectParameter("AllowedCampusIds", allowedCampusIds) :
+                new ObjectParameter("AllowedCampusIds", typeof(string));
+    
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("UserId", userId) :
+                new ObjectParameter("UserId", typeof(int));
+    
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
                 new ObjectParameter("CompanyId", typeof(int));
@@ -795,17 +799,9 @@ namespace office360.Models.EDMX
                 new ObjectParameter("Status", status) :
                 new ObjectParameter("Status", typeof(bool));
     
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
             var menuParameter = menu != null ?
                 new ObjectParameter("Menu", menu) :
                 new ObjectParameter("Menu", typeof(string));
-    
-            var userIdParameter = userId.HasValue ?
-                new ObjectParameter("UserId", userId) :
-                new ObjectParameter("UserId", typeof(int));
     
             var rightIdParameter = rightId.HasValue ?
                 new ObjectParameter("RightId", rightId) :
@@ -815,7 +811,7 @@ namespace office360.Models.EDMX
                 new ObjectParameter("RightPath", rightPath) :
                 new ObjectParameter("RightPath", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralRightSetting_GetDetailByParam_Result>("GeneralRightSetting_GetDetailByParam", companyIdParameter, uRLTypeIdParameter, statusParameter, listConditionParameter, menuParameter, userIdParameter, rightIdParameter, rightPathParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GeneralRightSetting_GetListByParam_Result>("GeneralRightSetting_GetListByParam", dB_IF_PARAMParameter, allowedCampusIdsParameter, userIdParameter, companyIdParameter, uRLTypeIdParameter, statusParameter, menuParameter, rightIdParameter, rightPathParameter);
         }
     
         public virtual ObjectResult<GeneralUser_GetDetailByParam_Result> GeneralUser_GetDetailByParam(string listCondition, Nullable<int> companyId, Nullable<bool> isLogIn, string userName, string password, Nullable<int> id)
@@ -912,25 +908,21 @@ namespace office360.Models.EDMX
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("GeneralUser_Insert", nameParameter, userNameParameter, passwordParameter, emailAddressParameter, mobileNumberParameter, roleIdParameter, isLogInParameter, allowedBranchIdsParameter, createdOnParameter, createdByParameter, updatedOnParameter, updatedByParameter, companyIdParameter, employeeIdParameter, isDeveloperParameter);
         }
     
-        public virtual ObjectResult<LK_ChallanMethod_GetByParam_Result> LK_ChallanMethod_GetByParam(Nullable<int> companyId, Nullable<int> branchId, string listCondition)
+        public virtual ObjectResult<LK_ChallanMethod_GetListByParam_Result> LK_ChallanMethod_GetListByParam(string dB_IF_PARAM)
         {
-            var companyIdParameter = companyId.HasValue ?
-                new ObjectParameter("CompanyId", companyId) :
-                new ObjectParameter("CompanyId", typeof(int));
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
     
-            var branchIdParameter = branchId.HasValue ?
-                new ObjectParameter("BranchId", branchId) :
-                new ObjectParameter("BranchId", typeof(int));
-    
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_ChallanMethod_GetByParam_Result>("LK_ChallanMethod_GetByParam", companyIdParameter, branchIdParameter, listConditionParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_ChallanMethod_GetListByParam_Result>("LK_ChallanMethod_GetListByParam", dB_IF_PARAMParameter);
         }
     
-        public virtual ObjectResult<LK_StudyGroup_GetByParam_Result> LK_StudyGroup_GetByParam(Nullable<int> companyId, Nullable<int> branchId, string listCondition, string allowedStudyGroupIds)
+        public virtual ObjectResult<LK_StudyGroup_GetListByParam_Result> LK_StudyGroup_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId, string allowedStudyGroupIds)
         {
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
+    
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
                 new ObjectParameter("CompanyId", typeof(int));
@@ -938,20 +930,20 @@ namespace office360.Models.EDMX
             var branchIdParameter = branchId.HasValue ?
                 new ObjectParameter("BranchId", branchId) :
                 new ObjectParameter("BranchId", typeof(int));
-    
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
     
             var allowedStudyGroupIdsParameter = allowedStudyGroupIds != null ?
                 new ObjectParameter("AllowedStudyGroupIds", allowedStudyGroupIds) :
                 new ObjectParameter("AllowedStudyGroupIds", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_StudyGroup_GetByParam_Result>("LK_StudyGroup_GetByParam", companyIdParameter, branchIdParameter, listConditionParameter, allowedStudyGroupIdsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_StudyGroup_GetListByParam_Result>("LK_StudyGroup_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter, allowedStudyGroupIdsParameter);
         }
     
-        public virtual ObjectResult<LK_StudyLevel_GetByParam_Result> LK_StudyLevel_GetByParam(Nullable<int> companyId, Nullable<int> branchId, string listCondition, string allowedStudyLevelIds)
+        public virtual ObjectResult<LK_StudyLevel_GetListByParam_Result> LK_StudyLevel_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId, string allowedStudyLevelIds)
         {
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
+    
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
                 new ObjectParameter("CompanyId", typeof(int));
@@ -960,19 +952,19 @@ namespace office360.Models.EDMX
                 new ObjectParameter("BranchId", branchId) :
                 new ObjectParameter("BranchId", typeof(int));
     
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
             var allowedStudyLevelIdsParameter = allowedStudyLevelIds != null ?
                 new ObjectParameter("AllowedStudyLevelIds", allowedStudyLevelIds) :
                 new ObjectParameter("AllowedStudyLevelIds", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_StudyLevel_GetByParam_Result>("LK_StudyLevel_GetByParam", companyIdParameter, branchIdParameter, listConditionParameter, allowedStudyLevelIdsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_StudyLevel_GetListByParam_Result>("LK_StudyLevel_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter, allowedStudyLevelIdsParameter);
         }
     
-        public virtual ObjectResult<LK_WHTaxPolicy_GetByParam_Result> LK_WHTaxPolicy_GetByParam(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> accFeeStructureId, string listCondition, Nullable<int> documentStatusFeeStructure)
+        public virtual ObjectResult<LK_WHTaxPolicy_GetListByParam_Result> LK_WHTaxPolicy_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId, Nullable<int> accFeeStructureId, Nullable<int> documentStatusFeeStructure)
         {
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
+    
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
                 new ObjectParameter("CompanyId", typeof(int));
@@ -985,18 +977,14 @@ namespace office360.Models.EDMX
                 new ObjectParameter("AccFeeStructureId", accFeeStructureId) :
                 new ObjectParameter("AccFeeStructureId", typeof(int));
     
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
             var documentStatusFeeStructureParameter = documentStatusFeeStructure.HasValue ?
                 new ObjectParameter("DocumentStatusFeeStructure", documentStatusFeeStructure) :
                 new ObjectParameter("DocumentStatusFeeStructure", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_WHTaxPolicy_GetByParam_Result>("LK_WHTaxPolicy_GetByParam", companyIdParameter, branchIdParameter, accFeeStructureIdParameter, listConditionParameter, documentStatusFeeStructureParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<LK_WHTaxPolicy_GetListByParam_Result>("LK_WHTaxPolicy_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter, accFeeStructureIdParameter, documentStatusFeeStructureParameter);
         }
     
-        public virtual ObjectResult<StructureCOAAccount_GetDetailByParam_Result> StructureCOAAccount_GetDetailByParam(Nullable<int> companyId, Nullable<int> branchId, string listCondition, string coaCatagoryIds)
+        public virtual ObjectResult<StructureCOAAccount_GetListByParam_Result> StructureCOAAccount_GetListByParam(Nullable<int> companyId, Nullable<int> branchId, string listCondition, string coaCatagoryIds)
         {
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
@@ -1014,18 +1002,14 @@ namespace office360.Models.EDMX
                 new ObjectParameter("CoaCatagoryIds", coaCatagoryIds) :
                 new ObjectParameter("CoaCatagoryIds", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureCOAAccount_GetDetailByParam_Result>("StructureCOAAccount_GetDetailByParam", companyIdParameter, branchIdParameter, listConditionParameter, coaCatagoryIdsParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureCOAAccount_GetListByParam_Result>("StructureCOAAccount_GetListByParam", companyIdParameter, branchIdParameter, listConditionParameter, coaCatagoryIdsParameter);
         }
     
-        public virtual ObjectResult<StructureFeeType_GetDetailByParam_Result> StructureFeeType_GetDetailByParam(string listCondition, Nullable<int> userId, Nullable<int> companyId, Nullable<int> branchId)
+        public virtual ObjectResult<StructureFeeType_GetListByParam_Result> StructureFeeType_GetListByParam(string dB_IF_PARAM, Nullable<int> companyId, Nullable<int> branchId)
         {
-            var listConditionParameter = listCondition != null ?
-                new ObjectParameter("ListCondition", listCondition) :
-                new ObjectParameter("ListCondition", typeof(string));
-    
-            var userIdParameter = userId.HasValue ?
-                new ObjectParameter("UserId", userId) :
-                new ObjectParameter("UserId", typeof(int));
+            var dB_IF_PARAMParameter = dB_IF_PARAM != null ?
+                new ObjectParameter("DB_IF_PARAM", dB_IF_PARAM) :
+                new ObjectParameter("DB_IF_PARAM", typeof(string));
     
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
@@ -1035,10 +1019,10 @@ namespace office360.Models.EDMX
                 new ObjectParameter("BranchId", branchId) :
                 new ObjectParameter("BranchId", typeof(int));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_GetDetailByParam_Result>("StructureFeeType_GetDetailByParam", listConditionParameter, userIdParameter, companyIdParameter, branchIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_GetListByParam_Result>("StructureFeeType_GetListByParam", dB_IF_PARAMParameter, companyIdParameter, branchIdParameter);
         }
     
-        public virtual ObjectResult<StructureFeeType_SearchByParam_Result> StructureFeeType_SearchByParam(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
+        public virtual ObjectResult<StructureFeeType_GetListBySearch_Result> StructureFeeType_GetListBySearch(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
         {
             var companyIdParameter = companyId.HasValue ?
                 new ObjectParameter("CompanyId", companyId) :
@@ -1056,7 +1040,7 @@ namespace office360.Models.EDMX
                 new ObjectParameter("InputText", inputText) :
                 new ObjectParameter("InputText", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_SearchByParam_Result>("StructureFeeType_SearchByParam", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<StructureFeeType_GetListBySearch_Result>("StructureFeeType_GetListBySearch", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
         }
     
         public virtual int StructureFeeType_UpSert(string dB_OperationType, Nullable<System.Guid> guID, Nullable<int> feeCatagoryId, Nullable<int> chargingMethodId, string description, Nullable<bool> isOnAdmission, Nullable<bool> isSecurity, Nullable<bool> isRefundable, Nullable<bool> isDiscount, Nullable<int> revenueAccountId, Nullable<int> assetAccountId, Nullable<int> liabilityAccountId, Nullable<int> costOfSaleAccountId, Nullable<System.DateTime> createdOn, Nullable<int> createdBy, Nullable<System.DateTime> updatedOn, Nullable<int> updatedBy, Nullable<int> branchId, Nullable<int> companyId, ObjectParameter response)

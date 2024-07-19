@@ -80,7 +80,7 @@ function PopulateMT_GeneralCompany_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].CompanyName + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].CompanyName + '' + '</option>';
             }
             $("#DropDownListCompany").html(s);
             $("#DropDownListCompany").val(CompanyId).trigger('change');
@@ -110,7 +110,7 @@ function PopulateLK_CampusType_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCampusType").html(s);
         },
@@ -133,7 +133,7 @@ function PopulateLK_OrganizationType_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListOrganizationType").html(s);
 
@@ -157,7 +157,7 @@ function PopulateLK_Country_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCountry").html(s);
         },
@@ -183,7 +183,7 @@ function PopulateLK_City_ListByParam() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCity").html(s);
         },
@@ -207,7 +207,7 @@ function PopulateLK_PolicyPeriod_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListPolicyPeriod").html(s);
         },
@@ -219,7 +219,7 @@ function PopulateLK_PolicyPeriod_List() {
 function PopulateLK_ChallanMethod_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_CHALLANMETHOD_BYPARAMTER,
-        ListCondition: PARAMETER.SPListCondition.CHALLANMETHOD_LIST,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.CHALLANMETHOD_LIST,
     }
     $.ajax({
         type: "POST",
@@ -231,7 +231,7 @@ function PopulateLK_ChallanMethod_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListChallanMethod").html(s);
         },
@@ -254,7 +254,7 @@ function PopulateLK_RollCallSystem_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListRollCallSystem").html(s);
         },
@@ -277,7 +277,7 @@ function PopulateLK_BillingMethod_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListBillingMethod").html(s);
         },
@@ -289,7 +289,7 @@ function PopulateLK_BillingMethod_List() {
 function PopulateLK_StudyLevel_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYLEVEL_BYPARAMTER,
-        ListCondition: PARAMETER.SPListCondition.STUDYLEVEL_LIST,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STUDYLEVEL_LIST,
     }
     $.ajax({
         type: "POST",
@@ -301,7 +301,7 @@ function PopulateLK_StudyLevel_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListStudyLevels").html(s);
         },
@@ -313,7 +313,7 @@ function PopulateLK_StudyLevel_List() {
 function PopulateLK_StudyGroup_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYGROUP_BYPARAMTER,
-        ListCondition: PARAMETER.SPListCondition.STUDYGROUP_LIST,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STUDYGROUP_LIST,
     }
     $.ajax({
         type: "POST",
@@ -325,7 +325,7 @@ function PopulateLK_StudyGroup_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListStudyGroups").html(s);
         },
@@ -493,11 +493,9 @@ function ClearInputFields() {
 //-----------LOAD ENTERY RECORD
 
 function GET_GENERALBRACH_LISTBYPARAM() {
-    var CompanyId = $('#DropDownListCompany :selected').val();
     var JsonArg = {
-        CountryId: CompanyId,
         ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.BRANCH_BY_USER_ALLOWEDBRANCHIDS,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.BRANCH_BY_USER_ALLOWEDBRANCHIDS,
     }
     $.ajax({
 
@@ -510,7 +508,7 @@ function GET_GENERALBRACH_LISTBYPARAM() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCampus").html(s);
         },

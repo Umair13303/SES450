@@ -16,39 +16,43 @@ namespace office360.CommonHelper
         #region COMMONS LIST FUNCTIONS
 
 
-        public static List<GeneralRightSetting_GetDetailByParam_Result> GetRightsByParameter()
+        public static List<GeneralRightSetting_GetListByParam_Result> GetRightsByParameter()
         {
             using (var db = new SESEntities())
             {
-                var data = db.GeneralRightSetting_GetDetailByParam(
-                                                              Session_Manager.CompanyId
-                                                            , ASPManagRoles.URLTYPEID_FORM
-                                                            , true
-                                                            , SPListCondition.GET_ALL_ALLOWED_RIGHTS_TO_LOGIN_USER_FOR_SIDE_MENUE.ToSafeString()
-                                                            , null
-                                                            , Session_Manager.UserId
-                                                            , null
-                                                            , null
+                var DATA = db.GeneralRightSetting_GetListByParam(
+                                                              DB_IF_Condition.GET_ALL_ALLOWED_RIGHTS_TO_LOGIN_USER_FOR_SIDE_MENUE.ToSafeString(),
+                                                              Session_Manager.AllowedCampusIds,
+                                                              Session_Manager.UserId,
+                                                              Session_Manager.CompanyId,
+                                                              ASPManagRoles.URLTYPEID_FORM,
+                                                              true,
+                                                              null,
+                                                              null,
+                                                              null
                                                             ).ToList();
 
 
-                return data;
+                return DATA;
             }
         }
         public static int? GetAllowedUsersRightsByParameter(int? RightId)
         {
             using (var db = new SESEntities())
             {
-                var data = db.GeneralRightSetting_GetDetailByParam(
-                                                              Session_Manager.CompanyId
-                                                            , ASPManagRoles.URLTYPEID_FORM
-                                                            , true
-                                                            , SPListCondition.GET_ALLOWED_RIGHTS_TO_LOGIN_USER_BY_RIGHTID.ToSafeString()
-                                                            , null
-                                                            , Session_Manager.UserId
-                                                            , RightId
-                                                            , null
+                var data = db.GeneralRightSetting_GetListByParam(
+                                                              DB_IF_Condition.GET_ALLOWED_RIGHTS_TO_LOGIN_USER_BY_RIGHTID.ToSafeString(),
+                                                              Session_Manager.AllowedCampusIds,
+                                                              Session_Manager.UserId,
+                                                              Session_Manager.CompanyId,
+                                                              ASPManagRoles.URLTYPEID_FORM,
+                                                              true,
+                                                              null,
+                                                              RightId,
+                                                              null
                                                             ).ToList();
+
+                
                 if (data.Count > 0)
                 {
                     return (int?)HttpResponses.CODE_SUCCESS;
@@ -65,15 +69,16 @@ namespace office360.CommonHelper
         {
             using (var db = new SESEntities())
             {
-                var data = db.GeneralRightSetting_GetDetailByParam(
-                                                              Session_Manager.CompanyId
-                                                            , ASPManagRoles.URLTYPEID_FORM
-                                                            , true
-                                                            , SPListCondition.GET_ALLOWED_RIGHTS_TO_LOGIN_USER_BY_URL.ToSafeString()
-                                                            , null
-                                                            , Session_Manager.UserId
-                                                            , null
-                                                            , RightPATH
+                var data = db.GeneralRightSetting_GetListByParam(
+                                                              DB_IF_Condition.GET_ALLOWED_RIGHTS_TO_LOGIN_USER_BY_URL.ToSafeString(),
+                                                              Session_Manager.AllowedCampusIds,
+                                                              Session_Manager.UserId,
+                                                              Session_Manager.CompanyId,
+                                                              ASPManagRoles.URLTYPEID_FORM,
+                                                              true,
+                                                              null,
+                                                              null,
+                                                              RightPATH
                                                             ).ToList();
                 if (data.Count > 0)
                 {

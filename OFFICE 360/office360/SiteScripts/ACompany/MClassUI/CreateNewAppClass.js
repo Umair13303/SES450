@@ -9,26 +9,8 @@ function PopulateDropDownLists() {
 //-----------ALL DROPDOWN LIST
 function PopulateLK_StudyGroup_List() {
     var JsonArg = {
-        ListCondition: PARAMETER.SPListCondition.STUDYGROUP_BY_BRANCHSETTING,
         ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYGROUP_BYPARAMTER,
-    }
-    $.ajax({
-        type: "POST",
-        url: BasePath + "/ACompany/MClassUI/GET_DATA_BY_PARAMETER",
-        data: { 'PostedData': (JsonArg) },
-        success: function (data) {
-            var s = '<option  value="-1">Select an option</option>';
-            for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
-            }
-            $("#DropDownListStudyGroup").html(s);
-        },
-    });
-}
-function PopulateLK_StudyLevel_List() {
-    var JsonArg = {
-        ListCondition: PARAMETER.SPListCondition.STUDYLEVEL_BY_BRANCHSETTING,
-        ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYLEVEL_BYPARAMTER,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STUDYGROUP_BY_BRANCHSETTING,
 
     }
     $.ajax({
@@ -38,7 +20,26 @@ function PopulateLK_StudyLevel_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+            }
+            $("#DropDownListStudyGroup").html(s);
+        },
+    });
+}
+function PopulateLK_StudyLevel_List() {
+    var JsonArg = {
+        ActionCondition: PARAMETER.LookUpCondition.GET_LK1_STUDYLEVEL_BYPARAMTER,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STUDYLEVEL_BY_BRANCHSETTING,
+
+    }
+    $.ajax({
+        type: "POST",
+        url: BasePath + "/ACompany/MClassUI/GET_DATA_BY_PARAMETER",
+        data: { 'PostedData': (JsonArg) },
+        success: function (data) {
+            var s = '<option  value="-1">Select an option</option>';
+            for (var i = 0; i < data.length; i++) {
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListStudyLevel").html(s);
         },

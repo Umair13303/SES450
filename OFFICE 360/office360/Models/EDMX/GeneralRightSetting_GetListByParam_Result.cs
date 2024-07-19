@@ -11,7 +11,7 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class GeneralRightSetting_GetDetailByParam_Result
+    public partial class GeneralRightSetting_GetListByParam_Result
     {
         public int Id { get; set; }
         public string FormName { get; set; }

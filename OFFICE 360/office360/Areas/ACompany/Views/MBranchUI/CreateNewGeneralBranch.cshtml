@@ -50,205 +50,138 @@
 
                 <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Campus Detail</h3>
 
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Campus Name", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxDescription" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class=""></i></span>
-                                    @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Campus Name Here!", @id = "TextBoxDescription" })
-                                </div>
-                            </div>
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Campus Name", new { @class = "col-form-label", @for = "TextBoxDescription" })
+                            @Html.TextBox("TextBoxDescription", null, new { @class = "form-control", placeholder = "Please Enter Campus Name Here!", @id = "TextBoxDescription" })
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Campus Type", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCampusType" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
-                                    @Html.DropDownList("DropDownListCampusType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampusType" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Branch Type", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListOrganizationType" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class=" ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListOrganizationType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListOrganizationType" })
-                                </div>
-                            </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Campus Type", new { @class = "col-form-label", @for = "DropDownListCampusType" })
+                            @Html.DropDownList("DropDownListCampusType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCampusType" })
                         </div>
                     </div>
 
-
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Org Type", new { @class = "col-form-label", @for = "DropDownListOrganizationType" })
+                            @Html.DropDownList("DropDownListOrganizationType", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListOrganizationType" })
+                        </div>
+                    </div>
 
                 </div>
+
+
                 <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Address Detail</h3>
-
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Country", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCountry" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class=" ri-global-line"></i></span>
-                                    @Html.DropDownList("DropDownListCountry", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCountry" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("City", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListCity" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-honour-line "></i></span>
-                                    @Html.DropDownList("DropDownListCity", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCity" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-9 col-sm-12">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Address", new { @class = "col-form-label col-12 col-md-2 col-lg-0", @for = "TextBoxAddress" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group flex-nowrap">
-                                    <span class="input-group-text"><i class="ri-honour-line"></i></span>
-                                    @Html.TextArea("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please Enter Address Here!", @id = "TextBoxAddress" })
-                                </div>
-                            </div>
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Country", new { @class = "col-form-label", @for = "DropDownListCountry" })
+                            @Html.DropDownList("DropDownListCountry", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCountry" })
                         </div>
                     </div>
 
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("City", new { @class = "col-form-label", @for = "DropDownListCity" })
+                            @Html.DropDownList("DropDownListCity", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListCity" })
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-8">
+                        <div class="form-group">
+                            @Html.Label("Address", new { @class = "col-form-label", @for = "TextBoxAddress" })
+                            @Html.TextArea("TextBoxAddress", null, new { @class = "form-control", placeholder = "Please Enter Address Here!", @id = "TextBoxAddress" })
+                        </div>
+                    </div>
                 </div>
+
                 <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Contact Detail</h3>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Contact", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxContactNo" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-cellphone-line"></i></span>
-                                    @Html.TextBox("TextBoxContactNo", null, new { @class = "form-control", placeholder = "Please Enter Contact Here!", @id = "TextBoxContactNo" })
-                                </div>
-                            </div>
+
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Contact", new { @class = "col-form-label", @for = "TextBoxContactNo" })
+                            @Html.TextBox("TextBoxContactNo", null, new { @class = "form-control", placeholder = "Please Enter Contact Here!", @id = "TextBoxContactNo" })
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Email", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxEmailAddress" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-at-line"></i></span>
-                                    @Html.TextBox("TextBoxEmailAddress", null, new { @class = "form-control", placeholder = "Please Enter Email Here!", @id = "TextBoxEmailAddress" })
-                                </div>
-                            </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Email", new { @class = "col-form-label", @for = "TextBoxEmailAddress" })
+                            @Html.TextBox("TextBoxEmailAddress", null, new { @class = "form-control", placeholder = "Please Enter Email Here!", @id = "TextBoxEmailAddress" })
                         </div>
                     </div>
                 </div>
+
+
+
+
                 <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Settings</h3>
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Policy WEF", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListPolicyPeriod" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListPolicyPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListPolicyPeriod" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Challan Method", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListChallanMethod" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListChallanMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChallanMethod" })
-                                </div>
-                            </div>
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Policy Period", new { @class = "col-form-label", @for = "DropDownListPolicyPeriod" })
+                            @Html.DropDownList("DropDownListPolicyPeriod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListPolicyPeriod" })
                         </div>
                     </div>
 
-
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Roll Call By", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListRollCallSystem" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group ">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListRollCallSystem", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRollCallSystem" })
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Billing Method", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListBillingMethod" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListBillingMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListBillingMethod" })
-                                </div>
-                            </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Challan Method", new { @class = "col-form-label", @for = "DropDownListChallanMethod" })
+                            @Html.DropDownList("DropDownListChallanMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListChallanMethod" })
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Study Levels", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListStudyLevels" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListStudyLevels", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyLevels" })
-                                </div>
-                            </div>
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Roll Call System", new { @class = "col-form-label", @for = "DropDownListRollCallSystem" })
+                            @Html.DropDownList("DropDownListRollCallSystem", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListRollCallSystem" })
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Study Groups", new { @class = "col-form-label col-12 col-md-3", @for = "DropDownListStudyGroups" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-settings-line"></i></span>
-                                    @Html.DropDownList("DropDownListStudyGroups", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyGroups" })
-                                </div>
-                            </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Billing Method", new { @class = "col-form-label", @for = "DropDownListBillingMethod" })
+                            @Html.DropDownList("DropDownListBillingMethod", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListBillingMethod" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Study Levels", new { @class = "col-form-label", @for = "DropDownListStudyLevels" })
+                            @Html.DropDownList("DropDownListStudyLevels", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyLevels" })
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Study Groups", new { @class = "col-form-label", @for = "DropDownListStudyGroups" })
+                            @Html.DropDownList("DropDownListStudyGroups", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", multiple = "multiple", @data_toggle = "select2", id = "DropDownListStudyGroups" })
                         </div>
                     </div>
                 </div>
+
+
+
                 <h3 style="font-family: 'Bahnschrift'; font-weight: bolder; color: navy">Misc</h3>
-                <div class="row">
-
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("NTN No", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxNTNNo" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
-                                    @Html.TextBox("TextBoxNTNNo", null, new { @class = "form-control", placeholder = "Please Enter NTN No Here!", @id = "TextBoxNTNNo" })
-                                </div>
-                            </div>
+                <div class="row mb-0">
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("NTN Number", new { @class = "col-form-label", @for = "TextBoxNTNNo" })
+                            @Html.TextBox("TextBoxNTNNo", null, new { @class = "form-control", placeholder = "Please Enter NTN Here!", @id = "TextBoxNTNNo" })
                         </div>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="form-group row mb-3">
-                            @Html.Label("Remarks", new { @class = "col-form-label col-12 col-md-3", @for = "TextBoxRemarks" })
-                            <div class="col-12 col-md-9">
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="ri-pencil-line"></i></span>
-                                    @Html.TextBox("TextBoxRemarks", null, new { @class = "form-control", placeholder = "Please Enter Remarks Here!", @id = "TextBoxRemarks" })
-                                </div>
-                            </div>
+
+                    <div class="col-sm-12 col-md-6">
+                        <div class="form-group">
+                            @Html.Label("Remarks", new { @class = "col-form-label", @for = "TextBoxRemarks" })
+                            @Html.TextBox("TextBoxRemarks", null, new { @class = "form-control", placeholder = "Please Enter Remarks Here!", @id = "TextBoxRemarks" })
                         </div>
                     </div>
                 </div>
+
             </form>
             @Html.TextBox("HiddenFieldCampusGuID", null, new { @class = "form-control", Value = ViewBag.CampusGuID, hidden = true, @id = "HiddenFieldCampusGuID" })
             @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })

@@ -11,7 +11,7 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class StructureFeeType_SearchByParam_Result
+    public partial class StructureFeeType_GetListBySearch_Result
     {
         public int Id { get; set; }
         public Nullable<System.Guid> GuID { get; set; }

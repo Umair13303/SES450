@@ -323,7 +323,7 @@
     <Compile Include="Models\EDMX\AppClassRegistration.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\AppClass_GetDetailByParam_Result.cs">
+    <Compile Include="Models\EDMX\AppClass_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\AppSession.cs">
@@ -389,10 +389,10 @@
     <Compile Include="Models\EDMX\GeneralBranchSetting.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\GeneralBranch_GetDetailByParam_Result.cs">
+    <Compile Include="Models\EDMX\GeneralBranch_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\GeneralBranch_SearchByParam_Result.cs">
+    <Compile Include="Models\EDMX\GeneralBranch_GetListBySearch_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\GeneralCompany.cs">
@@ -410,7 +410,7 @@
     <Compile Include="Models\EDMX\GeneralRightSetting.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\GeneralRightSetting_GetDetailByParam_Result.cs">
+    <Compile Include="Models\EDMX\GeneralRightSetting_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\GeneralUser.cs">
@@ -422,16 +422,16 @@
     <Compile Include="Models\EDMX\GeneralUser_GetDetailByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\LK_ChallanMethod_GetByParam_Result.cs">
+    <Compile Include="Models\EDMX\LK_ChallanMethod_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\LK_StudyGroup_GetByParam_Result.cs">
+    <Compile Include="Models\EDMX\LK_StudyGroup_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\LK_StudyLevel_GetByParam_Result.cs">
+    <Compile Include="Models\EDMX\LK_StudyLevel_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\LK_WHTaxPolicy_GetByParam_Result.cs">
+    <Compile Include="Models\EDMX\LK_WHTaxPolicy_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\MartialStatus.cs">
@@ -473,8 +473,8 @@
       <DependentUpon>SESModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\SESModel.cs">
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\SESModel.Designer.cs">
@@ -485,16 +485,16 @@
     <Compile Include="Models\EDMX\StructureCOAAccount.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\StructureCOAAccount_GetDetailByParam_Result.cs">
+    <Compile Include="Models\EDMX\StructureCOAAccount_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\StructureFeeType.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\StructureFeeType_GetDetailByParam_Result.cs">
+    <Compile Include="Models\EDMX\StructureFeeType_GetListByParam_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EDMX\StructureFeeType_SearchByParam_Result.cs">
+    <Compile Include="Models\EDMX\StructureFeeType_GetListBySearch_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\StudyGroup.cs">

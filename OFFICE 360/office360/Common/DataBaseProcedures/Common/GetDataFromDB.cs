@@ -37,7 +37,7 @@ namespace office360.Common.DataBaseProcedures.Common
             using (SESEntities db = new SESEntities())
             {
                 var DATA = db.SearchParameter
-                     .Where(x => x.Status == true && x.DocTypeId == PostedData.DocType)
+                     .Where(x => x.Status == true && (x.DocTypeId == PostedData.DocType || x.DocTypeId==0) )
                      .Select(x => new _SqlParameters
                      {
                          Id = x.Id,
@@ -257,10 +257,15 @@ namespace office360.Common.DataBaseProcedures.Common
             List<_SqlParameters> data = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                data = db.LK_StudyLevel_GetByParam(Session_Manager.CompanyId,Session_Manager.BranchId,PostedData.ListCondition,Session_Manager.StudyLevelIds)
+                data = db.LK_StudyLevel_GetListByParam(
+                                                        PostedData.DB_IF_PARAM,
+                                                        Session_Manager.CompanyId,
+                                                        Session_Manager.BranchId,
+                                                        Session_Manager.StudyLevelIds    
+                                                      )
                          .Select(x => new _SqlParameters
                          {
-                              Id = x.Id,
+                             Id = x.Id,
                              Description = x.Description,
                          }).ToList();
             }
@@ -271,7 +276,12 @@ namespace office360.Common.DataBaseProcedures.Common
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.LK_StudyGroup_GetByParam(Session_Manager.CompanyId, Session_Manager.BranchId, PostedData.ListCondition, Session_Manager.StudyGroupIds)
+                DATA = db.LK_StudyGroup_GetListByParam(
+                                                        PostedData.DB_IF_PARAM,
+                                                        Session_Manager.CompanyId,
+                                                        Session_Manager.BranchId,
+                                                        Session_Manager.StudyGroupIds
+                                                      )
                          .Select(x => new _SqlParameters
                          {
                              Id = x.Id,
@@ -285,7 +295,9 @@ namespace office360.Common.DataBaseProcedures.Common
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.LK_ChallanMethod_GetByParam(Session_Manager.CompanyId, Session_Manager.BranchId, PostedData.ListCondition)
+                DATA = db.LK_ChallanMethod_GetListByParam(
+                                                        PostedData.DB_IF_PARAM
+                                                        )
                          .Select(x => new _SqlParameters
                          {
                              Id = x.Id,  
@@ -301,7 +313,13 @@ namespace office360.Common.DataBaseProcedures.Common
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.LK_WHTaxPolicy_GetByParam(Session_Manager.CompanyId, Session_Manager.BranchId,PostedData.FeeStructureId,PostedData.ListCondition, (int?)Models.General.DocumentStatus.DocStatus.Active_FEE_STRUCTURE)
+                DATA = db.LK_WHTaxPolicy_GetListByParam(
+                                                        PostedData.DB_IF_PARAM,
+                                                        Session_Manager.CompanyId,
+                                                        Session_Manager.BranchId,
+                                                        PostedData.FeeStructureId,
+                                                        (int?)DocStatus.Active_FEE_STRUCTURE
+                                                        )
                          .Select(x => new _SqlParameters
                          {
                              Id = x.Id,  

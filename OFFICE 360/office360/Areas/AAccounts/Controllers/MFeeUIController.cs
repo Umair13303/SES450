@@ -97,8 +97,16 @@ namespace office360.Areas.AAccounts.Controllers
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_ChargingMethod(PostedData).ToList();
                     break;
 
+                case nameof(LookUpActionCondition.GET_LK1_WHTAXPOLICY_BYPARAMTER):
+                    DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_WHTaxPolicy(PostedData).ToList();
+                    break;
+
                 case nameof(SESActionCondition.GET_MT_GENERALCOMPANY_BYPARAMETER):
                     DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_GENERALCOMPANY_BYPARAM(PostedData).ToList();
+                    break;
+
+                case nameof(LookUpActionCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER):
+                    DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_SearchParameter(PostedData).ToList();
                     break;
 
                 case nameof(SESActionCondition.GET_MT_GENERALBRANCH_BYPARAMETER):
@@ -111,10 +119,6 @@ namespace office360.Areas.AAccounts.Controllers
 
                 case nameof(SESActionCondition.GET_MT_APPCLASS_BYPARAMETER):
                     DATA = Common.DataBaseProcedures.ACompany.GetDataFromSP.GET_MT_APPCLASS_BYPARAM(PostedData).ToList();
-                    break;
-
-                case nameof(LookUpActionCondition.GET_LK1_WHTAXPOLICY_BYPARAMTER):
-                    DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_WHTaxPolicy(PostedData).ToList();
                     break;
 
                 case nameof(SESActionCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER):

@@ -2,10 +2,22 @@ var table = "";
 
 $(document).ready(function () {
     PopulateDropDownLists();
+    ChangeCase();
     InitDateTable();
 });
 
-
+function ChangeCase() {
+    $('#DropDownListSearchBy').change(function (event) {
+        event.preventDefault();
+        var SearchBy = $('#DropDownListSearchBy :selected').val();
+        if (SearchBy == 1) {
+            $('#TextBoxQueryString').prop('disabled',true);
+        }
+        else {
+            $('#TextBoxQueryString').prop('disabled',false);
+        }
+    });
+}
 function PopulateDropDownLists() {
     PopulateLKSearchParameterList();
 }
@@ -13,25 +25,24 @@ function PopulateDropDownLists() {
 function InitDateTable() {
     var GroupColumn_P1 = 2;
     var GroupColumn_P2 = 3;
-    var JsonArg = {
-        ActionCondition: PARAMETER.SESCondition.GET_MT_ACCFEESTRUCTURE_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.STRUCTUREFEETYPE_LIST,
-    }
+    //var JsonArg = {
+    //    ActionCondition: PARAMETER.SESCondition.GET_MT_ACCFEESTRUCTURE_BYPARAMETER,
+    //}
     table = $('#MainTableFeeType').DataTable({
         "responsive": true,
         "ordering": true,
         "processing": true,
-        "ajax": {
-            "url": BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT",
-            "type": "POST",
-            "data": { "PostedData": JsonArg },
-            beforeSend: function () {
-                startLoading();
-            },
-            complete: function () {
-                stopLoading();
-            },
-        },
+        //"ajax": {
+        //    "url": BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT",
+        //    "type": "POST",
+        //    "data": { "PostedData": JsonArg },
+        //    beforeSend: function () {
+        //        startLoading();
+        //    },
+        //    complete: function () {
+        //        stopLoading();
+        //    },
+        //},
         "columns": [
             { "data": null,                 "title": "#"                    },
             { "data": "FeeName",            "title": "Fee"                  },
@@ -84,7 +95,7 @@ function PopulateLKSearchParameterList() {
     }
     $.ajax({
         type: "POST",
-        url: BasePath + "/ACompany/MBranchUI/GET_DATA_BY_PARAMETER",
+        url: BasePath + "/ACompany/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
@@ -114,14 +125,16 @@ $('#ButtonSearch').click(function (event) {
 });
 function DrawDataTable() {
     var SearchById = $('#DropDownListSearchBy :selected').val();
+    var InputText = $('#TextBoxQueryString').val();
     var JsonArg = {
         SearchById: SearchById,
-        InputText: $('#TextBoxQueryString').val(),
+        InputText: InputText,
     };
+
     var queryString = $.param(JsonArg);
-
-
+    debugger
     table.ajax.url((BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT?" + queryString)).load();
+
    
 }
 

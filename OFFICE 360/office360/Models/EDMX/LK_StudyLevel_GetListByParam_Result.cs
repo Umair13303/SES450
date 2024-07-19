@@ -11,19 +11,9 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class GeneralBranch_SearchByParam_Result
+    public partial class LK_StudyLevel_GetListByParam_Result
     {
         public int Id { get; set; }
-        public Nullable<System.Guid> GuID { get; set; }
-        public string Code { get; set; }
         public string Description { get; set; }
-        public string CampusType { get; set; }
-        public string OrganizationType { get; set; }
-        public string Country { get; set; }
-        public string City { get; set; }
-        public string Address { get; set; }
-        public string ContactNo { get; set; }
-        public string EmailAddress { get; set; }
-        public string NTNNo { get; set; }
     }
 }

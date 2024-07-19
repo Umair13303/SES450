@@ -40,10 +40,15 @@ function PopulateDropDownLists() {
 
 //-----------ALL CHANGE CASES
 function ChangeCase() {
-    $('#DropDownListGroupBy').change(function (event) {
+    $('#DropDownListSearchBy').change(function (event) {
         event.preventDefault();
-        var GroupColumnId = $('#DropDownListGroupBy :selected').val();
-      //  DataTableAdditionalSetting(GroupColumnId);
+        var SearchBy = $('#DropDownListSearchBy :selected').val();
+        if (SearchBy == 1) {
+            $('#TextBoxQueryString').prop('disabled', true);
+        }
+        else {
+            $('#TextBoxQueryString').prop('disabled', false);
+        }
     });
 }
 
@@ -63,7 +68,7 @@ function PopulateLK_SearchParameter_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListSearchBy").html(s);
         },
@@ -88,9 +93,11 @@ $('#ButtonSearch').click(function (event) {
     }
 });
 function DrawDataTable() {
+    var SearchById = $('#DropDownListSearchBy :selected').val();
+    var InputText = $('#TextBoxQueryString').val();
     var JsonArg = {
-        SearchById: $('#DropDownListSearchBy :selected').val(),
-        InputText: $('#TextBoxQueryString').val(),
+        SearchById: SearchById,
+        InputText: InputText,
     };
     var queryString = $.param(JsonArg);
     table.ajax.url((BasePath + "/ACompany/MBranchUI/PopulateGeneralBranchList_FORDT?" + queryString)).load();

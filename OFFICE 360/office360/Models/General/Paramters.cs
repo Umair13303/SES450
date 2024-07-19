@@ -118,7 +118,7 @@ namespace office360.Models.General
         public string InputText { get; set; }
         public string LastName { get; set; }
         public string LiabilityAccount { get; set; }
-        public string ListCondition { get; set; }
+        public string DB_IF_PARAM { get; set; }
         public string LookUpActionCondition { get; set; }
         public string Menu { get; set; }
         public string MobileNumber { get; set; }

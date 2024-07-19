@@ -33,15 +33,13 @@ namespace office360.Common.DataBaseProcedures.ACompany
 
             using (SESEntities db = new SESEntities())
             {
-                DATA = db.GeneralBranch_GetDetailByParam(
-                                                       PostedData.ListCondition,
-                                                       Session_Manager.AllowedCampusIds,
-                                                       Session_Manager.UserId,
+                DATA = db.GeneralBranch_GetListByParam(
+                                                       PostedData.DB_IF_PARAM,
                                                        Session_Manager.CompanyId,
                                                        Session_Manager.BranchId,
+                                                       Session_Manager.AllowedCampusIds,
                                                        (int?)Models.General.DocumentStatus.DocStatus.Working_BRANCHES,
-                                                       (int?)Models.General.DocumentStatus.DocStatus.Open_ADMISSION,
-                                                       DateTime.Now
+                                                       (int?)Models.General.DocumentStatus.DocStatus.Open_ADMISSION
                                                        )
                         .Select(x => new _SqlParameters
                         {
@@ -96,10 +94,10 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 List<_SqlParameters> DATA = new List<_SqlParameters>();
 
 
-                DATA = db.AppClass_GetDetailByParam(
-                                                    PostedData.ListCondition,
-                                                    PostedData.CampusId,
+                DATA = db.AppClass_GetListByParam(
+                                                    PostedData.DB_IF_PARAM,
                                                     Session_Manager.CompanyId,
+                                                    PostedData.CampusId,
                                                     PostedData.SessionId,
                                                     PostedData.ClassIds.ToSafeString()
                                                     )
@@ -119,9 +117,9 @@ namespace office360.Common.DataBaseProcedures.ACompany
             using (SESEntities db = new SESEntities())
             {
                 List<_SqlParameters> DATA = new List<_SqlParameters>();
-                switch ((PostedData.ListCondition))
+                switch ((PostedData.DB_IF_PARAM))
                 {
-                    case nameof(DBListCondition.SPListCondition.APPSESSION_BY_GENERALBRANCH):
+                    case nameof(DBListCondition.DB_IF_Condition.APPSESSION_BY_GENERALBRANCH):
                         DATA = db.AppSession
                             .Where(x => x.CompanyId == Session_Manager.CompanyId && x.CampusId == PostedData.CampusId
                                      && x.Status == true
@@ -138,17 +136,17 @@ namespace office360.Common.DataBaseProcedures.ACompany
                 return DATA;
             }
         }
-        public static List<GeneralBranch_SearchByParam_Result> GET_MT_GENERALBRANCH_LIST_SEARCHPARAM(_SqlParameters PostedData)
+        public static List<GeneralBranch_GetListBySearch_Result> GET_MT_GENERALBRANCH_LIST_SEARCHPARAM(_SqlParameters PostedData)
         {
-            List<GeneralBranch_SearchByParam_Result> List = new List<GeneralBranch_SearchByParam_Result>();
+            List<GeneralBranch_GetListBySearch_Result> List = new List<GeneralBranch_GetListBySearch_Result>();
             using (var db = new SESEntities())
             {
-                List = db.GeneralBranch_SearchByParam(
+                List = db.GeneralBranch_GetListBySearch(
                                                         Session_Manager.CompanyId,
                                                         Session_Manager.BranchId,
                                                         PostedData.SearchById,
                                                         PostedData.InputText
-                                                        ).ToList<GeneralBranch_SearchByParam_Result>();
+                                                        ).ToList<GeneralBranch_GetListBySearch_Result>();
             }
             return List;
 

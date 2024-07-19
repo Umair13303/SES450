@@ -44,7 +44,7 @@ namespace office360.Models.General
 
         }
 
-        public enum SPListCondition
+        public enum DB_IF_Condition
         {
             BRANCH_BY_USER_ALLOWEDBRANCHIDS,
             BRANCH_BY_USER_ALLOWEDBRANCHIDS_CHECK_ACTIVE_APPSESSION,

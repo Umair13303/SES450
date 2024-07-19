@@ -18,14 +18,16 @@ namespace office360.Common.DataBaseProcedures.AAccounts
     public class GetDataFromSP
     {
         SESEntities db = new SESEntities();
+     
+        
+        #region HELPER FOR :: DROP DOWN LIST
         public static List<_SqlParameters> GET_MT_STRUCTUREFEETYPE_BYPARAM(_SqlParameters PostedData)
         {
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.StructureFeeType_GetDetailByParam(
-                                                            PostedData.ListCondition,
-                                                            Session_Manager.UserId,
+                DATA = db.StructureFeeType_GetListByParam(
+                                                            PostedData.DB_IF_PARAM,
                                                             Session_Manager.CompanyId,
                                                             Session_Manager.BranchId
                                                           )
@@ -33,7 +35,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
                     {
                         Id = x.Id,
                         GuID = x.GuID,
-                        FeeName = x.FeeName,
+                        Description = x.Description,
 
                     }).ToList();
             }
@@ -45,10 +47,10 @@ namespace office360.Common.DataBaseProcedures.AAccounts
             List<_SqlParameters> DATA = new List<_SqlParameters>();
             using (var db = new SESEntities())
             {
-                DATA = db.StructureCOAAccount_GetDetailByParam(
+                DATA = db.StructureCOAAccount_GetListByParam(
                                                  Session_Manager.CompanyId,
                                                  Session_Manager.BranchId,
-                                                 PostedData.ListCondition,
+                                                 PostedData.DB_IF_PARAM,
                                                  PostedData.CoaCatagoryIds
                                                  )
                  .Select(x => new _SqlParameters
@@ -61,21 +63,29 @@ namespace office360.Common.DataBaseProcedures.AAccounts
 
 
         }
-        public static List<StructureFeeType_SearchByParam_Result> GET_MT_STRUCTUREFEETYPE_LISTSEARCHPARAM(_SqlParameters PostedData)
+        #endregion
+
+        
+        #region HELPER FOR :: DATA TABLE LIST
+        public static List<StructureFeeType_GetListBySearch_Result> GET_MT_STRUCTUREFEETYPE_LISTSEARCHPARAM(_SqlParameters PostedData)
         {
-            List<StructureFeeType_SearchByParam_Result> List = new List<StructureFeeType_SearchByParam_Result>();
+            List<StructureFeeType_GetListBySearch_Result> List = new List<StructureFeeType_GetListBySearch_Result>();
             using (var db = new SESEntities())
             {
-                List = db.StructureFeeType_SearchByParam(
+                List = db.StructureFeeType_GetListBySearch(
                                                                     Session_Manager.CompanyId,
                                                                     Session_Manager.BranchId,
                                                                     PostedData.SearchById,
                                                                     PostedData.InputText
-                                                                    ).ToList<StructureFeeType_SearchByParam_Result>();
+                                                                    ).ToList<StructureFeeType_GetListBySearch_Result>();
             }
             return List;
 
         }
+        #endregion
+
+
+        #region HELPER FOR :: GET DETAIL FOR ID
         public static List<_SqlParameters> GET_MT_STRUCTUREFEETYPE_INFO_BY_GUID(_SqlParameters PostedData)
         {
             List<_SqlParameters> List = new List<_SqlParameters>();
@@ -101,6 +111,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
             return List;
 
         }
+        #endregion
 
     }
 }

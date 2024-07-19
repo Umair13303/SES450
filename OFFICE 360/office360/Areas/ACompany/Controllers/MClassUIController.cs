@@ -90,9 +90,7 @@ namespace office360.Areas.ACompany.Controllers
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_PolicyPeriod(PostedData).ToList();
                     break;
 
-                case nameof(LookUpActionCondition.GET_LK1_CHALLANMETHOD_BYPARAMTER):
-                    DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_ChallanMethod(PostedData).ToList();
-                    break;
+             
 
                 case nameof(LookUpActionCondition.GET_LK1_ROLLCALLSYSTEM):
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_RollCallSystem(PostedData).ToList();

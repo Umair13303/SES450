@@ -41,10 +41,6 @@ function PopulateDropDownLists() {
 
 //-----------ALL CHANGE CASE
 function ChangeCase() {
-    $('#DropDownListFeeType').change(function (event) {
-        event.preventDefault();
-        GET_STRUCTUREFEETYPE_DETAILBYID();
-    });
 
     $('#DropDownListFeeCatagory').change(function (event) {
         event.preventDefault();
@@ -123,6 +119,12 @@ function ChangeCase() {
         }
 
     });
+
+    //-----------FOR EDIT CASE
+    $('#DropDownListFeeType').change(function (event) {
+        event.preventDefault();
+        GET_STRUCTUREFEETYPE_DETAILBYID();
+    });
 }
 
 
@@ -141,7 +143,7 @@ function PopulateLK_FeeCatagory_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListFeeCatagory").html(s);
         },
@@ -165,7 +167,7 @@ function PopulateLK_ChargingMethod_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListChargingMethod").html(s);
         },
@@ -178,7 +180,7 @@ function PopulateLK_ChargingMethod_List() {
 function PopulateMT_Account_REV_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
         CoaCatagoryIds: FILTER.COA_ACCOUNTTYPE.SALES_REVENUES,
     }
     $.ajax({
@@ -191,7 +193,7 @@ function PopulateMT_Account_REV_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListRevenueAccount").html(s);
         },
@@ -204,7 +206,7 @@ function PopulateMT_Account_REV_List() {
 function PopulateMT_Account_AST_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
         CoaCatagoryIds: FILTER.COA_ACCOUNTTYPE.ACCOUNTS_RECEIVABLE,
 
     }
@@ -218,7 +220,7 @@ function PopulateMT_Account_AST_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListAssetAccount").html(s);
         },
@@ -231,7 +233,7 @@ function PopulateMT_Account_AST_List() {
 function PopulateMT_Account_LIAB_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
         CoaCatagoryIds: FILTER.COA_ACCOUNTTYPE.CURRENT_LIABILITIES + "," + FILTER.COA_ACCOUNTTYPE.OTHER_CURRENT_LIABILITIES,
 
     }
@@ -245,7 +247,7 @@ function PopulateMT_Account_LIAB_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListLiabilityAccount").html(s);
         },
@@ -258,7 +260,7 @@ function PopulateMT_Account_LIAB_List() {
 function PopulateMT_Account_COS_List() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTURECOAACCOUNT_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STRUCTURECOAACCOUNT_BY_GENERALCOMPANY,
         CoaCatagoryIds: FILTER.COA_ACCOUNTTYPE.COST_OF_SALES,
 
     }
@@ -272,7 +274,7 @@ function PopulateMT_Account_COS_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value=' + data[i].Id + '>' + data[i].Description + '' + '</option>';
+                s += '<option  value=' + data[i].Id + '>' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCostOfSaleAccount").html(s);
         },
@@ -496,6 +498,7 @@ function ClearOtherFeeSetting() {
 function GET_STRUCTUREFEETYPE_LISTBYPARAM() {
     var JsonArg = {
         ActionCondition: PARAMETER.SESCondition.GET_MT_STRUCTUREFEETYPE_BYPARAMETER,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.STRUCTUREFEETYPE_LIST,
     }
     $.ajax({
         type: "POST",
@@ -507,8 +510,7 @@ function GET_STRUCTUREFEETYPE_LISTBYPARAM() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                var Description = data[i].FeeName;
-                s += '<center><option  value="' + data[i].GuID + '">' + Description + '' + '</option>';
+                s += '<option  value="' + data[i].GuID + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListFeeType").html(s);
         },
@@ -518,6 +520,7 @@ function GET_STRUCTUREFEETYPE_LISTBYPARAM() {
     });
 }
 
+//-----------LOAD ENTERY RECORD
 function GET_STRUCTUREFEETYPE_DETAILBYID() {
     var FeeTypeId = $('#DropDownListFeeType :selected').val();
 

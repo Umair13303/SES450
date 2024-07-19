@@ -39,7 +39,7 @@ function PopulateLK_EnrollmentType_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListEnrollmentType").html(s);
         },
@@ -72,11 +72,9 @@ function PopulateMT_GeneralCompany_List() {
     });
 }
 function PopulateMT_GeneralBranch_ListByParam() {
-    var CompanyId = $("#DropDownListCompany :selected").val();
     var JsonArg = {
-        CompanyId: CompanyId,
-        ListCondition: PARAMETER.SPListCondition.BRANCH_BY_USER_ALLOWEDBRANCHIDS_CHECK_ACTIVE_APPSESSION,
         ActionCondition: PARAMETER.SESCondition.GET_MT_GENERALBRANCH_BYPARAMETER,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.BRANCH_BY_USER_ALLOWEDBRANCHIDS_CHECK_ACTIVE_APPSESSION,
     }
     $.ajax({
         type: "POST",
@@ -95,7 +93,7 @@ function PopulateMT_AppClass_ListByParam() {
     var JsonArg = {
         CampusId: $('#DropDownListCampus :selected').val(),
         ActionCondition: PARAMETER.SESCondition.GET_MT_APPCLASS_BYPARAMETER,
-        ListCondition: PARAMETER.SPListCondition.APPCLASS_BY_GENERALBRANCH,
+        DB_IF_PARAM: PARAMETER.DB_IF_Condition.APPCLASS_BY_GENERALBRANCH,
     }
     $.ajax({
         type: "POST",
@@ -104,7 +102,7 @@ function PopulateMT_AppClass_ListByParam() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<center><option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListClass").html(s);
 

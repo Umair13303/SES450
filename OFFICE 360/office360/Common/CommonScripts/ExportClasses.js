@@ -59,7 +59,7 @@ class FILTER {
     }
 }
 class PARAMETER {
-    static SPListCondition = {
+    static DB_IF_Condition = {
         APPCLASS_BY_APPSESSION: "APPCLASS_BY_APPSESSION",
         APPCLASS_BY_GENERALBRANCH: "APPCLASS_BY_GENERALBRANCH",
 

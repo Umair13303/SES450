@@ -11,9 +11,11 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class LK_StudyLevel_GetByParam_Result
+    public partial class LK_ChallanMethod_GetListByParam_Result
     {
         public int Id { get; set; }
         public string Description { get; set; }
+        public Nullable<int> MonthsNo { get; set; }
+        public Nullable<int> ChallanNo { get; set; }
     }
 }

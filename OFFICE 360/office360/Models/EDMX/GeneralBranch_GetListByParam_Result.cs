@@ -11,9 +11,11 @@ namespace office360.Models.EDMX
 {
     using System;
     
-    public partial class LK_StudyGroup_GetByParam_Result
+    public partial class GeneralBranch_GetListByParam_Result
     {
         public int Id { get; set; }
+        public Nullable<System.Guid> GuID { get; set; }
         public string Description { get; set; }
+        public string ExtraClass { get; set; }
     }
 }

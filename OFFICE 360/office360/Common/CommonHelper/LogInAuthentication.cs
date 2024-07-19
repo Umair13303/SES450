@@ -26,7 +26,7 @@ namespace office360.CommonHelper
                             #region CHECK IF USER EXIST
                 var UserName = Users.UserName.ToString();
                 var Password = Users.Password.ToString();
-                var Condition = DBListCondition.SPListCondition.GET_USER_CONFIRMATION.ToSafeString();
+                var Condition = DBListCondition.DB_IF_Condition.GET_USER_CONFIRMATION.ToSafeString();
                 if (!string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password))
                 {
                     using (var db = new SESEntities())
