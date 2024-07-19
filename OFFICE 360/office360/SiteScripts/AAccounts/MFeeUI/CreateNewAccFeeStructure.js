@@ -1,4 +1,7 @@
 ﻿var table = "";
+var FeeSettingIsSecurity;
+var FeeSettingIsRefundable;
+var FeeSettingIsDiscount;
 $(document).ready(function () {
     InitDataTable();
     PopulateDropDownLists();
@@ -13,17 +16,22 @@ function InitDataTable() {
         "columns": [
             { "title": "#", "orderable": false, },
             { "title": "Fee" },
-            { "title": "Asset A/c" },
-            { "title": "Liability A/c" },
-            { "title": "Revenue   A/c" },
-            { "title": "IsTaxable" },
-            { "title": "Amount" },
-            { "title": "Action" },
-            { "title": "FeeTypeId",         visible:false },
-            { "title": "AssetAccountId",    visible: false },
-            { "title": "LiabilityAccountId",visible: false },
-            { "title": "RevenueAccountId",  visible: false },
-        ]
+            { "title": "Revenue   A/c"          },
+            { "title": "Asset A/c"              },
+            { "title": "Liability A/c"          },
+            { "title": "Cost Of Sales A/c"      },
+            { "title": "IsTaxable"              },
+            { "title": "Amount"                 },
+            { "title": "Action"                 },
+            { "title": "FeeTypeId",             },
+            { "title": "RevenueAccountId",      },
+            { "title": "AssetAccountId",        },
+            { "title": "LiabilityAccountId",    },
+            { "title": "CostOfSaleAccountId",   },
+        ],
+        columnDefs: [
+            { visible: false, targets: [9,10,11,12,13] },
+        ],
     });
     table.on('order.dt search.dt', function () {
         table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
@@ -141,7 +149,7 @@ function PopulateMT_AppClass_ListByParam() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option  value="' + data[i].Id + '">' + data[i].Description +  '' + '</option>';
             }
             $("#DropDownListClass").html(s);
 
@@ -292,6 +300,108 @@ function PopulateMT_Account_COS_List() {
     });
 }
 
+
+$('#ButtonPlus').click(function (event) {
+    event.preventDefault();
+    var IsValid = ValidateInputFieldsFeeStructure();
+    if (IsValid) {
+        try {
+            var AssetAccount = "--";; var RevenueAccount = "--";; var CostOfSaleAccount = "--";; var LiabilityAccount = "--";;
+            var AssetAccountId = null; var RevenueAccountId = null; var CostOfSaleAccountId = null; var LiabilityAccountId = null;
+
+
+            var row_data = [];
+
+            var FeeTypeId = $('#DropDownListFeeType :selected').val();
+            var Amount = $('#TextBoxAmount').val();
+
+            if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == true) {
+                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
+                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').val();
+
+                AssetAccount = $('#DropDownListAssetAccount :selected').text();
+                LiabilityAccount = $('#DropDownListLiabilityAccount :selected').text();
+                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').text();
+            }
+            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == true) {
+                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
+                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').val();
+
+                RevenueAccount = $('#DropDownListRevenueAccount :selected').text();
+                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
+                CostOfSaleAccount = $('#DropDownListCostOfSaleAccount :selected').text();
+            }
+            else if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == false) {
+                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
+
+                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
+                LiabilityAccount = $('#DropDownListLiabilityAccount :selected').text();
+
+            }
+            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == false) {
+                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
+
+                RevenueAccount = $('#DropDownListRevenueAccount :selected').text();
+                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
+            }
+
+            row_data[0] = "";
+            row_data[1] = FeeTypeId;
+            var IsAlreadyExist = false;
+            table.column(1).data().each(function (value, index) {
+                //if (value == (row_data[1]) && (row_data[2])&& (row_data[3])) {
+                //    IsAlreadyExist = true;
+                //}
+            });
+            if (IsAlreadyExist) {
+                alert("error", "This " + FeeTypeId + " Already Exist !!");
+            }
+            else {
+                table.row.add(row_data).draw();
+                }
+            IsAlreadyExist = false;
+        }
+        catch {
+            GetMessageBox(err, 500);
+        }
+    }
+});
+
+function ValidateInputFieldsFeeStructure() {
+    if ($('#DropDownListFeeType').RequiredDropdown() == false) {
+        return false;
+    }
+
+    //if ($('#DropDownListRevenueAccount').RequiredDropdown() == false) {
+    //    return false;
+    //}
+
+    //if ($('#DropDownListAssetAccount').RequiredDropdown() == false) {
+    //    return false;
+    //}
+
+    //if ($('#DropDownListLiabilityAccount').RequiredDropdown() == false) {
+    //    return false;
+    //}
+
+    //if ($('#DropDownListCostOfSaleAccount').RequiredDropdown() == false) {
+    //    return false;
+    //}
+    if ($('#TextBoxAmount').RequiredTextBoxInputGroup() == false) {
+        return false;
+    }
+
+    return true;
+}
+function InsertDataIntoDataTable() {
+   
+}
+
+
 //-----------LOAD ENTERY RECORD
 function GET_STRUCTUREFEETYPE_DETAILBYID() {
     var FeeTypeId = $('#DropDownListFeeType :selected').attr('data-FeeTypeGuId');
@@ -309,36 +419,40 @@ function GET_STRUCTUREFEETYPE_DETAILBYID() {
                 startLoading();
             },
             success: function (data) {
-                ClearOtherFeeSetting();
-                var IsSecurity = data[0].IsSecurity;
-                var IsRefundable = data[0].IsRefundable;
-                var IsDiscount = data[0].IsDiscount;
+                if (data.length == undefined) {
 
-                if (IsSecurity == true && IsDiscount == true) {
-                    $('#DivDropDownListRevenueAccount').hide();
-                    $('#DivDropDownListAssetAccount').show();
-                    $('#DivDropDownListLiabilityAccount').show();
-                    $('#DivDropDownListCostOfSaleAccount').show();
                 }
-                else if (IsSecurity == false && IsDiscount == true) {
-                    $('#DivDropDownListRevenueAccount').show();
-                    $('#DivDropDownListAssetAccount').show();
-                    $('#DivDropDownListLiabilityAccount').hide();
-                    $('#DivDropDownListCostOfSaleAccount').show();
-                }
-                else if (IsSecurity == true && IsDiscount == false) {
-                    $('#DivDropDownListRevenueAccount').hide();
-                    $('#DivDropDownListAssetAccount').show();
-                    $('#DivDropDownListLiabilityAccount').show();
-                    $('#DivDropDownListCostOfSaleAccount').hide();
-                }
-                else if (IsSecurity == false && IsDiscount == false) {
-                    $('#DivDropDownListRevenueAccount').show();
-                    $('#DivDropDownListAssetAccount').show();
-                    $('#DivDropDownListLiabilityAccount').hide();
-                    $('#DivDropDownListCostOfSaleAccount').hide();
-                }
+                else {
+                    ClearOtherFeeSetting();
+                     FeeSettingIsSecurity = data[0].IsSecurity;
+                     FeeSettingIsRefundable = data[0].IsRefundable;
+                     FeeSettingIsDiscount = data[0].IsDiscount;
 
+                    if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == true) {
+                        $('#DivDropDownListRevenueAccount').hide();
+                        $('#DivDropDownListAssetAccount').show();
+                        $('#DivDropDownListLiabilityAccount').show();
+                        $('#DivDropDownListCostOfSaleAccount').show();
+                    }
+                    else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == true) {
+                        $('#DivDropDownListRevenueAccount').show();
+                        $('#DivDropDownListAssetAccount').show();
+                        $('#DivDropDownListLiabilityAccount').hide();
+                        $('#DivDropDownListCostOfSaleAccount').show();
+                    }
+                    else if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == false) {
+                        $('#DivDropDownListRevenueAccount').hide();
+                        $('#DivDropDownListAssetAccount').show();
+                        $('#DivDropDownListLiabilityAccount').show();
+                        $('#DivDropDownListCostOfSaleAccount').hide();
+                    }
+                    else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == false) {
+                        $('#DivDropDownListRevenueAccount').show();
+                        $('#DivDropDownListAssetAccount').show();
+                        $('#DivDropDownListLiabilityAccount').hide();
+                        $('#DivDropDownListCostOfSaleAccount').hide();
+                    }
+                }
             },
             complete: function () {
                 stopLoading();
