@@ -315,39 +315,7 @@ $('#ButtonPlus').click(function (event) {
             var FeeTypeId = $('#DropDownListFeeType :selected').val();
             var Amount = $('#TextBoxAmount').val();
 
-            if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == true) {
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
-                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').val();
-
-                AssetAccount = $('#DropDownListAssetAccount :selected').text();
-                LiabilityAccount = $('#DropDownListLiabilityAccount :selected').text();
-                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').text();
-            }
-            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == true) {
-                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').val();
-
-                RevenueAccount = $('#DropDownListRevenueAccount :selected').text();
-                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
-                CostOfSaleAccount = $('#DropDownListCostOfSaleAccount :selected').text();
-            }
-            else if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == false) {
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
-
-                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
-                LiabilityAccount = $('#DropDownListLiabilityAccount :selected').text();
-
-            }
-            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == false) {
-                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-
-                RevenueAccount = $('#DropDownListRevenueAccount :selected').text();
-                AssetAccount = $('#DropDownListLiabilityAccount :selected').text();
-            }
+           
 
             row_data[0] = "";
             row_data[1] = FeeTypeId;
