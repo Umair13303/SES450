@@ -805,10 +805,10 @@
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="AppClass_GetDetailByParam" ReturnType="Collection(SESModel.AppClass_GetDetailByParam_Result)">
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
-      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+    <FunctionImport Name="AppClass_GetListByParam" ReturnType="Collection(SESModel.AppClass_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
       <Parameter Name="AppSessionId" Mode="In" Type="Int32" />
       <Parameter Name="ClassIds" Mode="In" Type="String" />
     </FunctionImport>
@@ -893,17 +893,23 @@
       <Parameter Name="SetClause" Mode="In" Type="String" />
       <Parameter Name="WhereClause" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="GeneralBranch_GetDetailByParam" ReturnType="Collection(SESModel.GeneralBranch_GetDetailByParam_Result)">
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
-      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
-      <Parameter Name="UserId" Mode="In" Type="Int32" />
+    <FunctionImport Name="GeneralBranch_GetListByParam" ReturnType="Collection(SESModel.GeneralBranch_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
       <Parameter Name="DocumentStatusBranch" Mode="In" Type="Int32" />
       <Parameter Name="DocumentStatusSession" Mode="In" Type="Int32" />
-      <Parameter Name="TimePeriod" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="GeneralBranch_Insert">
+    <FunctionImport Name="GeneralBranch_GetListBySearch" ReturnType="Collection(SESModel.GeneralBranch_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GeneralBranch_UpSert">
+      <Parameter Name="DB_OperationType" Mode="In" Type="String" />
+      <Parameter Name="GuID" Mode="In" Type="Guid" />
       <Parameter Name="Description" Mode="In" Type="String" />
       <Parameter Name="CampusTypeId" Mode="In" Type="Int32" />
       <Parameter Name="OrganizationTypeId" Mode="In" Type="Int32" />
@@ -915,18 +921,18 @@
       <Parameter Name="NTNNo" Mode="In" Type="String" />
       <Parameter Name="Remarks" Mode="In" Type="String" />
       <Parameter Name="CreatedOn" Mode="In" Type="DateTime" />
-      <Parameter Name="BranchId" Mode="In" Type="Int32" />
-      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="CreatedBy" Mode="In" Type="Int32" />
+      <Parameter Name="UpdatedOn" Mode="In" Type="DateTime" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
       <Parameter Name="EffectiveFrom" Mode="In" Type="DateTime" />
       <Parameter Name="ExpiredOn" Mode="In" Type="DateTime" />
-      <Parameter Name="Code" Mode="InOut" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="Boolean" />
+      <Parameter Name="DocType" Mode="In" Type="Int32" />
+      <Parameter Name="DocumentStatus" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="Response" Mode="InOut" Type="Int32" />
       <Parameter Name="CampusId" Mode="InOut" Type="Int32" />
-    </FunctionImport>
-    <FunctionImport Name="GeneralBranch_SearchByParam" ReturnType="Collection(SESModel.GeneralBranch_SearchByParam_Result)">
-      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
-      <Parameter Name="InputText" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="GeneralCompany_GetDetailByParam" ReturnType="Collection(SESModel.GeneralCompany_GetDetailByParam_Result)">
       <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -945,13 +951,14 @@
       <Parameter Name="UpdatedBy" Mode="In" Type="Int32" />
       <Parameter Name="ExpiredOn" Mode="In" Type="DateTime" />
     </FunctionImport>
-    <FunctionImport Name="GeneralRightSetting_GetDetailByParam" ReturnType="Collection(SESModel.GeneralRightSetting_GetDetailByParam_Result)">
+    <FunctionImport Name="GeneralRightSetting_GetListByParam" ReturnType="Collection(SESModel.GeneralRightSetting_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="AllowedCampusIds" Mode="In" Type="String" />
+      <Parameter Name="UserId" Mode="In" Type="Int32" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="URLTypeId" Mode="In" Type="Int32" />
       <Parameter Name="Status" Mode="In" Type="Boolean" />
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
       <Parameter Name="Menu" Mode="In" Type="String" />
-      <Parameter Name="UserId" Mode="In" Type="Int32" />
       <Parameter Name="RightId" Mode="In" Type="Int32" />
       <Parameter Name="RightPath" Mode="In" Type="String" />
     </FunctionImport>
@@ -980,35 +987,44 @@
       <Parameter Name="EmployeeId" Mode="In" Type="Int32" />
       <Parameter Name="IsDeveloper" Mode="In" Type="Boolean" />
     </FunctionImport>
-    <FunctionImport Name="LK_ChallanMethod_GetByParam" ReturnType="Collection(SESModel.LK_ChallanMethod_GetByParam_Result)">
-      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
-      <Parameter Name="BranchId" Mode="In" Type="Int32" />
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
+    <FunctionImport Name="LK_ChallanMethod_GetListByParam" ReturnType="Collection(SESModel.LK_ChallanMethod_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="LK_StudyGroup_GetByParam" ReturnType="Collection(SESModel.LK_StudyGroup_GetByParam_Result)">
+    <FunctionImport Name="LK_StudyGroup_GetListByParam" ReturnType="Collection(SESModel.LK_StudyGroup_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
       <Parameter Name="AllowedStudyGroupIds" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="LK_StudyLevel_GetByParam" ReturnType="Collection(SESModel.LK_StudyLevel_GetByParam_Result)">
+    <FunctionImport Name="LK_StudyLevel_GetListByParam" ReturnType="Collection(SESModel.LK_StudyLevel_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
       <Parameter Name="AllowedStudyLevelIds" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="LK_WHTaxPolicy_GetByParam" ReturnType="Collection(SESModel.LK_WHTaxPolicy_GetByParam_Result)">
+    <FunctionImport Name="LK_WHTaxPolicy_GetListByParam" ReturnType="Collection(SESModel.LK_WHTaxPolicy_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
       <Parameter Name="AccFeeStructureId" Mode="In" Type="Int32" />
-      <Parameter Name="ListCondition" Mode="In" Type="String" />
       <Parameter Name="DocumentStatusFeeStructure" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="StructureCOAAccount_GetDetailByParam" ReturnType="Collection(SESModel.StructureCOAAccount_GetDetailByParam_Result)">
+    <FunctionImport Name="StructureCOAAccount_GetListByParam" ReturnType="Collection(SESModel.StructureCOAAccount_GetListByParam_Result)">
       <Parameter Name="CompanyId" Mode="In" Type="Int32" />
       <Parameter Name="BranchId" Mode="In" Type="Int32" />
       <Parameter Name="ListCondition" Mode="In" Type="String" />
       <Parameter Name="CoaCatagoryIds" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="StructureFeeType_GetListByParam" ReturnType="Collection(SESModel.StructureFeeType_GetListByParam_Result)">
+      <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="StructureFeeType_GetListBySearch" ReturnType="Collection(SESModel.StructureFeeType_GetListBySearch_Result)">
+      <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+      <Parameter Name="BranchId" Mode="In" Type="Int32" />
+      <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+      <Parameter Name="InputText" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="StructureFeeType_UpSert">
       <Parameter Name="DB_OperationType" Mode="In" Type="String" />
@@ -1033,16 +1049,17 @@
       <Parameter Name="Response" Mode="InOut" Type="Int32" />
     </FunctionImport>
   </EntityContainer>
-  <ComplexType Name="AppClass_GetDetailByParam_Result">
+  <ComplexType Name="AppClass_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Description" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="GeneralBranch_GetDetailByParam_Result">
+  <ComplexType Name="GeneralBranch_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" />
     <Property Type="String" Name="ExtraClass" Nullable="false" MaxLength="1" />
   </ComplexType>
-  <ComplexType Name="GeneralBranch_SearchByParam_Result">
+  <ComplexType Name="GeneralBranch_GetListBySearch_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="Guid" Name="GuID" Nullable="true" />
     <Property Type="String" Name="Code" Nullable="true" />
@@ -1080,7 +1097,7 @@
     <Property Type="String" Name="Password" Nullable="true" />
     <Property Type="Boolean" Name="IsSslEnabled" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="GeneralRightSetting_GetDetailByParam_Result">
+  <ComplexType Name="GeneralRightSetting_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="FormName" Nullable="true" />
     <Property Type="String" Name="DisplayName" Nullable="true" />
@@ -1112,30 +1129,48 @@
     <Property Type="Int32" Name="BranchId" Nullable="true" />
     <Property Type="String" Name="RoleName" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="LK_ChallanMethod_GetByParam_Result">
+  <ComplexType Name="LK_ChallanMethod_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Description" Nullable="true" />
     <Property Type="Int32" Name="MonthsNo" Nullable="true" />
     <Property Type="Int32" Name="ChallanNo" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="LK_StudyGroup_GetByParam_Result">
+  <ComplexType Name="LK_StudyGroup_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Description" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="LK_StudyLevel_GetByParam_Result">
+  <ComplexType Name="LK_StudyLevel_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Description" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="LK_WHTaxPolicy_GetByParam_Result">
+  <ComplexType Name="LK_WHTaxPolicy_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Description" Nullable="true" />
     <Property Type="Decimal" Name="SlabAmount" Nullable="true" Precision="18" Scale="4" />
     <Property Type="Decimal" Name="FixedCharges" Nullable="true" Precision="18" Scale="4" />
     <Property Type="Decimal" Name="Percentage" Nullable="true" Precision="18" Scale="4" />
   </ComplexType>
-  <ComplexType Name="StructureCOAAccount_GetDetailByParam_Result">
+  <ComplexType Name="StructureCOAAccount_GetListByParam_Result">
     <Property Type="Int32" Name="Id" Nullable="false" />
     <Property Type="String" Name="Account" Nullable="true" />
     <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="StructureFeeType_GetListByParam_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="StructureFeeType_GetListBySearch_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="Guid" Name="GuID" Nullable="true" />
+    <Property Type="String" Name="FeeName" Nullable="true" />
+    <Property Type="String" Name="FeeCatagory" Nullable="true" />
+    <Property Type="String" Name="ChargingMethod" Nullable="true" />
+    <Property Type="Int32" Name="FeeCatagoryId" Nullable="true" />
+    <Property Type="Int32" Name="ChargingMethodId" Nullable="true" />
+    <Property Type="Boolean" Name="IsOnAdmission" Nullable="true" />
+    <Property Type="Boolean" Name="IsDiscount" Nullable="true" />
+    <Property Type="Boolean" Name="IsRefundable" Nullable="true" />
+    <Property Type="Boolean" Name="IsSecurity" Nullable="false" />
   </ComplexType>
 </Schema>

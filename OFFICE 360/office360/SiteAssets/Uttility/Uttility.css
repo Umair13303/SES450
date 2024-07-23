@@ -12,7 +12,11 @@
     transition: opacity 0.3s;
     opacity: 0;
 }
-
+.Headings{
+    color:navy;
+    font-family:'Century Gothic';
+    font-weight:bolder;
+}
 .spinner {
     border: 5px solid #f3f3f3;
     border-top: 5px solid #3498db;

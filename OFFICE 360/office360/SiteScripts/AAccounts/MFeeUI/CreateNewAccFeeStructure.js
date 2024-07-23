@@ -2,6 +2,10 @@
 var FeeSettingIsSecurity;
 var FeeSettingIsRefundable;
 var FeeSettingIsDiscount;
+var WH_Percentage;
+var WH_SlabAmount;
+var WH_FixedCharges;
+
 $(document).ready(function () {
     InitDataTable();
     PopulateDropDownLists();
@@ -10,17 +14,12 @@ $(document).ready(function () {
 //-----------ALL DATA TABLE
 function InitDataTable() {
     table = $('#MainTableFeeStructure').DataTable({
-        "responsive": true,
-        "ordering": false,
-        "processing": true,
+        "responsive": true,        "ordering": false,
+        "processing": true,        "pagination": false,
+        "paging": false,
         "columns": [
             { "title": "#", "orderable": false, },
             { "title": "Fee" },
-            { "title": "Revenue   A/c"          },
-            { "title": "Asset A/c"              },
-            { "title": "Liability A/c"          },
-            { "title": "Cost Of Sales A/c"      },
-            { "title": "IsTaxable"              },
             { "title": "Amount"                 },
             { "title": "Action"                 },
             { "title": "FeeTypeId",             },
@@ -29,9 +28,34 @@ function InitDataTable() {
             { "title": "LiabilityAccountId",    },
             { "title": "CostOfSaleAccountId",   },
         ],
-        columnDefs: [
-            { visible: false, targets: [9,10,11,12,13] },
+        "columnDefs": [
+            { visible: false, targets: [4,5,6,7,8] },
         ],
+    });
+    table.on('draw', function () {
+        var TotalFeeAmount = table.column(2).data().reduce(function (a, b) {
+            return parseFloat(a) + parseFloat(b);
+        }, 0);
+
+        var TaxAmount = 0;
+        if (IsOnExceedingAmount == true) {
+            if (TotalFeeAmount > WH_SlabAmount) {
+                var DifferenceAmount = WH_SlabAmount - TotalFeeAmount;
+                TaxAmount = parseFloat(WH_FixedCharges + ((DifferenceAmount / 100) * WH_Percentage));
+            }
+        }
+        else (IsOnExceedingAmount == true) {
+            if (TotalFeeAmount > WH_SlabAmount) {
+                TaxAmount = parseFloat(WH_FixedCharges + ((TotalFeeAmount / 100) * WH_Percentage));
+            }
+        }
+
+       
+        var NetPayable = TaxAmount + TotalFeeAmount;
+
+        $('#TextBoxTotalFee').val(TotalFeeAmount.toFixed(2));
+        $('#TextBoxTaxAmount').val(TaxAmount.toFixed(2));
+        $('#TextBoxNetPayable').val(NetPayable.toFixed(2));
     });
     table.on('order.dt search.dt', function () {
         table.column(0, { search: 'applied', order: 'applied' }).nodes().each(function (cell, i) {
@@ -39,9 +63,8 @@ function InitDataTable() {
         });
 
     }).draw();
+    //:: Table Action Buttons Operation
 }
-
-
 function PopulateDropDownLists() {
     PopulateMT_GeneralCompany_List();
     PopulateMT_StructureFeeType_ListByParam();
@@ -54,14 +77,28 @@ function PopulateDropDownLists() {
 
 //-----------ALL CHANGE CASES
 function ChangeCase() {
-    $('#DropDownListCompany').change(function () {
+    $('#DropDownListCompany').change(function (event) {
+        event.preventDefault();
         PopulateMT_GeneralBranch_ListByParam();
     });
-    $('#DropDownListCampus').change(function () {
+    $('#DropDownListCampus').change(function (event) {
+        event.preventDefault();
         PopulateMT_AppSession_ListByParam();
     });
-    $('#DropDownListSession').change(function () {
+    $('#DropDownListSession').change(function (event) {
+        event.preventDefault();
         PopulateMT_AppClass_ListByParam();
+    });
+    $('#DropDownListSession').change(function (event) {
+        event.preventDefault();
+        PopulateMT_AppClass_ListByParam();
+    });
+    $('#DropDownListWHTaxPolicy').change(function (event) {
+        event.preventDefault();
+        WH_Percentage = $('#DropDownListWHTaxPolicy :selected').attr('data-Percentage');
+        WH_SlabAmount = $('#DropDownListWHTaxPolicy :selected').attr('data-SlabAmount');
+        WH_FixedCharges = $('#DropDownListWHTaxPolicy :selected').attr('data-FixedCharges');
+        alert(WH_Percentage + " " + WH_SlabAmount + " " + WH_FixedCharges + "");
     });
     $('#DropDownListFeeType').change(function (event) {
         event.preventDefault();
@@ -169,7 +206,7 @@ function PopulateLK_WHTaxPolicy_List() {
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
-                s += '<option data-Percentage="' + data[i].Percentage + '" value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
+                s += '<option data-Percentage="' + data[i].Percentage + '" data-SlabAmount="' + data[i].SlabAmount + '" data-FixedCharges="' + data[i].FixedCharges + '" value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListWHTaxPolicy").html(s);
 
@@ -300,36 +337,57 @@ function PopulateMT_Account_COS_List() {
     });
 }
 
-
+//-----------TABLE BASED OPERATION
 $('#ButtonPlus').click(function (event) {
     event.preventDefault();
     var IsValid = ValidateInputFieldsFeeStructure();
     if (IsValid) {
         try {
-            var AssetAccount = "--";; var RevenueAccount = "--";; var CostOfSaleAccount = "--";; var LiabilityAccount = "--";;
+           
             var AssetAccountId = null; var RevenueAccountId = null; var CostOfSaleAccountId = null; var LiabilityAccountId = null;
-
-
             var row_data = [];
-
+            var FeeType = $('#DropDownListFeeType :selected').text();
             var FeeTypeId = $('#DropDownListFeeType :selected').val();
             var Amount = $('#TextBoxAmount').val();
-
-           
-
+            if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == true) {
+                AssetAccountId      =    $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId  =    $('#DropDownListLiabilityAccount :selected').val();
+                CostOfSaleAccount   =    $('#DropDownListCostOfSaleAccount :selected').val();
+            }
+            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == true) {
+                RevenueAccountId    =    $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId      =    $('#DropDownListAssetAccount :selected').val();
+                CostOfSaleAccountId =    $('#DropDownListCostOfSaleAccount :selected').val();
+            }
+            else if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == false) {
+                AssetAccountId      =    $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId  =    $('#DropDownListLiabilityAccount :selected').val();
+            }
+            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == false) {
+                RevenueAccountId    =    $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId      =    $('#DropDownListAssetAccount :selected').val();
+            }
             row_data[0] = "";
-            row_data[1] = FeeTypeId;
+            row_data[1] = FeeType;
+            row_data[2] = Amount;
+            row_data[3] = GetDeletebtn();
+            row_data[4] = FeeTypeId;
+            row_data[5] = RevenueAccountId;
+            row_data[6] = AssetAccountId;
+            row_data[7] = LiabilityAccountId;
+            row_data[8] = CostOfSaleAccountId;
             var IsAlreadyExist = false;
             table.column(1).data().each(function (value, index) {
-                //if (value == (row_data[1]) && (row_data[2])&& (row_data[3])) {
-                //    IsAlreadyExist = true;
-                //}
+                if (value == (row_data[1])) {
+                    IsAlreadyExist = true;
+                }
             });
             if (IsAlreadyExist) {
-                alert("error", "This " + FeeTypeId + " Already Exist !!");
+                GetMessageBox("Duplicate Record Exist",505)
             }
             else {
                 table.row.add(row_data).draw();
+                ClearOtherFeeSetting();
                 }
             IsAlreadyExist = false;
         }
@@ -338,35 +396,27 @@ $('#ButtonPlus').click(function (event) {
         }
     }
 });
-
 function ValidateInputFieldsFeeStructure() {
     if ($('#DropDownListFeeType').RequiredDropdown() == false) {
         return false;
     }
-
-    //if ($('#DropDownListRevenueAccount').RequiredDropdown() == false) {
-    //    return false;
-    //}
-
-    //if ($('#DropDownListAssetAccount').RequiredDropdown() == false) {
-    //    return false;
-    //}
-
-    //if ($('#DropDownListLiabilityAccount').RequiredDropdown() == false) {
-    //    return false;
-    //}
-
-    //if ($('#DropDownListCostOfSaleAccount').RequiredDropdown() == false) {
-    //    return false;
-    //}
     if ($('#TextBoxAmount').RequiredTextBoxInputGroup() == false) {
         return false;
     }
 
     return true;
 }
+$('#MainTableFeeStructure tbody').on('click', '.delete', function (e) {
+    var selectedRow = $(this).closest('tr');
+    var RIdx = table.row(selectedRow).index();
+    table.row(selectedRow).remove().draw();
+});
+
+
+
 function InsertDataIntoDataTable() {
-   
+
+
 }
 
 

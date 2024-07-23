@@ -796,10 +796,10 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     <Parameter Name="BranchId" Type="int" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
   </Function>
-  <Function Name="AppClass_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="BranchId" Type="int" Mode="In" />
+  <Function Name="AppClass_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
     <Parameter Name="AppSessionId" Type="int" Mode="In" />
     <Parameter Name="ClassIds" Type="nvarchar(max)" Mode="In" />
   </Function>
@@ -923,17 +923,23 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     <Parameter Name="ClassId" Type="int" Mode="In" />
     <Parameter Name="SectionId" Type="int" Mode="In" />
   </Function>
-  <Function Name="GeneralBranch_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="AllowedCampusIds" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="UserId" Type="int" Mode="In" />
+  <Function Name="GeneralBranch_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="AllowedCampusIds" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="DocumentStatusBranch" Type="int" Mode="In" />
     <Parameter Name="DocumentStatusSession" Type="int" Mode="In" />
-    <Parameter Name="TimePeriod" Type="datetime" Mode="In" />
   </Function>
-  <Function Name="GeneralBranch_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="GeneralBranch_GetListBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="InputTypeId" Type="int" Mode="In" />
+    <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="GeneralBranch_UpSert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_OperationType" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="GuID" Type="uniqueidentifier" Mode="In" />
     <Parameter Name="Description" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CampusTypeId" Type="int" Mode="In" />
     <Parameter Name="OrganizationTypeId" Type="int" Mode="In" />
@@ -945,18 +951,18 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     <Parameter Name="NTNNo" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Remarks" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CreatedOn" Type="datetime" Mode="In" />
-    <Parameter Name="BranchId" Type="int" Mode="In" />
-    <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="CreatedBy" Type="int" Mode="In" />
+    <Parameter Name="UpdatedOn" Type="datetime" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="int" Mode="In" />
     <Parameter Name="EffectiveFrom" Type="datetime" Mode="In" />
     <Parameter Name="ExpiredOn" Type="datetime" Mode="In" />
-    <Parameter Name="Code" Type="nvarchar(max)" Mode="InOut" />
+    <Parameter Name="Status" Type="bit" Mode="In" />
+    <Parameter Name="DocType" Type="int" Mode="In" />
+    <Parameter Name="DocumentStatus" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="Response" Type="int" Mode="InOut" />
     <Parameter Name="CampusId" Type="int" Mode="InOut" />
-  </Function>
-  <Function Name="GeneralBranch_SearchByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="InputTypeId" Type="int" Mode="In" />
-    <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
   </Function>
   <Function Name="GeneralCompany_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="Id" Type="int" Mode="In" />
@@ -975,13 +981,14 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     <Parameter Name="UpdatedBy" Type="int" Mode="In" />
     <Parameter Name="ExpiredOn" Type="datetime" Mode="In" />
   </Function>
-  <Function Name="GeneralRightSetting_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="GeneralRightSetting_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="AllowedCampusIds" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="URLTypeId" Type="int" Mode="In" />
     <Parameter Name="Status" Type="bit" Mode="In" />
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="Menu" Type="nvarchar(max)" Mode="In" />
-    <Parameter Name="UserId" Type="int" Mode="In" />
     <Parameter Name="RightId" Type="int" Mode="In" />
     <Parameter Name="RightPath" Type="nvarchar(max)" Mode="In" />
   </Function>
@@ -1010,35 +1017,44 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     <Parameter Name="EmployeeId" Type="int" Mode="In" />
     <Parameter Name="IsDeveloper" Type="bit" Mode="In" />
   </Function>
-  <Function Name="LK_ChallanMethod_GetByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="CompanyId" Type="int" Mode="In" />
-    <Parameter Name="BranchId" Type="int" Mode="In" />
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
+  <Function Name="LK_ChallanMethod_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
   </Function>
-  <Function Name="LK_StudyGroup_GetByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="LK_StudyGroup_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="BranchId" Type="int" Mode="In" />
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="AllowedStudyGroupIds" Type="nvarchar(max)" Mode="In" />
   </Function>
-  <Function Name="LK_StudyLevel_GetByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="LK_StudyLevel_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="BranchId" Type="int" Mode="In" />
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="AllowedStudyLevelIds" Type="nvarchar(max)" Mode="In" />
   </Function>
-  <Function Name="LK_WHTaxPolicy_GetByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="LK_WHTaxPolicy_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="BranchId" Type="int" Mode="In" />
     <Parameter Name="AccFeeStructureId" Type="int" Mode="In" />
-    <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="DocumentStatusFeeStructure" Type="int" Mode="In" />
   </Function>
-  <Function Name="StructureCOAAccount_GetDetailByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+  <Function Name="StructureCOAAccount_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CompanyId" Type="int" Mode="In" />
     <Parameter Name="BranchId" Type="int" Mode="In" />
     <Parameter Name="ListCondition" Type="nvarchar(max)" Mode="In" />
     <Parameter Name="CoaCatagoryIds" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="StructureFeeType_GetListByParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DB_IF_PARAM" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="StructureFeeType_GetListBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompanyId" Type="int" Mode="In" />
+    <Parameter Name="BranchId" Type="int" Mode="In" />
+    <Parameter Name="InputTypeId" Type="int" Mode="In" />
+    <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
   </Function>
   <Function Name="StructureFeeType_UpSert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="DB_OperationType" Type="nvarchar(max)" Mode="In" />

@@ -766,9 +766,9 @@
     <FunctionImportMapping FunctionImportName="AccFeeChallan_Insert" FunctionName="SESModel.Store.AccFeeChallan_Insert" />
     <FunctionImportMapping FunctionImportName="AccFeeChallanDetail_Insert" FunctionName="SESModel.Store.AccFeeChallanDetail_Insert" />
     <FunctionImportMapping FunctionImportName="AccJournal_Insert" FunctionName="SESModel.Store.AccJournal_Insert" />
-    <FunctionImportMapping FunctionImportName="AppClass_GetDetailByParam" FunctionName="SESModel.Store.AppClass_GetDetailByParam">
+    <FunctionImportMapping FunctionImportName="AppClass_GetListByParam" FunctionName="SESModel.Store.AppClass_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.AppClass_GetDetailByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.AppClass_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </ComplexTypeMapping>
@@ -781,19 +781,19 @@
     <FunctionImportMapping FunctionImportName="DEV_CheckDuplicateRecord" FunctionName="SESModel.Store.DEV_CheckDuplicateRecord" />
     <FunctionImportMapping FunctionImportName="DEV_InsertHistory" FunctionName="SESModel.Store.DEV_InsertHistory" />
     <FunctionImportMapping FunctionImportName="DEV_UpdateRecord" FunctionName="SESModel.Store.DEV_UpdateRecord" />
-    <FunctionImportMapping FunctionImportName="GeneralBranch_GetDetailByParam" FunctionName="SESModel.Store.GeneralBranch_GetDetailByParam">
+    <FunctionImportMapping FunctionImportName="GeneralBranch_GetListByParam" FunctionName="SESModel.Store.GeneralBranch_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.GeneralBranch_GetDetailByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.GeneralBranch_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="ExtraClass" ColumnName="ExtraClass" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="GeneralBranch_Insert" FunctionName="SESModel.Store.GeneralBranch_Insert" />
-    <FunctionImportMapping FunctionImportName="GeneralBranch_SearchByParam" FunctionName="SESModel.Store.GeneralBranch_SearchByParam">
+    <FunctionImportMapping FunctionImportName="GeneralBranch_GetListBySearch" FunctionName="SESModel.Store.GeneralBranch_GetListBySearch">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.GeneralBranch_SearchByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.GeneralBranch_GetListBySearch_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="GuID" ColumnName="GuID" />
           <ScalarProperty Name="Code" ColumnName="Code" />
@@ -809,6 +809,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GeneralBranch_UpSert" FunctionName="SESModel.Store.GeneralBranch_UpSert" />
     <FunctionImportMapping FunctionImportName="GeneralCompany_GetDetailByParam" FunctionName="SESModel.Store.GeneralCompany_GetDetailByParam">
       <ResultMapping>
         <ComplexTypeMapping TypeName="SESModel.GeneralCompany_GetDetailByParam_Result">
@@ -842,9 +843,9 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GeneralEnrollmentSetting_Insert" FunctionName="SESModel.Store.GeneralEnrollmentSetting_Insert" />
-    <FunctionImportMapping FunctionImportName="GeneralRightSetting_GetDetailByParam" FunctionName="SESModel.Store.GeneralRightSetting_GetDetailByParam">
+    <FunctionImportMapping FunctionImportName="GeneralRightSetting_GetListByParam" FunctionName="SESModel.Store.GeneralRightSetting_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.GeneralRightSetting_GetDetailByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.GeneralRightSetting_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="FormName" ColumnName="FormName" />
           <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
@@ -883,9 +884,9 @@
       </ResultMapping>
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GeneralUser_Insert" FunctionName="SESModel.Store.GeneralUser_Insert" />
-    <FunctionImportMapping FunctionImportName="LK_ChallanMethod_GetByParam" FunctionName="SESModel.Store.LK_ChallanMethod_GetByParam">
+    <FunctionImportMapping FunctionImportName="LK_ChallanMethod_GetListByParam" FunctionName="SESModel.Store.LK_ChallanMethod_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.LK_ChallanMethod_GetByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.LK_ChallanMethod_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="MonthsNo" ColumnName="MonthsNo" />
@@ -893,25 +894,25 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="LK_StudyGroup_GetByParam" FunctionName="SESModel.Store.LK_StudyGroup_GetByParam">
+    <FunctionImportMapping FunctionImportName="LK_StudyGroup_GetListByParam" FunctionName="SESModel.Store.LK_StudyGroup_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.LK_StudyGroup_GetByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.LK_StudyGroup_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="LK_StudyLevel_GetByParam" FunctionName="SESModel.Store.LK_StudyLevel_GetByParam">
+    <FunctionImportMapping FunctionImportName="LK_StudyLevel_GetListByParam" FunctionName="SESModel.Store.LK_StudyLevel_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.LK_StudyLevel_GetByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.LK_StudyLevel_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="LK_WHTaxPolicy_GetByParam" FunctionName="SESModel.Store.LK_WHTaxPolicy_GetByParam">
+    <FunctionImportMapping FunctionImportName="LK_WHTaxPolicy_GetListByParam" FunctionName="SESModel.Store.LK_WHTaxPolicy_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.LK_WHTaxPolicy_GetByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.LK_WHTaxPolicy_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="SlabAmount" ColumnName="SlabAmount" />
@@ -920,12 +921,38 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="StructureCOAAccount_GetDetailByParam" FunctionName="SESModel.Store.StructureCOAAccount_GetDetailByParam">
+    <FunctionImportMapping FunctionImportName="StructureCOAAccount_GetListByParam" FunctionName="SESModel.Store.StructureCOAAccount_GetListByParam">
       <ResultMapping>
-        <ComplexTypeMapping TypeName="SESModel.StructureCOAAccount_GetDetailByParam_Result">
+        <ComplexTypeMapping TypeName="SESModel.StructureCOAAccount_GetListByParam_Result">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Account" ColumnName="Account" />
           <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="StructureFeeType_GetListByParam" FunctionName="SESModel.Store.StructureFeeType_GetListByParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SESModel.StructureFeeType_GetListByParam_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="StructureFeeType_GetListBySearch" FunctionName="SESModel.Store.StructureFeeType_GetListBySearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SESModel.StructureFeeType_GetListBySearch_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GuID" ColumnName="GuID" />
+          <ScalarProperty Name="FeeName" ColumnName="FeeName" />
+          <ScalarProperty Name="FeeCatagory" ColumnName="FeeCatagory" />
+          <ScalarProperty Name="ChargingMethod" ColumnName="ChargingMethod" />
+          <ScalarProperty Name="FeeCatagoryId" ColumnName="FeeCatagoryId" />
+          <ScalarProperty Name="ChargingMethodId" ColumnName="ChargingMethodId" />
+          <ScalarProperty Name="IsOnAdmission" ColumnName="IsOnAdmission" />
+          <ScalarProperty Name="IsDiscount" ColumnName="IsDiscount" />
+          <ScalarProperty Name="IsRefundable" ColumnName="IsRefundable" />
+          <ScalarProperty Name="IsSecurity" ColumnName="IsSecurity" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

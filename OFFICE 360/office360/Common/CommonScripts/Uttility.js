@@ -122,7 +122,13 @@ function GetStatus(Status) {
 //    return '<a title="' + title + '" class="view text-primary btn btn-lg" href="'+url+ '"><i class="fa fa-'+icon+'" aria-hidden="true"></i></a>';
 //}
 function GetViewbtn(url, title, text) {
-    return "<td class='center'><a onclick=" + url +"  title='Click here to View " + title + "' class='btn btn-sm'><i class='far fa-edit'></i> " + '' + "</a></td>";
+    return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm view'><i class='far fa-eye'></i> " + '' + "</a></td>";
+}
+function GetEditbtn(url, title, text) {
+    return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm edit'><i class='far fa-edit'></i> " + '' + "</a></td>";
+}
+function GetDeletebtn(url, title, text) {
+    return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm delete'><i class='far fa-trash'></i> " + '' + "</a></td>";
 }
 function OpenReport(response, status, xhr) {
     var filename = "";
@@ -198,24 +204,31 @@ function GetMessageBox(message, status) {
     switch (status) {
         case 200:
             alertClass = 'alert-primary';
-            iconClass = 'ti ti-check';
+            iconClass = 'success';
             break;
         case 404:
             alertClass = 'alert-info';
-            iconClass = 'ti ti-info';
+            iconClass = 'error';
             break;
         case 505:
             alertClass = 'alert-danger';
-            iconClass = 'ti ti-close';
+            iconClass = 'info';
             break;
         default:
             alertClass = 'alert-secondary';
-            iconClass = 'ti ti-alert';
+            iconClass = 'info';
             break;
     }
-    const alertHtml = '<div class="alert border-0'+alertClass+' bg-gradient m-b-30 alert-dismissible fade show border-radius-none" role="alert"><strong style="color:white">'+message+'</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="${'+iconClass+'}"></i></button></div>';
 
-    messageContainer.html(alertHtml).fadeIn('slow').delay(7000).fadeOut();
+    Swal.fire({
+        text: message,
+        icon: iconClass
+    });
+
+
+   // const alertHtml = '<div class="alert border-0'+alertClass+' bg-gradient m-b-30 alert-dismissible fade show border-radius-none" role="alert"><strong style="color:white">'+message+'</strong><button type="button" class="close" data-dismiss="alert" aria-label="Close"><i class="${'+iconClass+'}"></i></button></div>';
+
+   // messageContainer.html(alertHtml).fadeIn('slow').delay(7000).fadeOut();
 }
 function stopLoading() {
     setTimeout(function () {
@@ -344,5 +357,8 @@ function PopulateDTGroupByList(DataTableId, ListCondition,HTMLAttribute) {
         });
     }
 }
+function AppendTableFooterTotals(TableId, ColumnSpan, TableDivId, Header) {
+    var Footer = $('#' + TableId).append('<tfoot><tr><th>' + Header + '</th><td class="Headings" colspan="' + ColumnSpan + '"></td><td id="' + TableDivId + '"></td><td colspan="6"></td></tr></tfoot>');
 
-
+    return Footer;
+}
