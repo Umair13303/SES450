@@ -152,9 +152,9 @@ namespace office360.Areas.AAccounts.Controllers
 
         #region FUNCTION TO PASS DATA TO HELPER
         [HttpPost]
-        public ActionResult Update_Insert_StructureFeeType(_SqlParameters PostedData)
+        public ActionResult Update_Insert_StructureFeeType(_SqlParameters PostedData,List<_SqlParameters> PostedDataDetail)
         {
-            _Exe = Common.DataBaseProcedures.AAccounts.InsertIntoDB.StructureFeeType_UPDATE_INSERT(PostedData);
+            _Exe = Common.DataBaseProcedures.AAccounts.InsertIntoDB.StructureFeeType_UPDATE_INSERT(PostedData, PostedDataDetail);
             var data = new { Message = HttpStatus.HTTPTransactionMessagByStatusCode(_Exe), StatusCode = StatusCode };
             return Json(data, JsonRequestBehavior.AllowGet);
         }

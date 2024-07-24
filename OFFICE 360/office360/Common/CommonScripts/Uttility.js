@@ -358,7 +358,6 @@ function PopulateDTGroupByList(DataTableId, ListCondition,HTMLAttribute) {
     }
 }
 function AppendTableFooterTotals(TableId, ColumnSpan, TableDivId, Header) {
-    var Footer = $('#' + TableId).append('<tfoot><tr><th>' + Header + '</th><td class="Headings" colspan="' + ColumnSpan + '"></td><td id="' + TableDivId + '"></td><td colspan="6"></td></tr></tfoot>');
-
+    var Footer = $('#' + TableId).append('<tfoot  disabled="disabled"><tr><th>' + Header + '</th><td class="Headings"  colspan="' + ColumnSpan + '"></td><td id="' + TableDivId + '"></td><td colspan="6"></td></tr></tfoot>');
     return Footer;
 }

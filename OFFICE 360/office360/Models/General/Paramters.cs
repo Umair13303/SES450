@@ -28,6 +28,9 @@ namespace office360.Models.General
         public DateTime? TransactionDate { get; set; }
         public DateTime? UpdatedOn { get; set; }
 
+        public decimal? TotalFeeAmount { get; set; }
+        public decimal? WHTAmount { get; set; }
+        public decimal? GrossFeeAmount { get; set; }
         public decimal? ActualFeeAmount { get; set; }
         public decimal? ChargedFeeAmount { get; set; }
         public decimal? Discount { get; set; }
@@ -90,6 +93,7 @@ namespace office360.Models.General
         public int? StudyGroupId { get; set; }
         public int? StudyLevelId { get; set; }
         public int? TransactionMonth { get; set; }
+        public int? WHTaxPolicyId { get; set; }
         public int? UpdatedBy { get; set; }
         public int? DocType { get; set; }
 

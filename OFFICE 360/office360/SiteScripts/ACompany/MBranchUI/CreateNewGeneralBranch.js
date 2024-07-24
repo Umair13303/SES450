@@ -346,7 +346,7 @@ $('#ButtonSubmitDown').click(function (event) {
             UpSertDataIntoDB();
         }
         catch {
-            GetMessageBox(err, 500);
+            GetMessageBox(err, 505);
         }
     }
 });
@@ -359,7 +359,7 @@ $('#ButtonUpdateDown').click(function (event) {
             UpSertDataIntoDB();
         }
         catch {
-            GetMessageBox(err, 500);
+            GetMessageBox(err, 505);
         }
     }
 });
@@ -436,7 +436,6 @@ function UpSertDataIntoDB() {
     var Remarks = $('#TextBoxRemarks').val();
 
     var CampusGuID = $('#HiddenFieldCampusGuID').val();
-    alert(CampusGuID);
 
     var JsonArg = {
         GuID: CampusGuID,

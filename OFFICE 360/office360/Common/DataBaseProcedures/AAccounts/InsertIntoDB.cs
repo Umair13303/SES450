@@ -20,7 +20,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
     {
 
 
-        public static int? StructureFeeType_UPDATE_INSERT(_SqlParameters PostedData)
+        public static int? StructureFeeType_UPDATE_INSERT(_SqlParameters PostedData, List<_SqlParameters> PostedDataDetail)
         {
             using (var db = new SESEntities())
             {

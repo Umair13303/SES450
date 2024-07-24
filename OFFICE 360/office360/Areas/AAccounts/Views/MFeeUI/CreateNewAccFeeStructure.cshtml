@@ -121,40 +121,10 @@
                 </div>
                 <div class="bootstrap-admin-panel-content">
                     <table class="table table-bordered table-sm order-column stripe table-hover" style="width: 100%" id="MainTableFeeStructure">
-                        <tbody id="MainTableFeeStructure">
-                        </tbody>
+                        <tbody id="TableBodyMainTableFeeStructure">
+                         </tbody>
                     </table>
-                    <div class="row justify-content-end">
-                        <div class="input-group mb-0 col-md-4 col-sm-12">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Fee Amount</span>
-                            </div>
-                            @Html.TextBox("TextBoxTotalFee", null, new { @class = "form-control form-control-sm amount",disabled=true, placeholder = "Please Enter Value Here!", @id = "TextBoxTotalFee" })
-                        </div>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="input-group mb-0 col-md-4 col-sm-12">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Tax Amount</span>
-                            </div>
-                            @Html.TextBox("TextBoxTaxAmount", null, new { @class = "form-control form-control-sm amount", disabled = true, placeholder = "Please Enter Value Here!", @id = "TextBoxTaxAmount" })
-                        </div>
-                    </div>
-                    <div class="row justify-content-end">
-                        <div class="input-group mb-0 col-md-4 col-sm-12">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1">Total Payable</span>
-                            </div>
-                            @Html.TextBox("TextBoxNetPayable", null, new { @class = "form-control form-control-sm amount", disabled = true, placeholder = "Please Enter Value Here!", @id = "TextBoxNetPayable" })
-                        </div>
-                    </div>
-
-
-
-
                 </div>
-
-
             </form>
             @Html.TextBox("HiddenFieldFeeStructureGuID", null, new { @class = "form-control", Value = ViewBag.FeeStructureGuID, hidden = true, @id = "HiddenFieldFeeStructureGuID" })
             @Html.TextBox("HiddenFieldDB_OperationType", null, new { @class = "form-control", Value = ViewBag.DB_OperationType, hidden = true, @id = "HiddenFieldDB_OperationType" })
