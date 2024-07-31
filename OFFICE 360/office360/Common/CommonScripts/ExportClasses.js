@@ -11,6 +11,7 @@ class Status {
 class GeneralBranch_Session_Status {
     static ALLOWED = "ALLOWED";
     static NOT_ALLOWED = "NOT_ALLOWED";
+    static NOT_ALLOWED = "NOT_ALLOWED";
 }
 class CSS_CLASS_Status {
     static DISABLED = "disabled";
@@ -124,6 +125,7 @@ class PARAMETER {
     static DB_OperationType = {
         INSERT: "INSERT_DATA_INTO_DB",
         UPDATE: "UPDATE_DATA_INTO_DB",
+        DELETE: "DELETE_DATA_INTO_DB",
     };
 
     static DocumentType = {
@@ -137,6 +139,28 @@ class PARAMETER {
         FEE_CHALLAN: 8,
         FEE_TYPE: 9,
     };
+
+    static DocStatus = {
+        Working_BRANCHES : 1,
+        NonOperation_BRANCHES : 2,
+        Working_CLASSES : 3,
+        NonOperation_CLASSES : 4,
+        Open_ADMISSION : 5,
+        Closed_ADMISSION : 6,
+        Cancelled_ADMISSION : 7,
+        Active_STUDENT : 8,
+        InActive_STUDENT : 9,
+        NewEnrollment_CLASS_REGISTRATION : 10,
+        Promoted_CLASS_REGISTRATION : 11,
+        Demoted_CLASS_REGISTRATION : 12,
+        Left_CLASS_REGISTRATION : 13,
+        Active_FEE_STRUCTURE : 14,
+        InActive_FEE_STRUCTURE : 15,
+        UnPaid_FEE_CHALLAN : 16,
+        Cancelled_FEE_CHALLAN : 17,
+        Revised_FEE_CHALLAN : 18,
+        Paid_FEE_CHALLAN : 19,
+    }
 
     static CustomerCSSClass = {
         DISABLED: "disabled",

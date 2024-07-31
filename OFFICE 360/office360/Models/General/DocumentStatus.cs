@@ -28,8 +28,6 @@ namespace office360.Models.General
             Cancelled_FEE_CHALLAN = 17,
             Revised_FEE_CHALLAN = 18,
             Paid_FEE_CHALLAN = 19,
-
-
         }
         public enum DocType
         {

@@ -87,35 +87,117 @@ function GetHRAreaButton( title, url, text) {
 function GetStatus(Status) {
     var Badge = ""; // Initialize Badge variable to an empty string
     switch (Status) {
-        case "Open":
-            Badge = "orange";
+        case 1:
+            BadgeColor = "primary";
+            Display = "Working";
             break;
-        case "Processed":
-            Badge = "blue";
+
+        case 2:
+            BadgeColor = "info";
+            Display = "Non Operation";
             break;
-        case "Closed":
-            Badge = "green";
+
+        case 3:
+            BadgeColor = "primary";
+            Display = "Working";
             break;
-        case "Deleted":
-            Badge = "grey";
+
+        case 4:
+            BadgeColor = "info";
+            Display = "Non Operation";
             break;
-        case "Rejected":
-            Badge = "red";
+
+        case 5:
+            BadgeColor = "primary";
+            Display = "Open";
             break;
-        case "Disbursed":
-            Badge = "purple";
+
+        case 6:
+            BadgeColor = "info";
+            Display = "Closed";
             break;
-        case "Active":
-            Badge = "teal";
+        case 7:
+            BadgeColor = "info";
+            Display = "dark";
             break;
-        case "In-Active":
-            Badge = "maroon";
+
+        case 8:
+            BadgeColor = "primary";
+            Display = "Active";
             break;
+
+        case 9:
+            BadgeColor = "info";
+            Display = "In-Active";
+            break;
+
+        case 10:
+            BadgeColor = "info";
+            Display = "New Enrollment";
+            break;
+
+        case 11:
+            BadgeColor = "success";
+            Display = "Promoted";
+            break;
+
+        case 12:
+            BadgeColor = "danger";
+            Display = "Demoted ";
+            break;
+
+        case 13:
+            BadgeColor = "dark";
+            Display = "Demoted ";
+            break;
+
+        case 14:
+            BadgeColor = "primary";
+            Display = "Active";
+            break;
+
+        case 15:
+            BadgeColor = "info";
+            Display = "In-Active";
+            break;
+
+        case 16:
+            BadgeColor = "warning";
+            Display = "Un-Paid";
+            break;
+
+        case 17:
+            BadgeColor = "danger";
+            Display = "Cancelled";
+            break;
+
+        case 18:
+            BadgeColor = "info";
+            Display = "Revised";
+            break;
+
+        case 19:
+            BadgeColor = "success";
+            Display = "Paid";
+            break;
+
+        case 20:
+            BadgeColor = "primary";
+            Display = "Active";
+            break;
+
+        case 21:
+            BadgeColor = "info";
+            Display = "In-Active";
+            break;
+       
         default:
-            Badge = "default"; // Set a default class name for unknown statuses
+            BadgeColor = "danger";
+            Display = "N/A";
+            // Set a default class name for unknown statuses
             break;
     }
-    var Label = '<td> <span class="custom-badge status-' + Badge + '">' + Status + '</span></td>';
+    var Label = '<td> <span class="badge badge-' + BadgeColor + '">' + Display + '</span></td>';
     return Label;
 }
 //function GetViewbtn(title, url, icon) {
@@ -125,10 +207,10 @@ function GetViewbtn(url, title, text) {
     return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm view'><i class='far fa-eye'></i> " + '' + "</a></td>";
 }
 function GetEditbtn(url, title, text) {
-    return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm edit'><i class='far fa-edit'></i> " + '' + "</a></td>";
+    return "<td class='center'><a onclick=" + url + "  title='Click here to Edit " + title + "' class='btn btn-sm edit'><i class='far fa-edit'></i> " + '' + "</a></td>";
 }
 function GetDeletebtn(url, title, text) {
-    return "<td class='center'><a onclick=" + url + "  title='Click here to View " + title + "' class='btn btn-sm delete'><i class='far fa-trash'></i> " + '' + "</a></td>";
+    return "<td class='center'><a onclick=" + url + "  title='Click here to Delete " + title + "' class='btn btn-sm delete'><i class='far fa-trash-alt'></i> " + '' + "</a></td>";
 }
 function OpenReport(response, status, xhr) {
     var filename = "";
