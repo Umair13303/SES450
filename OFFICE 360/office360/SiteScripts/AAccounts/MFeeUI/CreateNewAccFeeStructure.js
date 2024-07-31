@@ -45,9 +45,9 @@ function InitDataTable() {
 
     }).draw();
 
-    AppendTableFooterTotals("MainTableFeeStructure", "1", "TDTotalFeeAmount", "Recievable Fee");
+    AppendTableFooterTotals("MainTableFeeStructure", "1", "TDTotalFeeExclusiveAmount", "Recievable Fee");
     AppendTableFooterTotals("MainTableFeeStructure", "1", "TDWHTAmount", "Applicable Tax");
-    AppendTableFooterTotals("MainTableFeeStructure", "1", "TDGrossFeeAmount","Total Fee Incl. Tax");
+    AppendTableFooterTotals("MainTableFeeStructure", "1", "TDTotalFeeAmount","Total Fee Incl. Tax");
 }
 //-----------DATA TABLE BASED OPERATION
 $('#ButtonPlus').click(function (event) {
@@ -128,25 +128,25 @@ $('#MainTableFeeStructure tbody').on('click', '.delete', function (e) {
     table.row(selectedRow).remove().draw();
 });
 function CalcBoxDataTable() {
-    var TotalFeeAmount      = table.column(2).data().reduce(function (a, b)
+    var TotalFeeExclusiveAmount      = table.column(2).data().reduce(function (a, b)
     {
         return parseFloat(a) + parseFloat(b);
     }, 0);
 
     var TaxAmount           = 0;
     //  if (IsOnExceedingAmount == true) {
-    if (TotalFeeAmount > WH_SlabAmount) {
-        var ExceedingAmount     = parseFloat(TotalFeeAmount - WH_SlabAmount);
+    if (TotalFeeExclusiveAmount > WH_SlabAmount) {
+        var ExceedingAmount = parseFloat(TotalFeeExclusiveAmount - WH_SlabAmount);
         TaxAmount               = parseFloat(WH_FixedCharges + ((ExceedingAmount / 100) * WH_Percentage));
     }
-    if (TotalFeeAmount > WH_SlabAmount) {
-        TaxAmount               = parseFloat(WH_FixedCharges + ((TotalFeeAmount / 100) * WH_Percentage));
+    if (TotalFeeExclusiveAmount > WH_SlabAmount) {
+        TaxAmount = parseFloat(WH_FixedCharges + ((TotalFeeExclusiveAmount / 100) * WH_Percentage));
     }
-    var NetPayable              = TaxAmount + TotalFeeAmount;
+    var TotalFeeAmount = TaxAmount + TotalFeeExclusiveAmount;
 
-    $('#TDTotalFeeAmount').text(TotalFeeAmount.toFixed(2));
+    $('#TDTotalFeeExclusiveAmount').text(TotalFeeExclusiveAmount.toFixed(2));
     $('#TDWHTAmount').text(TaxAmount.toFixed(2));
-    $('#TDGrossFeeAmount').text(NetPayable.toFixed(2));
+    $('#TDTotalFeeAmount').text(TotalFeeAmount.toFixed(2));
 }
 function ClearOtherFeeSetting() {
     $('#DropDownListRevenueAccount').val('-1').change();
@@ -516,25 +516,25 @@ $('#ButtonSubmitDown').click(function (event) {
 });
 
 function UpSertDataIntoDB() {
-    var CampusId        = $('#DropDownListCampus :selected').val();
-    var SessionId       = $('#DropDownListSession :selected').val();
-    var ClassId         = $('#DropDownListClass :selected').val();
-    var WHTaxPolicyId   = $('#DropDownListWHTaxPolicy :selected').val();
-    var TotalFeeAmount  = $('#TDTotalFeeAmount').text();
-    var WHTAmount       = $('#TDWHTAmount').text();
-    var GrossFeeAmount  = $('#TDGrossFeeAmount').text();
-    var FeeStructureGuID = $('#HiddenFieldFeeStructureGuID').val();
+    var CampusId            = $('#DropDownListCampus :selected').val();
+    var SessionId           = $('#DropDownListSession :selected').val();
+    var ClassId             = $('#DropDownListClass :selected').val();
+    var WHTaxPolicyId       = $('#DropDownListWHTaxPolicy :selected').val();
+    var TotalFeeExclusive   = $('#TDTotalFeeExclusiveAmount').text();
+    var WHTAmount           = $('#TDWHTAmount').text();
+    var TotalFee            = $('#TDTotalFeeAmount').text();
+    var FeeStructureGuID    = $('#HiddenFieldFeeStructureGuID').val();
 
     var JsonArg = {
-        OperationType   : OperationType,
-        GuID            : FeeStructureGuID,
-        CampusId        : CampusId,
-        SessionId       : SessionId,
-        ClassId         : ClassId,
-        WHTaxPolicyId   : WHTaxPolicyId,
-        TotalFeeAmount  : TotalFeeAmount,
-        WHTAmount       : WHTAmount,
-        GrossFeeAmount  : GrossFeeAmount,
+        OperationType       : OperationType,
+        GuID                : FeeStructureGuID,
+        CampusId            : CampusId,
+        SessionId           : SessionId,
+        ClassId             : ClassId,
+        WHTaxPolicyId       : WHTaxPolicyId,
+        TotalFeeExclusive   : TotalFeeExclusive,
+        WHTAmount           : WHTAmount,
+        TotalFee            : TotalFee,
     }
 
     var FeeStructureDetailArray = [];

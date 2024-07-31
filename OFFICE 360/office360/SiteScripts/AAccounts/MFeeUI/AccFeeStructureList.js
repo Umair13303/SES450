@@ -21,22 +21,23 @@ function ChangeCase() {
 
 //-----------ALL DATA TABLE LIST
 function InitDateTable() {
-    var GroupColumn_P1 = 2;
+    var GroupColumn_P1 = 3;
     var GroupColumn_P2 = 3;
     
-    table = $('#MainTableFeeType').DataTable({
+    table = $('#MainTableFeeStructure').DataTable({
         "responsive": true,
         "ordering": true,
         "processing": true,
         "columns": [
-            { "data": null,                 "title": "#"                    },
-            { "data": "FeeName",            "title": "Fee"                  },
-            { "data": "FeeCatagory",        "title": "Catagory"             },
-            { "data": "ChargingMethod",     "title": "Method",                  "orderable": true,  },
-            { "data": "IsOnAdmission",      "title": "On Admission"         },
-            { "data": "IsSecurity",         "title": "Is Security"          },
-            { "data": "IsRefundable",       "title": "Is Refundable"        },
-            { "data": "IsDiscount",         "title": "Is Discountable"      },
+            { "data": null,                 "title": "#"             }, 
+            { "data": "Campus",             "title": "Campus"        },
+            { "data": "Code",               "title": "Code"          },
+            { "data": "Session",            "title": "Session",      },
+            { "data": "Class",              "title": "Class"         },
+            { "data": "WHTaxPolicy",        "title": "WH Tax Policy" },
+            { "data": "TotalFeeExclusive",  "title": "Fee (Excl.)"   },
+            { "data": "WHTAmount",          "title": "Tax"           },
+            { "data": "TotalFee",           "title": "TotalFee"      },
         ],
         columnDefs: [
             { visible: false, targets: GroupColumn_P1 },
@@ -99,7 +100,7 @@ function DrawDataTable() {
 
     var queryString = $.param(JsonArg);
     debugger
-    table.ajax.url((BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT?" + queryString)).load();
+    table.ajax.url((BasePath + "/AAccounts/MFeeUI/AccFeeStructure_ListByParam_FORDT?" + queryString)).load();
 
    
 }

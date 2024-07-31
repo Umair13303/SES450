@@ -33,6 +33,7 @@
                         @Html.Label("Search By", new { @class = "col-form-label", @for = "DropDownListSearchBy" })
                         @Html.DropDownList("DropDownListSearchBy", new List<SelectListItem>
                                                                     {
+                                                                        new SelectListItem { Value = "0", Text = "Select An Option" },
                                                                         new SelectListItem { Value = "1", Text = "Get All Branches" },
                                                                         new SelectListItem { Value = "2", Text = "Branch Code" },
                                                                         new SelectListItem { Value = "3", Text = "Branch Name" },

@@ -28,9 +28,9 @@ namespace office360.Models.General
         public DateTime? TransactionDate { get; set; }
         public DateTime? UpdatedOn { get; set; }
 
-        public decimal? TotalFeeAmount { get; set; }
+        public decimal? TotalFeeExclusive { get; set; }
         public decimal? WHTAmount { get; set; }
-        public decimal? GrossFeeAmount { get; set; }
+        public decimal? TotalFee { get; set; }
         public decimal? ActualFeeAmount { get; set; }
         public decimal? ChargedFeeAmount { get; set; }
         public decimal? Discount { get; set; }

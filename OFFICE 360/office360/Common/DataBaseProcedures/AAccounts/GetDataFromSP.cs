@@ -82,17 +82,17 @@ namespace office360.Common.DataBaseProcedures.AAccounts
             return List;
 
         }
-        public static List<StructureFeeType_GetListBySearch_Result> GET_MT_ACCFEESTRUCTURE_LISTSEARCHPARAM(_SqlParameters PostedData)
+        public static List<AccFeeStructure_GetListBySearch_Result> GET_MT_ACCFEESTRUCTURE_LISTSEARCHPARAM(_SqlParameters PostedData)
         {
-            List<StructureFeeType_GetListBySearch_Result> List = new List<StructureFeeType_GetListBySearch_Result>();
+            List<AccFeeStructure_GetListBySearch_Result> List = new List<AccFeeStructure_GetListBySearch_Result>();
             using (var db = new SESEntities())
             {
-                List = db.StructureFeeType_GetListBySearch(
+                List = db.AccFeeStructure_GetListBySearch(
                                                                     Session_Manager.CompanyId,
                                                                     Session_Manager.BranchId,
                                                                     PostedData.SearchById,
                                                                     PostedData.InputText
-                                                                    ).ToList<StructureFeeType_GetListBySearch_Result>();
+                                                                    ).ToList<AccFeeStructure_GetListBySearch_Result>();
             }
             return List;
 

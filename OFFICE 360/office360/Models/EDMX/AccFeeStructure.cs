@@ -22,9 +22,9 @@ namespace office360.Models.EDMX
         public Nullable<int> SessionId { get; set; }
         public Nullable<int> ClassId { get; set; }
         public Nullable<int> WHTaxPolicyId { get; set; }
-        public Nullable<decimal> TotalFeeAmount { get; set; }
+        public Nullable<decimal> TotalFeeExclusive { get; set; }
         public Nullable<decimal> WHTAmount { get; set; }
-        public Nullable<decimal> GrossFeeAmount { get; set; }
+        public Nullable<decimal> TotalFee { get; set; }
         public Nullable<System.DateTime> EffectiveFrom { get; set; }
         public Nullable<System.DateTime> ExpiredOn { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }

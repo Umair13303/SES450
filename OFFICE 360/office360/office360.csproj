@@ -296,6 +296,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DBF\DBContextClass.cs" />
+    <Compile Include="Models\DBF\DBFModel.cs" />
+    <Compile Include="Models\DBF\DBFStoredProcedure.cs" />
     <Compile Include="Models\EDMX\AccFeeChallan.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
@@ -306,6 +309,9 @@
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\AccFeeStructureDetail.cs">
+      <DependentUpon>SESModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EDMX\AccFeeStructure_GetListBySearch_Result.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\AccJournal.cs">
@@ -462,9 +468,6 @@
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\RollCallSystem.cs">
-      <DependentUpon>SESModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EDMX\SearchParameter.cs">
       <DependentUpon>SESModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EDMX\SESModel.Context.cs">

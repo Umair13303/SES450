@@ -71,7 +71,6 @@ namespace office360.Models.EDMX
         public virtual DbSet<Right> Right { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<RollCallSystem> RollCallSystem { get; set; }
-        public virtual DbSet<SearchParameter> SearchParameter { get; set; }
         public virtual DbSet<StudyGroup> StudyGroup { get; set; }
         public virtual DbSet<StudyLevel> StudyLevel { get; set; }
         public virtual DbSet<URLType> URLType { get; set; }
@@ -212,6 +211,27 @@ namespace office360.Models.EDMX
                 new ObjectParameter("Difference", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AccFeeChallanDetail_Insert", feeChallanIdParameter, feeTypeIdParameter, actualAmountParameter, chargedAmountParameter, differenceParameter);
+        }
+    
+        public virtual ObjectResult<AccFeeStructure_GetListBySearch_Result> AccFeeStructure_GetListBySearch(Nullable<int> companyId, Nullable<int> branchId, Nullable<int> inputTypeId, string inputText)
+        {
+            var companyIdParameter = companyId.HasValue ?
+                new ObjectParameter("CompanyId", companyId) :
+                new ObjectParameter("CompanyId", typeof(int));
+    
+            var branchIdParameter = branchId.HasValue ?
+                new ObjectParameter("BranchId", branchId) :
+                new ObjectParameter("BranchId", typeof(int));
+    
+            var inputTypeIdParameter = inputTypeId.HasValue ?
+                new ObjectParameter("InputTypeId", inputTypeId) :
+                new ObjectParameter("InputTypeId", typeof(int));
+    
+            var inputTextParameter = inputText != null ?
+                new ObjectParameter("InputText", inputText) :
+                new ObjectParameter("InputText", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AccFeeStructure_GetListBySearch_Result>("AccFeeStructure_GetListBySearch", companyIdParameter, branchIdParameter, inputTypeIdParameter, inputTextParameter);
         }
     
         public virtual int AccJournal_Insert(string code, Nullable<System.DateTime> transactionDate, string folioNo, string reference, string description, Nullable<int> debitAccountId, Nullable<decimal> debitAmount, Nullable<int> creditAccountId, Nullable<decimal> creditAmount, Nullable<decimal> balanceAmount, Nullable<int> createdBy, Nullable<int> docType, Nullable<int> branchId, Nullable<int> companyId)

@@ -30,8 +30,9 @@
                         @Html.Label("Search By", new { @class = "col-form-label", @for = "DropDownListSearchBy" })
                         @Html.DropDownList("DropDownListSearchBy", new List<SelectListItem>
                                                                     {
-                                                                        new SelectListItem { Value = "1", Text = "Get All Fee Structure",Selected=true,Disabled=false },
-                                                                        new SelectListItem { Value = "2", Text = "Class Name",Disabled=true },
+                                                                        new SelectListItem { Value = "0", Text = "Select An Option" },
+                                                                        new SelectListItem { Value = "1", Text = "Get All Fee Structure" },
+                                                                        new SelectListItem { Value = "2", Text = "Code" },
                                                                     },
                                                                     new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSearchBy" })
                     </div>

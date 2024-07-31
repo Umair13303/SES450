@@ -60,9 +60,9 @@
           <Property Name="SessionId" Type="int" />
           <Property Name="ClassId" Type="int" />
           <Property Name="WHTaxPolicyId" Type="int" />
-          <Property Name="TotalFeeAmount" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFeeExclusive" Type="decimal" Precision="20" Scale="4" />
           <Property Name="WHTAmount" Type="decimal" Precision="20" Scale="4" />
-          <Property Name="GrossFeeAmount" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFee" Type="decimal" Precision="20" Scale="4" />
           <Property Name="EffectiveFrom" Type="datetime" />
           <Property Name="ExpiredOn" Type="datetime" />
           <Property Name="CreatedOn" Type="datetime" />
@@ -696,17 +696,6 @@ warning 6002: The table/view 'SES400.dbo.RollCallSystem' does not have a primary
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'SES400.dbo.SearchParameter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="SearchParameter">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="DocTypeId" Type="int" />
-          <Property Name="Status" Type="bit" />
-        </EntityType>
-        <!--Errors Found During Generation:
 warning 6002: The table/view 'SES400.dbo.StudyGroup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="StudyGroup">
           <Key>
@@ -788,6 +777,12 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Parameter Name="ActualAmount" Type="decimal" Mode="In" />
           <Parameter Name="ChargedAmount" Type="decimal" Mode="In" />
           <Parameter Name="Difference" Type="decimal" Mode="In" />
+        </Function>
+        <Function Name="AccFeeStructure_GetListBySearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompanyId" Type="int" Mode="In" />
+          <Parameter Name="BranchId" Type="int" Mode="In" />
+          <Parameter Name="InputTypeId" Type="int" Mode="In" />
+          <Parameter Name="InputText" Type="nvarchar(max)" Mode="In" />
         </Function>
         <Function Name="AccJournal_Insert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Code" Type="nvarchar(max)" Mode="In" />
@@ -1286,14 +1281,6 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     [RollCallSystem].[Description] AS [Description]
     FROM [dbo].[RollCallSystem] AS [RollCallSystem]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="SearchParameter" EntityType="Self.SearchParameter" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SearchParameter].[Id] AS [Id], 
-    [SearchParameter].[Description] AS [Description], 
-    [SearchParameter].[DocTypeId] AS [DocTypeId], 
-    [SearchParameter].[Status] AS [Status]
-    FROM [dbo].[SearchParameter] AS [SearchParameter]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="StudyGroup" EntityType="Self.StudyGroup" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [StudyGroup].[Id] AS [Id], 
@@ -1403,9 +1390,9 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Property Name="SessionId" Type="Int32" />
           <Property Name="ClassId" Type="Int32" />
           <Property Name="WHTaxPolicyId" Type="Int32" />
-          <Property Name="TotalFeeAmount" Type="Decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFeeExclusive" Type="Decimal" Precision="20" Scale="4" />
           <Property Name="WHTAmount" Type="Decimal" Precision="20" Scale="4" />
-          <Property Name="GrossFeeAmount" Type="Decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFee" Type="Decimal" Precision="20" Scale="4" />
           <Property Name="EffectiveFrom" Type="DateTime" Precision="3" />
           <Property Name="ExpiredOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
@@ -1990,15 +1977,6 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="SearchParameter">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="DocTypeId" Type="Int32" />
-          <Property Name="Status" Type="Boolean" />
-        </EntityType>
         <EntityType Name="StudyGroup">
           <Key>
             <PropertyRef Name="Id" />
@@ -2088,7 +2066,6 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <EntitySet Name="Right" EntityType="Self.Right" />
           <EntitySet Name="Role" EntityType="Self.Role" />
           <EntitySet Name="RollCallSystem" EntityType="Self.RollCallSystem" />
-          <EntitySet Name="SearchParameter" EntityType="Self.SearchParameter" />
           <EntitySet Name="StudyGroup" EntityType="Self.StudyGroup" />
           <EntitySet Name="StudyLevel" EntityType="Self.StudyLevel" />
           <EntitySet Name="URLType" EntityType="Self.URLType" />
@@ -2131,6 +2108,12 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="ActualAmount" Mode="In" Type="Decimal" />
             <Parameter Name="ChargedAmount" Mode="In" Type="Decimal" />
             <Parameter Name="Difference" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="AccFeeStructure_GetListBySearch" ReturnType="Collection(SESModel.AccFeeStructure_GetListBySearch_Result)">
+            <Parameter Name="CompanyId" Mode="In" Type="Int32" />
+            <Parameter Name="BranchId" Mode="In" Type="Int32" />
+            <Parameter Name="InputTypeId" Mode="In" Type="Int32" />
+            <Parameter Name="InputText" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="AccJournal_Insert">
             <Parameter Name="Code" Mode="In" Type="String" />
@@ -2392,6 +2375,19 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="Response" Mode="InOut" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="AccFeeStructure_GetListBySearch_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Guid" Name="GuID" Nullable="true" />
+          <Property Type="String" Name="Code" Nullable="true" />
+          <Property Type="String" Name="Description" Nullable="true" />
+          <Property Type="Decimal" Name="TotalFeeExclusive" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="WHTAmount" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="Decimal" Name="TotalFee" Nullable="true" Precision="20" Scale="4" />
+          <Property Type="String" Name="Session" Nullable="true" />
+          <Property Type="String" Name="Class" Nullable="true" />
+          <Property Type="String" Name="WHTaxPolicy" Nullable="true" />
+          <Property Type="String" Name="Campus" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="AppClass_GetListByParam_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
           <Property Type="String" Name="Description" Nullable="true" />
@@ -2578,9 +2574,9 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
                 <ScalarProperty Name="SessionId" ColumnName="SessionId" />
                 <ScalarProperty Name="ClassId" ColumnName="ClassId" />
                 <ScalarProperty Name="WHTaxPolicyId" ColumnName="WHTaxPolicyId" />
-                <ScalarProperty Name="TotalFeeAmount" ColumnName="TotalFeeAmount" />
+                <ScalarProperty Name="TotalFeeExclusive" ColumnName="TotalFeeExclusive" />
                 <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
-                <ScalarProperty Name="GrossFeeAmount" ColumnName="GrossFeeAmount" />
+                <ScalarProperty Name="TotalFee" ColumnName="TotalFee" />
                 <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
                 <ScalarProperty Name="ExpiredOn" ColumnName="ExpiredOn" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
@@ -3208,16 +3204,6 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SearchParameter">
-            <EntityTypeMapping TypeName="SESModel.SearchParameter">
-              <MappingFragment StoreEntitySet="SearchParameter">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="DocTypeId" ColumnName="DocTypeId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="StudyGroup">
             <EntityTypeMapping TypeName="SESModel.StudyGroup">
               <MappingFragment StoreEntitySet="StudyGroup">
@@ -3290,6 +3276,23 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="AccFeeChallan_Insert" FunctionName="SESModel.Store.AccFeeChallan_Insert" />
           <FunctionImportMapping FunctionImportName="AccFeeChallanDetail_Insert" FunctionName="SESModel.Store.AccFeeChallanDetail_Insert" />
+          <FunctionImportMapping FunctionImportName="AccFeeStructure_GetListBySearch" FunctionName="SESModel.Store.AccFeeStructure_GetListBySearch">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="SESModel.AccFeeStructure_GetListBySearch_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GuID" ColumnName="GuID" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TotalFeeExclusive" ColumnName="TotalFeeExclusive" />
+                <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
+                <ScalarProperty Name="TotalFee" ColumnName="TotalFee" />
+                <ScalarProperty Name="Session" ColumnName="Session" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="WHTaxPolicy" ColumnName="WHTaxPolicy" />
+                <ScalarProperty Name="Campus" ColumnName="Campus" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="AccJournal_Insert" FunctionName="SESModel.Store.AccJournal_Insert" />
           <FunctionImportMapping FunctionImportName="AppClass_GetListByParam" FunctionName="SESModel.Store.AppClass_GetListByParam">
             <ResultMapping>

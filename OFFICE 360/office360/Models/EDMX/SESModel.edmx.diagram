@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="dcb826403afd4284970eb2ece179d95a" Name="Diagram1">
+      <Diagram DiagramId="42dd0389dbac49c38367cdaf1df396ef" Name="Diagram1">
         <EntityTypeShape EntityType="SESModel.AccFeeChallan" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.AccFeeChallanDetail" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.AccFeeStructure" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -49,12 +49,11 @@
         <EntityTypeShape EntityType="SESModel.Right" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.Role" Width="1.5" PointX="20.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SESModel.RollCallSystem" Width="1.5" PointX="4.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.SearchParameter" Width="1.5" PointX="6.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.StudyGroup" Width="1.5" PointX="20.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.StudyLevel" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.URLType" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.WHTaxPolicy" Width="1.5" PointX="10.75" PointY="20.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SESModel.WorkingShift" Width="1.5" PointX="20.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SESModel.StudyGroup" Width="1.5" PointX="6.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SESModel.StudyLevel" Width="1.5" PointX="20.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SESModel.URLType" Width="1.5" PointX="8.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SESModel.WHTaxPolicy" Width="1.5" PointX="20.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SESModel.WorkingShift" Width="1.5" PointX="10.75" PointY="20.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
