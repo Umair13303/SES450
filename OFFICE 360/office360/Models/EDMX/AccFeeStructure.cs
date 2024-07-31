@@ -17,11 +17,14 @@ namespace office360.Models.EDMX
         public int Id { get; set; }
         public Nullable<System.Guid> GuID { get; set; }
         public string Code { get; set; }
+        public Nullable<int> CampusId { get; set; }
         public string Description { get; set; }
         public Nullable<int> SessionId { get; set; }
         public Nullable<int> ClassId { get; set; }
         public Nullable<int> WHTaxPolicyId { get; set; }
-        public Nullable<decimal> TotalAmount { get; set; }
+        public Nullable<decimal> TotalFeeAmount { get; set; }
+        public Nullable<decimal> WHTAmount { get; set; }
+        public Nullable<decimal> GrossFeeAmount { get; set; }
         public Nullable<System.DateTime> EffectiveFrom { get; set; }
         public Nullable<System.DateTime> ExpiredOn { get; set; }
         public Nullable<System.DateTime> CreatedOn { get; set; }

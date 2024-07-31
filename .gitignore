@@ -1,0 +1,13 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/OFFICE 360/.vs/office360/v17/HierarchyCache.v1.txt
+/OFFICE 360/.vs/office360/FileContentIndex/0bd872af-ecd3-4dea-bda9-d92b90f2155b.vsidx
+*.vsidx
+/OFFICE 360/.vs/office360/FileContentIndex/4b8a74bf-cb6e-436d-a59b-483de3f41db0.vsidx
+/.vs/slnx.sqlite
+/OFFICE 360/.vs/office360/FileContentIndex/69ed0568-99c3-4a5f-8258-bcaf3bc18568.vsidx
+/OFFICE 360/.vs/office360/FileContentIndex/9872c7c0-5716-4d38-a6d5-ac830bf78cf7.vsidx
+/OFFICE 360/.vs/office360/FileContentIndex/f187d787-0aed-4fe2-ac3c-7c188ea10185.vsidx
+*.bin

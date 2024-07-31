@@ -18,9 +18,10 @@ namespace office360.Models.EDMX
         public Nullable<System.Guid> GuID { get; set; }
         public Nullable<int> FeeStructureId { get; set; }
         public Nullable<int> FeeTypeId { get; set; }
+        public Nullable<int> RevenueAccountId { get; set; }
         public Nullable<int> AssetAccountId { get; set; }
         public Nullable<int> LiabilityAccountId { get; set; }
-        public Nullable<int> RevenueAccountId { get; set; }
+        public Nullable<int> CostOfSaleAccountId { get; set; }
         public Nullable<decimal> Amount { get; set; }
         public Nullable<bool> Status { get; set; }
     }

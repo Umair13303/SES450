@@ -59,11 +59,14 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="GuID" Type="Guid" />
     <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CampusId" Type="Int32" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SessionId" Type="Int32" />
     <Property Name="ClassId" Type="Int32" />
     <Property Name="WHTaxPolicyId" Type="Int32" />
-    <Property Name="TotalAmount" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="TotalFeeAmount" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="WHTAmount" Type="Decimal" Precision="20" Scale="4" />
+    <Property Name="GrossFeeAmount" Type="Decimal" Precision="20" Scale="4" />
     <Property Name="EffectiveFrom" Type="DateTime" Precision="3" />
     <Property Name="ExpiredOn" Type="DateTime" Precision="3" />
     <Property Name="CreatedOn" Type="DateTime" Precision="3" />
@@ -84,9 +87,10 @@
     <Property Name="GuID" Type="Guid" />
     <Property Name="FeeStructureId" Type="Int32" />
     <Property Name="FeeTypeId" Type="Int32" />
+    <Property Name="RevenueAccountId" Type="Int32" />
     <Property Name="AssetAccountId" Type="Int32" />
     <Property Name="LiabilityAccountId" Type="Int32" />
-    <Property Name="RevenueAccountId" Type="Int32" />
+    <Property Name="CostOfSaleAccountId" Type="Int32" />
     <Property Name="Amount" Type="Decimal" Precision="20" Scale="4" />
     <Property Name="Status" Type="Boolean" />
   </EntityType>

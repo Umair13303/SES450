@@ -32,21 +32,7 @@ namespace office360.Common.DataBaseProcedures.Common
                 return DATA;
             }
         }
-        public static List<_SqlParameters> GET_LK1_SearchParameter(_SqlParameters PostedData)
-        {
-            using (SESEntities db = new SESEntities())
-            {
-                var DATA = db.SearchParameter
-                     .Where(x => x.Status == true && (x.DocTypeId == PostedData.DocType || x.DocTypeId==0) )
-                     .Select(x => new _SqlParameters
-                     {
-                         Id = x.Id,
-                         Description = x.Description,
-                     }).ToList();
-
-                return DATA;
-            }
-        }
+        
         public static List<_SqlParameters> GET_LK1_Gender(_SqlParameters PostedData)
         {
             using (SESEntities db = new SESEntities())

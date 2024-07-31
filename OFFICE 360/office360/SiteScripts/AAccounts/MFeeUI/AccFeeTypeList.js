@@ -1,13 +1,13 @@
 var table = "";
 
 $(document).ready(function () {
-    PopulateDropDownLists();
     ChangeCase();
     InitDateTable();
 });
 
 function ChangeCase() {
     $('#DropDownListSearchBy').change(function (event) {
+        $('#TextBoxQueryString').val('');
         event.preventDefault();
         var SearchBy = $('#DropDownListSearchBy :selected').val();
         if (SearchBy == 1) {
@@ -18,31 +18,16 @@ function ChangeCase() {
         }
     });
 }
-function PopulateDropDownLists() {
-    PopulateLKSearchParameterList();
-}
+
 //-----------ALL DATA TABLE LIST
 function InitDateTable() {
     var GroupColumn_P1 = 2;
     var GroupColumn_P2 = 3;
-    //var JsonArg = {
-    //    ActionCondition: PARAMETER.SESCondition.GET_MT_ACCFEESTRUCTURE_BYPARAMETER,
-    //}
+    
     table = $('#MainTableFeeType').DataTable({
         "responsive": true,
         "ordering": true,
         "processing": true,
-        //"ajax": {
-        //    "url": BasePath + "/AAccounts/MFeeUI/PopulateStructureFeeType_ListByParam_FORDT",
-        //    "type": "POST",
-        //    "data": { "PostedData": JsonArg },
-        //    beforeSend: function () {
-        //        startLoading();
-        //    },
-        //    complete: function () {
-        //        stopLoading();
-        //    },
-        //},
         "columns": [
             { "data": null,                 "title": "#"                    },
             { "data": "FeeName",            "title": "Fee"                  },
@@ -86,25 +71,6 @@ function InitDateTable() {
             cell.innerHTML = i + 1;
         });
     }).draw();/*for serial No*/
-}
-//-----------ALL DROPDOWN LIST
-function PopulateLKSearchParameterList() {
-    var JsonArg = {
-        DocType: PARAMETER.DocumentType.FEE_TYPE,
-        ActionCondition: PARAMETER.LookUpCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER,
-    }
-    $.ajax({
-        type: "POST",
-        url: BasePath + "/ACompany/MFeeUI/GET_DATA_BY_PARAMETER",
-        data: { 'PostedData': (JsonArg) },
-        success: function (data) {
-            var s = '<option  value="-1">Select an option</option>';
-            for (var i = 0; i < data.length; i++) {
-                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
-            }
-            $("#DropDownListSearchBy").html(s);
-        },
-    });
 }
 
 

@@ -108,9 +108,6 @@ namespace office360.Areas.ACompany.Controllers
                     DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_StudyLevel(PostedData).ToList();
                     break;
 
-                case nameof(LookUpActionCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER):
-                    DATA = Common.DataBaseProcedures.Common.GetDataFromDB.GET_LK1_SearchParameter(PostedData).ToList();
-                    break;
             }
             return Json(DATA, JsonRequestBehavior.AllowGet);
         }

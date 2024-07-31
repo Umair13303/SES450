@@ -57,27 +57,28 @@ $('#ButtonPlus').click(function (event) {
         try {
 
             var AssetAccountId = null; var RevenueAccountId = null; var CostOfSaleAccountId = null; var LiabilityAccountId = null;
-            var row_data = [];
-            var FeeType = $('#DropDownListFeeType :selected').text();
-            var FeeTypeId = $('#DropDownListFeeType :selected').val();
-            var Amount = $('#TextBoxAmount').val();
-            if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == true) {
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
-                CostOfSaleAccount = $('#DropDownListCostOfSaleAccount :selected').val();
+            var row_data        = [];
+            var FeeType         = $('#DropDownListFeeType :selected').text();
+            var FeeTypeId       = $('#DropDownListFeeType :selected').val();
+            var Amount          = $('#TextBoxAmount').val();
+
+            if (FeeSettingIsSecurity    == true     &&   FeeSettingIsDiscount     == true) {
+                AssetAccountId          = $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId      = $('#DropDownListLiabilityAccount :selected').val();
+                CostOfSaleAccount       = $('#DropDownListCostOfSaleAccount :selected').val();
             }
-            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == true) {
-                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                CostOfSaleAccountId = $('#DropDownListCostOfSaleAccount :selected').val();
+            else if (FeeSettingIsSecurity   == false    &&  FeeSettingIsDiscount    == true) {
+                RevenueAccountId        = $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId          = $('#DropDownListAssetAccount :selected').val();
+                CostOfSaleAccountId     = $('#DropDownListCostOfSaleAccount :selected').val();
             }
-            else if (FeeSettingIsSecurity == true && FeeSettingIsDiscount == false) {
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
-                LiabilityAccountId = $('#DropDownListLiabilityAccount :selected').val();
+            else if (FeeSettingIsSecurity       == true     &&   FeeSettingIsDiscount     == false) {
+                AssetAccountId          = $('#DropDownListAssetAccount :selected').val();
+                LiabilityAccountId      = $('#DropDownListLiabilityAccount :selected').val();
             }
-            else if (FeeSettingIsSecurity == false && FeeSettingIsDiscount == false) {
-                RevenueAccountId = $('#DropDownListRevenueAccount :selected').val();
-                AssetAccountId = $('#DropDownListAssetAccount :selected').val();
+            else if (FeeSettingIsSecurity       == false    &&      FeeSettingIsDiscount    == false) {
+                RevenueAccountId        = $('#DropDownListRevenueAccount :selected').val();
+                AssetAccountId          = $('#DropDownListAssetAccount :selected').val();
             }
             row_data[0] = "";
             row_data[1] = FeeType;
@@ -90,8 +91,8 @@ $('#ButtonPlus').click(function (event) {
             row_data[8] = CostOfSaleAccountId;
             var IsAlreadyExist = false;
             table.column(1).data().each(function (value, index) {
-                if (value == (row_data[1])) {
-                    IsAlreadyExist = true;
+                if (value   ==   (row_data[1])) {
+                    IsAlreadyExist      = true;
                 }
             });
             if (IsAlreadyExist) {
@@ -122,26 +123,26 @@ function ValidateInputFieldsFeeStructure() {
     return true;
 }
 $('#MainTableFeeStructure tbody').on('click', '.delete', function (e) {
-    var selectedRow = $(this).closest('tr');
-    var RIdx = table.row(selectedRow).index();
+    var selectedRow     = $(this).closest('tr');
+    var RIdx            = table.row(selectedRow).index();
     table.row(selectedRow).remove().draw();
 });
 function CalcBoxDataTable() {
-    var TotalFeeAmount = table.column(2).data().reduce(function (a, b) {
+    var TotalFeeAmount      = table.column(2).data().reduce(function (a, b)
+    {
         return parseFloat(a) + parseFloat(b);
     }, 0);
 
-    var TaxAmount = 0;
+    var TaxAmount           = 0;
     //  if (IsOnExceedingAmount == true) {
     if (TotalFeeAmount > WH_SlabAmount) {
-        var ExceedingAmount = parseFloat(TotalFeeAmount - WH_SlabAmount);
-        TaxAmount = parseFloat(WH_FixedCharges + ((ExceedingAmount / 100) * WH_Percentage));
+        var ExceedingAmount     = parseFloat(TotalFeeAmount - WH_SlabAmount);
+        TaxAmount               = parseFloat(WH_FixedCharges + ((ExceedingAmount / 100) * WH_Percentage));
     }
     if (TotalFeeAmount > WH_SlabAmount) {
-        TaxAmount = parseFloat(WH_FixedCharges + ((TotalFeeAmount / 100) * WH_Percentage));
+        TaxAmount               = parseFloat(WH_FixedCharges + ((TotalFeeAmount / 100) * WH_Percentage));
     }
-
-    var NetPayable = TaxAmount + TotalFeeAmount;
+    var NetPayable              = TaxAmount + TotalFeeAmount;
 
     $('#TDTotalFeeAmount').text(TotalFeeAmount.toFixed(2));
     $('#TDWHTAmount').text(TaxAmount.toFixed(2));
@@ -207,6 +208,9 @@ function PopulateMT_GeneralCompany_List() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
@@ -221,6 +225,9 @@ function PopulateMT_GeneralCompany_List() {
                 $("#DropDownListCompany").prop('disabled', Status.Open);
             }
         },
+        complete: function () {
+            stopLoading();
+        },
     });
 }
 function PopulateMT_GeneralBranch_ListByParam() {
@@ -232,12 +239,18 @@ function PopulateMT_GeneralBranch_ListByParam() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
                 s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
             }
             $("#DropDownListCampus").html(s);
+        },
+        complete: function () {
+            stopLoading();
         },
     });
 }
@@ -253,6 +266,9 @@ function PopulateMT_AppSession_ListByParam() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
@@ -263,6 +279,9 @@ function PopulateMT_AppSession_ListByParam() {
             }
             $("#DropDownListSession").html(s);
 
+        },
+        complete: function () {
+            stopLoading();
         },
     });
 }
@@ -279,13 +298,18 @@ function PopulateMT_AppClass_ListByParam() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
                 s += '<option  value="' + data[i].Id + '">' + data[i].Description +  '' + '</option>';
             }
             $("#DropDownListClass").html(s);
-
+        },
+        complete: function () {
+            stopLoading();
         },
     });
 }
@@ -298,6 +322,9 @@ function PopulateLK_WHTaxPolicy_List() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
@@ -308,7 +335,11 @@ function PopulateLK_WHTaxPolicy_List() {
                     '</option>';
             }
             $("#DropDownListWHTaxPolicy").html(s);
-        }
+        },
+        complete: function () {
+            stopLoading();
+        },
+
     });
 }
 function PopulateMT_StructureFeeType_ListByParam() {
@@ -320,6 +351,9 @@ function PopulateMT_StructureFeeType_ListByParam() {
         type: "POST",
         url: BasePath + "/AAccounts/MFeeUI/GET_DATA_BY_PARAMETER",
         data: { 'PostedData': (JsonArg) },
+        beforeSend: function () {
+            startLoading();
+        },
         success: function (data) {
             var s = '<option  value="-1">Select an option</option>';
             for (var i = 0; i < data.length; i++) {
@@ -330,6 +364,9 @@ function PopulateMT_StructureFeeType_ListByParam() {
             }
             $("#DropDownListFeeType").html(s);
 
+        },
+        complete: function () {
+            stopLoading();
         },
     });
 }
@@ -489,6 +526,7 @@ function UpSertDataIntoDB() {
     var FeeStructureGuID = $('#HiddenFieldFeeStructureGuID').val();
 
     var JsonArg = {
+        OperationType   : OperationType,
         GuID            : FeeStructureGuID,
         CampusId        : CampusId,
         SessionId       : SessionId,
@@ -522,7 +560,7 @@ function UpSertDataIntoDB() {
 
     $.ajax({
         type: "POST",
-        url: BasePath + "/AAccounts/MFeeUI/Update_Insert_StructureFeeType",
+        url: BasePath + "/AAccounts/MFeeUI/Update_Insert_AccFeeStructure",
         dataType: 'json',
         data: { 'PostedData': (JsonArg), 'PostedDataDetail': (FeeStructureDetailArray), },
         beforeSend: function () {
@@ -548,6 +586,7 @@ function ClearInputFields() {
     $('.form-control').val('');
     $('.select2').val('-1').change();
     $('form').removeClass('Is-Valid');
+    table.Clear().draw();
 }
 
 //-----------LOAD ENTERY RECORD

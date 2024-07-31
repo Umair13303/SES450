@@ -52,11 +52,14 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="GuID" ColumnName="GuID" />
           <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="CampusId" ColumnName="CampusId" />
           <ScalarProperty Name="Description" ColumnName="Description" />
           <ScalarProperty Name="SessionId" ColumnName="SessionId" />
           <ScalarProperty Name="ClassId" ColumnName="ClassId" />
           <ScalarProperty Name="WHTaxPolicyId" ColumnName="WHTaxPolicyId" />
-          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+          <ScalarProperty Name="TotalFeeAmount" ColumnName="TotalFeeAmount" />
+          <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
+          <ScalarProperty Name="GrossFeeAmount" ColumnName="GrossFeeAmount" />
           <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
           <ScalarProperty Name="ExpiredOn" ColumnName="ExpiredOn" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
@@ -78,9 +81,10 @@
           <ScalarProperty Name="GuID" ColumnName="GuID" />
           <ScalarProperty Name="FeeStructureId" ColumnName="FeeStructureId" />
           <ScalarProperty Name="FeeTypeId" ColumnName="FeeTypeId" />
+          <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
           <ScalarProperty Name="AssetAccountId" ColumnName="AssetAccountId" />
           <ScalarProperty Name="LiabilityAccountId" ColumnName="LiabilityAccountId" />
-          <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
+          <ScalarProperty Name="CostOfSaleAccountId" ColumnName="CostOfSaleAccountId" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
           <ScalarProperty Name="Status" ColumnName="Status" />
         </MappingFragment>

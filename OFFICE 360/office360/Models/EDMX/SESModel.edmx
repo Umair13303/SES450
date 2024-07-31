@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="SESModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AccFeeChallan">
           <Key>
             <PropertyRef Name="Id" />
@@ -55,11 +55,14 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GuID" Type="uniqueidentifier" />
           <Property Name="Code" Type="nvarchar(max)" />
+          <Property Name="CampusId" Type="int" />
           <Property Name="Description" Type="nvarchar(max)" />
           <Property Name="SessionId" Type="int" />
           <Property Name="ClassId" Type="int" />
           <Property Name="WHTaxPolicyId" Type="int" />
-          <Property Name="TotalAmount" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFeeAmount" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="WHTAmount" Type="decimal" Precision="20" Scale="4" />
+          <Property Name="GrossFeeAmount" Type="decimal" Precision="20" Scale="4" />
           <Property Name="EffectiveFrom" Type="datetime" />
           <Property Name="ExpiredOn" Type="datetime" />
           <Property Name="CreatedOn" Type="datetime" />
@@ -80,9 +83,10 @@
           <Property Name="GuID" Type="uniqueidentifier" />
           <Property Name="FeeStructureId" Type="int" />
           <Property Name="FeeTypeId" Type="int" />
+          <Property Name="RevenueAccountId" Type="int" />
           <Property Name="AssetAccountId" Type="int" />
           <Property Name="LiabilityAccountId" Type="int" />
-          <Property Name="RevenueAccountId" Type="int" />
+          <Property Name="CostOfSaleAccountId" Type="int" />
           <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
           <Property Name="Status" Type="bit" />
         </EntityType>
@@ -1330,7 +1334,8 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
     FROM [dbo].[WorkingShift] AS [WorkingShift]</DefiningQuery>
           </EntitySet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="SESModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1393,11 +1398,14 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GuID" Type="Guid" />
           <Property Name="Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CampusId" Type="Int32" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SessionId" Type="Int32" />
           <Property Name="ClassId" Type="Int32" />
           <Property Name="WHTaxPolicyId" Type="Int32" />
-          <Property Name="TotalAmount" Type="Decimal" Precision="20" Scale="4" />
+          <Property Name="TotalFeeAmount" Type="Decimal" Precision="20" Scale="4" />
+          <Property Name="WHTAmount" Type="Decimal" Precision="20" Scale="4" />
+          <Property Name="GrossFeeAmount" Type="Decimal" Precision="20" Scale="4" />
           <Property Name="EffectiveFrom" Type="DateTime" Precision="3" />
           <Property Name="ExpiredOn" Type="DateTime" Precision="3" />
           <Property Name="CreatedOn" Type="DateTime" Precision="3" />
@@ -1418,9 +1426,10 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <Property Name="GuID" Type="Guid" />
           <Property Name="FeeStructureId" Type="Int32" />
           <Property Name="FeeTypeId" Type="Int32" />
+          <Property Name="RevenueAccountId" Type="Int32" />
           <Property Name="AssetAccountId" Type="Int32" />
           <Property Name="LiabilityAccountId" Type="Int32" />
-          <Property Name="RevenueAccountId" Type="Int32" />
+          <Property Name="CostOfSaleAccountId" Type="Int32" />
           <Property Name="Amount" Type="Decimal" Precision="20" Scale="4" />
           <Property Name="Status" Type="Boolean" />
         </EntityType>
@@ -2086,13 +2095,13 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
           <EntitySet Name="WHTaxPolicy" EntityType="Self.WHTaxPolicy" />
           <EntitySet Name="WorkingShift" EntityType="Self.WorkingShift" />
           <FunctionImport Name="fn_CodeSplitByCommaAsINT" IsComposable="true" ReturnType="Collection(SESModel.fn_CodeSplitByCommaAsINT_Result)">
-          <Parameter Name="psCSString" Mode="In" Type="String" />
+            <Parameter Name="psCSString" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="fn_CodeSplitByCommaAsUniqueIdentifier" IsComposable="true" ReturnType="Collection(SESModel.fn_CodeSplitByCommaAsUniqueIdentifier_Result)">
-          <Parameter Name="psCSString" Mode="In" Type="String" />
+            <Parameter Name="psCSString" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="fn_GetCommaSepratedValuesInList" IsComposable="true" ReturnType="Collection(SESModel.fn_GetCommaSepratedValuesInList_Result)">
-          <Parameter Name="psCSString" Mode="In" Type="String" />
+            <Parameter Name="psCSString" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="AccFeeChallan_Insert">
             <Parameter Name="GuId" Mode="In" Type="Guid" />
@@ -2322,7 +2331,7 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
             <Parameter Name="IsDeveloper" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="LK_ChallanMethod_GetListByParam" ReturnType="Collection(SESModel.LK_ChallanMethod_GetListByParam_Result)">
-          <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
+            <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LK_StudyGroup_GetListByParam" ReturnType="Collection(SESModel.LK_StudyGroup_GetListByParam_Result)">
             <Parameter Name="DB_IF_PARAM" Mode="In" Type="String" />
@@ -2564,11 +2573,14 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="GuID" ColumnName="GuID" />
                 <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="CampusId" ColumnName="CampusId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="SessionId" ColumnName="SessionId" />
                 <ScalarProperty Name="ClassId" ColumnName="ClassId" />
                 <ScalarProperty Name="WHTaxPolicyId" ColumnName="WHTaxPolicyId" />
-                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="TotalFeeAmount" ColumnName="TotalFeeAmount" />
+                <ScalarProperty Name="WHTAmount" ColumnName="WHTAmount" />
+                <ScalarProperty Name="GrossFeeAmount" ColumnName="GrossFeeAmount" />
                 <ScalarProperty Name="EffectiveFrom" ColumnName="EffectiveFrom" />
                 <ScalarProperty Name="ExpiredOn" ColumnName="ExpiredOn" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
@@ -2590,9 +2602,10 @@ warning 6002: The table/view 'SES400.dbo.WorkingShift' does not have a primary k
                 <ScalarProperty Name="GuID" ColumnName="GuID" />
                 <ScalarProperty Name="FeeStructureId" ColumnName="FeeStructureId" />
                 <ScalarProperty Name="FeeTypeId" ColumnName="FeeTypeId" />
+                <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
                 <ScalarProperty Name="AssetAccountId" ColumnName="AssetAccountId" />
                 <ScalarProperty Name="LiabilityAccountId" ColumnName="LiabilityAccountId" />
-                <ScalarProperty Name="RevenueAccountId" ColumnName="RevenueAccountId" />
+                <ScalarProperty Name="CostOfSaleAccountId" ColumnName="CostOfSaleAccountId" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
               </MappingFragment>

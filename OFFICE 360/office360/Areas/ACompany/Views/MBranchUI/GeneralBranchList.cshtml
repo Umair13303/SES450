@@ -31,7 +31,13 @@
                 <div class="col-sm-12 col-md-5">
                     <div class="form-group">
                         @Html.Label("Search By", new { @class = "col-form-label", @for = "DropDownListSearchBy" })
-                        @Html.DropDownList("DropDownListSearchBy", Enumerable.Empty<SelectListItem>(), new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSearchBy" })
+                        @Html.DropDownList("DropDownListSearchBy", new List<SelectListItem>
+                                                                    {
+                                                                        new SelectListItem { Value = "1", Text = "Get All Branches" },
+                                                                        new SelectListItem { Value = "2", Text = "Branch Code" },
+                                                                        new SelectListItem { Value = "3", Text = "Branch Name" },
+                                                                    },
+                                                                    new { @class = "form-control select2", @data_toggle = "select2", id = "DropDownListSearchBy" })
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-5">

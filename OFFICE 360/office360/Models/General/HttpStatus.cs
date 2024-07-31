@@ -27,6 +27,8 @@ namespace office360.Models.General
                     return (int)HttpResponses.CODE_DATA_ALREADY_EXIST;
                 case 200:
                     return (int)HttpResponses.CODE_SUCCESS;
+                case 300:
+                    return (int)HttpResponses.CODE_DATA_UPDATED;
                 default:
                     return (int)HttpResponses.CODE_UN_KNOWN_ACTIVITY;
             }
@@ -38,6 +40,9 @@ namespace office360.Models.General
             {
                 case (int)HttpResponses.CODE_SUCCESS:
                     return "TRANSACTION HAS BEEN PERFORMED SUCCESSFULLY";
+                
+                case (int)HttpResponses.CODE_DATA_UPDATED:
+                    return "TRANSACTION HAS BEEN UPDATED SUCCESSFULLY";
 
                 case (int)HttpResponses.CODE_DATA_ALREADY_EXIST:
                     return "THE DATA ALREADY EXIST.";

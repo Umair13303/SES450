@@ -82,6 +82,7 @@ namespace office360.Models.General
         {
             INSERT_DATA_INTO_DB,
             UPDATE_DATA_INTO_DB,
+            DELETE_DATA_INTO_DB
         }
     }
 }

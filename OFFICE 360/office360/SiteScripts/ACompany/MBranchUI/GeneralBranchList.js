@@ -34,7 +34,6 @@ function InitDataTable() {
 }
 
 function PopulateDropDownLists() {
-    PopulateLK_SearchParameter_List();
     PopulateDTGroupByList('MainTable', PARAMETER.CustomerCSSClass.DynamicGroupBy, 'DropDownListGroupBy');
 }
 
@@ -52,31 +51,6 @@ function ChangeCase() {
     });
 }
 
-//-----------ALL DROPDOWN LIST
-function PopulateLK_SearchParameter_List() {
-    var JsonArg = {
-        DocType: PARAMETER.DocumentType.BRANCHES,
-        ActionCondition: PARAMETER.LookUpCondition.GET_LK1_SEARCHPARAMETER_BYPARAMTER,
-    }
-    $.ajax({
-        type: "POST",
-        url: BasePath + "/ACompany/MBranchUI/GET_DATA_BY_PARAMETER",
-        data: { 'PostedData': (JsonArg) },
-        beforeSend: function () {
-            startLoading();
-        },
-        success: function (data) {
-            var s = '<option  value="-1">Select an option</option>';
-            for (var i = 0; i < data.length; i++) {
-                s += '<option  value="' + data[i].Id + '">' + data[i].Description + '' + '</option>';
-            }
-            $("#DropDownListSearchBy").html(s);
-        },
-        complete: function () {
-            stopLoading();
-        },
-    });
-}
 
 //-----------DB OPERATION CALL
 $('#ButtonSearch').click(function (event) {

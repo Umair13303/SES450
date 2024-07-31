@@ -13,6 +13,7 @@ using static office360.Models.General.HttpStatus;
 using static office360.Models.General.DBListCondition;
 using System.Globalization;
 using System.Data.Entity.Core.Objects;
+using DocType = office360.Models.General.DocumentStatus.DocType;
 
 namespace office360.Common.DataBaseProcedures.AAccounts
 {
@@ -20,7 +21,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
     {
 
 
-        public static int? StructureFeeType_UPDATE_INSERT(_SqlParameters PostedData, List<_SqlParameters> PostedDataDetail)
+        public static int? StructureFeeType_UPDATE_INSERT(_SqlParameters PostedData)
         {
             using (var db = new SESEntities())
             {
@@ -30,7 +31,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
                     {
 
                         #region OUTPUT VARAIBLE
-                        var ResponseParameter = new ObjectParameter("Response", typeof(int));
+                        var ResponseParameter       = new ObjectParameter("Response", typeof(int));
                         #endregion
                         #region EXECUTE STORE PROCEDURE
                         var data = db.StructureFeeType_UpSert(
@@ -57,7 +58,7 @@ namespace office360.Common.DataBaseProcedures.AAccounts
                                                               );
                         #endregion
                         #region RESPONSE VALUES IN VARIABLE
-                        int? Response = (int)ResponseParameter.Value;
+                        int? Response               = (int)ResponseParameter.Value;
                         #endregion
                         #region TRANSACTION HANDLING DETAIL
                         switch (Response)
@@ -66,8 +67,161 @@ namespace office360.Common.DataBaseProcedures.AAccounts
                             case (int?)HttpResponses.CODE_DATA_UPDATED:
                                 dbTran.Commit();
                                 break;
+                            case (int?)HttpResponses.CODE_BAD_REQUEST:
+                                dbTran.Rollback();
+                                break;
+                            default:
+                                dbTran.Rollback();
+                                break;
+                        }
+                       
+                        return HttpStatus.HttpResponseByReturnValue(Response);
+                        #endregion
+
+                    }
+                    catch (Exception Ex)
+                    {
+                        dbTran.Rollback();
+                        return HttpStatus.HttpResponses.CODE_INTERNAL_SERVER_ERROR.ToInt();
+                    }
+                }
+            }
+        }
+        public static int? AccFeeStructure_UPDATE_INSERT(_SqlParameters PostedData, List<_SqlParameters> PostedDataDetail)
+        {
+            using (var db = new SESEntities())
+            {
+                using (System.Data.Entity.DbContextTransaction dbTran = db.Database.BeginTransaction())
+                {
+                    try
+                    {
+                        int? Response = HttpStatus.HttpResponses.CODE_INTERNAL_SERVER_ERROR.ToInt();
+
+
+
+                        #region COUNT CHECK FEE STRUCTURE CLASS WISE
+                        var FeeStructureCount= db.AccFeeStructure.Where(x =>
+                                                                        x.DocumentStatus== (int?)DocStatus.Active_FEE_STRUCTURE 
+                                                                        && x.Status ==true 
+                                                                        && x.SessionId == PostedData.SessionId 
+                                                                        && x.ClassId == PostedData.ClassId 
+                                                                        && x.BranchId== PostedData.CampusId 
+                                                                        && x.CompanyId==Session_Manager.CompanyId).Select(x => new _SqlParameters { Id = x.Id }).ToList();
+                        #endregion
+
+
+                        #region DESCRIPTIONAL VARIABLE
+                        var Code = (DateTime.Now.ToString("ddMMyy") + "-000" + (db.AccFeeStructure.ToList().Count() + 1)).ToSafeString();
+                        var SessionName = db.AppSession.Where(x => x.Id == PostedData.SessionId).Select(x => new _SqlParameters { Description = x.Description, EffectiveFrom = x.EffectiveFrom, ExpiredOn = x.ExpiredOn }).FirstOrDefault();
+                        var ClassName = db.AppClass.Where(x => x.Id == PostedData.ClassId).Select(x => new _SqlParameters { Description = x.Description }).FirstOrDefault();
+                        #endregion
+
+                        switch (PostedData.OperationType)
+                        {
+                            #region INSERT DATA INTO DB:: ACCFEESTRUCTURE AND ACCFEESTRUCTUREDETAIL
+                            case nameof(DB_OperationType.INSERT_DATA_INTO_DB):
+                                // DUPLICATE RECORD DOES NOT EXIST :: PROCEED INSERT DATA
+                                if (FeeStructureCount.Count == 0)
+                                {
+
+                                    var FacultyParentGuID = Uttility.fn_GetHashGuid();
+
+                                    #region EXECUTE STORE PROCEDURE PARENT ::ACCFEESTRUCTURE
+                                    var NewFeeStructureParent = new AccFeeStructure
+                                    {
+                                        GuID = FacultyParentGuID,
+                                        Code = Code,
+                                        CampusId = PostedData.CampusId,
+                                        Description = ("Fee Structure Generated For :" + ClassName.Description + " Applicable For Academic Session of: " + SessionName.Description).ToSafeString(),
+                                        SessionId = PostedData.SessionId,
+                                        ClassId = PostedData.ClassId,
+                                        WHTaxPolicyId = PostedData.WHTaxPolicyId,
+                                        TotalFeeAmount = PostedData.TotalFeeAmount,
+                                        WHTAmount = PostedData.WHTAmount,
+                                        GrossFeeAmount = PostedData.GrossFeeAmount,
+                                        EffectiveFrom = SessionName.EffectiveFrom,
+                                        ExpiredOn = SessionName.ExpiredOn,
+                                        CreatedOn = DateTime.Now,
+                                        CreatedBy = Session_Manager.UserId,
+                                        DocType = (int?)DocType.FEE_STRUCTURE,
+                                        DocumentStatus = (int?)DocStatus.Active_FEE_STRUCTURE,
+                                        Status = true,
+                                        BranchId = Session_Manager.BranchId,
+                                        CompanyId = Session_Manager.CompanyId,
+                                    };
+                                    db.AccFeeStructure.Add(NewFeeStructureParent);
+                                    db.SaveChanges();
+
+                                    var InsertedFeeStructureId = db.AccFeeStructure.Where(x => x.GuID == FacultyParentGuID).Select(x => new _SqlParameters { Id = x.Id }).ToList();
+
+                                    #endregion
+
+
+                                    #region EXECUTE STORE PROCEDURE DETAIL ::ACCFEESTRUCTUREDETAIL
+                                    if (InsertedFeeStructureId.Count > 0)
+                                    {
+                                        var NewFeeStructureDetail = PostedDataDetail.Select(FeeStructureDetailList => new AccFeeStructureDetail
+                                        {
+                                            GuID = Uttility.fn_GetHashGuid(),
+                                            FeeStructureId = InsertedFeeStructureId.FirstOrDefault().Id,
+                                            FeeTypeId = FeeStructureDetailList.FeeTypeId,
+                                            RevenueAccountId = FeeStructureDetailList.RevenueAccountId,
+                                            AssetAccountId = FeeStructureDetailList.AssetAccountId,
+                                            LiabilityAccountId = FeeStructureDetailList.LiabilityAccountId,
+                                            CostOfSaleAccountId = FeeStructureDetailList.CostOfSaleAccountId,
+                                            Amount = FeeStructureDetailList.FeeAmount,
+                                            Status = true,
+                                        }).ToList();
+                                        db.AccFeeStructureDetail.AddRange(NewFeeStructureDetail);
+                                        Response = (int?)HttpResponses.CODE_SUCCESS;
+                                    }
+                                    else
+                                    {
+                                        Response = HttpStatus.HttpResponses.CODE_INTERNAL_SERVER_ERROR.ToInt();
+                                    }
+                                    #endregion
+
+
+                                }
+                                // DUPLICATE RECORD EXIST :: PROCEED DO NOT INSERT DATA
+                                else
+                                {
+                                    Response = (int?)HttpResponses.CODE_DATA_ALREADY_EXIST;
+                                }
+
+                                break;
+
+                            #endregion
+
+                            #region DELETE DATA INTO DB:: ACCFEESTRUCTURE AND ACCFEESTRUCTUREDETAIL
+                            case nameof(DB_OperationType.DELETE_DATA_INTO_DB):
+                                try
+                                {
+                                    Response = (int?)HttpResponses.CODE_DATA_UPDATED;
+                                }
+                                catch
+                                {
+                                    Response = (int?)HttpResponses.CODE_DATA_ALREADY_EXIST;
+                                }
+                                break;
+                            #endregion
+
+                        }
+
+
+                        #region TRANSACTION HANDLING DETAIL
+                        switch (Response)
+                        {
+                            case (int?)HttpResponses.CODE_SUCCESS:
+                            case (int?)HttpResponses.CODE_DATA_UPDATED:
+                                db.SaveChanges();
+                                dbTran.Commit();
+                                break;
                             
                             case (int?)HttpResponses.CODE_BAD_REQUEST:
+                                dbTran.Rollback();
+                                break;
+                            default:
                                 dbTran.Rollback();
                                 break;
                         }

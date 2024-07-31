@@ -34,7 +34,7 @@ namespace office360.CommonHelper
                         var data = db.GeneralUser_GetDetailByParam(Condition, null, true, UserName, Password, null).ToList();
                         if (data != null && data.Count > 0)
                         {
-                #endregion
+                            #endregion
                             #region GETTING USER INFORMATION INTO SESSION
                             var List = data.FirstOrDefault();
                             RoleId =  List.RoleId;

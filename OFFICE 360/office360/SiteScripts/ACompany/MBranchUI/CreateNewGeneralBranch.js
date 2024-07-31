@@ -539,7 +539,6 @@ function GET_GENERALBRANCH_DETAILBYID() {
                 $('#DropDownListCampusType').val(data[0].CampusTypeId).change();
                 $('#DropDownListOrganizationType').val(data[0].OrganizationTypeId).change();
                 $('#DropDownListCountry').val(data[0].CountryId).change();
-                $('#DropDownListCountry').val(data[0].CountryId).change();
                 $('#DropDownListCity').val(data[0].CityId).trigger("change");
                 $('#TextBoxAddress').val(data[0].Address);
                 $('#TextBoxContactNo').val(data[0].ContactNo);
@@ -547,7 +546,7 @@ function GET_GENERALBRANCH_DETAILBYID() {
                 $('#DropDownListPolicyPeriod').val(data[0].PolicyPeriodId).change().prop('disabled',true);
                 $('#DropDownListChallanMethod').val(data[0].ChallanMethodId).change().prop('disabled',true);
                 $('#DropDownListRollCallSystem').val(data[0].RollCallSystemId).change().prop('disabled',true);
-                $('#DropDownListBillingMethod').val(data[0].ChallanMethodId).change().prop('disabled',true);
+                $('#DropDownListBillingMethod').val(data[0].BillingMethodId).change().prop('disabled',true);
                 $('#DropDownListStudyLevels').val(data[0].StudyLevelIds).change().prop('disabled',true);
                 $('#DropDownListStudyGroups').val(data[0].StudyGroupIds).change().prop('disabled',true);
                 $('#TextBoxNTNNo').val(data[0].NTNNo);

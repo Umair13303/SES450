@@ -50,11 +50,14 @@
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GuID" Type="uniqueidentifier" />
     <Property Name="Code" Type="nvarchar(max)" />
+    <Property Name="CampusId" Type="int" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="SessionId" Type="int" />
     <Property Name="ClassId" Type="int" />
     <Property Name="WHTaxPolicyId" Type="int" />
-    <Property Name="TotalAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="TotalFeeAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="WHTAmount" Type="decimal" Precision="20" Scale="4" />
+    <Property Name="GrossFeeAmount" Type="decimal" Precision="20" Scale="4" />
     <Property Name="EffectiveFrom" Type="datetime" />
     <Property Name="ExpiredOn" Type="datetime" />
     <Property Name="CreatedOn" Type="datetime" />
@@ -75,9 +78,10 @@
     <Property Name="GuID" Type="uniqueidentifier" />
     <Property Name="FeeStructureId" Type="int" />
     <Property Name="FeeTypeId" Type="int" />
+    <Property Name="RevenueAccountId" Type="int" />
     <Property Name="AssetAccountId" Type="int" />
     <Property Name="LiabilityAccountId" Type="int" />
-    <Property Name="RevenueAccountId" Type="int" />
+    <Property Name="CostOfSaleAccountId" Type="int" />
     <Property Name="Amount" Type="decimal" Precision="20" Scale="4" />
     <Property Name="Status" Type="bit" />
   </EntityType>

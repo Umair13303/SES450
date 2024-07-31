@@ -831,6 +831,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="SiteAssets\Uttility\Uttility.css" />
     <Content Include="SiteScripts\AAccounts\MChallanUI\CreateNewAccFeeChallan.js" />
+    <Content Include="SiteScripts\AAccounts\MFeeUI\AccFeeStructureList.js" />
     <Content Include="SiteScripts\AAccounts\MFeeUI\AccFeeTypeList.js" />
     <Content Include="SiteScripts\AAccounts\MFeeUI\CreateNewAccFeeType.js" />
     <Content Include="SiteScripts\AAccounts\MFeeUI\CreateNewAccFeeStructure.js" />
@@ -1958,6 +1959,7 @@
     <Content Include="Areas\ACompany\Views\web.config" />
     <Content Include="Areas\AAccounts\Views\MFeeUI\CreateNewAccFeeStructure.cshtml" />
     <Content Include="Areas\AAccounts\Views\MFeeUI\AccFeeTypeList.cshtml" />
+    <Content Include="Areas\AAccounts\Views\MFeeUI\AccFeeStructureList.cshtml" />
     <None Include="Dockerfile" />
     <None Include=".dockerignore">
       <DependentUpon>Dockerfile</DependentUpon>
